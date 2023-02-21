@@ -74,6 +74,12 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Data\Database\Thumbnail.cs" />
+    <Compile Include="App_Data\Database\Product.cs" />
+    <Compile Include="App_Data\Database\Role.cs" />
+    <Compile Include="App_Data\Database\User.cs" />
+    <Compile Include="App_Data\Database\SQLDatabase.cs" />
+    <Compile Include="App_Data\Database\Category.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -84,7 +90,6 @@
     <Compile Include="Layout\Main.Master.designer.cs">
       <DependentUpon>Main.Master</DependentUpon>
     </Compile>
-    <Compile Include="Models\Category.cs" />
     <Compile Include="Pages\Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -105,7 +110,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
     <Folder Include="Publics\Images\" />
     <Folder Include="Publics\Uploads\" />
   </ItemGroup>
