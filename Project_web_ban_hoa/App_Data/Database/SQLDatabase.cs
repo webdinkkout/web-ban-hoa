@@ -31,6 +31,10 @@ public class SQLCategory
         return connect;
     }
 
+    /// <summary>
+    /// Thực hiện truy vấn không trả về dữ liệu
+    /// </summary>
+    /// <param name="cmd">Câu query SQL</param>
     public static void ExecuteNoneQuery(SqlCommand cmd)
     {
         if (cmd.Connection != null)
@@ -46,6 +50,11 @@ public class SQLCategory
     }
 
     [System.Obsolete]
+    /// <summary>
+    /// Phương thức lấy dữ liệu 1 bản và trả về kiểu DataTable
+    /// </summary>
+    /// <param name="cmd">Câu truy vấn SQL</param>
+    /// <returns>DataTable</returns>
     public static DataTable GetData(SqlCommand cmd)
     {
         if (cmd.Connection != null)
@@ -76,7 +85,13 @@ public class SQLCategory
         }
     }
 
+
     [System.Obsolete]
+    /// <summary>
+    /// Lấy dữ liệu nhiều bảng và trả về kiểu DataSet
+    /// </summary>
+    /// <param name="cmd">Câu truy vấn SQL</param>
+    /// <returns>DataSet</returns>
     public static DataSet GetDatas(SqlCommand cmd)
     {
         if (cmd.Connection != null)

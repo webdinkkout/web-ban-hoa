@@ -67,13 +67,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Admin.aspx" />
     <Content Include="Global.asax" />
-    <Content Include="Pages\Home.aspx" />
+    <Content Include="Home.aspx" />
+    <Content Include="Private\Admin\AdminControl.ascx" />
+    <Content Include="Private\Admin\Category\CategoryControl.ascx" />
+    <Content Include="Private\Admin\Category\Test\TestControl.ascx" />
     <Content Include="Publics\Css\Reset.css" />
     <Content Include="Publics\Js\Main.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin.aspx.cs">
+      <DependentUpon>Admin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin.aspx.designer.cs">
+      <DependentUpon>Admin.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App_Data\Database\Thumbnail.cs" />
     <Compile Include="App_Data\Database\Product.cs" />
     <Compile Include="App_Data\Database\Role.cs" />
@@ -83,6 +94,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Layout\Main.Master.cs">
       <DependentUpon>Main.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -90,12 +108,26 @@
     <Compile Include="Layout\Main.Master.designer.cs">
       <DependentUpon>Main.Master</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Home.aspx.cs">
-      <DependentUpon>Home.aspx</DependentUpon>
+    <Compile Include="Private\Admin\AdminControl.ascx.cs">
+      <DependentUpon>AdminControl.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\Home.aspx.designer.cs">
-      <DependentUpon>Home.aspx</DependentUpon>
+    <Compile Include="Private\Admin\AdminControl.ascx.designer.cs">
+      <DependentUpon>AdminControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Private\Admin\Category\CategoryControl.ascx.cs">
+      <DependentUpon>CategoryControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Private\Admin\Category\CategoryControl.ascx.designer.cs">
+      <DependentUpon>CategoryControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Private\Admin\Category\Test\TestControl.ascx.cs">
+      <DependentUpon>TestControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Private\Admin\Category\Test\TestControl.ascx.designer.cs">
+      <DependentUpon>TestControl.ascx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
