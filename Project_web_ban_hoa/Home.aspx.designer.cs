@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 
 
-namespace Project_web_ban_hoa.Pages
+namespace Project_web_ban_hoa
 {
     public partial class Home
     {
