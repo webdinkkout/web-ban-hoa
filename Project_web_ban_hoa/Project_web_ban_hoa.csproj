@@ -73,7 +73,10 @@
     <Content Include="Private\Admin\AdminControl.ascx" />
     <Content Include="Private\Admin\Category\CategoryControl.ascx" />
     <Content Include="Private\Admin\Category\Test\TestControl.ascx" />
+    <Content Include="Publics\Css\Library\Bootstrap\bootstrap.min.css" />
     <Content Include="Publics\Css\Reset.css" />
+    <Content Include="Publics\Images\Product\10258_white-roses.jpg" />
+    <Content Include="Publics\Js\Library\Bootstrap\bootstrap.bundle.min.js" />
     <Content Include="Publics\Js\Main.js" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -143,7 +146,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
-    <Folder Include="Publics\Images\" />
     <Folder Include="Publics\Uploads\" />
   </ItemGroup>
   <PropertyGroup>
