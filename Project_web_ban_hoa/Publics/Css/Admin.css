@@ -1,0 +1,138 @@
+﻿:root {
+    --primary-color: #ff9800;
+}
+
+.admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+    .admin-header .admin-header__logo {
+    }
+
+
+    .admin-header .admin-header-user {
+    }
+
+        .admin-header .admin-header-user .admin-header-user__icon {
+            width: 35px;
+        }
+
+/*==== NAVIGATE STYLE ====*/
+
+.admin-nav {
+    background-color: var(--primary-color);
+}
+
+    .admin-nav .admin-nav-list {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+        .admin-nav .admin-nav-list .admin-nav-list__item {
+        }
+
+            .admin-nav .admin-nav-list .admin-nav-list__item > a {
+                display: inline-block;
+                padding: 5px 10px;
+                color: #fff;
+                text-transform: capitalize;
+                opacity: .8;
+                transition: opacity .2s linear;
+            }
+
+
+                .admin-nav .admin-nav-list .admin-nav-list__item > a:hover {
+                    opacity: 1;
+                }
+
+/*=== CATEGORY STYLES ===*/
+
+.side-bar-ctr {
+    padding: 10px;
+    border: 1px solid var(--primary-color);
+}
+
+    .side-bar-ctr .side-bar-ctr__item + .side-bar-ctr__item {
+        margin-top: 24px;
+    }
+
+    .side-bar-ctr .side-bar-ctr__heading {
+        text-transform: uppercase;
+        margin-bottom: 16px;
+        border-bottom: 1px solid var(--primary-color);
+        padding-bottom: 8px;
+    }
+
+    .side-bar-ctr .side-bar-ctr-list .side-bar-ctr-list__item:hover > a {
+        color: var(--primary-color);
+    }
+
+    .side-bar-ctr .side-bar-ctr-list .side-bar-ctr-list__item.side-bar-ctr-list__item--active > a {
+        color: var(--primary-color);
+    }
+/*=== CATEGORY CREATE ===*/
+
+.wrapper-create-category {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+    .wrapper-create-category .wrapper-create-category__input {
+        padding: 5px 20px;
+    }
+
+    .wrapper-create-category .wrapper-create-category__btn {
+        padding: 5px 12px;
+        border-radius: 20px;
+        background-color: var(--primary-color);
+        width: 30%;
+        border: none;
+    }
+
+        .wrapper-create-category .wrapper-create-category__btn:active {
+            transform: scale(.9);
+        }
+
+/*=== CATEGORIES VIEW ===*/
+
+.wrapper-card-view-category {
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px #000;
+}
+
+    .wrapper-card-view-category .wrapper-card-view-category-heading {
+        width: 100%;
+        height: 250px;
+        overflow: hidden;
+    }
+
+        .wrapper-card-view-category .wrapper-card-view-category-heading > img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+    .wrapper-card-view-category .wrapper-card-view-category-content {
+        padding: 10px 20px;
+        background-color: var(--primary-color);
+        text-align: center;
+    }
+
+    .wrapper-card-view-category .wrapper-card-view-category-body {
+        margin-bottom: 16px;
+        color: #fff;
+    }
+
+        .wrapper-card-view-category .wrapper-card-view-category-body .wrapper-card-view-category-body__name {
+            text-transform: capitalize;
+        }
+
+.wrapper-card-view-category-footer__btn {
+    padding: 5px 15px;
+    font-size: 1.6rem;
+}
