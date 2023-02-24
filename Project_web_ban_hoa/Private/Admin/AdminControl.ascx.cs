@@ -22,6 +22,16 @@ namespace Project_web_ban_hoa.Private.Admin
                         plAdminControl.Controls.Add(LoadControl("Category/CategoryControl.ascx"));
                         break;
                     }
+                case "product":
+                    {
+                        plAdminControl.Controls.Add(LoadControl("Product/ProductControl.ascx"));
+                        break;
+                    }
+                case "user":
+                    {
+                        plAdminControl.Controls.Add(LoadControl("User/UserControl.ascx"));
+                        break;
+                    }
                 default:
                     break;
             }

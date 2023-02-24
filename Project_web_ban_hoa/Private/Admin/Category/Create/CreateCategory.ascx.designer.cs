@@ -7,74 +7,56 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Project_web_ban_hoa.Private.Admin.Category
+namespace Project_web_ban_hoa.Private.Admin.Category.Create
 {
 
 
-    public partial class CategoryControl
+    public partial class CreateCategory
     {
 
         /// <summary>
-        /// hplHomeCategory control.
+        /// txtName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hplHomeCategory;
+        protected global::System.Web.UI.WebControls.TextBox txtName;
 
         /// <summary>
-        /// hplViewCount control.
+        /// RequiredFieldValidator1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hplViewCount;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
 
         /// <summary>
-        /// hplViewCategories control.
+        /// fulThumbnailCategory control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hplViewCategories;
+        protected global::System.Web.UI.WebControls.FileUpload fulThumbnailCategory;
 
         /// <summary>
-        /// hplCreateCategory control.
+        /// RequiredFieldValidator2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hplCreateCategory;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
 
         /// <summary>
-        /// hplUpdateCategory control.
+        /// btnCreateCategory control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hplUpdateCategory;
-
-        /// <summary>
-        /// hplDeleteCategory control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hplDeleteCategory;
-
-        /// <summary>
-        /// plhCategoryControl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder plhCategoryControl;
+        protected global::System.Web.UI.WebControls.Button btnCreateCategory;
     }
 }

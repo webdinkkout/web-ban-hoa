@@ -8,9 +8,9 @@
 //------------------------------------------------------------------------------
 
 
-namespace Project_web_ban_hoa.Private.Admin.Category.Test
+namespace Project_web_ban_hoa.Private.Admin.Category.Delete
 {
-    public partial class TestControl
+    public partial class DeleteCategory
     {
     }
 }
