@@ -73,7 +73,6 @@
     <Content Include="Private\Admin\AdminControl.ascx" />
     <Content Include="Private\Admin\Category\CategoryControl.ascx" />
     <Content Include="Private\Admin\Category\Create\CreateCategory.ascx" />
-    <Content Include="Private\Admin\Category\Delete\DeleteCategory.ascx" />
     <Content Include="Private\Admin\Category\Home\HomeCategory.ascx" />
     <Content Include="Private\Admin\Category\Update\UpdateCategory.ascx" />
     <Content Include="Private\Admin\Category\ViewCount\ViewCountCategories.ascx" />
@@ -88,6 +87,12 @@
     <Content Include="Publics\Images\Product\10258_white-roses.jpg" />
     <Content Include="Publics\Js\Library\Bootstrap\bootstrap.bundle.min.js" />
     <Content Include="Publics\Js\Main.js" />
+    <Content Include="Publics\Uploads\Category\4bb801f8-b4a1-4f79-b8b4-8f4deb11b61a-icon-hoa-tang-le.png" />
+    <Content Include="Publics\Uploads\Category\4caba3c4-90de-4328-8b5d-010c7881a300-icon-hoa-tinh-yeu.png" />
+    <Content Include="Publics\Uploads\Category\6938d739-364b-45ee-831c-243bc4a1f662-icon-cay-vp.png" />
+    <Content Include="Publics\Uploads\Category\9079a2d8-0d30-4719-8a85-53072aeb248d-icon-mau-hoa-moi.png" />
+    <Content Include="Publics\Uploads\Category\dc3dec6b-e7d9-4659-a443-5340a80b1043-icon-hoa-chuc-mung.png" />
+    <Content Include="Publics\Uploads\Category\f341615a-9786-4342-8a77-5249ffbdfa91-icon-hoa-sinh-nhat.png" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -121,7 +126,7 @@
     <Compile Include="Layout\Main.Master.designer.cs">
       <DependentUpon>Main.Master</DependentUpon>
     </Compile>
-    <Compile Include="Models\CategoryModel.cs" />
+    <Compile Include="Models\Component\Components.cs" />
     <Compile Include="Private\Admin\AdminControl.ascx.cs">
       <DependentUpon>AdminControl.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -142,13 +147,6 @@
     </Compile>
     <Compile Include="Private\Admin\Category\Create\CreateCategory.ascx.designer.cs">
       <DependentUpon>CreateCategory.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="Private\Admin\Category\Delete\DeleteCategory.ascx.cs">
-      <DependentUpon>DeleteCategory.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Private\Admin\Category\Delete\DeleteCategory.ascx.designer.cs">
-      <DependentUpon>DeleteCategory.ascx</DependentUpon>
     </Compile>
     <Compile Include="Private\Admin\Category\Home\HomeCategory.ascx.cs">
       <DependentUpon>HomeCategory.ascx</DependentUpon>
@@ -205,7 +203,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Publics\Uploads\Category\" />
+    <Folder Include="Ultils\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

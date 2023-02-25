@@ -28,12 +28,8 @@
                         <li class="side-bar-ctr-list__item" runat="server">
                             <asp:HyperLink ID="hplCreateCategory" NavigateUrl="~/Admin.aspx?modul=category&sub-modul=create-category"
                                 runat="server">Thêm danh mục</asp:HyperLink></li>
-                        <li class="side-bar-ctr-list__item" runat="server">
-                            <asp:HyperLink ID="hplUpdateCategory" NavigateUrl="~/Admin.aspx?modul=category&sub-modul=update-category"
-                                runat="server">Sửa thông tin danh mục</asp:HyperLink></li>
-                        <li class="side-bar-ctr-list__item" runat="server">
-                            <asp:HyperLink ID="hplDeleteCategory" NavigateUrl="~/Admin.aspx?modul=category&sub-modul=delete-category"
-                                runat="server">Xóa danh mục</asp:HyperLink></li>
+
+
                     </ul>
                 </div>
             </section>

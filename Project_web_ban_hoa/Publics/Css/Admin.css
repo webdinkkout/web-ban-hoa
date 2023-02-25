@@ -78,24 +78,59 @@
 .wrapper-create-category {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
     gap: 12px;
+    margin-top: 30px;
+    border: 1px dashed var(--primary-color);
+    padding: 10px 0;
 }
 
-    .wrapper-create-category .wrapper-create-category__input {
+.wrapper-create-category__title {
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.wrapper-create-category .wrapper-create-category-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+    .wrapper-create-category .wrapper-create-category-group .wrapper-create-category-group__smg {
+        font-size: 1.4rem;
+    }
+
+    .wrapper-create-category .wrapper-create-category-group .wrapper-create-category-group__input {
         padding: 5px 20px;
     }
 
-    .wrapper-create-category .wrapper-create-category__btn {
-        padding: 5px 12px;
-        border-radius: 20px;
-        background-color: var(--primary-color);
-        width: 30%;
-        border: none;
+
+    .wrapper-create-category .wrapper-create-category-group .wrapper-create-category-group__file {
+        padding: 10px;
+        border: 2px dashed green;
+        display: flex;
+        justify-content: center;
     }
 
-        .wrapper-create-category .wrapper-create-category__btn:active {
-            transform: scale(.9);
+        .wrapper-create-category .wrapper-create-category-group .wrapper-create-category-group__file::-webkit-file-upload-button {
+            visibility: hidden;
+            opacity: 0;
         }
+
+
+
+.wrapper-create-category .wrapper-create-category__btn {
+    padding: 10px 22px;
+    border: none;
+    font-size: 1.8rem;
+}
+
+    .wrapper-create-category .wrapper-create-category__btn:active {
+        transform: scale(.9);
+    }
 
 /*=== CATEGORIES VIEW ===*/
 
@@ -135,4 +170,12 @@
 .wrapper-card-view-category-footer__btn {
     padding: 5px 15px;
     font-size: 1.6rem;
+}
+
+.wrapper-create-category__imgPreview {
+    display: block;
+    width: 175px;
+    height: 175px;
+    border-radius: 50%;
+    object-fit: cover;
 }

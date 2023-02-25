@@ -1,4 +1,5 @@
 ﻿using Project_web_ban_hoa.Models;
+using Project_web_ban_hoa.Models.Component;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,17 +15,6 @@ namespace Project_web_ban_hoa.Private.Admin.Category.View
 
     public partial class ViewCategories : System.Web.UI.UserControl
     {
-        private string GetLastItem(string[] array)
-        {
-            return array[array.Length - 1];
-        }
-
-        private void DeleteThumbnailOnSystem(string[] array)
-        {
-            string filePath = Server.MapPath($"~/Publics/Uploads/Category/{GetLastItem(array)}");
-            File.Delete(filePath);
-        }
-
         [Obsolete]
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -43,7 +33,7 @@ namespace Project_web_ban_hoa.Private.Admin.Category.View
 
                 case "delete":
                     {
-                        DeleteThumbnailOnSystem(arrNameThumbnail);
+                        Components.DeleteThumbnailOnSystem(arrNameThumbnail, Server);
                         int idCategory = Convert.ToInt32(e.CommandArgument);
                         Project_web_ban_hoa.Category.DeleteCategory(idCategory);
                         ((IListSource)rptViewCategories.DataSource).GetList().RemoveAt(e.Item.ItemIndex);
@@ -52,7 +42,7 @@ namespace Project_web_ban_hoa.Private.Admin.Category.View
                     }
                 case "update":
                     {
-
+                        Response.Redirect($"Admin.aspx?modul=category&sub-modul=update-category&id-category={Convert.ToInt32(e.CommandArgument)}");
                         break;
                     }
                 default:

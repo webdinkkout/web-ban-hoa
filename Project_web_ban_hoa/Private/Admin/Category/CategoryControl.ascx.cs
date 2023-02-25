@@ -55,17 +55,7 @@ namespace Project_web_ban_hoa.Private.Admin.Category
                 case "update-category":
                     {
                         plhCategoryControl.Controls.Add(LoadControl("Update/UpdateCategory.ascx"));
-                        HtmlControl parent = FindControl("hplUpdateCategory").Parent as HtmlControl;
 
-                        parent.Attributes.Add("class", "side-bar-ctr-list__item side-bar-ctr-list__item--active");
-                        break;
-                    }
-                case "delete-category":
-                    {
-                        plhCategoryControl.Controls.Add(LoadControl("Delete/DeleteCategory.ascx"));
-                        HtmlControl parent = FindControl("hplDeleteCategory").Parent as HtmlControl;
-
-                        parent.Attributes.Add("class", "side-bar-ctr-list__item side-bar-ctr-list__item--active");
                         break;
                     }
                 default:
