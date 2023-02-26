@@ -8,9 +8,9 @@
 //------------------------------------------------------------------------------
 
 
-namespace Project_web_ban_hoa.Private.Admin.Category.Home
+namespace Project_web_ban_hoa.Private.Admin.Product.Create
 {
-    public partial class HomeCategory
+    public partial class CreateProduct
     {
     }
 }

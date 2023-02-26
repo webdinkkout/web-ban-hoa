@@ -8,9 +8,9 @@
 //------------------------------------------------------------------------------
 
 
-namespace Project_web_ban_hoa.Private.Admin.Category.ViewCount
+namespace Project_web_ban_hoa.Private.Admin.Product.Update
 {
-    public partial class ViewCountCategories
+    public partial class UpdateProduct
     {
     }
 }

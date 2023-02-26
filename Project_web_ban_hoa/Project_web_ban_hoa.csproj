@@ -44,6 +44,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DataVisualization" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -73,11 +74,13 @@
     <Content Include="Private\Admin\AdminControl.ascx" />
     <Content Include="Private\Admin\Category\CategoryControl.ascx" />
     <Content Include="Private\Admin\Category\Create\CreateCategory.ascx" />
-    <Content Include="Private\Admin\Category\Home\HomeCategory.ascx" />
     <Content Include="Private\Admin\Category\Update\UpdateCategory.ascx" />
-    <Content Include="Private\Admin\Category\ViewCount\ViewCountCategories.ascx" />
     <Content Include="Private\Admin\Category\View\ViewCategories.ascx" />
+    <Content Include="Private\Admin\Product\Create\CreateProduct.ascx" />
+    <Content Include="Private\Admin\Product\Home\HomeProduct.ascx" />
     <Content Include="Private\Admin\Product\ProductControl.ascx" />
+    <Content Include="Private\Admin\Product\Update\UpdateProduct.ascx" />
+    <Content Include="Private\Admin\Product\View\ViewProduct.ascx" />
     <Content Include="Private\Admin\User\UserControl.ascx" />
     <Content Include="Publics\Css\Admin.css" />
     <Content Include="Publics\Css\Library\Bootstrap\bootstrap.min.css" />
@@ -85,6 +88,7 @@
     <Content Include="Publics\Images\Admin\user-icon.png" />
     <Content Include="Publics\Images\logo-hoa-yeu-thuong.png" />
     <Content Include="Publics\Images\Product\10258_white-roses.jpg" />
+    <Content Include="Publics\Js\Admin.js" />
     <Content Include="Publics\Js\Library\Bootstrap\bootstrap.bundle.min.js" />
     <Content Include="Publics\Js\Main.js" />
     <Content Include="Publics\Uploads\Category\4bb801f8-b4a1-4f79-b8b4-8f4deb11b61a-icon-hoa-tang-le.png" />
@@ -148,26 +152,12 @@
     <Compile Include="Private\Admin\Category\Create\CreateCategory.ascx.designer.cs">
       <DependentUpon>CreateCategory.ascx</DependentUpon>
     </Compile>
-    <Compile Include="Private\Admin\Category\Home\HomeCategory.ascx.cs">
-      <DependentUpon>HomeCategory.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Private\Admin\Category\Home\HomeCategory.ascx.designer.cs">
-      <DependentUpon>HomeCategory.ascx</DependentUpon>
-    </Compile>
     <Compile Include="Private\Admin\Category\Update\UpdateCategory.ascx.cs">
       <DependentUpon>UpdateCategory.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Private\Admin\Category\Update\UpdateCategory.ascx.designer.cs">
       <DependentUpon>UpdateCategory.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="Private\Admin\Category\ViewCount\ViewCountCategories.ascx.cs">
-      <DependentUpon>ViewCountCategories.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Private\Admin\Category\ViewCount\ViewCountCategories.ascx.designer.cs">
-      <DependentUpon>ViewCountCategories.ascx</DependentUpon>
     </Compile>
     <Compile Include="Private\Admin\Category\View\ViewCategories.ascx.cs">
       <DependentUpon>ViewCategories.ascx</DependentUpon>
@@ -176,12 +166,40 @@
     <Compile Include="Private\Admin\Category\View\ViewCategories.ascx.designer.cs">
       <DependentUpon>ViewCategories.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Private\Admin\Product\Create\CreateProduct.ascx.cs">
+      <DependentUpon>CreateProduct.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Private\Admin\Product\Create\CreateProduct.ascx.designer.cs">
+      <DependentUpon>CreateProduct.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Private\Admin\Product\Home\HomeProduct.ascx.cs">
+      <DependentUpon>HomeProduct.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Private\Admin\Product\Home\HomeProduct.ascx.designer.cs">
+      <DependentUpon>HomeProduct.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Private\Admin\Product\ProductControl.ascx.cs">
       <DependentUpon>ProductControl.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Private\Admin\Product\ProductControl.ascx.designer.cs">
       <DependentUpon>ProductControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Private\Admin\Product\Update\UpdateProduct.ascx.cs">
+      <DependentUpon>UpdateProduct.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Private\Admin\Product\Update\UpdateProduct.ascx.designer.cs">
+      <DependentUpon>UpdateProduct.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Private\Admin\Product\View\ViewProduct.ascx.cs">
+      <DependentUpon>ViewProduct.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Private\Admin\Product\View\ViewProduct.ascx.designer.cs">
+      <DependentUpon>ViewProduct.ascx</DependentUpon>
     </Compile>
     <Compile Include="Private\Admin\User\UserControl.ascx.cs">
       <DependentUpon>UserControl.ascx</DependentUpon>

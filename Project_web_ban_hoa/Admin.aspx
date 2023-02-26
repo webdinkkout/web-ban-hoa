@@ -17,6 +17,7 @@
         rel="stylesheet" />
 
     <link href="Publics/Css/Admin.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -24,7 +25,7 @@
         <div>
             <div class="container">
                 <header class="admin-header">
-                    <a href="/">
+                    <a href="/admin.aspx">
                         <img src="Publics/Images/logo-hoa-yeu-thuong.png" class="admin-header__logo" alt="logo page" /></a>
                     <div class="admin-header-user">
                         <img src="Publics/Images/Admin/user-icon.png" alt="user-icon" class="admin-header-user__icon" />
@@ -34,7 +35,6 @@
             <nav class="admin-nav">
                 <div class="container">
                     <ul class="admin-nav-list">
-                        <li class="admin-nav-list__item"><a href="/Admin.aspx">Trang admin</a></li>
                         <li class="admin-nav-list__item"><a href="/Admin.aspx?modul=category">Trang quản lý
                             danh mục</a></li>
                         <li class="admin-nav-list__item"><a href="/Admin.aspx?modul=product">Trang quản lý san
@@ -50,5 +50,7 @@
             </section>
         </div>
     </form>
+
+
 </body>
 </html>
