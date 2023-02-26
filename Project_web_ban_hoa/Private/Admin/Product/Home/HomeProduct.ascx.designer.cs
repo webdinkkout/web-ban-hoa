@@ -7,20 +7,20 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Project_web_ban_hoa.Private.Admin.Category.Update
+namespace Project_web_ban_hoa.Private.Admin.Product.Home
 {
 
 
-    public partial class UpdateCategory
+    public partial class HomeProduct
     {
 
         /// <summary>
-        /// rptUpdateCategory control.
+        /// toast control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptUpdateCategory;
+        protected global::System.Web.UI.WebControls.Button toast;
     }
 }

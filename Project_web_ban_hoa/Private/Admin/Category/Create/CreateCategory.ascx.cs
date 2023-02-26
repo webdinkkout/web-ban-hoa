@@ -8,32 +8,12 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Configuration;
-
+using Project_web_ban_hoa.Models.Component;
 
 namespace Project_web_ban_hoa.Private.Admin.Category.Create
 {
     public partial class CreateCategory : System.Web.UI.UserControl
     {
-        /// <summary>
-        /// Method dịch chữ tiếng việt sang chữ tiếng việt không dấu
-        /// </summary>
-        /// <param name="str">Truyền vào một chuỗi bất kì</param>
-        /// <returns>một chuỗi tiếng việt không dấu</returns>
-        private string ConvertToUnSign(string str)
-        {
-            string s = str.Normalize(NormalizationForm.FormKD);
-            StringBuilder builder = new StringBuilder();
-
-            for (int i = 0; i < s.Length; i++)
-            {
-                if (CharUnicodeInfo.GetUnicodeCategory(s[i]) != UnicodeCategory.NonSpacingMark)
-                {
-                    builder.Append(s[i]);
-                }
-            }
-
-            return builder.ToString().ToLower();
-        }
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -50,11 +30,11 @@ namespace Project_web_ban_hoa.Private.Admin.Category.Create
                 if (file.ContentType.ToLower().StartsWith("image/"))
                 {
                     string name = txtName.Text;
-                    string seoName = ConvertToUnSign(name).Replace(" ", "-");
+                    string seoName = Components.ConvertToUnSign(name).Replace(" ", "-");
                     string thumbnail;
 
                     string fileName = Path.GetFileName(file.FileName).Replace(" ", "-");
-                    string saveFileName = Guid.NewGuid().ToString() + "-" + ConvertToUnSign(fileName);
+                    string saveFileName = Guid.NewGuid().ToString() + "-" + Components.ConvertToUnSign(fileName);
                     string savePath = Server.MapPath("~/Publics/Uploads/Category/" + saveFileName);
                     thumbnail = ConfigurationManager.AppSettings["UrlEnv"] + $"/Publics/Uploads/Category/{saveFileName}";
                     file.SaveAs(savePath);
@@ -62,8 +42,10 @@ namespace Project_web_ban_hoa.Private.Admin.Category.Create
                     int n = Project_web_ban_hoa.Category.InsertCategory(name, seoName, thumbnail);
                     if (n > 0)
                     {
-                        Response.Write($"Thành công|{saveFileName}");
-
+                        Session["showToastMessage"] = "Tạo sản phẩm thành công";
+                        Session["showToastDuration"] = 3000;
+                        Session["showToastPosition"] = "right";
+                        Response.Redirect("~/Admin.aspx");
                     }
                 }
                 else

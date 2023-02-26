@@ -35,12 +35,45 @@ namespace Project_web_ban_hoa
 
         }
 
+        /// <summary>
+        /// Xóa 1 Danh mục
+        /// </summary>
+        /// <param name="idCategory">Truyền id muốn xóa vào</param>
+        /// <returns>Số lượng xóa</returns>
         [System.Obsolete]
         public static int DeleteCategory(int idCategory)
         {
             SqlCommand cmd = new SqlCommand("proc_delete_category");
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@id", idCategory);
+            return SqlDatabase.ExecuteNoneQuery(cmd);
+        }
+
+        /// <summary>
+        /// Lấy category theo id
+        /// </summary>
+        /// <param name="idCategory">id category</param>
+        /// <returns>Category lấy đc</returns>
+        [System.Obsolete]
+        public static DataTable GetOneCategory(int idCategory)
+        {
+            SqlCommand cmd = new SqlCommand("proc_get_one_category");
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@id", idCategory);
+            return SqlDatabase.GetData(cmd);
+        }
+
+
+
+        [System.Obsolete]
+        public static int UpdateCategory(int idCateory, string name, string seoName, string thumbnail)
+        {
+            SqlCommand cmd = new SqlCommand("proc_update_category");
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@id", idCateory);
+            cmd.Parameters.AddWithValue("@name", name);
+            cmd.Parameters.AddWithValue("@seo_name", seoName);
+            cmd.Parameters.AddWithValue("@thumbnail", string.IsNullOrEmpty(thumbnail) ? null : thumbnail);
             return SqlDatabase.ExecuteNoneQuery(cmd);
         }
     }

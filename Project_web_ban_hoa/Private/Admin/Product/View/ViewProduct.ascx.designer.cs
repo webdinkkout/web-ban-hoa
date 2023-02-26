@@ -7,38 +7,29 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Project_web_ban_hoa.Private.Admin.Category
+namespace Project_web_ban_hoa.Private.Admin.Product.View
 {
 
 
-    public partial class CategoryControl
+    public partial class ViewProduct
     {
 
         /// <summary>
-        /// hplViewCategories control.
+        /// ddlCategory control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hplViewCategories;
+        protected global::System.Web.UI.WebControls.DropDownList ddlCategory;
 
         /// <summary>
-        /// hplCreateCategory control.
+        /// rptViewProduct control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hplCreateCategory;
-
-        /// <summary>
-        /// plhCategoryControl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder plhCategoryControl;
+        protected global::System.Web.UI.WebControls.Repeater rptViewProduct;
     }
 }

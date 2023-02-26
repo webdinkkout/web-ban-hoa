@@ -2,6 +2,4 @@
     Inherits="Project_web_ban_hoa.Private.Admin.AdminControl" %>
 <%@ Register Src="~/Private/Admin/Category/CategoryControl.ascx" TagPrefix="uc1"
     TagName="CategoryControl" %>
-
-
 <asp:PlaceHolder ID="plAdminControl" runat="server"></asp:PlaceHolder>
