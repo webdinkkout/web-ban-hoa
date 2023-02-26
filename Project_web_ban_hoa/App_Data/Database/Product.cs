@@ -12,6 +12,14 @@ namespace Project_web_ban_hoa
             cmd.CommandType = CommandType.StoredProcedure;
             return SqlDatabase.GetData(cmd);
         }
-    }
 
+        [System.Obsolete]
+        public static DataTable GetProductWithCategoryId(int categoryId)
+        {
+            SqlCommand cmd = new SqlCommand("proc_get_products_with_category_id");
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@category_id", categoryId);
+            return SqlDatabase.GetData(cmd);
+        }
+    }
 }

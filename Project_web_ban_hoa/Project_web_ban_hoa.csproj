@@ -130,6 +130,7 @@
     <Compile Include="Layout\Main.Master.designer.cs">
       <DependentUpon>Main.Master</DependentUpon>
     </Compile>
+    <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Component\Components.cs" />
     <Compile Include="Private\Admin\AdminControl.ascx.cs">
       <DependentUpon>AdminControl.ascx</DependentUpon>

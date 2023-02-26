@@ -33,37 +33,47 @@ namespace Project_web_ban_hoa.Private.Admin.Category.Update
         protected void rptUpdateCategory_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
             if (e.CommandName != "btnUpdate") return;
-
             if (!(e.Item.FindControl("txtName") is TextBox txtName)) return;
-
-            string name = null;
-            string seoName = null;
-            string thumbnail = null;
             if (idCategory <= 0) return;
 
+
+            string name;
+            string seoName;
+            string thumbnail = null;
+
             HttpPostedFile file = Request.Files[0];
-            if (!file.ContentType.ToLower().StartsWith("image/")) return;
-
-            // Xóa ảnh cũ
-            DataTable category = Project_web_ban_hoa.Category.GetOneCategory(idCategory);
-            string oldThumbnail = category.Rows[0]["Thumbnail"].ToString();
-            string[] arrOldThumbnail = oldThumbnail.Split('/');
-            Components.DeleteThumbnailOnSystem(arrOldThumbnail, Server);
-
-            // Lưu ảnh mới
-            string fileName = Path.GetFileName(file.FileName).Replace(" ", "-");
-            string saveFileName = $"{Guid.NewGuid()}-{Components.ConvertToUnSign(fileName)}";
-            string savePath = Server.MapPath($"~/Publics/Uploads/Category/{saveFileName}");
-            thumbnail = $"{ConfigurationManager.AppSettings["UrlEnv"]}/Publics/Uploads/Category/{saveFileName}";
-            file.SaveAs(savePath);
-
-            // Cập nhật danh mục
             name = txtName.Text;
             seoName = Components.ConvertToUnSign(txtName.Text).Replace(" ", "-");
-            int n = Project_web_ban_hoa.Category.UpdateCategory(idCategory, name, seoName, thumbnail);
-            if (n <= 0) return;
 
-            Response.Redirect("/admin.aspx?modul=category&sub-modul=view-categories");
+            if (file.ContentType.ToLower().StartsWith("image/"))
+            {
+                // Xóa ảnh cũ
+                DataTable category = Project_web_ban_hoa.Category.GetOneCategory(idCategory);
+                string oldThumbnail = category.Rows[0]["Thumbnail"].ToString();
+                string[] arrOldThumbnail = oldThumbnail.Split('/');
+                Components.DeleteThumbnailOnSystem(arrOldThumbnail, Server);
+
+                // Lưu ảnh mới
+                string fileName = Path.GetFileName(file.FileName).Replace(" ", "-");
+                string saveFileName = $"{Guid.NewGuid()}-{Components.ConvertToUnSign(fileName)}";
+                string savePath = Server.MapPath($"~/Publics/Uploads/Category/{saveFileName}");
+                thumbnail = $"{ConfigurationManager.AppSettings["UrlEnv"]}/Publics/Uploads/Category/{saveFileName}";
+                file.SaveAs(savePath);
+            }
+
+            int n = Project_web_ban_hoa.Category.UpdateCategory(idCategory, name, seoName, thumbnail);
+            Session["showToastDuration"] = 3000;
+            Session["showToastPosition"] = "right";
+            if (n <= 0)
+            {
+                Session["showToastMessage"] = "Chỉnh sửa danh mục thất bại";
+                Session["showToastBackColor"] = "red";
+            }
+            else
+            {
+                Session["showToastMessage"] = "Chỉnh sửa danh mục thành công";
+            }
+            Response.Redirect("/admin.aspx");
         }
     }
 }

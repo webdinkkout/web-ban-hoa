@@ -13,5 +13,14 @@ namespace Project_web_ban_hoa.Private.Admin.Product.Home
 
     public partial class HomeProduct
     {
+
+        /// <summary>
+        /// toast control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button toast;
     }
 }

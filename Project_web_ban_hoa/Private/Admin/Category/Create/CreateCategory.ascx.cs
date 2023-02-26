@@ -42,8 +42,10 @@ namespace Project_web_ban_hoa.Private.Admin.Category.Create
                     int n = Project_web_ban_hoa.Category.InsertCategory(name, seoName, thumbnail);
                     if (n > 0)
                     {
-                        Response.Write($"Thành công|{saveFileName}");
-
+                        Session["showToastMessage"] = "Tạo sản phẩm thành công";
+                        Session["showToastDuration"] = 3000;
+                        Session["showToastPosition"] = "right";
+                        Response.Redirect("~/Admin.aspx");
                     }
                 }
                 else

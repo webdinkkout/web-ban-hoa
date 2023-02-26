@@ -1,6 +1,21 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ViewProduct.ascx.cs"
     Inherits="Project_web_ban_hoa.Private.Admin.Product.View.ViewProduct" %>
 
+<div class="wrapper-search-product">
+    <div class="wrapper-control-search">
+        <asp:DropDownList ID="ddlCategory" EnableViewState="true" AutoPostBack="true" CssClass="wrapper-control-search__dropdown"
+            runat="server" OnSelectedIndexChanged="ddlCategory_SelectedIndexChanged">
+            <asp:ListItem Text="Tất cả" Value="0" />
+        </asp:DropDownList>
+    </div>
+    <div class="wrapper-control-search">
+        <asp:TextBox runat="server" CssClass="wrapper-control-search__search" placeholder="Nhập từ khóa tìm kiếm" />
+        <asp:Button Text="Tìm kiếm" CssClass="wrapper-control-search__btn-search" runat="server" />
+    </div>
+</div>
+
+
+
 <div class="wrapper-view-category">
     <div class="row">
         <asp:Repeater ID="rptViewProduct" runat="server">

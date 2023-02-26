@@ -25,3 +25,9 @@
     <asp:Button ID="btnCreateCategory" runat="server" Text="Thêm danh mục"
         CssClass="btn btn-success wrapper-create-category__btn" OnClick="btnCreateCategory_Click" />
 </div>
+
+<script type="text/javascript">
+    document.onload = () => {
+        Sys.WebForms.PageRequestManager.getInstance().add_endRequest(showToast);
+    }
+</script>

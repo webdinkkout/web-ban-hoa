@@ -183,5 +183,22 @@
 
 /*== PRODUCT STYLE ==*/
 
-.product-chart {
+/*== VIEW ==*/
+.wrapper-search-product {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
+
+    .wrapper-search-product .wrapper-control-search {
+    }
+
+        .wrapper-search-product .wrapper-control-search .wrapper-control-search__dropdown {
+            text-transform: capitalize;
+        }
+
+        .wrapper-search-product .wrapper-control-search .wrapper-control-search__search {
+        }
+
+        .wrapper-search-product .wrapper-control-search .wrapper-control-search__btn-search {
+        }

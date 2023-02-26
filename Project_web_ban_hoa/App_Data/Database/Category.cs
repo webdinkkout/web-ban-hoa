@@ -66,14 +66,14 @@ namespace Project_web_ban_hoa
 
 
         [System.Obsolete]
-        public static int UpdateCategory(int idCateory, string name = null, string seoName = null, string thumbnail = null)
+        public static int UpdateCategory(int idCateory, string name, string seoName, string thumbnail)
         {
             SqlCommand cmd = new SqlCommand("proc_update_category");
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@id", idCateory);
             cmd.Parameters.AddWithValue("@name", name);
             cmd.Parameters.AddWithValue("@seo_name", seoName);
-            cmd.Parameters.AddWithValue("@thumbnail", thumbnail);
+            cmd.Parameters.AddWithValue("@thumbnail", string.IsNullOrEmpty(thumbnail) ? null : thumbnail);
             return SqlDatabase.ExecuteNoneQuery(cmd);
         }
     }

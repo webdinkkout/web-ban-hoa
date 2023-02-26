@@ -5,6 +5,9 @@
 <div class="wrapper-card">
     <canvas id="chart"></canvas>
 </div>
+<div>
+    <asp:Button Text="Click me!" ID="toast" runat="server" OnClientClick="showToast(); return false;" />
+</div>
 <script>
     // Lấy tham chiếu đến đối tượng canvas
     var ctx = document.getElementById("chart");
@@ -46,4 +49,7 @@
         return '<%= string.Join(",", viewCounts) %>';
     }
 
+
+
 </script>
+
