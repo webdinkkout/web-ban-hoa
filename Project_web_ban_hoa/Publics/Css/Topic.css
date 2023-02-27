@@ -1,22 +1,67 @@
 ﻿.sidebar {
     border: dashed #ff9800;
 }
-.sidebar > a{
-    display: block;
-    padding: 15px 20px;
-    font-weight: 600;
-    
-}
-    .sidebar > a:hover {
-        color: #ff9800;
+
+    .sidebar > a {
+        display: block;
+        padding: 15px 20px;
+        font-weight: 600;
     }
-.sidebar > a.active {
-    background: #ff9800;
-    color: #FFF;
+
+        .sidebar > a:hover {
+            color: #ff9800;
+        }
+
+        .sidebar > a.active {
+            background: #ff9800;
+            color: #FFF;
+            text-transform: uppercase;
+        }
+/*style cho card product*/
+.content > a {
+    font-weight: 600;
+    font-size: 16px;
     text-transform: uppercase;
-    
+    color: #bd2026;
+    text-align: left;
 }
 
+.content .wrapper-card-product {
+    margin-top: 10px;
+    border: 1px solid #555;
+}
+
+    .content .wrapper-card-product > .card-product-top {
+        width: 100%;
+        overflow: hidden;
+        border-bottom: 1px solid #555;
+    }
 
 
+        .content .wrapper-card-product > .card-product-top > a > img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
 
+    .content .wrapper-card-product > .card-product-bottom {
+        text-align: center;
+    }
+
+        .content .wrapper-card-product > .card-product-bottom > a {
+            font-size: 14px;
+        }
+
+        .content .wrapper-card-product > .card-product-bottom > .card-product-price > .price-product {
+            font-size: 1.4rem;
+            display: inline-block;
+        }
+
+            .content .wrapper-card-product > .card-product-bottom > .card-product-price > .price-product.price-product--old {
+                text-decoration: line-through;
+            }
+
+            .content .wrapper-card-product > .card-product-bottom > .card-product-price > .price-product.price-product--current {
+                color: #bd2026;
+                font-weight: 500;
+            }
