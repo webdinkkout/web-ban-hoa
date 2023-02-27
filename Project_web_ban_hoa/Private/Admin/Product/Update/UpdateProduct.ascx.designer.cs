@@ -8,9 +8,9 @@
 //------------------------------------------------------------------------------
 
 
-namespace Project_web_ban_hoa.Private.Admin.Category.Delete
+namespace Project_web_ban_hoa.Private.Admin.Product.Update
 {
-    public partial class DeleteCategory
+    public partial class UpdateProduct
     {
     }
 }
