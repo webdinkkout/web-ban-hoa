@@ -1,0 +1,22 @@
+﻿.sidebar {
+    border: dashed #ff9800;
+}
+.sidebar > a{
+    display: block;
+    padding: 15px 20px;
+    font-weight: 600;
+    
+}
+    .sidebar > a:hover {
+        color: #ff9800;
+    }
+.sidebar > a.active {
+    background: #ff9800;
+    color: #FFF;
+    text-transform: uppercase;
+    
+}
+
+
+
+

@@ -43,6 +43,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DataVisualization" />
     <Reference Include="System.Web.DynamicData" />
@@ -63,11 +66,6 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
-      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Admin.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Home.aspx" />
@@ -85,12 +83,14 @@
     <Content Include="Publics\Css\Admin.css" />
     <Content Include="Publics\Css\Library\Bootstrap\bootstrap.min.css" />
     <Content Include="Publics\Css\Reset.css" />
+    <Content Include="Publics\Css\Topic.css" />
     <Content Include="Publics\Images\Admin\user-icon.png" />
     <Content Include="Publics\Images\logo-hoa-yeu-thuong.png" />
     <Content Include="Publics\Images\Product\10258_white-roses.jpg" />
     <Content Include="Publics\Js\Admin.js" />
     <Content Include="Publics\Js\Library\Bootstrap\bootstrap.bundle.min.js" />
     <Content Include="Publics\Js\Main.js" />
+    <Content Include="Topic.aspx" />
     <Content Include="Publics\Uploads\Category\4bb801f8-b4a1-4f79-b8b4-8f4deb11b61a-icon-hoa-tang-le.png" />
     <Content Include="Publics\Uploads\Category\4caba3c4-90de-4328-8b5d-010c7881a300-icon-hoa-tinh-yeu.png" />
     <Content Include="Publics\Uploads\Category\6938d739-364b-45ee-831c-243bc4a1f662-icon-cay-vp.png" />
@@ -210,6 +210,13 @@
       <DependentUpon>UserControl.ascx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Topic.aspx.cs">
+      <DependentUpon>Topic.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Topic.aspx.designer.cs">
+      <DependentUpon>Topic.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Layout\Main.Master" />
