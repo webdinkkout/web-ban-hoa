@@ -16,12 +16,13 @@
 </head>
 <body>
     <form id="form1" runat="server">
+        haeder
         <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
         </div>
+        footer
     </form>
-
     <script src="../Publics/Js/Library/Bootstrap/bootstrap.bundle.min.js"></script>
     <script src="../Publics/Js/Main.js"></script>
 </body>
