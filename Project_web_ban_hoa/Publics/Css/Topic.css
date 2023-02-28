@@ -35,13 +35,20 @@
         width: 100%;
         overflow: hidden;
         border-bottom: 1px solid #555;
+       padding: 10px;
+
     }
+        .content .wrapper-card-product > .card-product-top:hover > a > img{
+            transform: scale(1.1);
+
+        }
 
 
         .content .wrapper-card-product > .card-product-top > a > img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: all 0.4s linear;
         }
 
     .content .wrapper-card-product > .card-product-bottom {
@@ -50,12 +57,17 @@
 
         .content .wrapper-card-product > .card-product-bottom > a {
             font-size: 14px;
+         
         }
+            .content .wrapper-card-product > .card-product-bottom > a:hover{
+                color: #bd2026;
+                text-decoration: none;
+            }
 
-        .content .wrapper-card-product > .card-product-bottom > .card-product-price > .price-product {
-            font-size: 1.4rem;
-            display: inline-block;
-        }
+            .content .wrapper-card-product > .card-product-bottom > .card-product-price > .price-product {
+                font-size: 1.4rem;
+                display: inline-block;
+            }
 
             .content .wrapper-card-product > .card-product-bottom > .card-product-price > .price-product.price-product--old {
                 text-decoration: line-through;
@@ -63,5 +75,5 @@
 
             .content .wrapper-card-product > .card-product-bottom > .card-product-price > .price-product.price-product--current {
                 color: #bd2026;
-                font-weight: 500;
+                font-weight: 600;
             }
