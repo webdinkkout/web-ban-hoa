@@ -8,8 +8,8 @@
         <div class="row">
             <div class="col-lg-3">
                 <div class="sidebar">
-                    <a class="active" href="#home">CHỦ ĐỀ</a>
-                    <a href="#news">Hoa Sinh Nhật</a>
+                    <a href="#home">CHỦ ĐỀ</a>
+                    <a class="active"  href="#news">Hoa Sinh Nhật</a>
                     <a href="#contact">Hoa Khai Trương</a>
                     <a href="#about">Hoa Chúc Mừng</a>
                     <a href="#about">Hoa Chia Buồn</a>

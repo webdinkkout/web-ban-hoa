@@ -1,21 +1,34 @@
 ﻿.sidebar {
-    border: dashed #ff9800;
+    border: 1px dashed #dddddd;
+    padding: 10px;
 }
 
     .sidebar > a {
         display: block;
         padding: 15px 20px;
         font-weight: 600;
+        border-bottom: 1px dashed #dddddd;
+        font-size: 14px;
+        color: #555555;
+        transition: all 0.3s linear;
+        text-transform: capitalize;
     }
-
-        .sidebar > a:hover {
-            color: #ff9800;
+        .sidebar > a:last-child {
+            border-bottom: 0px solid #444;
+            margin-bottom: -10px;
         }
+       
+
+            .sidebar > a:hover {
+                color: #ff9800;
+            }
 
         .sidebar > a.active {
             background: #ff9800;
             color: #FFF;
             text-transform: uppercase;
+            border-bottom: 0px solid #444;
+            margin: -10px -10px 0 ;
         }
 /*style cho card product*/
 .content > a {
