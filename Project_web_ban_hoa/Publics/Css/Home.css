@@ -1,0 +1,13 @@
+﻿.title .greeting .title-address {
+    color: #bd2026;
+    
+}
+.title-address > a {
+    color:#bd2026;
+}
+.title .wrapper-info-ft{
+    display:flex;
+    flex-direction:column;
+
+
+}

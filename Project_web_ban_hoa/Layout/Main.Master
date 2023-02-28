@@ -11,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
+    <link href="../Publics/Css/Home.css" rel="stylesheet" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -21,7 +22,240 @@
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
         </div>
-        footer
+        <footer>
+            <div class="container" >
+                <div class="row">   
+                    <div class="col-lg-3">
+                        <div class="title"> 
+                            <h3>SHOP HOA TP.HCM</h3>
+                            <div class="title-info">
+                                <div class="greeting">
+                                    <p class="title-address">Địa chỉ:</p>
+                                    <p>- 230B Võ Thị Sáu, P. Võ Thị Sáu, Quận 3 </p>
+                                    <p>- 270L Võ Thị Sáu, P.Võ Thị Sáu, Quận 3 (Góc ngã tư Bà Huyện Thành Quan)</p>
+                                    <p>- 17D Nguyễn Thái Học, P. Cầu Ông Lãnh, Quận 1</p>
+                                    <p class="title-address">Điện thoại: 
+                                        <a href="#">028 7300 2010</a>
+                                    </p>
+                                    <p>
+                                        Miễn phí giao hoa nội thành Tp. Hồ Chí Minh. Các quận ngoại thành vui lòng liên hệ để biết thêm chi tiết (Giá giao sẽ từ 30.000đ-70.000đ).
+                                    </p>
+                                    <div class="home-HCM">
+                                        <a href="#">Shop hoa ở Tp.HCM</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <div class="title"> 
+                            <h3>SHOP HOA HÀ NỘI</h3>
+                            <div class="title-info">
+                                <div class="greeting">
+                                    <p class="title-address">Địa chỉ:</p>
+                                    <p>532A Đường Láng, Quận Đống Đa</p>
+                                    <p class="title-address">Điện thoại: 
+                                        <a href="#">024 7300 2010</a>
+                                    </p>
+                                    <p>
+                                        Miễn phí giao hoa tươi trên địa bàn Hà Nội: Cầu Giấy, Ba Đình, Đống Đa, Nam Từ Liêm, Hai Bà Trưng, Hoàn Kiếm, Thanh Xuân. Các quận khác vui lòng liên hệ để biết thêm chi tiết (Giá giao sẽ từ 30.000đ-70.000đ)
+                                    </p>
+                                    <div class="home-HCM">
+                                        <a href="#">Shop hoa ở Hà Nội</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <div class="title"> 
+                            <h3>SHOP HOA CÁC TỈNH</h3>
+                            <div class="title-info">
+                                <div class="greeting">
+                                    <div class="wrapper-address">
+                                        <p>
+                                            <a href="#" class="address">Cần Thơ</a> 
+                                            266 đường 30/4, P. Xuân khánh, Q.Ninh Kiều
+                                        </p>
+                                         <p>
+                                            <a href="#" class="address">Đà Nẵng</a> 
+                                             32 Lê Thanh Nghị, Quận Hải Châu
+                                        </p>
+                                        <p>
+                                            <a href="#" class="address">Huế</a> 
+                                            71 Trường Chinh, Phường Xuân Phú
+                                        </p>
+                                        <p>
+                                            <a href="#" class="address">Lâm Đồng</a> 
+                                            05 Phan Đình Phùng
+                                        </p>
+                                        <p>
+                                            <a href="#" class="address">Bình Dương</a> 
+                                           151 Phú Lợi, P. Phú Lợi, Tp. Thủ Dầu Một
+                                        </p> 
+                                        <p>
+                                            <a href="#" class="address">Biên Hòa</a> 
+                                           40/198A Phạm Văn Thuận, KP.3, P.Tân Mai
+                                        </p> 
+                                        <p>
+                                            <a href="#" class="address">Kiên Giang</a> 
+                                            418 Nguyễn Trung Trực, Thành phố Rạch Giá
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <div class="title"> 
+                            <div class="title-info">
+                                <div class="greeting">
+                                    <div class="wrapper-address">
+                                        <p>
+                                            <a href="#" class="address">Tp.Nha Trang</a> 
+                                            181 Thống Nhất
+                                        </p>
+                                         <p>
+                                            <a href="#" class="address">Vùng Tàu</a> 
+                                            185B Phạm Hồng Thái, Phường 7
+                                        </p>
+                                        <p>
+                                            <a href="#" class="address">Tây Ninh</a> 
+                                            1174 Cách Mạng Tháng Tám
+                                        </p>
+                                        <p>
+                                            <a href="#" class="address">Vĩnh Long</a> 
+                                            20/A2 Phạm Thái Bường
+                                        </p>
+                                        <p>
+                                            <a href="#" class="address">Long An</a> 
+                                           163 Nguyễn Đình Chiểu, Phường 3
+                                        </p> 
+                                        <p> 
+                                            <a href="#">Xem thêm chi nhánh shop hoa</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div class="row">   
+                    <div class="col-lg-3">
+                        <div class="title"> 
+                            <h3>HOAYEUTHUONG.COM</h3>
+                            <div class="wrapper-info-ft">
+                                <a href="#">> Giới thiệu</a>
+                                <a href="#">> Tin tức</a>
+                                <a href="#">> Trách nhiệm xã hội</a>
+                                <a href="#">> Tuyển dụng</a>
+                                <a href="#">> Câu hỏi thường gặp (FAQs)</a>
+                                <a href="#">> Blog</a>
+                                <a href="#">> Giới thiệu Hoayeuthuong.com đến người thân</a>
+                                <a href="#">> Liên hệ</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <div class="title"> 
+                            <h3>CHĂM SÓC KHÁCH HÀNG</h3>
+                            <div class="wrapper-info-ft">
+                                <a href="#">> Thắc mắc và khiếu nại</a>
+                                <a href="#">> Cam kết hài lòng 100%</a>
+                                <a href="#">> Chính sách bảo mật thông tin</a>
+                                <a href="#">> Chính sách và điều khoản</a>
+                                <a href="#">> Hướng dẫn đặt hàng</a>
+                                <a href="#">> Chính sách bảo mật thanh toán</a>
+                                <a href="#">> Hướng dẫn thanh toán</a>
+                            </div>
+                            <h3 class="title">
+                                KẾT NỐI 
+                                <img src="#" alt="Alternate Text" />
+                            </h3>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <div class="title"> 
+                            <h3>SHOP HOA CÁC TỈNH</h3>
+                            <div class="title-info">
+                                <div class="greeting">
+                                    <div class="wrapper-address">
+                                        <p>
+                                            <a href="#" class="address">Cần Thơ</a> 
+                                            266 đường 30/4, P. Xuân khánh, Q.Ninh Kiều
+                                        </p>
+                                         <p>
+                                            <a href="#" class="address">Đà Nẵng</a> 
+                                             32 Lê Thanh Nghị, Quận Hải Châu
+                                        </p>
+                                        <p>
+                                            <a href="#" class="address">Huế</a> 
+                                            71 Trường Chinh, Phường Xuân Phú
+                                        </p>
+                                        <p>
+                                            <a href="#" class="address">Lâm Đồng</a> 
+                                            05 Phan Đình Phùng
+                                        </p>
+                                        <p>
+                                            <a href="#" class="address">Bình Dương</a> 
+                                           151 Phú Lợi, P. Phú Lợi, Tp. Thủ Dầu Một
+                                        </p> 
+                                        <p>
+                                            <a href="#" class="address">Biên Hòa</a> 
+                                           40/198A Phạm Văn Thuận, KP.3, P.Tân Mai
+                                        </p> 
+                                        <p>
+                                            <a href="#" class="address">Kiên Giang</a> 
+                                            418 Nguyễn Trung Trực, Thành phố Rạch Giá
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <div class="title"> 
+                            <div class="title-info">
+                                <div class="greeting">
+                                    <div class="wrapper-address">
+                                        <p>
+                                            <a href="#" class="address">Tp.Nha Trang</a> 
+                                            181 Thống Nhất
+                                        </p>
+                                         <p>
+                                            <a href="#" class="address">Vùng Tàu</a> 
+                                            185B Phạm Hồng Thái, Phường 7
+                                        </p>
+                                        <p>
+                                            <a href="#" class="address">Tây Ninh</a> 
+                                            1174 Cách Mạng Tháng Tám
+                                        </p>
+                                        <p>
+                                            <a href="#" class="address">Vĩnh Long</a> 
+                                            20/A2 Phạm Thái Bường
+                                        </p>
+                                        <p>
+                                            <a href="#" class="address">Long An</a> 
+                                           163 Nguyễn Đình Chiểu, Phường 3
+                                        </p> 
+                                        <p> 
+                                            <a href="#">Xem thêm chi nhánh shop hoa</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
     </form>
     <script src="../Publics/Js/Library/Bootstrap/bootstrap.bundle.min.js"></script>
     <script src="../Publics/Js/Main.js"></script>
