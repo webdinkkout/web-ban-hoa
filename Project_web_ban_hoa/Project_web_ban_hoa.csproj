@@ -91,6 +91,11 @@
     <Content Include="Publics\Js\Admin.js" />
     <Content Include="Publics\Js\Library\Bootstrap\bootstrap.bundle.min.js" />
     <Content Include="Publics\Js\Main.js" />
+    <Content Include="Sql\01_create_database_hoa_yeu_thuong.sql" />
+    <Content Include="Sql\02_table_hoa_yeu_thuong_db.sql" />
+    <Content Include="Sql\03_proc_hoa_yeu_thuong_db.sql" />
+    <Content Include="Sql\998_seed_hoa_yeu_thuong_db.sql" />
+    <Content Include="Sql\999_drop_table_hoa_yeu_thuong.sql" />
     <Content Include="Topic.aspx" />
     <Content Include="Publics\Uploads\Category\4bb801f8-b4a1-4f79-b8b4-8f4deb11b61a-icon-hoa-tang-le.png" />
     <Content Include="Publics\Uploads\Category\4caba3c4-90de-4328-8b5d-010c7881a300-icon-hoa-tinh-yeu.png" />
@@ -131,7 +136,6 @@
     <Compile Include="Layout\Main.Master.designer.cs">
       <DependentUpon>Main.Master</DependentUpon>
     </Compile>
-    <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Component\Components.cs" />
     <Compile Include="Private\Admin\AdminControl.ascx.cs">
       <DependentUpon>AdminControl.ascx</DependentUpon>
