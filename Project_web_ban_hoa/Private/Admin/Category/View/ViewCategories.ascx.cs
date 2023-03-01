@@ -15,6 +15,7 @@ namespace Project_web_ban_hoa.Private.Admin.Category.View
 
     public partial class ViewCategories : System.Web.UI.UserControl
     {
+
         [Obsolete]
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -53,12 +54,20 @@ namespace Project_web_ban_hoa.Private.Admin.Category.View
 
                 case "delete":
                     {
+                        string script;
                         Components.DeleteThumbnailOnSystem(arrNameThumbnail, Server);
                         int idCategory = Convert.ToInt32(e.CommandArgument);
-                        Project_web_ban_hoa.Category.DeleteCategory(idCategory);
-                        ((IListSource)rptViewCategories.DataSource).GetList().RemoveAt(e.Item.ItemIndex);
-                        rptViewCategories.DataBind();
-                        string script = "showToast('Xóa thành công', 3000, 'right', 'green')";
+                        int n = Project_web_ban_hoa.Category.DeleteCategory(idCategory);
+                        if (n > 0)
+                        {
+                            ((IListSource)rptViewCategories.DataSource).GetList().RemoveAt(e.Item.ItemIndex);
+                            rptViewCategories.DataBind();
+                            script = "showToast('Xóa thành công', 3000, 'right', 'green')";
+                        }
+                        else
+                        {
+                            script = "showToast('Xóa không thành công vui lòng kiểm tra lại', 3000, 'right', 'red')";
+                        }
                         ScriptManager.RegisterStartupScript(this, this.GetType(), "ShowToast", script, true);
                         break;
                     }

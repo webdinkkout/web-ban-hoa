@@ -9,3 +9,4 @@ function showToast(message, duration, position, backColor = "green") {
         backgroundColor: backColor
     }).showToast();
 }
+

@@ -1,25 +1,54 @@
-use hoa_yeu_thuong_db
+﻿use hoa_yeu_thuong_db
 GO
 
+-- CHUNG
+CREATE PROC proc_search
+@table_name VARCHAR(50),
+@result NVARCHAR(255)
+AS
+BEGIN
+	DECLARE @sql NVARCHAR(MAX)
+	SET @sql = 'Select * from ' + QUOTENAME(@table_name) + ' WHERE Name LIKE ''%' + @result + '%'''
+    EXEC sp_executesql @sql
+END
+GO	
+
+
+CREATE PROCEDURE proc_pagination
+@table_name VARCHAR(50),
+@page_number INT,
+@page_size INT
+AS
+BEGIN
+		SET NOCOUNT ON;
+
+    DECLARE @start_row int, @end_row int
+    SET @start_row = (@page_number - 1) * @page_size + 1
+    SET @end_row = @start_row + @page_size - 1
+
+    DECLARE @sql nvarchar(max)
+    SET @sql = N'SELECT * FROM (
+        SELECT ROW_NUMBER() OVER (ORDER BY Created_At DESC) as rownum, *
+        FROM ' + QUOTENAME(@table_name) + '
+    ) as rows
+    WHERE rownum BETWEEN ' + CAST(@start_row AS nvarchar(10)) + ' AND ' + CAST(@end_row AS nvarchar(10))
+
+    EXEC sp_executesql @sql
+END
+GO
+
+
+--PROC CATEGORIES
 CREATE PROC proc_insert_category
 	@name nvarchar(50),
 	@seo_name varchar(50),
 	@thumbnail nvarchar(255)
 AS
 BEGIN
-	insert into categories
+	INSERT INTO	dbo.Categories
 		(Name, Seo_Name,Thumbnail)
 	values
 		(@name, @seo_name, @thumbnail)
-END
-GO
-
-create PROC proc_get_all_categories
-AS
-BEGIN
-	SELECT *
-	FROM Categories
-	order by Created_at desc
 END
 GO
 
@@ -30,14 +59,14 @@ CREATE PROC proc_update_category
 	@thumbnail nvarchar(255) = null
 AS
 BEGIN
-	UPDATE Categories
+	UPDATE dbo.Categories
 		SET
 			Name = ISNULL(@name, Name),
 			Seo_Name = ISNULL(@seo_name, Seo_Name),
-			Thumbnail = ISNULL(@thumbnail, Thumbnail)
+			Thumbnail = ISNULL(@thumbnail, Thumbnail),
+			updated_at = GETDATE()
 		WHERE
 			Id = @id
-
 END
 GO
 
@@ -46,54 +75,196 @@ CREATE PROC proc_get_one_category
 AS
 BEGIN
 	SELECT *
-	FROM Categories
+	FROM dbo.Categories
 	WHERE Id = @id
+
 END
 GO
 
-CREATE PROC proc_delete_category
+ALTER PROC proc_delete_category
 	@id int
 AS
 BEGIN
-	DELETE FROM Categories WHERE Id = @id
+    IF NOT EXISTS(SELECT * FROM dbo.Products WHERE Category_Id = @id)
+    	DELETE FROM dbo.Categories WHERE Id = @id
 END
 GO
 
 
+--PROC PRODUCTS
 CREATE PROC proc_get_one_product
 	@id int
 as
 begin
 	select *
-	from Products
+	from dbo.Products
 	where Id = @id
+    UPDATE dbo.Products SET View_Count = View_Count + 1 WHERE Id = @id
 end
 go
 
-create proc proc_get_all_products
-as
-begin
-	select *
-	from Products
-	order by Created_at desc
-end
-go
-
-create proc proc_delete_product
+CREATE proc proc_delete_product
 	@id int
 as
-begin
-	delete from Products where Id = @id
+BEGIN
+        IF NOT EXISTS (SELECT * FROM dbo.Products WHERE Id = @id)
+	        DELETE from dbo.Products where Id = @id
 end
-go
+GO
 
-create proc proc_get_products_with_category_id
+CREATE PROC proc_get_products_with_category_id
 	@category_id int
-as
-begin
+AS
+BEGIN
 	select *
-	from Products
+	from dbo.Products
 	where Category_Id = @category_id
 	order by Created_at desc
-end
-go
+END
+GO  
+
+CREATE PROC proc_update_produt
+@id INT,
+@name NVARCHAR(50) = NULL,
+@seo_name NVARCHAR(50) = NULL,
+@desc NVARCHAR(MAX) = NULL,
+@view_count INT = NULL,
+@old_price FLOAT = NULL,
+@current_price FLOAT = NULL,
+@quantity INT = NULL,
+@sold INT = NULL,
+@thumbnail NVARCHAR(MAX) = NULL,
+@category_id INT = NULL
+AS
+BEGIN
+	IF EXISTS (SELECT * FROM dbo.Products WHERE Id = @id)
+		UPDATE
+			dbo.Products
+		SET
+			Name = ISNULL(@name,Name),
+			Seo_Name = ISNULL(@seo_name,Seo_Name),
+			Description = ISNULL(@desc, Description),
+			View_Count = ISNULL(@view_count, View_Count),
+			Old_Price = ISNULL(@old_price,Old_Price),
+			Current_Price = ISNULL(@current_price,Current_Price),
+			Quantity = ISNULL(@quantity, Quantity),
+			Sold = ISNULL(@sold, Sold),
+			Thumbnail = ISNULL(@thumbnail,Thumbnail),
+			Category_Id = ISNULL(@category_id, Category_Id),
+			updated_at = GETDATE()
+		WHERE
+			Id = @id
+END
+GO	
+
+CREATE PROC proc_insert_product
+@name NVARCHAR(50),
+@seo_name NVARCHAR(50),
+@desc NVARCHAR(MAX),
+@old_price FLOAT,
+@current_count FLOAT,
+@quantity INT,
+@sold INT,
+@thumbnail NVARCHAR(255),
+@category_id INT
+AS
+BEGIN
+		INSERT INTO dbo.Products
+		(
+		    Name,
+		    Seo_Name,
+		    Description,
+		    View_Count,
+		    Old_Price,
+		    Current_Price,
+		    Quantity,
+		    Sold,
+		    Thumbnail,
+		    Category_Id
+		)
+		VALUES
+		(  @name,     -- Name - nvarchar(100)
+		    @seo_name,      -- Seo_Name - varchar(50)
+		    @desc,     -- Description - nvarchar(500)
+		    DEFAULT, -- View_Count - int
+		    @old_price,    -- Old_Price - decimal(12, 2)
+		    @current_count,    -- Current_Price - decimal(12, 2)
+		    @quantity, -- Quantity - int
+		    @sold, -- Sold - int
+		    @thumbnail,     -- Thumbnail - nvarchar(255)
+		    @category_id       -- Category_Id - int
+		    )
+END
+GO	
+
+-- NGƯỜI DÙNG
+CREATE PROC proc_login
+@gmail VARCHAR(255),
+@password VARCHAR(255)
+AS
+BEGIN
+	SELECT * FROM dbo.Users WHERE Email = @gmail AND Password = @password
+END
+GO	
+
+ALTER PROC proc_register
+@first_name NVARCHAR(50),
+@last_name NVARCHAR(50),
+@email VARCHAR(255),
+@password VARCHAR(255)
+AS
+BEGIN
+	INSERT INTO dbo.Users
+	(
+	    First_Name,
+	    Last_Name,
+	    Email,
+	    Password,
+	    Role_Id,
+	    Created_at,
+	    updated_at
+	)
+	VALUES
+	(  @first_name,     -- First_Name - nvarchar(50)
+	    @last_name,     -- Last_Name - nvarchar(50)
+	    @email,      -- Email - varchar(100)
+	    @password,      -- Password - varchar(255)
+		2,       -- Role_Id - int
+	    DEFAULT, -- Created_at - datetime2(7)
+	    DEFAULT  -- updated_at - datetime2(7)
+	    )
+END
+GO
+
+-- CHỨC NĂNG ADMIN
+CREATE PROC proc_delete_user
+@id INT
+AS
+BEGIN
+	IF EXISTS (SELECT * FROM dbo.Users WHERE Id = @id)
+		DELETE dbo.Users WHERE Id = @id
+END
+GO	
+
+CREATE PROC proc_update_user_admin
+@id INT,
+@first_name NVARCHAR(50) = NULL,
+@last_name NVARCHAR(50) = NULL,
+@email VARCHAR(255) = NULL,
+@password VARCHAR(255) = NULL,
+@role_id INT = NULL
+AS
+BEGIN
+	IF EXISTS (SELECT * FROM dbo.Users WHERE Id = @id)
+		UPDATE dbo.Users 
+			SET
+				First_Name = ISNULL(@first_name, First_Name),
+				Last_Name = ISNULL(@last_name, Last_Name),
+				Email = ISNULL(@email, Email),
+				Password = ISNULL(@password, Password),
+				Role_Id = ISNULL(@role_id, Role_Id),
+				updated_at = GETDATE()
+			WHERE Id = @id
+END
+GO
+

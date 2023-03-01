@@ -25,12 +25,15 @@ namespace Project_web_ban_hoa
         /// <summary>
         /// Phương thức lấy tất cả dữ liệu categories
         /// </summary>
-        /// <returns>DataTable</returns>
+        /// <returns>Tất cả các danh mục</returns>
         [System.Obsolete]
-        public static DataTable GetAllCategories()
+        public static DataTable GetAllCategories(int pageNumber = 1, int pageSize = 10)
         {
-            SqlCommand cmd = new SqlCommand("proc_get_all_categories");
+            SqlCommand cmd = new SqlCommand("proc_pagination");
             cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@table_name", "Categories");
+            cmd.Parameters.AddWithValue("@page_number", pageNumber);
+            cmd.Parameters.AddWithValue("@page_size", pageSize);
             return SqlDatabase.GetData(cmd);
 
         }
@@ -63,8 +66,14 @@ namespace Project_web_ban_hoa
             return SqlDatabase.GetData(cmd);
         }
 
-
-
+        /// <summary>
+        /// Cập nhật danh mục
+        /// </summary>
+        /// <param name="idCateory">Mã danh mục</param>
+        /// <param name="name">Tên danh mục</param>
+        /// <param name="seoName">Tên thu gọn của danh mục</param>
+        /// <param name="thumbnail">Ảnh danh mục</param>
+        /// <returns>Số dòng được cập nhật thành công</returns>
         [System.Obsolete]
         public static int UpdateCategory(int idCateory, string name, string seoName, string thumbnail)
         {
@@ -75,6 +84,21 @@ namespace Project_web_ban_hoa
             cmd.Parameters.AddWithValue("@seo_name", seoName);
             cmd.Parameters.AddWithValue("@thumbnail", string.IsNullOrEmpty(thumbnail) ? null : thumbnail);
             return SqlDatabase.ExecuteNoneQuery(cmd);
+        }
+
+        /// <summary>
+        /// Phương thức tìm kiếm danh mục
+        /// </summary>
+        /// <param name="result"> Từ tìm kiếm </param>
+        /// <returns> Kết quả tìm kiếm </returns>
+        [System.Obsolete]
+        public static DataTable SearchCategory(string result)
+        {
+            SqlCommand cmd = new SqlCommand("proc_search");
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@table_name", "Categories");
+            cmd.Parameters.AddWithValue("@result", result);
+            return SqlDatabase.GetData(cmd);
         }
     }
 }

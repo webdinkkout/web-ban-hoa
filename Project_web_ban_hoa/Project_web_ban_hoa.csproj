@@ -94,6 +94,7 @@
     <Content Include="Sql\01_create_database_hoa_yeu_thuong.sql" />
     <Content Include="Sql\02_table_hoa_yeu_thuong_db.sql" />
     <Content Include="Sql\03_proc_hoa_yeu_thuong_db.sql" />
+    <Content Include="Sql\997_drop_proc_hoa_yeu_thuong_db.sql" />
     <Content Include="Sql\998_seed_hoa_yeu_thuong_db.sql" />
     <Content Include="Sql\999_drop_table_hoa_yeu_thuong.sql" />
     <Content Include="Topic.aspx" />
@@ -136,7 +137,13 @@
     <Compile Include="Layout\Main.Master.designer.cs">
       <DependentUpon>Main.Master</DependentUpon>
     </Compile>
+    <Compile Include="Models\CategoryModel.cs" />
     <Compile Include="Models\Component\Components.cs" />
+    <Compile Include="Models\OrderDetail.cs" />
+    <Compile Include="Models\OrderModel.cs" />
+    <Compile Include="Models\ProductModel.cs" />
+    <Compile Include="Models\RoleModel.cs" />
+    <Compile Include="Models\UserModel.cs" />
     <Compile Include="Private\Admin\AdminControl.ascx.cs">
       <DependentUpon>AdminControl.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

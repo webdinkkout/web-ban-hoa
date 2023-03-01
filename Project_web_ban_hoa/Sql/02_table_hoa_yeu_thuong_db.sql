@@ -28,10 +28,12 @@ CREATE TABLE Categories (
   Name NVARCHAR(50) NOT NULL,
   Seo_Name VARCHAR(50) NOT NULL,
   Thumbnail NVARCHAR(255) NOT NULL,
+  Level INT NOT NULL,
    Created_At datetime2 DEFAULT(getdate()) NOT NULL,
   Updated_At datetime2 DEFAULT(getdate()) NOT NULL
 );
 GO
+
 
 CREATE TABLE Products (
   Id INT PRIMARY KEY IDENTITY(1,1),
@@ -71,4 +73,3 @@ CREATE TABLE Order_Details (
   Updated_At datetime2 DEFAULT(getdate()) NOT NULL
 );
 GO
-
