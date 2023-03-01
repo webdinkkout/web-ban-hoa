@@ -51,15 +51,14 @@ namespace Project_web_ban_hoa.Private.Admin.Category.View
             string[] arrNameThumbnail = imgThumbnail.ImageUrl.Split('/');
             switch (e.CommandName)
             {
-
                 case "delete":
                     {
                         string script;
-                        Components.DeleteThumbnailOnSystem(arrNameThumbnail, Server);
                         int idCategory = Convert.ToInt32(e.CommandArgument);
                         int n = Project_web_ban_hoa.Category.DeleteCategory(idCategory);
                         if (n > 0)
                         {
+                            Components.DeleteThumbnailOnSystem(arrNameThumbnail, Server);
                             ((IListSource)rptViewCategories.DataSource).GetList().RemoveAt(e.Item.ItemIndex);
                             rptViewCategories.DataBind();
                             script = "showToast('Xóa thành công', 3000, 'right', 'green')";
@@ -73,7 +72,6 @@ namespace Project_web_ban_hoa.Private.Admin.Category.View
                     }
                 case "update":
                     {
-
                         Response.Redirect($"Admin.aspx?modul=category&sub-modul=update-category&id-category={Convert.ToInt32(e.CommandArgument)}");
                         break;
                     }

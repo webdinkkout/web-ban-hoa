@@ -1,4 +1,5 @@
-﻿using Project_web_ban_hoa.Models.Component;
+﻿using Project_web_ban_hoa.Models;
+using Project_web_ban_hoa.Models.Component;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -32,18 +33,17 @@ namespace Project_web_ban_hoa.Private.Admin.Category.Update
         [Obsolete]
         protected void rptUpdateCategory_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
+            CategoryModel categoryModel = new CategoryModel();
             if (e.CommandName != "btnUpdate") return;
             if (!(e.Item.FindControl("txtName") is TextBox txtName)) return;
             if (idCategory <= 0) return;
 
-
-            string name;
-            string seoName;
-            string thumbnail = null;
-
             HttpPostedFile file = Request.Files[0];
-            name = txtName.Text;
-            seoName = Components.ConvertToUnSign(txtName.Text).Replace(" ", "-");
+            if (!string.IsNullOrEmpty(txtName.Text))
+            {
+                categoryModel.Name = txtName.Text;
+                categoryModel.SeoName = Components.ConvertToUnSign(txtName.Text).Replace(" ", "-");
+            }
 
             if (file.ContentType.ToLower().StartsWith("image/"))
             {
@@ -57,13 +57,15 @@ namespace Project_web_ban_hoa.Private.Admin.Category.Update
                 string fileName = Path.GetFileName(file.FileName).Replace(" ", "-");
                 string saveFileName = $"{Guid.NewGuid()}-{Components.ConvertToUnSign(fileName)}";
                 string savePath = Server.MapPath($"~/Publics/Uploads/Category/{saveFileName}");
-                thumbnail = $"{ConfigurationManager.AppSettings["UrlEnv"]}/Publics/Uploads/Category/{saveFileName}";
+                categoryModel.Thumbnail = $"{ConfigurationManager.AppSettings["UrlEnv"]}/Publics/Uploads/Category/{saveFileName}";
                 file.SaveAs(savePath);
             }
 
-            int n = Project_web_ban_hoa.Category.UpdateCategory(idCategory, name, seoName, thumbnail);
+            int n = Project_web_ban_hoa.Category.UpdateCategory(idCategory, categoryModel.Name, categoryModel.SeoName, categoryModel.Thumbnail);
+
             Session["showToastDuration"] = 3000;
             Session["showToastPosition"] = "right";
+
             if (n <= 0)
             {
                 Session["showToastMessage"] = "Chỉnh sửa danh mục thất bại";
@@ -73,6 +75,7 @@ namespace Project_web_ban_hoa.Private.Admin.Category.Update
             {
                 Session["showToastMessage"] = "Chỉnh sửa danh mục thành công";
             }
+
             Response.Redirect("/admin.aspx");
         }
     }

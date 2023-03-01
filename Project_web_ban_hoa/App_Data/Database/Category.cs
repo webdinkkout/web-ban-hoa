@@ -82,7 +82,7 @@ namespace Project_web_ban_hoa
             cmd.Parameters.AddWithValue("@id", idCateory);
             cmd.Parameters.AddWithValue("@name", name);
             cmd.Parameters.AddWithValue("@seo_name", seoName);
-            cmd.Parameters.AddWithValue("@thumbnail", string.IsNullOrEmpty(thumbnail) ? null : thumbnail);
+            cmd.Parameters.AddWithValue("@thumbnail", thumbnail);
             return SqlDatabase.ExecuteNoneQuery(cmd);
         }
 
