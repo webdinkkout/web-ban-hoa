@@ -86,9 +86,11 @@
     <Content Include="Publics\Css\Reset.css" />
     <Content Include="Publics\Css\Topic.css" />
     <Content Include="Publics\Images\Admin\user-icon.png" />
-    <Content Include="Publics\Images\Home\iconfb.png" />
-    <Content Include="Publics\Images\Home\icontw.png" />
-    <Content Include="Publics\Images\Home\iconytb.png" />
+    <Content Include="Publics\Images\Home\bonghoa.png" />
+    <Content Include="Publics\Images\Home\logobh.png" />
+    <Content Include="Publics\Images\Home\logofb.png" />
+    <Content Include="Publics\Images\Home\logotw.png" />
+    <Content Include="Publics\Images\Home\logoytb.png" />
     <Content Include="Publics\Images\logo-hoa-yeu-thuong.png" />
     <Content Include="Publics\Images\Product\10258_white-roses.jpg" />
     <Content Include="Publics\Images\Product\13262_tinh-dau-tho-ngay.jpg" />

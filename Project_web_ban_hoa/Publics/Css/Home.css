@@ -1,4 +1,8 @@
-﻿.title .greeting .title-address {
+﻿#footer{
+    background-color:#b8b8b8;
+    font-size:14px;
+}
+.title .greeting .title-address {
     color: #bd2026;
     
 }
@@ -8,6 +12,5 @@
 .title .wrapper-info-ft{
     display:flex;
     flex-direction:column;
-
-
 }
+
