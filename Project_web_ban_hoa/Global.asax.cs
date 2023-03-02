@@ -15,5 +15,20 @@ namespace Project_web_ban_hoa
         {
             SqlDatabase.ConnectString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
         }
+        protected void Application_BeginRequest(object sender, EventArgs e)
+        {
+            string path = Request.Url.LocalPath;
+            if (!path.Contains("."))
+            {
+                if (path == "/")
+                {
+                    Context.RewritePath(path += "Home");
+                }
+                Context.RewritePath(path + ".aspx");
+            }
+        }
+
+
+
     }
 }
