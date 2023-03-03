@@ -11,6 +11,6 @@ namespace Project_web_ban_hoa.Models
         public string Name { get; set; }
         public string SeoName { get; set; }
         public string Thumbnail { get; set; }
-        public int? Level { get; set; }
+        public int? ParentID { get; set; }
     }
 }

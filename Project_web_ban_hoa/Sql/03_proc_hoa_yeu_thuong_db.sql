@@ -1,4 +1,4 @@
-﻿use hoa_yeu_thuong_db
+﻿USE hoa_yeu_thuong_db
 GO
 
 -- CHUNG
@@ -37,6 +37,27 @@ BEGIN
 END
 GO
 
+CREATE PROCEDURE proc_pagination_category
+@page_number INT,
+@page_size INT
+AS
+BEGIN
+		SET NOCOUNT ON;
+
+		DECLARE @start_row int, @end_row int
+		SET @start_row = (@page_number - 1) * @page_size + 1
+		SET @end_row = @start_row + @page_size - 1
+
+		SELECT *
+		FROM (
+		  SELECT ROW_NUMBER() OVER (ORDER BY Created_At DESC) as rownum, *
+		  FROM dbo.Categories
+		) as rows
+		WHERE rows.rownum BETWEEN @start_row AND @end_row
+END
+GO
+
+
 
 --PROC CATEGORIES
 CREATE PROC proc_insert_category
@@ -56,7 +77,7 @@ CREATE PROC proc_update_category
 	@id int,
 	@name nvarchar(50) = null,
 	@seo_name varchar(50) = null,
-	@thumbnail nvarchar(255) = null
+	@thumbnail nvarchar(255) = NULL
 AS
 BEGIN
 	UPDATE dbo.Categories
@@ -81,11 +102,11 @@ BEGIN
 END
 GO
 
-ALTER PROC proc_delete_category
+CREATE PROC proc_delete_category
 	@id int
 AS
 BEGIN
-    IF NOT EXISTS(SELECT * FROM dbo.Products WHERE Category_Id = @id)
+    IF NOT EXISTS(SELECT * FROM dbo.Products WHERE Category_Id = @id) AND NOT EXISTS (SELECT * FROM dbo.Products WHERE Category_Id = @id) 
     	DELETE FROM dbo.Categories WHERE Id = @id
 END
 GO
@@ -207,7 +228,7 @@ BEGIN
 END
 GO	
 
-ALTER PROC proc_register
+CREATE PROC proc_register
 @first_name NVARCHAR(50),
 @last_name NVARCHAR(50),
 @email VARCHAR(255),

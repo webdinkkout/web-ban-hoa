@@ -22,11 +22,8 @@ namespace Project_web_ban_hoa.Private.Admin.Category.View
 
             DataTable categoriesTable = Project_web_ban_hoa.Category.GetAllCategories();
 
-            if (categoriesTable.Rows.Count > 0)
-            {
-                rptViewCategories.DataSource = categoriesTable;
-                rptViewCategories.DataBind();
-            }
+            rptViewCategories.DataSource = categoriesTable;
+            rptViewCategories.DataBind();
 
             // kiểm tra: xem có thông báo không nếu có thì thông báo
             if ((Session["showToastMessage"] != null && Session["showToastDuration"] != null && Session["showToastPosition"] != null) || Session["showToastBackColor"] != null)
