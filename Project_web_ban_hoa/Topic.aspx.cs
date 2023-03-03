@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -11,7 +12,9 @@ namespace Project_web_ban_hoa
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            DataTable productsTable = Project_web_ban_hoa.Product.GetAllProdcts();
+            rptRenderCard.DataSource = productsTable;
+            rptRenderCard.DataBind();
         }
     }
 }

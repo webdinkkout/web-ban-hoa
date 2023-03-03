@@ -9,7 +9,7 @@
             <div class="col-lg-3">
                 <div class="sidebar">
                     <a href="#home">CHỦ ĐỀ</a>
-                    <a class="active"  href="#news">Hoa Sinh Nhật</a>
+                    <a class="active" href="#news">Hoa Sinh Nhật</a>
                     <a href="#contact">Hoa Khai Trương</a>
                     <a href="#about">Hoa Chúc Mừng</a>
                     <a href="#about">Hoa Chia Buồn</a>
@@ -22,134 +22,26 @@
                 <div class="content">
                     <a href="#">HOA SINH NHẬT</a>
                     <div class="row">
-                        <div class="col-lg-3">
-                            <div class="wrapper-card-product">
-                                <div class="card-product-top">
-                                    <a href="#">
-                                        <img src="Publics/Images/Product/13262_tinh-dau-tho-ngay.jpg" />
-                                    </a>
-                                </div>
-                                <div class="card-product-bottom">
-                                    <a href="#">Tình đầu thơ ngây</a>
-                                    <div class="card-product-price">
-                                        <p class="price-product price-product--old">275.000 đ</p>
-                                        <p class="price-product price-product--current">250.000 đ</p>
+                        <asp:Repeater ID="rptRenderCard" runat="server">
+                            <ItemTemplate>
+                                <div class="col-lg-3">
+                                    <div class="wrapper-card-product">
+                                        <div class="card-product-top">
+                                            <a href="#">
+                                                <img src='<%# Eval("Thumbnail") %>' />
+                                            </a>
+                                        </div>
+                                        <div class="card-product-bottom">
+                                            <a href="#"><%# Eval("Name") %> </a>
+                                            <div class="card-product-price">
+                                                <p class="price-product price-product--old"><%# Eval("Old_Price") %></p>
+                                                <p class="price-product price-product--current"><%# Eval("Current_Price") %></p>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3">
-                            <div class="wrapper-card-product">
-                                <div class="card-product-top">
-                                    <a href="#">
-                                        <img src="Publics/Images/Product/13262_tinh-dau-tho-ngay.jpg" />
-                                    </a>
-                                </div>
-                                <div class="card-product-bottom">
-                                    <a href="#">Tình đầu thơ ngây</a>
-                                    <div class="card-product-price">
-                                        <p class="price-product price-product--old">275.000 đ</p>
-                                        <p class="price-product price-product--current">250.000 đ</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3">
-                            <div class="wrapper-card-product">
-                                <div class="card-product-top">
-                                    <a href="#">
-                                        <img src="Publics/Images/Product/13262_tinh-dau-tho-ngay.jpg" />
-                                    </a>
-                                </div>
-                                <div class="card-product-bottom">
-                                    <a href="#">Tình đầu thơ ngây</a>
-                                    <div class="card-product-price">
-                                        <p class="price-product price-product--old">275.000 đ</p>
-                                        <p class="price-product price-product--current">250.000 đ</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3">
-                            <div class="wrapper-card-product">
-                                <div class="card-product-top">
-                                    <a href="#">
-                                        <img src="Publics/Images/Product/13262_tinh-dau-tho-ngay.jpg" />
-                                    </a>
-                                </div>
-                                <div class="card-product-bottom">
-                                    <a href="#">Tình đầu thơ ngây</a>
-                                    <div class="card-product-price">
-                                        <p class="price-product price-product--old">275.000 đ</p>
-                                        <p class="price-product price-product--current">250.000 đ</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3">
-                            <div class="wrapper-card-product">
-                                <div class="card-product-top">
-                                    <a href="#">
-                                        <img src="Publics/Images/Product/13262_tinh-dau-tho-ngay.jpg" />
-                                    </a>
-                                </div>
-                                <div class="card-product-bottom">
-                                    <a href="#">Tình đầu thơ ngây</a>
-                                    <div class="card-product-price">
-                                        <p class="price-product price-product--old">275.000 đ</p>
-                                        <p class="price-product price-product--current">250.000 đ</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3">
-                            <div class="wrapper-card-product">
-                                <div class="card-product-top">
-                                    <a href="#">
-                                        <img src="Publics/Images/Product/13262_tinh-dau-tho-ngay.jpg" />
-                                    </a>
-                                </div>
-                                <div class="card-product-bottom">
-                                    <a href="#">Tình đầu thơ ngây</a>
-                                    <div class="card-product-price">
-                                        <p class="price-product price-product--old">275.000 đ</p>
-                                        <p class="price-product price-product--current">250.000 đ</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3">
-                            <div class="wrapper-card-product">
-                                <div class="card-product-top">
-                                    <a href="#">
-                                        <img src="Publics/Images/Product/13262_tinh-dau-tho-ngay.jpg" />
-                                    </a>
-                                </div>
-                                <div class="card-product-bottom">
-                                    <a href="#">Tình đầu thơ ngây</a>
-                                    <div class="card-product-price">
-                                        <p class="price-product price-product--old">275.000 đ</p>
-                                        <p class="price-product price-product--current">250.000 đ</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3">
-                            <div class="wrapper-card-product">
-                                <div class="card-product-top">
-                                    <a href="#">
-                                        <img src="Publics/Images/Product/13262_tinh-dau-tho-ngay.jpg" />
-                                    </a>
-                                </div>
-                                <div class="card-product-bottom">
-                                    <a href="#">Tình đầu thơ ngây</a>
-                                    <div class="card-product-price">
-                                        <p class="price-product price-product--old">275.000 đ</p>
-                                        <p class="price-product price-product--current">250.000 đ</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                            </ItemTemplate>
+                        </asp:Repeater>
                     </div>
                 </div>
             </div>
