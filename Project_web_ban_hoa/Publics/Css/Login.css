@@ -6,6 +6,9 @@
     align-items: center;
     min-height: 100vh;
     --primary-color: #ff9800;
+    background: url("../Images/Login/profile-background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .wrapper-form {

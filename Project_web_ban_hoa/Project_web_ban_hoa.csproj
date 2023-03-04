@@ -90,6 +90,7 @@
     <Content Include="Publics\Css\Topic.css" />
     <Content Include="Publics\Images\404\404.gif" />
     <Content Include="Publics\Images\Admin\dropdown-arrow-457731.png" />
+    <Content Include="Publics\Images\Login\profile-background.jpg" />
     <Content Include="Publics\Images\Admin\user-icon.png" />
     <Content Include="Publics\Images\logo-hoa-yeu-thuong.png" />
     <Content Include="Publics\Images\Product\10258_white-roses.jpg" />
@@ -111,6 +112,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Data\Database\Auth.cs" />
     <Compile Include="NotFound.aspx.cs">
       <DependentUpon>NotFound.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

@@ -8,17 +8,13 @@
             <asp:ListItem Text="Tất cả" Value="0" />
         </asp:DropDownList>
     </div>
-    <div class="wrapper-control-search">
-        <asp:TextBox runat="server" CssClass="wrapper-control-search__search" placeholder="Nhập từ khóa tìm kiếm" />
-        <asp:Button Text="Tìm kiếm" CssClass="wrapper-control-search__btn-search" runat="server" />
-    </div>
 </div>
 
 
 
 <div class="wrapper-view-category">
     <div class="row">
-        <asp:Repeater ID="rptViewProduct" runat="server">
+        <asp:Repeater ID="rptViewProduct" runat="server" OnItemCommand="rptViewProduct_ItemCommand">
             <ItemTemplate>
                 <div class="col-lg-4">
                     <div class="wrapper-card-view-category">

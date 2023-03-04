@@ -7,7 +7,13 @@
     <title>Login</title>
     <link href="Publics/Css/Reset.css" rel="stylesheet" />
     <link href="Publics/Css/Login.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="Publics/Js/Admin.js"></script>
 </head>
+
+
 <body>
     <section class="section-login">
         <div class="wrapper-form">
@@ -39,9 +45,11 @@
                     <asp:HyperLink NavigateUrl="#" Text="Đăng ký" runat="server" />
                 </div>
 
-                <asp:Button Text="Login" CssClass="form-login__btn-submit" runat="server" />
+                <asp:Button Text="Login" CssClass="form-login__btn-submit" runat="server" ID="btnLogin"
+                    OnClick="btnLogin_Click" />
             </form>
         </div>
     </section>
+
 </body>
 </html>

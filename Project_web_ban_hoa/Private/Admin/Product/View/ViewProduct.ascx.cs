@@ -1,5 +1,8 @@
-﻿using System;
+﻿using Project_web_ban_hoa.Models.Component;
+using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 using System.Linq;
 using System.Web;
@@ -19,10 +22,10 @@ namespace Project_web_ban_hoa.Private.Admin.Product.View
         [Obsolete]
         protected void Page_Load(object sender, EventArgs e)
         {
+            BindingProductList(Project_web_ban_hoa.Product.GetAllProdcts(), rptViewProduct);
+
             if (!Page.IsPostBack)
             {
-                BindingProductList(Project_web_ban_hoa.Product.GetAllProdcts(), rptViewProduct);
-
                 DataTable categoriesTable = Project_web_ban_hoa.Category.GetAllCategories();
 
                 foreach (DataRow categoryRow in categoriesTable.Rows)
@@ -60,6 +63,44 @@ namespace Project_web_ban_hoa.Private.Admin.Product.View
             else
             {
                 BindingProductList(Project_web_ban_hoa.Product.GetProductWithCategoryId(idCategory), rptViewProduct);
+            }
+        }
+
+        protected void rptViewProduct_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+            Image imgThumbnail = e.Item.FindControl("imgThumbnail") as Image;
+            string[] arrNameThumbnail = imgThumbnail.ImageUrl.Split('/');
+            switch (e.CommandName)
+            {
+                case "delete":
+                    {
+                        string script;
+                        int idProduct = Convert.ToInt32(e.CommandArgument);
+                        int n = Project_web_ban_hoa.Product.DeleteProduct(idProduct);
+                        if (n > 0)
+                        {
+                            Components.DeleteThumbnailOnSystem(arrNameThumbnail, Server);
+                            IList dataSource = ((IListSource)rptViewProduct.DataSource)?.GetList();
+                            if (dataSource != null && e.Item.ItemIndex < dataSource.Count)
+                            {
+                                dataSource.RemoveAt(e.Item.ItemIndex);
+                                rptViewProduct.DataBind();
+                            }
+                            script = "showToast('Xóa thành công', 3000, 'right', 'green')";
+                        }
+                        else
+                        {
+                            script = "showToast('Xóa không thành công vui lòng kiểm tra lại', 3000, 'right', 'red')";
+                        }
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "ShowToast", script, true);
+                        break;
+                    }
+                case "update":
+                    {
+                        break;
+                    }
+                default:
+                    break;
             }
         }
     }

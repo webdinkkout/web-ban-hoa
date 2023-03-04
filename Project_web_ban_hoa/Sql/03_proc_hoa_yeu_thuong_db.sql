@@ -128,7 +128,7 @@ CREATE proc proc_delete_product
 	@id int
 as
 BEGIN
-        IF NOT EXISTS (SELECT * FROM dbo.Products WHERE Id = @id)
+        IF EXISTS (SELECT * FROM dbo.Products WHERE Id = @id)
 	        DELETE from dbo.Products where Id = @id
 end
 GO
