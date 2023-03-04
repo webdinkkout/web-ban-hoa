@@ -33,6 +33,20 @@ namespace Project_web_ban_hoa.Private.Admin.Product.View
                     ddlCategory.Items.Add(listItem);
                 }
             }
+
+            if ((Session["showToastMessage"] != null && Session["showToastDuration"] != null && Session["showToastPosition"] != null) || Session["showToastBackColor"] != null)
+            {
+                string message = Session["showToastMessage"].ToString();
+                int duration = int.Parse(Session["showToastDuration"].ToString());
+                string position = Session["showToastPosition"].ToString();
+                string backColor = Session["showToastBackColor"] != null ? Session["showToastBackColor"].ToString() : "green";
+                string script = "showToast('" + message + "', " + duration + ", '" + position + "', '" + backColor + "')";
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "ShowToast", script, true);
+                Session.Remove("showToastMessage");
+                Session.Remove("showToastDuration");
+                Session.Remove("showToastPosition");
+                Session.Remove("showToastBackColor");
+            }
         }
 
         [Obsolete]

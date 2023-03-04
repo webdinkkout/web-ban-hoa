@@ -178,14 +178,13 @@ BEGIN
 END
 GO	
 
-CREATE PROC proc_insert_product
+ALTER PROC proc_insert_product
 @name NVARCHAR(50),
 @seo_name NVARCHAR(50),
 @desc NVARCHAR(MAX),
 @old_price FLOAT,
-@current_count FLOAT,
+@current_price FLOAT,
 @quantity INT,
-@sold INT,
 @thumbnail NVARCHAR(255),
 @category_id INT
 AS
@@ -199,7 +198,6 @@ BEGIN
 		    Old_Price,
 		    Current_Price,
 		    Quantity,
-		    Sold,
 		    Thumbnail,
 		    Category_Id
 		)
@@ -209,9 +207,8 @@ BEGIN
 		    @desc,     -- Description - nvarchar(500)
 		    DEFAULT, -- View_Count - int
 		    @old_price,    -- Old_Price - decimal(12, 2)
-		    @current_count,    -- Current_Price - decimal(12, 2)
+		    @current_price,    -- Current_Price - decimal(12, 2)
 		    @quantity, -- Quantity - int
-		    @sold, -- Sold - int
 		    @thumbnail,     -- Thumbnail - nvarchar(255)
 		    @category_id       -- Category_Id - int
 		    )

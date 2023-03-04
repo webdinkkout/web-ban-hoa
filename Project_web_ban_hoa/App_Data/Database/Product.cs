@@ -76,6 +76,20 @@ namespace Project_web_ban_hoa
             return SqlDatabase.GetData(cmd);
         }
 
+        public static int CreateProduct(string name, string seoName, string desc, double? oldPrice, double? currentPrice, int? quantity, string thumbnail, int? categoryId)
+        {
+            SqlCommand cmd = CreateCMD("proc_insert_product");
+            cmd.Parameters.AddWithValue("@name", name);
+            cmd.Parameters.AddWithValue("@seo_name", seoName);
+            cmd.Parameters.AddWithValue("@desc", desc);
+            cmd.Parameters.AddWithValue("@old_price", oldPrice);
+            cmd.Parameters.AddWithValue("@current_price", currentPrice);
+            cmd.Parameters.AddWithValue("@quantity", quantity);
+            cmd.Parameters.AddWithValue("@thumbnail", thumbnail);
+            cmd.Parameters.AddWithValue("@category_id", categoryId);
+            return SqlDatabase.ExecuteNoneQuery(cmd);
+        }
+
         [System.Obsolete]
         public static int UpdateProduct(int productId, string name, string seoName, string desc, int? viewCount, double? oldPrice, double? currentPrice, int? quantity, int? sold, string thumbnail, int? categoryId)
         {

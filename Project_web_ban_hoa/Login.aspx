@@ -13,18 +13,27 @@
         <div class="wrapper-form">
             <form id="form1" class="form-login" runat="server">
                 <h2>Đăng nhập</h2>
-                <div class="form-login-wrapper-controls">
-                    <asp:TextBox runat="server" ID="txtGmail" CssClass="form-login-wrapper-controls__control"
-                        required="required" />
-                    <span>Gmail</span>
-                    <i></i>
+                <div class="form-group-login">
+                    <div class="form-login-wrapper-controls">
+                        <asp:TextBox runat="server" ID="txtGmail" CssClass="form-login-wrapper-controls__control"
+                            required="required" />
+                        <span>Gmail</span>
+                        <i></i>
+                    </div>
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" CssClass="form-err-msg"
+                        runat="server" ErrorMessage="Trường này phải là email" Display="Dynamic" ControlToValidate="txtGmail"
+                        ForeColor="Red" Font-Size="Small" ValidationExpression="^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$"></asp:RegularExpressionValidator>
                 </div>
-                <div class="form-login-wrapper-controls">
-                    <asp:TextBox runat="server" TextMode="Password" ID="txtPassword" CssClass="form-login-wrapper-controls__control"
-                        required="required" />
-                    <span>Mật khẩu</span>
-                    <i></i>
+                <div class="form-group-login">
+                    <div class="form-login-wrapper-controls">
+                        <asp:TextBox runat="server" TextMode="Password" ID="txtPassword" CssClass="form-login-wrapper-controls__control"
+                            required="required" />
+                        <span>Mật khẩu</span>
+                        <i></i>
+                    </div>
+
                 </div>
+
                 <div class="form-login-links">
                     <asp:HyperLink NavigateUrl="#" Text="Quên mật khẩu ?" runat="server" />
                     <asp:HyperLink NavigateUrl="#" Text="Đăng ký" runat="server" />

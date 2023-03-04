@@ -31,26 +31,22 @@
                 </div>
 
                 <div class="wrapper-control-admin-control-group">
-                    <asp:Label Text="Giá tiền (*)" runat="server" AssociatedControlID="txtOldPrice" CssClass="wrapper-control-admin-control-group__label" />
-                    <asp:TextBox runat="server" ID="txtOldPrice" placeholder="Vui lòng nhập tên sản phẩm"
+                    <asp:Label Text="Giá tiền cũ (giá tiền trước khuyến mãi)" runat="server" AssociatedControlID="txtOldPrice"
+                        CssClass="wrapper-control-admin-control-group__label" />
+                    <asp:TextBox runat="server" ID="txtOldPrice" TextMode="Number" placeholder="Vui lòng nhập tên sản phẩm"
                         CssClass="wrapper-control-admin-control-group__control" />
-                    <asp:RequiredFieldValidator
-                        ID="RequiredFieldValidator2" CssClass="wrapper-control-admin-control-group__err-msg"
-                        runat="server" ErrorMessage="Vui lòng nhập trường này"
-                        ControlToValidate="txtOldPrice" ViewStateMode="Inherit"
-                        Display="Dynamic"></asp:RequiredFieldValidator>
                     <asp:RegularExpressionValidator ID="RegularExpressionValidator1"
                         CssClass="wrapper-control-admin-control-group__err-msg"
                         ControlToValidate="txtOldPrice"
                         Display="Dynamic"
                         runat="server"
                         ErrorMessage="Trường này phải là số và lớn hơn 0"
-                        ValidationExpression="^[1-9]{0,10}$"></asp:RegularExpressionValidator>
+                        ValidationExpression="\d+"></asp:RegularExpressionValidator>
                 </div>
                 <div class="wrapper-control-admin-control-group">
-                    <asp:Label Text="Giá tiền khuyến mãi (nếu có)" runat="server" AssociatedControlID="txtCurrentPrice"
+                    <asp:Label Text="Giá tiền mới (giá tiền hiện tại)" runat="server" AssociatedControlID="txtCurrentPrice"
                         CssClass="wrapper-control-admin-control-group__label" />
-                    <asp:TextBox runat="server" ID="txtCurrentPrice" placeholder="Vui lòng nhập tên sản phẩm"
+                    <asp:TextBox runat="server" ID="txtCurrentPrice" TextMode="Number" placeholder="Vui lòng nhập tên sản phẩm"
                         CssClass="wrapper-control-admin-control-group__control" />
                     <asp:RequiredFieldValidator
                         ID="RequiredFieldValidator3" CssClass="wrapper-control-admin-control-group__err-msg"
@@ -63,12 +59,12 @@
                         Display="Dynamic"
                         runat="server"
                         ErrorMessage="Trường này phải là số và lớn hơn 0"
-                        ValidationExpression="^[1-9]{0,10}$"></asp:RegularExpressionValidator>
+                        ValidationExpression="\d+"></asp:RegularExpressionValidator>
                 </div>
                 <div class="wrapper-control-admin-control-group">
                     <asp:Label Text="Số lượng (*)" runat="server" AssociatedControlID="txtQuantiry"
                         CssClass="wrapper-control-admin-control-group__label" />
-                    <asp:TextBox runat="server" ID="txtQuantiry" placeholder="Vui lòng nhập tên sản phẩm"
+                    <asp:TextBox runat="server" TextMode="Number" ID="txtQuantiry" placeholder="Vui lòng nhập tên sản phẩm"
                         CssClass="wrapper-control-admin-control-group__control" />
                     <asp:RequiredFieldValidator
                         ID="RequiredFieldValidator4" CssClass="wrapper-control-admin-control-group__err-msg"
@@ -81,7 +77,7 @@
                         Display="Dynamic"
                         runat="server"
                         ErrorMessage="Trường này phải là số và lớn hơn 0"
-                        ValidationExpression="^[1-9]{0,10}$"></asp:RegularExpressionValidator>
+                        ValidationExpression="\d+"></asp:RegularExpressionValidator>
                 </div>
                 <div class="wrapper-control-admin-control-group">
                     <asp:Label Text="Ảnh sản phẩm (*)" runat="server" AssociatedControlID="fulThumbnail"
@@ -95,7 +91,8 @@
                         Display="Dynamic"></asp:RequiredFieldValidator>
                 </div>
 
-                <asp:Button Text="Tạo" CssClass="btn btn-success wrapper-control-admin__btn" runat="server" />
+                <asp:Button Text="Tạo" ID="btnCreateProduct" CssClass="btn btn-success wrapper-control-admin__btn"
+                    runat="server" OnClick="btnCreateProduct_Click" />
             </div>
         </div>
         <div class="col-lg-6">
@@ -106,22 +103,26 @@
                         <img src="../../../../Publics/Uploads/Category/97177053-93eb-478b-8f83-30d8a5125b59-icon-hoa-tinh-yeu.png" />
                     </div>
                     <div class="wrapper-card-product-admin-top-content">
-                        <h2 data-name="name"></h2>
+                        <h2 data-name="name">Tên sản phẩm</h2>
                         <div class="wrapper-card-product-admin-top-content-top">
                             <div class="wrapper-card-product-admin-top-content-wrapper-price">
                                 <span class="wrapper-card-product-admin-top-content-wrapper-price__price wrapper-card-product-admin-top-content-wrapper-price__price--old">
-                                    25000 đ
                                 </span>
                                 <span class="wrapper-card-product-admin-top-content-wrapper-price__price wrapper-card-product-admin-top-content-wrapper-price__price--current">
-                                    3000 đ
+                                    0 đ
                                 </span>
                             </div>
                             <span class="wrapper-card-product-admin-top-content__sub-title">Đã bao gồm thuế VAT
                                 10%</span>
                         </div>
                         <div class="wrapper-card-product-admin-top-content-quantity">
-                            <span class="wrapper-card-product-admin-top-content-quantity__quantity">Số lượng: 12000</span>
-                            <span class="wrapper-card-product-admin-top-content-quantity__sold">Đã bán: 0</span>
+                            <div>
+                                <span>Số Lượng :</span><span class="wrapper-card-product-admin-top-content-quantity__quantity">0</span>
+                            </div>
+                            <div>
+                                <span>Đã bán :</span><span class="wrapper-card-product-admin-top-content-quantity__sold">
+                                    0</span>
+                            </div>
                         </div>
 
                     </div>
@@ -129,6 +130,7 @@
                 <div class="wrapper-card-product-admin-bot">
                     <p class="wrapper-card-product-admin-bot__title">Mô tả : </p>
                     <p class="wrapper-card-product-admin-bot__desc">
+                        Mô tả sản phẩm
                     </p>
                 </div>
             </div>
@@ -138,12 +140,44 @@
 
 <script>
     const inputNameElement = document.querySelectorAll(".wrapper-control-admin-control-group__control");
+    const uploadFile = document.querySelector("input[type='file']");
+
     const h2NamePreviewElement = document.querySelector("h2[data-name=name]");
     const descElement = document.querySelector(".wrapper-card-product-admin-bot__desc");
+    const oldPriceElement = document.querySelector(".wrapper-card-product-admin-top-content-wrapper-price__price.wrapper-card-product-admin-top-content-wrapper-price__price--old")
+    const currentPriceElement = document.querySelector(".wrapper-card-product-admin-top-content-wrapper-price__price.wrapper-card-product-admin-top-content-wrapper-price__price--current")
+    const quantityElement = document.querySelector(".wrapper-card-product-admin-top-content-quantity__quantity");
+    const imagePreview = document.querySelector(".wrapper-card-product-admin-top-wrapper-img > img");
+
+    const validImageTypes = ['image/gif', 'image/jpeg', 'image/png'];
 
     inputNameElement[0].addEventListener("input", (e) => {
         h2NamePreviewElement.innerHTML = e.target.value;
     })
 
+    inputNameElement[1].addEventListener("input", (e) => {
+        const formattedUserInput = e.target.value.replace(/\n/g, '<br />');
+        descElement.innerHTML = formattedUserInput;
+    })
+
+    inputNameElement[2].addEventListener("input", (e) => {
+        oldPriceElement.innerHTML = e.target.value + " đ";
+        if (e.target.value <= 0) {
+            oldPriceElement.style.display = "none";
+        } else {
+            oldPriceElement.style.display = "block";
+
+        }
+    })
+    inputNameElement[3].addEventListener("input", (e) => {
+        currentPriceElement.innerHTML = e.target.value + " đ";
+    })
+    inputNameElement[4].addEventListener("input", (e) => {
+        quantityElement.innerHTML = e.target.value;
+    })
+
+    uploadFile.addEventListener('change', function (e) {
+        imagePreview.src = window.URL.createObjectURL(this.files[0])
+    })
 
 </script>
