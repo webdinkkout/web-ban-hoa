@@ -20,22 +20,24 @@
             </div>
             <div class="col-lg-9">
                 <div class="content">
-                    <a href="#">HOA SINH NHẬT</a>
+                    <h2>
+                        <a href="#">HOA SINH NHẬT</a>
+                    </h2>
                     <div class="row">
                         <asp:Repeater ID="rptRenderCard" runat="server">
                             <ItemTemplate>
                                 <div class="col-lg-3">
-                                    <div class="wrapper-card-product">
-                                        <div class="card-product-top">
+                                    <div class="content-wrapper-card-product">
+                                        <div class="content-wrapper-card-product-card-product-top">
                                             <a href="#">
                                                 <img src='<%# Eval("Thumbnail") %>' />
                                             </a>
                                         </div>
-                                        <div class="card-product-bottom">
-                                            <a href="#"><%# Eval("Name") %> </a>
-                                            <div class="card-product-price">
-                                                <p class="price-product price-product--old"><%# Eval("Old_Price") %></p>
-                                                <p class="price-product price-product--current"><%# Eval("Current_Price") %></p>
+                                        <div class="content-wrapper-card-product-card-product-bottom">
+                                            <a class="content-wrapper-card-product-card-product-bottom__link" href="#"><%# Eval("Name") %> </a>
+                                            <div class="content-wrapper-card-product-card-product-price">
+                                                <p class="content-wrapper-card-product-card-product-price__price-product wrapper-card-product-card-product-price__price-product--old"><%# Eval("Old_Price") %></p>
+                                                <p class="content-wrapper-card-product-card-product-price__price-product wrapper-card-product-card-product-price__price-product--current"><%# Eval("Current_Price") %></p>
                                             </div>
                                         </div>
                                     </div>

@@ -10,11 +10,17 @@ namespace Project_web_ban_hoa
 {
     public partial class Topic : System.Web.UI.Page
     {
+        [Obsolete]
         protected void Page_Load(object sender, EventArgs e)
         {
-            DataTable productsTable = Project_web_ban_hoa.Product.GetAllProdcts();
-            rptRenderCard.DataSource = productsTable;
-            rptRenderCard.DataBind();
+
+            if (!IsPostBack)
+            {
+                DataTable productsTable = Project_web_ban_hoa.Product.GetAllProdcts();
+                rptRenderCard.DataSource = productsTable;
+                rptRenderCard.DataBind();
+            }
+
         }
     }
 }
