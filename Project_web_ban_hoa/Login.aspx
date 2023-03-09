@@ -12,8 +12,6 @@
     <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="Publics/Js/Admin.js"></script>
 </head>
-hehehe
-
 <body>
     <section class="section-login">
         <div class="wrapper-form">
