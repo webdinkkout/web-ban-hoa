@@ -59,10 +59,20 @@ namespace Project_web_ban_hoa.Private.Admin.Product.View
             if (idCategory <= 0)
             {
                 BindingProductList(Project_web_ban_hoa.Product.GetAllProdcts(), rptViewProduct);
+                lbl404.Text = "";
             }
             else
             {
                 BindingProductList(Project_web_ban_hoa.Product.GetProductWithCategoryId(idCategory), rptViewProduct);
+                IList dataSource = ((IListSource)rptViewProduct.DataSource)?.GetList();
+                if (dataSource.Count <= 0)
+                {
+                    lbl404.Text = "Danh sách rỗng";
+                }
+                else
+                {
+                    lbl404.Text = "";
+                }
             }
         }
 

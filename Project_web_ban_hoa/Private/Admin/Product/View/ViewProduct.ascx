@@ -11,8 +11,9 @@
 </div>
 
 
-
 <div class="wrapper-view-category">
+    <asp:Label Text="" ID="lbl404" CssClass="wrapper-view-category__info" runat="server" />
+
     <div class="row">
         <asp:Repeater ID="rptViewProduct" runat="server" OnItemCommand="rptViewProduct_ItemCommand">
             <ItemTemplate>

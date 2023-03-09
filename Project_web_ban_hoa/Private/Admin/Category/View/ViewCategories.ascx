@@ -8,7 +8,6 @@
         <asp:Repeater ID="rptViewCategories" runat="server"
             OnItemCommand="rptViewCategories_ItemCommand">
             <ItemTemplate>
-
                 <div class="col-lg-4">
                     <div class="wrapper-card-view-category">
                         <div class="wrapper-card-view-category-heading">

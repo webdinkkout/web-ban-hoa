@@ -77,6 +77,7 @@
 /*=== CATEGORY CREATE ===*/
 
 .wrapper-create-category {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -85,6 +86,16 @@
     margin-top: 30px;
     border: 1px dashed var(--primary-color);
     padding: 10px 0;
+}
+
+.wrapper-view-category__info {
+    position: absolute;
+    top: 40%;
+    left: 60%;
+    transform: translate(-50%,-50%);
+    color: #ccc;
+    font-size: 2.4rem;
+    user-select: none;
 }
 
 .wrapper-create-category__title {
