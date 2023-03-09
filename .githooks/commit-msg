@@ -1,0 +1,8 @@
+#!/bin/sh
+
+commit_msg=$(cat "$1")
+
+if ! grep -qE '^(update|fix|add): [A-Z].{9,}$' <<< "$commit_msg"; then
+  echo >&2 "ERROR: Commit message must start with 'update:', 'fix:', or 'add:', followed by a space, a capital letter, and be at least 10 characters long."
+  exit 1
+fi
