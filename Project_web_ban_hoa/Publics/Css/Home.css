@@ -1,16 +1,26 @@
-﻿#footer{
-    background-color:#b8b8b8;
-    font-size:14px;
-}
-.title .greeting .title-address {
-    color: #bd2026;
-    
-}
-.title-address > a {
-    color:#bd2026;
-}
-.title .wrapper-info-ft{
-    display:flex;
-    flex-direction:column;
+﻿header {
+    background: #ff9800;
+    min-height: 30px;
 }
 
+.header__wrapper {
+    display: flex;
+}
+
+.header__wrapper__menu--ctl {
+    color: #f1f1f1;
+    display: inline-block;
+    width: 120px;
+    height: 40px;
+    line-height: 40px;
+    margin-left: -5px;
+}
+
+header__mh30 {
+    width: 100%;
+}
+
+footer {
+    background-color: #ebebeb;
+    font-size: 14px;
+}
