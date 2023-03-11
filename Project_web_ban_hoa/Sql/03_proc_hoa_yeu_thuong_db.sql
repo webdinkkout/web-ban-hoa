@@ -178,7 +178,7 @@ BEGIN
 END
 GO	
 
-ALTER PROC proc_insert_product
+CREATE PROC proc_insert_product
 @name NVARCHAR(50),
 @seo_name NVARCHAR(50),
 @desc NVARCHAR(MAX),
