@@ -44,7 +44,7 @@ namespace Project_web_ban_hoa.Private.Admin.Product
                     }
                 case "update-product":
                     {
-                        plhProductControl.Controls.Add(LoadControl("Update/UpdateCategory.ascx"));
+                        plhProductControl.Controls.Add(LoadControl("Update/UpdateProduct.ascx"));
                         break;
                     }
                 default:

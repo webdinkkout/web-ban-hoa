@@ -15,17 +15,15 @@ namespace Project_web_ban_hoa.Private.Admin.Category.View
 
     public partial class ViewCategories : System.Web.UI.UserControl
     {
+
         [Obsolete]
         protected void Page_Load(object sender, EventArgs e)
         {
 
             DataTable categoriesTable = Project_web_ban_hoa.Category.GetAllCategories();
 
-            if (categoriesTable.Rows.Count > 0)
-            {
-                rptViewCategories.DataSource = categoriesTable;
-                rptViewCategories.DataBind();
-            }
+            rptViewCategories.DataSource = categoriesTable;
+            rptViewCategories.DataBind();
 
             // kiểm tra: xem có thông báo không nếu có thì thông báo
             if ((Session["showToastMessage"] != null && Session["showToastDuration"] != null && Session["showToastPosition"] != null) || Session["showToastBackColor"] != null)
@@ -50,21 +48,27 @@ namespace Project_web_ban_hoa.Private.Admin.Category.View
             string[] arrNameThumbnail = imgThumbnail.ImageUrl.Split('/');
             switch (e.CommandName)
             {
-
                 case "delete":
                     {
-                        Components.DeleteThumbnailOnSystem(arrNameThumbnail, Server);
+                        string script;
                         int idCategory = Convert.ToInt32(e.CommandArgument);
-                        Project_web_ban_hoa.Category.DeleteCategory(idCategory);
-                        ((IListSource)rptViewCategories.DataSource).GetList().RemoveAt(e.Item.ItemIndex);
-                        rptViewCategories.DataBind();
-                        string script = "showToast('Xóa thành công', 3000, 'right', 'green')";
+                        int n = Project_web_ban_hoa.Category.DeleteCategory(idCategory);
+                        if (n > 0)
+                        {
+                            Components.DeleteThumbnailOnSystem(arrNameThumbnail, Server);
+                            ((IListSource)rptViewCategories.DataSource).GetList().RemoveAt(e.Item.ItemIndex);
+                            rptViewCategories.DataBind();
+                            script = "showToast('Xóa thành công', 3000, 'right', 'green')";
+                        }
+                        else
+                        {
+                            script = "showToast('Xóa không thành công vui lòng kiểm tra lại', 3000, 'right', 'red')";
+                        }
                         ScriptManager.RegisterStartupScript(this, this.GetType(), "ShowToast", script, true);
                         break;
                     }
                 case "update":
                     {
-
                         Response.Redirect($"Admin.aspx?modul=category&sub-modul=update-category&id-category={Convert.ToInt32(e.CommandArgument)}");
                         break;
                     }

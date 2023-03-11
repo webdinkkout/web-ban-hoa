@@ -31,17 +31,16 @@ namespace Project_web_ban_hoa.Private.Admin.Category.Create
                 {
                     string name = txtName.Text;
                     string seoName = Components.ConvertToUnSign(name).Replace(" ", "-");
-                    string thumbnail;
 
                     string fileName = Path.GetFileName(file.FileName).Replace(" ", "-");
                     string saveFileName = Guid.NewGuid().ToString() + "-" + Components.ConvertToUnSign(fileName);
                     string savePath = Server.MapPath("~/Publics/Uploads/Category/" + saveFileName);
-                    thumbnail = ConfigurationManager.AppSettings["UrlEnv"] + $"/Publics/Uploads/Category/{saveFileName}";
-                    file.SaveAs(savePath);
+                    string thumbnail = ConfigurationManager.AppSettings["UrlEnv"] + $"/Publics/Uploads/Category/{saveFileName}";
 
                     int n = Project_web_ban_hoa.Category.InsertCategory(name, seoName, thumbnail);
                     if (n > 0)
                     {
+                        file.SaveAs(savePath);
                         Session["showToastMessage"] = "Tạo sản phẩm thành công";
                         Session["showToastDuration"] = 3000;
                         Session["showToastPosition"] = "right";
