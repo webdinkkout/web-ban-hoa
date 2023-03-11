@@ -19,69 +19,49 @@
 <body>
     <form id="form1" runat="server">
         <header class="header">
-            <div class="container">
-                <div class="row">
-                    <div class="header__mh30">
-                        <p>Nơi sinh sống:</p>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="row">
-                            <div class="col-lg-3">
-                                <a href="#">
-                                    <img src="../Publics/Images/Home/logo1.png" alt="Alternate Text" />
-                                    Điện hoa
-                                </a>
-                            </div>
-                            <div class="col-lg-3">
-                                <a href="#">
-                                    <img src="../Publics/Images/Home/logo2.png" alt="Alternate Text" />
-                                    Hoa cắt cành
-                                </a>
-                            </div>
-                            <div class="col-lg-3">
-                                <a href="#">
-                                    <img src="../Publics/Images/Home/logo3.png" alt="Alternate Text" />
-                                    Cây xanh
-                                </a>
-                            </div>
-                            <div class="col-lg-3">
-                                <a href="#">
-                                    <img src="../Publics/Images/Home/logo4.png" alt="Alternate Text" />
-                                    Only Rose
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+            <div class="header__mh30">
+                <div class="container">
+                    <p>Nơi sinh sống:</p>
 
-                    <div class="col-lg-6">
-                        <div class="row">
-                            <div class="col-lg-3">
-                                <a href="#">
-                                    <img src="../Publics/Images/Home/logo5.png" alt="Alternate Text" />
-                                    Hoa tết
-                                </a>
-                            </div>
-                            <div class="col-lg-3">
-                                <a href="#">
-                                    <img src="../Publics/Images/Home/logo6.png" alt="Alternate Text" />
-                                    Lan hồ điệp
-                                </a>
-                            </div>
-                            <div class="col-lg-3">
-                                <a href="#">
-                                    <img src="../Publics/Images/Home/logo7.png" alt="Alternate Text" />
-                                    Quà tặng gấu bông
-                                </a>
-                            </div>
-                            <div class="col-lg-3">
-                                <a href="#">
-                                    <img src="../Publics/Images/Home/logo8.png" alt="Alternate Text" />
-                                    Quà tặng khác
-                                </a>
-                            </div>
-                        </div>
-                    </div>
                 </div>
+
+            </div>
+            <div class="container">
+                <div class="header-wrapper-menu-address">
+                    <a href="#">
+                        <img src="../Publics/Images/Home/logo1.png" alt="Alternate Text" />
+                        Điện hoa
+                    </a>
+                    <a href="#">
+                        <img src="../Publics/Images/Home/logo2.png" alt="Alternate Text" />
+                        Hoa cắt cành    
+                    </a>
+                    <a href="#">
+                        <img src="../Publics/Images/Home/logo3.png" alt="Alternate Text" />
+                        Cây xanh
+                    </a>
+                    <a href="#">
+                        <img src="../Publics/Images/Home/logo4.png" alt="Alternate Text" />
+                        Only Rose
+                    </a>
+                    <a href="#">
+                        <img src="../Publics/Images/Home/logo5.png" alt="Alternate Text" />
+                        Hoa tết
+                    </a>
+                    <a href="#">
+                        <img src="../Publics/Images/Home/logo6.png" alt="Alternate Text" />
+                        Lan hồ điệp
+                    </a>
+                    <a href="#">
+                        <img src="../Publics/Images/Home/logo7.png" alt="Alternate Text" />
+                        Quà tặng gấu bông
+                    </a>
+                    <a href="#">
+                        <img src="../Publics/Images/Home/logo8.png" alt="Alternate Text" />
+                        Quà tặng khác
+                    </a>
+                </div>
+
 
                 <div class="row">
                     <div class="col-lg-4">
@@ -111,22 +91,22 @@
                                 </a>
                             </div>
                             <div class="col-lg-3">
-                                <a href="#">
-                                    <div class="row">
-                                        <div class="col-lg-6">
-                                            <a href="#">
-                                                <img src="../Publics/Images/Home/icon-giohang.png" alt="Alternate Text" />
-                                                <p>Giỏ hàng</p>
-                                            </a>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <a href="#">
-                                                <img src="../Publics/Images/Home/icon-user.png" alt="Alternate Text" />
-                                                <p>Tài khoản</p>
-                                            </a>
-                                        </div>
+
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <a href="#">
+                                            <img src="../Publics/Images/Home/icon-giohang.png" alt="Alternate Text" />
+                                            <p>Giỏ hàng</p>
+                                        </a>
                                     </div>
-                                </a>
+                                    <div class="col-lg-6">
+                                        <a href="#">
+                                            <img src="../Publics/Images/Home/icon-user.png" alt="Alternate Text" />
+                                            <p>Tài khoản</p>
+                                        </a>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -165,7 +145,6 @@
                             <li class="header__wrapper__menu--ctl">
                                 <a href="#">Trang chủ</a>
                             </li>
-
                         </ul>
                     </div>
                 </div>
@@ -355,15 +334,15 @@
                             </a>
                         </p>
                         <h3>KẾT NỐI</h3>
-                        <div>
+                        <div class="footer-wrapper-menu-link">
                             <a href="#">
-                                <img src="../Publics/Images/Home/logofb.png" alt="" />
+                                <img src="../Publics/Images/Home/icon-fb.png" alt="" />
                             </a>
                             <a href="#">
-                                <img src="../Publics/Images/Home/logotw.png" alt="" />
+                                <img src="../Publics/Images/Home/icon-twitter.png" alt="" />
                             </a>
                             <a href="#">
-                                <img src="../Publics/Images/Home/logoytb.png" alt="" />
+                                <img src="../Publics/Images/Home/icon-youtube.png" alt="" />
                             </a>
                         </div>
                     </div>
