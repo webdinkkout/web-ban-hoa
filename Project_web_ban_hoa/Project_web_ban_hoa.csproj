@@ -66,9 +66,11 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="NotFound.aspx" />
     <Content Include="Admin.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Home.aspx" />
+    <Content Include="Login.aspx" />
     <Content Include="Private\Admin\AdminControl.ascx" />
     <Content Include="Private\Admin\Category\CategoryControl.ascx" />
     <Content Include="Private\Admin\Category\Create\CreateCategory.ascx" />
@@ -83,8 +85,13 @@
     <Content Include="Publics\Css\Admin.css" />
     <Content Include="Publics\Css\Library\Bootstrap\bootstrap.min.css" />
     <Content Include="Publics\Css\Home.css" />
+    <Content Include="Publics\Css\Login.css" />
+    <Content Include="Publics\Css\NotFound.css" />
     <Content Include="Publics\Css\Reset.css" />
     <Content Include="Publics\Css\Topic.css" />
+    <Content Include="Publics\Images\404\404.gif" />
+    <Content Include="Publics\Images\Admin\dropdown-arrow-457731.png" />
+    <Content Include="Publics\Images\Login\profile-background.jpg" />
     <Content Include="Publics\Images\Admin\user-icon.png" />
     <Content Include="Publics\Images\Home\icon-giohang.png" />
     <Content Include="Publics\Images\Home\icon-hyt.png" />
@@ -108,21 +115,28 @@
     <Content Include="Publics\Js\Admin.js" />
     <Content Include="Publics\Js\Library\Bootstrap\bootstrap.bundle.min.js" />
     <Content Include="Publics\Js\Main.js" />
+    <Content Include="Publics\Uploads\Category\87846349-da8b-49e4-94b8-5ec2a38e1eac-tai-đep-zai.jpg" />
+    <Content Include="Publics\Uploads\Category\97177053-93eb-478b-8f83-30d8a5125b59-icon-hoa-tinh-yeu.png" />
+    <Content Include="Publics\Uploads\Category\f23ea415-7d6c-47af-8128-8ffa6cebd083-icon-hoa-sinh-nhat.png" />
+    <Content Include="Publics\Uploads\Category\fd5617f9-a77c-436a-8525-51ae574547a1-icon-cay-vp.png" />
     <Content Include="Sql\01_create_database_hoa_yeu_thuong.sql" />
     <Content Include="Sql\02_table_hoa_yeu_thuong_db.sql" />
     <Content Include="Sql\03_proc_hoa_yeu_thuong_db.sql" />
+    <Content Include="Sql\997_drop_proc_hoa_yeu_thuong_db.sql" />
     <Content Include="Sql\998_seed_hoa_yeu_thuong_db.sql" />
     <Content Include="Sql\999_drop_table_hoa_yeu_thuong.sql" />
     <Content Include="Topic.aspx" />
-    <Content Include="Publics\Uploads\Category\4bb801f8-b4a1-4f79-b8b4-8f4deb11b61a-icon-hoa-tang-le.png" />
-    <Content Include="Publics\Uploads\Category\4caba3c4-90de-4328-8b5d-010c7881a300-icon-hoa-tinh-yeu.png" />
-    <Content Include="Publics\Uploads\Category\6938d739-364b-45ee-831c-243bc4a1f662-icon-cay-vp.png" />
-    <Content Include="Publics\Uploads\Category\9079a2d8-0d30-4719-8a85-53072aeb248d-icon-mau-hoa-moi.png" />
-    <Content Include="Publics\Uploads\Category\dc3dec6b-e7d9-4659-a443-5340a80b1043-icon-hoa-chuc-mung.png" />
-    <Content Include="Publics\Uploads\Category\f341615a-9786-4342-8a77-5249ffbdfa91-icon-hoa-sinh-nhat.png" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Data\Database\Auth.cs" />
+    <Compile Include="NotFound.aspx.cs">
+      <DependentUpon>NotFound.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NotFound.aspx.designer.cs">
+      <DependentUpon>NotFound.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin.aspx.cs">
       <DependentUpon>Admin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -153,7 +167,20 @@
     <Compile Include="Layout\Main.Master.designer.cs">
       <DependentUpon>Main.Master</DependentUpon>
     </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CategoryModel.cs" />
     <Compile Include="Models\Component\Components.cs" />
+    <Compile Include="Models\OrderDetail.cs" />
+    <Compile Include="Models\OrderModel.cs" />
+    <Compile Include="Models\ProductModel.cs" />
+    <Compile Include="Models\RoleModel.cs" />
+    <Compile Include="Models\UserModel.cs" />
     <Compile Include="Private\Admin\AdminControl.ascx.cs">
       <DependentUpon>AdminControl.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
