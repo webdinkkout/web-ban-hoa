@@ -2,7 +2,9 @@
     Inherits="Project_web_ban_hoa.Private.Admin.Category.View.ViewCategories" %>
 
 <div class="wrapper-view-category">
+
     <div class="row">
+
         <asp:Repeater ID="rptViewCategories" runat="server"
             OnItemCommand="rptViewCategories_ItemCommand">
             <ItemTemplate>
@@ -25,6 +27,7 @@
                         </div>
                     </div>
                 </div>
+
             </ItemTemplate>
         </asp:Repeater>
     </div>

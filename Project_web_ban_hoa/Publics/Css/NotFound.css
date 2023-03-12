@@ -1,0 +1,35 @@
+﻿.page-404 {
+    padding: 40px 0;
+}
+
+    .page-404 img {
+        width: 100%;
+    }
+
+.four-zero-four-bg {
+    background: url("../Images/404/404.gif");
+    height: 400px;
+    background-position: center;
+}
+
+.title {
+    font-size: 8rem;
+}
+
+.content-box-404 {
+    margin-top: -50px;
+}
+
+.content-box-404__link {
+    color: #fff;
+    padding: 10px 20px;
+    background: #ff6a00;
+    display: inline-block;
+    border-radius: 10px;
+    transition: .2s;
+}
+
+    .content-box-404__link:hover {
+        text-decoration: none;
+        color: #e1e1e1;
+    }

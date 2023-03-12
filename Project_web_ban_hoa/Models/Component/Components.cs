@@ -43,8 +43,11 @@ namespace Project_web_ban_hoa.Models.Component
         /// <param name="server">Đưa server nào cần xóa vào</param>
         public static void DeleteThumbnailOnSystem(string[] array, HttpServerUtility server)
         {
-            string filePath = server.MapPath($"~/Publics/Uploads/Category/{GetLastItem(array)}");
-            File.Delete(filePath);
+            if (array.Length >= 3)
+            {
+                string filePath = server.MapPath($"~/Publics/Uploads/Category/{GetLastItem(array)}");
+                File.Delete(filePath);
+            }
         }
     }
 }
