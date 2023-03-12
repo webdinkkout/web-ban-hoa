@@ -33,3 +33,7 @@ footer {
     width: 38px;
     height: 38px;
 }
+
+.footer-content--center > p {
+    text-align: center;
+}
