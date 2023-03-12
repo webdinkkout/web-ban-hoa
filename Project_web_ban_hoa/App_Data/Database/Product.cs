@@ -26,7 +26,6 @@ namespace Project_web_ban_hoa
         /// <param name="pageNumber">Trang</param>
         /// <param name="pageSize">Số lượng sản phẩm muốn hiển thị trên 1 trang</param>
         /// <returns> Tất cả sản phẩm </returns>
-        [System.Obsolete]
         public static DataTable GetAllProdcts(int pageNumber = 1, int pageSize = 10)
         {
             SqlCommand cmd = CreateCMD("proc_pagination");
@@ -42,7 +41,6 @@ namespace Project_web_ban_hoa
         /// </summary>
         /// <param name="categoryId">Mã danh mục</param>
         /// <returns>tất cả sản phẩm thuộc mã danh mục</returns>
-        [System.Obsolete]
         public static DataTable GetProductWithCategoryId(int categoryId)
         {
             SqlCommand cmd = CreateCMD("proc_get_products_with_category_id");
@@ -55,7 +53,6 @@ namespace Project_web_ban_hoa
         /// </summary>
         /// <param name="productId">Mã sản phẩm</param>
         /// <returns>Số lượng xóa được</returns>
-        [System.Obsolete]
         public static int DeleteProduct(int productId)
         {
             SqlCommand cmd = CreateCMD("proc_delete_product");
@@ -68,14 +65,49 @@ namespace Project_web_ban_hoa
         /// </summary>
         /// <param name="productId">Mã sản phẩm</param>
         /// <returns>Sản phẩm</returns>
-        [System.Obsolete]
-        public static DataTable GetOneProduct(int productId)
+        public static DataTable GetOneProductById(int productId)
         {
-            SqlCommand cmd = CreateCMD("proc_get_one_product");
+            SqlCommand cmd = CreateCMD("proc_get_one_product_by_id");
             cmd.Parameters.AddWithValue("@id", productId);
             return SqlDatabase.GetData(cmd);
         }
 
+        /// <summary>
+        /// Lấy sản phẩm với seo name
+        /// </summary>
+        /// <param name="seoName">Seo name</param>
+        /// <returns>Sản phẩm có seo name bằng với seo name được truyền vào</returns>
+        public static DataTable GetOneProductBySeoName(int seoName)
+        {
+            SqlCommand cmd = CreateCMD("proc_get_one_product_by_seo_name");
+            cmd.Parameters.AddWithValue("@seo_name", seoName);
+            return SqlDatabase.GetData(cmd);
+        }
+
+        /// <summary>
+        /// Lấy sản phẩm với id (trang admin)
+        /// </summary>
+        /// <param name="productId"> Id của sản phẩm </param>
+        /// <returns>trả về sản phẩm của id được truyền vào </returns>
+        public static DataTable GetOneProductByIdAdmin(int productId)
+        {
+            SqlCommand cmd = CreateCMD("proc_get_one_product_by_id_admin");
+            cmd.Parameters.AddWithValue("@id", productId);
+            return SqlDatabase.GetData(cmd);
+        }
+
+        /// <summary>
+        /// Tạo sản phẩm
+        /// </summary>
+        /// <param name="name">Tên sản phẩm</param>
+        /// <param name="seoName"> Tên rút gọn không dấu tiếng việt </param>
+        /// <param name="desc">Mô tả sản phẩm</param>
+        /// <param name="oldPrice">Giá tiền trước khi khuyến mãi - nếu không = 0 </param>
+        /// <param name="currentPrice">Giá tiền sau khi khuyến mãi</param>
+        /// <param name="quantity">Số lượng sản phẩm</param>
+        /// <param name="thumbnail">Ảnh đại diện sản phẩm</param>
+        /// <param name="categoryId">Id danh mục mà sản phẩm thuộc về </param>
+        /// <returns></returns>
         public static int CreateProduct(string name, string seoName, string desc, double? oldPrice, double? currentPrice, int? quantity, string thumbnail, int? categoryId)
         {
             SqlCommand cmd = CreateCMD("proc_insert_product");
@@ -90,7 +122,22 @@ namespace Project_web_ban_hoa
             return SqlDatabase.ExecuteNoneQuery(cmd);
         }
 
-        [System.Obsolete]
+
+        /// <summary>
+        /// Chỉnh sửa sản phẩm
+        /// </summary>
+        /// <param name="productId">Id sản phẩm muốn sửa đổi</param>
+        /// <param name="name"> Tên sản phẩm </param>
+        /// <param name="seoName">Tên rút gọn của sản phẩm tiếng Việt không dấu VD: name-1</param>
+        /// <param name="desc">Mô tả sản phẩm</param>
+        /// <param name="viewCount">Số lượng người xem sản phẩm (mặc định bằng 0)</param>
+        /// <param name="oldPrice">giá tiền khuyến mãi (mặc định bằng không)</param>
+        /// <param name="currentPrice">Giá tiền hiện tại</param>
+        /// <param name="quantity">Số lượng sản phẩm</param>
+        /// <param name="sold">Số lượng sản phẩm đã bán</param>
+        /// <param name="thumbnail">Ảnh đại diện sản phẩm</param>
+        /// <param name="categoryId">Id danh mục mà sản phẩm thuộc về</param>
+        /// <returns></returns>
         public static int UpdateProduct(int productId, string name, string seoName, string desc, int? viewCount, double? oldPrice, double? currentPrice, int? quantity, int? sold, string thumbnail, int? categoryId)
         {
             SqlCommand cmd = CreateCMD("proc_update_produt");
