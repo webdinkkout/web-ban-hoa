@@ -26,14 +26,14 @@
 
         .sidebar > a.active {
             background: #ff9800;
-            color: #FFF;
+            color: #fff;
             text-transform: uppercase;
             border-bottom: 0px solid #444;
             margin: -10px -10px 0;
         }
 /*style cho card product*/
 .content > a {
-    font-weight: 500;
+    font-weight: 600;
     font-size: 16px;
     text-transform: uppercase;
     color: #bd2026;
