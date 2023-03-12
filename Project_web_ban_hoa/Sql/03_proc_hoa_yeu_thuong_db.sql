@@ -113,7 +113,7 @@ GO
 
 
 --PROC PRODUCTS
-CREATE PROC proc_get_one_product
+CREATE PROC proc_get_one_product_by_id
 	@id int
 as
 begin
@@ -121,6 +121,17 @@ begin
 	from dbo.Products
 	where Id = @id
     UPDATE dbo.Products SET View_Count = View_Count + 1 WHERE Id = @id
+end
+GO
+
+CREATE PROC proc_get_one_product_by_seo_name
+	@seo_name VARCHAR(50)
+as
+begin
+	select *
+	from dbo.Products
+	where Seo_Name = @seo_name
+    UPDATE dbo.Products SET View_Count = View_Count + 1 WHERE Seo_Name = @seo_name
 end
 go
 
@@ -178,7 +189,7 @@ BEGIN
 END
 GO	
 
-ALTER PROC proc_insert_product
+CREATE PROC proc_insert_product
 @name NVARCHAR(50),
 @seo_name NVARCHAR(50),
 @desc NVARCHAR(MAX),
@@ -254,8 +265,38 @@ BEGIN
 END
 GO
 
+CREATE PROC proc_update_user
+@id INT,
+@first_name NVARCHAR(50) = NULL,
+@last_name NVARCHAR(20) = NULL
+AS
+BEGIN
+	IF EXISTS (SELECT * FROM dbo.Users WHERE Id = @id)
+	BEGIN
+		UPDATE dbo.Users
+		SET
+			First_Name = ISNULL(@first_name,
+			First_Name), Last_Name=ISNULL(@last_name,Last_Name)
+		WHERE Id = @id
+	END
+END
+GO
+
+CREATE PROC proc_swap_password
+@id INT,
+@old_password VARCHAR(255),
+@new_password VARCHAR(255)
+AS
+BEGIN
+		IF EXISTS (SELECT * FROM dbo.Users WHERE Password = @old_password AND Id = @id)
+				UPDATE dbo.Users SET Password = @new_password WHERE Id = @id
+END
+GO
+
+
+
 -- CHỨC NĂNG ADMIN
-CREATE PROC proc_delete_user
+CREATE PROC proc_delete_user_admin
 @id INT
 AS
 BEGIN
@@ -286,3 +327,9 @@ BEGIN
 END
 GO
 
+CREATE PROC proc_get_one_product_by_id_admin
+@id INT
+AS
+BEGIN
+    SELECT * FROM dbo.Products WHERE Id = @id
+END

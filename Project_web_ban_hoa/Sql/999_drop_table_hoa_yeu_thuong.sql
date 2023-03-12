@@ -1,20 +1,10 @@
-USE hoa_yeu_thuong_db
+USE hoa_yeu_thuong_db;
 GO
 
-DROP TABLE Order_Details
-GO
-
-DROP TABLE Orders
-GO
-
-DROP TABLE Products
-GO
-
-DROP TABLE Categories
-GO
-
-DROP TABLE Users
-GO
-
-DROP TABLE Roles
+DROP TABLE IF EXISTS Order_Details;
+DROP TABLE IF EXISTS Orders;
+DROP TABLE IF EXISTS Products;
+DROP TABLE IF EXISTS Categories;
+DROP TABLE IF EXISTS Users;
+DROP TABLE IF EXISTS Roles;
 GO
