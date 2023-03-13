@@ -77,7 +77,7 @@ namespace Project_web_ban_hoa
         /// </summary>
         /// <param name="seoName">Seo name</param>
         /// <returns>Sản phẩm có seo name bằng với seo name được truyền vào</returns>
-        public static DataTable GetOneProductBySeoName(int seoName)
+        public static DataTable GetOneProductBySeoName(string seoName)
         {
             SqlCommand cmd = CreateCMD("proc_get_one_product_by_seo_name");
             cmd.Parameters.AddWithValue("@seo_name", seoName);
