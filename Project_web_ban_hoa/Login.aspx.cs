@@ -12,6 +12,8 @@ namespace Project_web_ban_hoa
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            string slug = Request.QueryString["slug"];
+
             if (Session["ISLOGIN"] != null)
             {
                 Session["showToastDuration"] = 3000;
