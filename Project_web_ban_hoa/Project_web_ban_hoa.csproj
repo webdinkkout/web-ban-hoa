@@ -94,9 +94,12 @@
     <Content Include="Publics\Images\Admin\dropdown-arrow-457731.png" />
     <Content Include="Publics\Images\Login\profile-background.jpg" />
     <Content Include="Publics\Images\Admin\user-icon.png" />
+    <Content Include="Publics\Images\Home\icon-fb.png" />
     <Content Include="Publics\Images\Home\icon-giohang.png" />
     <Content Include="Publics\Images\Home\icon-hyt.png" />
+    <Content Include="Publics\Images\Home\icon-twitter.png" />
     <Content Include="Publics\Images\Home\icon-user.png" />
+    <Content Include="Publics\Images\Home\icon-youtube.png" />
     <Content Include="Publics\Images\Home\logo1.png" />
     <Content Include="Publics\Images\Home\logo2.png" />
     <Content Include="Publics\Images\Home\logo3.png" />
@@ -105,10 +108,7 @@
     <Content Include="Publics\Images\Home\logo6.png" />
     <Content Include="Publics\Images\Home\logo7.png" />
     <Content Include="Publics\Images\Home\logo8.png" />
-    <Content Include="Publics\Images\Home\logofb.png" />
     <Content Include="Publics\Images\Home\logohyt-hd.png" />
-    <Content Include="Publics\Images\Home\logotw.png" />
-    <Content Include="Publics\Images\Home\logoytb.png" />
     <Content Include="Publics\Images\Home\zalo-chat-icon.png" />
     <Content Include="Publics\Images\logo-hoa-yeu-thuong.png" />
     <Content Include="Publics\Images\Product\10258_white-roses.jpg" />

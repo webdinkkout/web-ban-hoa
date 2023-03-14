@@ -19,69 +19,47 @@
 <body>
     <form id="form1" runat="server">
         <header class="header">
-            <div class="container">
-                <div class="row">
-                    <div class="header__mh30">
-                        <p>Nơi sinh sống:</p>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="row">
-                            <div class="col-lg-3">
-                                <a href="#">
-                                    <img src="../Publics/Images/Home/logo1.png" alt="Alternate Text" />
-                                    Điện hoa
-                                </a>
-                            </div>
-                            <div class="col-lg-3">
-                                <a href="#">
-                                    <img src="../Publics/Images/Home/logo2.png" alt="Alternate Text" />
-                                    Hoa cắt cành
-                                </a>
-                            </div>
-                            <div class="col-lg-3">
-                                <a href="#">
-                                    <img src="../Publics/Images/Home/logo3.png" alt="Alternate Text" />
-                                    Cây xanh
-                                </a>
-                            </div>
-                            <div class="col-lg-3">
-                                <a href="#">
-                                    <img src="../Publics/Images/Home/logo4.png" alt="Alternate Text" />
-                                    Only Rose
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6">
-                        <div class="row">
-                            <div class="col-lg-3">
-                                <a href="#">
-                                    <img src="../Publics/Images/Home/logo5.png" alt="Alternate Text" />
-                                    Hoa tết
-                                </a>
-                            </div>
-                            <div class="col-lg-3">
-                                <a href="#">
-                                    <img src="../Publics/Images/Home/logo6.png" alt="Alternate Text" />
-                                    Lan hồ điệp
-                                </a>
-                            </div>
-                            <div class="col-lg-3">
-                                <a href="#">
-                                    <img src="../Publics/Images/Home/logo7.png" alt="Alternate Text" />
-                                    Quà tặng gấu bông
-                                </a>
-                            </div>
-                            <div class="col-lg-3">
-                                <a href="#">
-                                    <img src="../Publics/Images/Home/logo8.png" alt="Alternate Text" />
-                                    Quà tặng khác
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+            <div class="header__mh30">
+                <div class="container">
+                    <p>Nơi sinh sống:</p>
                 </div>
+            </div>
+            <div class="container">
+                <div class="header-wrapper-menu-address">
+                    <a href="#">
+                        <img src="../Publics/Images/Home/logo1.png" alt="Alternate Text" />
+                        Điện hoa
+                    </a>
+                    <a href="#">
+                        <img src="../Publics/Images/Home/logo2.png" alt="Alternate Text" />
+                        Hoa cắt cành    
+                    </a>
+                    <a href="#">
+                        <img src="../Publics/Images/Home/logo3.png" alt="Alternate Text" />
+                        Cây xanh
+                    </a>
+                    <a href="#">
+                        <img src="../Publics/Images/Home/logo4.png" alt="Alternate Text" />
+                        Only Rose
+                    </a>
+                    <a href="#">
+                        <img src="../Publics/Images/Home/logo5.png" alt="Alternate Text" />
+                        Hoa tết
+                    </a>
+                    <a href="#">
+                        <img src="../Publics/Images/Home/logo6.png" alt="Alternate Text" />
+                        Lan hồ điệp
+                    </a>
+                    <a href="#">
+                        <img src="../Publics/Images/Home/logo7.png" alt="Alternate Text" />
+                        Quà tặng gấu bông
+                    </a>
+                    <a href="#">
+                        <img src="../Publics/Images/Home/logo8.png" alt="Alternate Text" />
+                        Quà tặng khác
+                    </a>
+                </div>
+
 
                 <div class="row">
                     <div class="col-lg-4">
@@ -111,22 +89,22 @@
                                 </a>
                             </div>
                             <div class="col-lg-3">
-                                <a href="#">
-                                    <div class="row">
-                                        <div class="col-lg-6">
-                                            <a href="#">
-                                                <img src="../Publics/Images/Home/icon-giohang.png" alt="Alternate Text" />
-                                                <p>Giỏ hàng</p>
-                                            </a>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <a href="#">
-                                                <img src="../Publics/Images/Home/icon-user.png" alt="Alternate Text" />
-                                                <p>Tài khoản</p>
-                                            </a>
-                                        </div>
+
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <a href="#">
+                                            <img src="../Publics/Images/Home/icon-giohang.png" alt="Alternate Text" />
+                                            <p>Giỏ hàng</p>
+                                        </a>
                                     </div>
-                                </a>
+                                    <div class="col-lg-6">
+                                        <a href="#">
+                                            <img src="../Publics/Images/Home/icon-user.png" alt="Alternate Text" />
+                                            <p>Tài khoản</p>
+                                        </a>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -165,7 +143,6 @@
                             <li class="header__wrapper__menu--ctl">
                                 <a href="#">Trang chủ</a>
                             </li>
-
                         </ul>
                     </div>
                 </div>
@@ -180,12 +157,12 @@
                 <div class="row">
                     <div class="col-lg-3">
                         <div class="footer-content">
-                            <h3 class="footer-content__title">SHOP HOA TP.HCM</h3>
-                            <p class="footer-content__address">Địa chi:</p>
+                            <h3 class="footer-content-title">SHOP HOA TP.HCM</h3>
+                            <p class="footer-content-address">Địa chi:</p>
                             <p>- 230B Võ Thị Sáu, P. Võ Thị Sáu, Quận 3</p>
                             <p>- 270L Võ Thị Sáu, P.Võ Thị Sáu, Quận 3 (Góc ngã tư Bà Huyện Thành Quan)</p>
                             <p>- 17D Nguyễn Thái Học, P. Cầu Ông Lãnh, Quận 1</p>
-                            <p class="footer-content__address">
+                            <p class="footer-content-address">
                                 Điện thoại: <a href="#">028 7300 2010</a>
                             </p>
                             <p>Miễn phí giao hoa nội thành Tp. Hồ Chí Minh. Các quận ngoại thành vui lòng liên hệ để biết thêm chi tiết (Giá giao sẽ từ 30.000đ-70.000đ).</p>
@@ -195,12 +172,12 @@
 
                     <div class="col-lg-3">
                         <div class="footer-content">
-                            <h3 class="footer-content__title">SHOP HOA HÀ NỘI</h3>
-                            <p class="footer-content__address">
+                            <h3 class="footer-content-title">SHOP HOA HÀ NỘI</h3>
+                            <p class="footer-content-address">
                                 Địa chi:
                                <span>532A Đường Láng, Quận Đống Đa</span>
                             </p>
-                            <p class="footer-content__address">
+                            <p class="footer-content-address">
                                 Điện thoại: <a href="#">024 7300 2010</a>
                             </p>
                             <p>Miễn phí giao hoa tươi trên địa bàn Hà Nội: Cầu Giấy, Ba Đình, Đống Đa, Nam Từ Liêm, Hai Bà Trưng, Hoàn Kiếm, Thanh Xuân. Các quận khác vui lòng liên hệ để biết thêm chi tiết (Giá giao sẽ từ 30.000đ-70.000đ)</p>
@@ -210,7 +187,7 @@
 
                     <div class="col-lg-3">
                         <div class="footer-content">
-                            <h3 class="footer-content__title--color-red">SHOP HOA CÁC TỈNH</h3>
+                            <h3 class="footer-content-title__color-red">SHOP HOA CÁC TỈNH</h3>
                             <p>
                                 <a href="#">Cần Thơ</a>
                                 266 đường 30/4, P. Xuân khánh, Q.Ninh Kiều
@@ -244,8 +221,8 @@
 
                     <div class="col-lg-3">
                         <div class="footer-content">
-                            <h3 class="footer-content__title--color-red">SHOP HOA CÁC TỈNH</h3>
-                            <div class="footer-content__title--adress">
+                            <h3 class="footer-content-title__color-red">SHOP HOA CÁC TỈNH</h3>
+                            <div class="footer-content-title-adress">
                                 <p>
                                     <a href="#">Tp.Nha Trang</a>
                                     181 Thống Nhất
@@ -355,15 +332,15 @@
                             </a>
                         </p>
                         <h3>KẾT NỐI</h3>
-                        <div>
+                        <div class="footer-wrapper-menu-link">
                             <a href="#">
-                                <img src="../Publics/Images/Home/logofb.png" alt="" />
+                                <img src="../Publics/Images/Home/icon-fb.png" alt="" />
                             </a>
                             <a href="#">
-                                <img src="../Publics/Images/Home/logotw.png" alt="" />
+                                <img src="../Publics/Images/Home/icon-twitter.png" alt="" />
                             </a>
                             <a href="#">
-                                <img src="../Publics/Images/Home/logoytb.png" alt="" />
+                                <img src="../Publics/Images/Home/icon-youtube.png" alt="" />
                             </a>
                         </div>
                     </div>
@@ -455,9 +432,12 @@
                         </h4>
                         <p>Shop hoa Hoayeuthuong.com được thành lập đầu tiên bởi anh Phạm Hoàng Thái Dương, với mong muốn xây dựng một hệ sinh thái cho ngành hoa tươi tại Việt Nam dựa trên nền tảng Công Nghệ Thông Tin. Việc ứng dụng công nghệ giúp chúng tôi tiết kiệm những quy trình không cần thiết để giảm giá thành sản phẩm và giải quyết được nhiều bài toán lớn về chuỗi cung ứng hoa tươi trên cả nước.</p>
                     </div>
-                    <p>Copyright ©2015, Hoayeuthuong.com, All rights reserved</p>
+                    <div class="footer-content--center">
+                        <p style="text-align: center;">
+                            Copyright ©2015, Hoayeuthuong.com, All rights reserved
+                        </p>
+                    </div>
                 </div>
-
             </div>
         </footer>
     </form>

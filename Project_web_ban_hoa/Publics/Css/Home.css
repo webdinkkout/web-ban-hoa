@@ -1,7 +1,4 @@
-﻿header {
-    background: #ff9800;
-    min-height: 30px;
-}
+﻿
 
 .header__wrapper {
     display: flex;
@@ -16,11 +13,27 @@
     margin-left: -5px;
 }
 
-header__mh30 {
+.header-wrapper-menu__address {
+    display: flex;
+}
+
+.header__mh30 {
     width: 100%;
+    background: #ff9800;
+    min-height: 30px;
 }
 
 footer {
     background-color: #ebebeb;
     font-size: 14px;
+}
+
+.footer-wrapper-menu-link > a > img {
+    background-color: #ebebeb;
+    width: 38px;
+    height: 38px;
+}
+
+.footer-content--center > p {
+    text-align: center;
 }
