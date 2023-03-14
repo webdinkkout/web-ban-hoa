@@ -82,6 +82,7 @@
     <Content Include="Private\Admin\Product\Update\UpdateProduct.ascx" />
     <Content Include="Private\Admin\Product\View\ViewProduct.ascx" />
     <Content Include="Private\Admin\User\UserControl.ascx" />
+    <Content Include="ProductDetail.aspx" />
     <Content Include="Publics\Css\Admin.css" />
     <Content Include="Publics\Css\Library\Bootstrap\bootstrap.min.css" />
     <Content Include="Publics\Css\Home.css" />
@@ -258,6 +259,13 @@
     </Compile>
     <Compile Include="Private\Admin\User\UserControl.ascx.designer.cs">
       <DependentUpon>UserControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ProductDetail.aspx.cs">
+      <DependentUpon>ProductDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProductDetail.aspx.designer.cs">
+      <DependentUpon>ProductDetail.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Topic.aspx.cs">
