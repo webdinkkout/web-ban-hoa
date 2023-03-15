@@ -1,0 +1,23 @@
+﻿.product-deteil-img__text {
+    color: red;
+    font-size: 13px;
+}
+
+.product-detail__title {
+    font-size: 26px;
+    color: #bd2026;
+    margin-bottom: 10px;
+}
+
+.content-wrapper-card-product-card-product-price__price-product {
+    font-size: 20px;
+    margin: 0;
+}
+
+.product-detail__note {
+    font-size: 14px;
+    width: 100%;
+    border-bottom: 1px solid #e7e7e7;
+    display: block;
+    padding-bottom: 10px;
+}
