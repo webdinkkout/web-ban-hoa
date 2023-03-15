@@ -31,12 +31,14 @@
 </head>
 <body>
     <form id="form1" runat="server">
+
         <header class="header">
             <div class="header__mh30">
                 <div class="container">
                     <p>Nơi sinh sống:</p>
                 </div>
             </div>
+
             <div class="container">
                 <div class="header-wrapper-menu-address">
                     <a href="#">
@@ -73,94 +75,183 @@
                     </a>
                 </div>
 
-
-                <div class="row">
-                    <div class="col-lg-4">
-                        <a href="#">
-                            <img src="../Publics/Images/Home/logohyt-hd.png" alt="Alternate Text" />
-                        </a>
+                <div class="header-search">
+                    <div class="header-search-logo">
+                        <img src="../Publics/Images/Home/logohyt-hd.png" alt="Alternate Text" />
                     </div>
-                    <div class="col-lg-8">
-                        <asp:TextBox runat="server" />
-                        <asp:Button Text="Tìm kiếm" runat="server" />
-                        <div class="row">
-                            <div class="col-lg-3">
-                                <a href="#">
-                                    <p>HOTLINE MIỀN NAM</p>
-                                    <span>028 73002010</span>
-                                </a>
-                            </div>
-                            <div class="col-lg-3">
-                                <a href="#">
-                                    <p>HOTLINE MIỀN NAM</p>
-                                    <span>028 73002010</span>
-                                </a>
-                            </div>
-                            <div class="col-lg-3">
-                                <a href="#">
-                                    <img src="../Publics/Images/Home/zalo-chat-icon.png" alt="Alternate Text" />
-                                </a>
-                            </div>
-                            <div class="col-lg-3">
 
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <a href="#">
-                                            <img src="../Publics/Images/Home/icon-giohang.png" alt="Alternate Text" />
-                                            <p>Giỏ hàng</p>
-                                        </a>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <a href="#">
-                                            <img src="../Publics/Images/Home/icon-user.png" alt="Alternate Text" />
-                                            <p>Tài khoản</p>
-                                        </a>
-                                    </div>
-                                </div>
+                    <div class="header-search-contact">
+                        <div class="header-search-contact-search">
+                            <asp:TextBox runat="server" placeholder="Tìm sản phẩm" CssClass="header-search-contact-search__search" />
+                            <asp:Button Text="Tìm kiếm" runat="server" CssClass="header-search-contact-search__btn-search" />
+                        </div>
 
+                        <div class="header-search-contact-hotline">
+                            <div class="header-search-contact-hotline-number-phone">
+                                <a href="#">HOTLINE MIỀN NAM</a>
+                                <a href="#" class="header-search-contact-hotline-number-phone header-search-contact-hotline-number-phone--orangen">028 73002010</a>
+                            </div>
+                            <div class="header-search-contact-hotline-number-phone">
+                                <a href="#">HOTLINE MIỀN BẮC</a>
+                                <a href="#" class="header-search-contact-hotline-number-phone header-search-contact-hotline-number-phone--orangen">024 73002010</a>
+                            </div>
+                            <div class="header-search-contact-hotline-zalo">
+                                <img src="../Publics/Images/Home/zalo-chat-icon.png" alt="Alternate Text" />
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="row">
-                    <div class="header__wrapper">
-                        <ul class="header__wrapper__menu">
-                            <li class="header__wrapper__menu--ctl">
-                                <a href="#">Trang chủ</a>
+                    <div class="header-search-user-control">
+                        <div class="header-search-user-control-cart-account">
+                            <img src="../Publics/Images/Home/icon-giohang.png" alt="Alternate Text" />
+                            <a href="#">Giỏ hàng</a>
+                        </div>
+                        <div class="header-search-user-control-cart-account">
+                            <img src="../Publics/Images/Home/icon-user.png" alt="Alternate Text" />
+                            <a href="#">Tài khoản</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="header-menu">
+                <div class="container">
+                    <div class="header-menu-ctls">
+                        <ul class="header-menu-ctls-ctl">
+                            <li class="header-menu-ctls-ctl__item">
+                                <a href="#">TRANG CHỦ</a>
                             </li>
-                            <li class="header__wrapper__menu--ctl">
-                                <a href="#">Trang chủ</a>
+                            <li class="header-menu-ctls-ctl__item">
+                                <a href="#">CHỦ ĐỀ</a>
+                                <%-- <ul class="header-menu-ctls-ctl-sub-menu">
+                                    <li class="header-menu-ctls-ctl-sub-menu__item">
+                                        <a href="#">content</a>
+                                    </li>
+                                    <li class="header-menu-ctls-ctl-sub-menu__item">
+                                        <a href="#">content</a>
+                                    </li>
+                                    <li class="header-menu-ctls-ctl-sub-menu__item">
+                                        <a href="#">content</a>
+                                    </li>
+                                    <li class="header-menu-ctls-ctl-sub-menu__item">
+                                        <a href="#">content</a>
+                                    </li>
+                                </ul>--%>
                             </li>
-                            <li class="header__wrapper__menu--ctl">
-                                <a href="#">Trang chủ</a>
+                            <li class="header-menu-ctls-ctl__item">
+                                <a href="#">ĐỐI TƯỢNG</a>
+                                <%-- <ul class="header-menu-ctls-ctl-sub-menu">
+                                    <li class="header-menu-ctls-ctl-sub-menu__item">
+                                        <a href="#">content</a>
+                                    </li>
+                                    <li class="header-menu-ctls-ctl-sub-menu__item">
+                                        <a href="#">content</a>
+                                    </li>
+                                    <li class="header-menu-ctls-ctl-sub-menu__item">
+                                        <a href="#">content</a>
+                                    </li>
+                                    <li class="header-menu-ctls-ctl-sub-menu__item">
+                                        <a href="#">content</a>
+                                    </li>
+                                </ul>--%>
                             </li>
-                            <li class="header__wrapper__menu--ctl">
-                                <a href="#">Trang chủ</a>
+                            <li class="header-menu-ctls-ctl__item">
+                                <a href="#">KIỂU DÁNG</a>
+                                <%-- <ul class="header-menu-ctls-ctl-sub-menu">
+                                    <li class="header-menu-ctls-ctl-sub-menu__item">
+                                        <a href="#">content</a>
+                                    </li>
+                                    <li class="header-menu-ctls-ctl-sub-menu__item">
+                                        <a href="#">content</a>
+                                    </li>
+                                    <li class="header-menu-ctls-ctl-sub-menu__item">
+                                        <a href="#">content</a>
+                                    </li>
+                                    <li class="header-menu-ctls-ctl-sub-menu__item">
+                                        <a href="#">content</a>
+                                    </li>
+                                </ul>--%>
                             </li>
-                            <li class="header__wrapper__menu--ctl">
-                                <a href="#">Trang chủ</a>
+                            <li class="header-menu-ctls-ctl__item">
+                                <a href="#">HOA TƯƠI</a>
+                                <%-- <ul class="header-menu-ctls-ctl-sub-menu">
+                                    <li class="header-menu-ctls-ctl-sub-menu__item">
+                                        <a href="#">content</a>
+                                    </li>
+                                    <li class="header-menu-ctls-ctl-sub-menu__item">
+                                        <a href="#">content</a>
+                                    </li>
+                                    <li class="header-menu-ctls-ctl-sub-menu__item">
+                                        <a href="#">content</a>
+                                    </li>
+                                    <li class="header-menu-ctls-ctl-sub-menu__item">
+                                        <a href="#">content</a>
+                                    </li>
+                                </ul>--%>
                             </li>
-                            <li class="header__wrapper__menu--ctl">
-                                <a href="#">Trang chủ</a>
+                            <li class="header-menu-ctls-ctl__item">
+                                <a href="#">MÀU SẮC</a>
+                                <%-- <ul class="header-menu-ctls-ctl-sub-menu">
+                                    <li class="header-menu-ctls-ctl-sub-menu__item">
+                                        <a href="#">content</a>
+                                    </li>
+                                    <li class="header-menu-ctls-ctl-sub-menu__item">
+                                        <a href="#">content</a>
+                                    </li>
+                                    <li class="header-menu-ctls-ctl-sub-menu__item">
+                                        <a href="#">content</a>
+                                    </li>
+                                    <li class="header-menu-ctls-ctl-sub-menu__item">
+                                        <a href="#">content</a>
+                                    </li>
+                                </ul>--%>
                             </li>
-                            <li class="header__wrapper__menu--ctl">
-                                <a href="#">Trang chủ</a>
+                            <li class="header-menu-ctls-ctl__item">
+                                <a href="#">BỘ SƯU TẬP</a>
+                                <%-- <ul class="header-menu-ctls-ctl-sub-menu">
+                                    <li class="header-menu-ctls-ctl-sub-menu__item">
+                                        <a href="#">content</a>
+                                    </li>
+                                    <li class="header-menu-ctls-ctl-sub-menu__item">
+                                        <a href="#">content</a>
+                                    </li>
+                                    <li class="header-menu-ctls-ctl-sub-menu__item">
+                                        <a href="#">content</a>
+                                    </li>
+                                    <li class="header-menu-ctls-ctl-sub-menu__item">
+                                        <a href="#">content</a>
+                                    </li>
+                                </ul>--%>
                             </li>
-                            <li class="header__wrapper__menu--ctl">
-                                <a href="#">Trang chủ</a>
+                            <li class="header-menu-ctls-ctl__item">
+                                <a href="#">QUÀ TẶNG KÈM</a>
+                                <%-- <ul class="header-menu-ctls-ctl-sub-menu">
+                                    <li class="header-menu-ctls-ctl-sub-menu__item">
+                                        <a href="#">content</a>
+                                    </li>
+                                    <li class="header-menu-ctls-ctl-sub-menu__item">
+                                        <a href="#">content</a>
+                                    </li>
+                                    <li class="header-menu-ctls-ctl-sub-menu__item">
+                                        <a href="#">content</a>
+                                    </li>
+                                    <li class="header-menu-ctls-ctl-sub-menu__item">
+                                        <a href="#">content</a>
+                                    </li>
+                                </ul>--%>
                             </li>
-                            <li class="header__wrapper__menu--ctl">
-                                <a href="#">Trang chủ</a>
+                            <li class="header-menu-ctls-ctl__item">
+                                <a href="#">HOA CƯỚI</a>
                             </li>
-                            <li class="header__wrapper__menu--ctl">
-                                <a href="#">Trang chủ</a>
+                            <li class="header-menu-ctls-ctl__item">
+                                <a href="#">Ý NGHĨA HOA</a>
                             </li>
                         </ul>
                     </div>
                 </div>
             </div>
         </header>
+
         <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
@@ -169,287 +260,314 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-3">
-                        <div class="footer-content">
-                            <h3 class="footer-content-title">SHOP HOA TP.HCM</h3>
-                            <p class="footer-content-address">Địa chi:</p>
-                            <p>- 230B Võ Thị Sáu, P. Võ Thị Sáu, Quận 3</p>
-                            <p>- 270L Võ Thị Sáu, P.Võ Thị Sáu, Quận 3 (Góc ngã tư Bà Huyện Thành Quan)</p>
-                            <p>- 17D Nguyễn Thái Học, P. Cầu Ông Lãnh, Quận 1</p>
-                            <p class="footer-content-address">
-                                Điện thoại: <a href="#">028 7300 2010</a>
-                            </p>
-                            <p>Miễn phí giao hoa nội thành Tp. Hồ Chí Minh. Các quận ngoại thành vui lòng liên hệ để biết thêm chi tiết (Giá giao sẽ từ 30.000đ-70.000đ).</p>
-                            <a href="#">Shop hoa ở Tp.HCM</a>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3">
-                        <div class="footer-content">
-                            <h3 class="footer-content-title">SHOP HOA HÀ NỘI</h3>
-                            <p class="footer-content-address">
-                                Địa chi:
-                               <span>532A Đường Láng, Quận Đống Đa</span>
-                            </p>
-                            <p class="footer-content-address">
-                                Điện thoại: <a href="#">024 7300 2010</a>
-                            </p>
-                            <p>Miễn phí giao hoa tươi trên địa bàn Hà Nội: Cầu Giấy, Ba Đình, Đống Đa, Nam Từ Liêm, Hai Bà Trưng, Hoàn Kiếm, Thanh Xuân. Các quận khác vui lòng liên hệ để biết thêm chi tiết (Giá giao sẽ từ 30.000đ-70.000đ)</p>
-                            <a href="#">Shop hoa ở Hà Nội</a>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3">
-                        <div class="footer-content">
-                            <h3 class="footer-content-title__color-red">SHOP HOA CÁC TỈNH</h3>
-                            <p>
-                                <a href="#">Cần Thơ</a>
-                                266 đường 30/4, P. Xuân khánh, Q.Ninh Kiều
-                            </p>
-                            <p>
-                                <a href="#">Đà Nẵng</a>
-                                32 Lê Thanh Nghị, Quận Hải Châu
-                            </p>
-                            <p>
-                                <a href="#">Huế</a>
-                                71 Trường Chinh, Phường Xuân Phú
-                            </p>
-                            <p>
-                                <a href="#">Lâm Đồng</a>
-                                05 Phan Đình Phùng
-                            </p>
-                            <p>
-                                <a href="#">Bình Dương</a>
-                                151 Phú Lợi, P. Phú Lợi, Tp. Thủ Dầu Một
-                            </p>
-                            <p>
-                                <a href="#">Biên Hòa</a>
-                                40/198A Phạm Văn Thuận, KP.3, P.Tân Mai
-                            </p>
-                            <p>
-                                <a href="#">Kiên Giang</a>
-                                418 Nguyễn Trung Trực, Thành phố Rạch Giá
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3">
-                        <div class="footer-content">
-                            <h3 class="footer-content-title__color-red">SHOP HOA CÁC TỈNH</h3>
-                            <div class="footer-content-title-adress">
-                                <p>
-                                    <a href="#">Tp.Nha Trang</a>
-                                    181 Thống Nhất
+                        <div class="footer-top">
+                            <h3 class="footer-top__title">SHOP HOA TP. HCM</h3>
+                            <div class="footer-top-contact">
+                                <p class="footer-top-contact__address footer-top-contact__address--red">
+                                    Địa chỉ:
                                 </p>
-                                <p>
-                                    <a href="#">Vũng Tàu</a>
-                                    185B Phạm Hồng Thái, Phường 7
+                                <p class="footer-top-contact__address">
+                                    - 230B Võ Thị Sáu, P. Võ Thị Sáu, Quận 3
                                 </p>
-                                <p>
-                                    <a href="#">Tây Ninh</a>
-                                    1174 Cách Mạng Tháng Tám
+                                <p class="footer-top-contact__address">- 270L Võ Thị Sáu, P.Võ Thị Sáu, Quận 3 (Góc ngã tư Bà Huyện Thành Quan)</p>
+                                <p class="footer-top-contact__address">- 17D Nguyễn Thái Học, P. Cầu Ông Lãnh, Quận 1</p>
+                            </div>
+                            <div class="footer-top-contact">
+                                <p class="footer-top-contact__address footer-top-contact__address--red">
+                                    Điện thoại:
+                                <a href="#" class="footer-top-contact__address footer-top-contact__address--hotline">028 7300 2010</a>
                                 </p>
-                                <p>
-                                    <a href="#">Vĩnh Long</a>
-                                    20/A2 Phạm Thái Bường
-                                </p>
-                                <p>
-                                    <a href="#">Long An</a>
-                                    163 Nguyễn Đình Chiểu, Phường 3
-                                </p>
-                                <a href="#">Xem thêm chi nhánh shop hoa</a>
+                            </div>
+                            <div>
+                                <p class="footer-top-contact__address">Miễn phí giao hoa nội thành Tp. Hồ Chí Minh. Các quận ngoại thành vui lòng liên hệ để biết thêm chi tiết (Giá giao sẽ từ 30.000đ-70.000đ).</p>
+                                <a href="#" class="footer-top-contact__address footer-top-contact__address--hotline">Shop hoa ở Tp. HCM</a>
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-lg-3">
-                        <h3>HOAYEUTHUONG.COM</h3>
-                        <p>
-                            <a href="#"><i class="fa-solid fa-chevron-right"></i>
-                                Giới thiệu
-                            </a>
-                        </p>
-                        <p>
-                            <a href="#"><i class="fa-solid fa-chevron-right"></i>
-                                Tin tức
-                            </a>
-                        </p>
-                        <p>
-                            <a href="#"><i class="fa-solid fa-chevron-right"></i>
-                                Trách nhiệm xã hội
-                            </a>
-                        </p>
-                        <p>
-                            <a href="#"><i class="fa-solid fa-chevron-right"></i>
-                                Tuyển dụng
-                            </a>
-                        </p>
-                        <p>
-                            <a href="#"><i class="fa-solid fa-chevron-right"></i>
-                                Câu hỏi thường gặp (FAQs)
-                            </a>
-                        </p>
-                        <p>
-                            <a href="#"><i class="fa-solid fa-chevron-right"></i>
-                                Blog
-                            </a>
-                        </p>
-                        <p>
-                            <a href="#"><i class="fa-solid fa-chevron-right"></i>
-                                Giới thiệu Hoayeuthuong.com đến người thân
-                            </a>
-                        </p>
-                        <p>
-                            <a href="#"><i class="fa-solid fa-chevron-right"></i>
-                                Liên hệ
-                            </a>
-                        </p>
-                    </div>
 
                     <div class="col-lg-3">
-                        <h3>CHĂM SÓC KHÁCH HÀNG</h3>
-                        <p>
-                            <a href="#"><i class="fa-solid fa-chevron-right"></i>
-                                Thắc mắc và khiếu nại
-                            </a>
-                        </p>
-                        <p>
-                            <a href="#"><i class="fa-solid fa-chevron-right"></i>
-                                Cam kết hài lòng 100%
-                            </a>
-                        </p>
-                        <p>
-                            <a href="#"><i class="fa-solid fa-chevron-right"></i>
-                                Chính sách bảo mật thông tin
-                            </a>
-                        </p>
-                        <p>
-                            <a href="#"><i class="fa-solid fa-chevron-right"></i>
-                                Chính sách và điều khoản
-                            </a>
-                        </p>
-                        <p>
-                            <a href="#"><i class="fa-solid fa-chevron-right"></i>
-                                Hướng dẫn đặt hàng
-                            </a>
-                        </p>
-                        <p>
-                            <a href="#"><i class="fa-solid fa-chevron-right"></i>
-                                Chính sách bảo mật thanh toán
-                            </a>
-                        </p>
-                        <p>
-                            <a href="#"><i class="fa-solid fa-chevron-right"></i>
-                                Hướng dẫn thanh toán
-                            </a>
-                        </p>
-                        <h3>KẾT NỐI</h3>
-                        <div class="footer-wrapper-menu-link">
-                            <a href="#">
-                                <img src="../Publics/Images/Home/icon-fb.png" alt="" />
-                            </a>
-                            <a href="#">
-                                <img src="../Publics/Images/Home/icon-twitter.png" alt="" />
-                            </a>
-                            <a href="#">
-                                <img src="../Publics/Images/Home/icon-youtube.png" alt="" />
-                            </a>
+                        <div class="footer-top">
+                            <h3 class="footer-top__title">SHOP HOA HÀ NỘI</h3>
+                            <div class="footer-top-contact">
+                                <p class="footer-top-contact__address footer-top-contact__address--red">
+                                    Địa chỉ:
+                                </p>
+                                <p class="footer-top-contact__address">
+                                    532A Đường Láng, Quận Đống Đa
+                                </p>
+                            </div>
+                            <div class="footer-top-contact">
+                                <p class="footer-top-contact__address footer-top-contact__address--red">
+                                    Điện thoại:
+                                <a href="#" class="footer-top-contact__address footer-top-contact__address--hotline">024 7300 2010</a>
+                                </p>
+                            </div>
+                            <div>
+                                <p class="footer-top-contact__address">Miễn phí giao hoa tươi trên địa bàn Hà Nội: Cầu Giấy, Ba Đình, Đống Đa, Nam Từ Liêm, Hai Bà Trưng, Hoàn Kiếm, Thanh Xuân. Các quận khác vui lòng liên hệ để biết thêm chi tiết (Giá giao sẽ từ 30.000đ-70.000đ)</p>
+                                <a href="#" class="footer-top-contact__address footer-top-contact__address--hotline">Shop hoa ở Hà Nội</a>
+                            </div>
                         </div>
                     </div>
 
                     <div class="col-lg-3">
-                        <h3>GIỚI THIỆU VỀ HOA</h3>
-                        <p>
-                            <a href="#"><i class="fa-solid fa-chevron-right"></i>
-                                Ý nghĩa hoa
-                            </a>
-                        </p>
-                        <p>
-                            <a href="#"><i class="fa-solid fa-chevron-right"></i>
-                                Cách chăm sóc hoa
-                            </a>
-                        </p>
-                        <h3>NEWSLETTER</h3>
-                        <p>
-                            Đăng kí ngay để nhận được các thông tin khuyến mãi và ưu đãi đặc biệt từ:
-                            <span>hoayeuthuong.com</span>
-                        </p>
-                        <asp:TextBox runat="server" />
-                        <asp:Button Text="OK" runat="server" />
+                        <div class="footer-top">
+                            <h3 class="footer-top__title footer-top__title--red">SHOP HOA CÁC TỈNH</h3>
+                            <div class="footer-top-contact">
+                                <a href="#" class="footer-top-contact__address footer-top-contact__address--red">Cần Thơ</a>
+                                <span>266 đường 30/4, P. Xuân khánh, Q.Ninh Kiều</span>
+                            </div>
+                            <div class="footer-top-contact">
+                                <a href="#" class="footer-top-contact__address footer-top-contact__address--red">Đà Nẵng</a>
+                                <span>32 Lê Thanh Nghị, Quận Hải Châu</span>
+                            </div>
+                            <div class="footer-top-contact">
+                                <a href="#" class="footer-top-contact__address footer-top-contact__address--red">Huế</a>
+                                <span>71 Trường Chinh, Phường Xuân Phú</span>
+                            </div>
+                            <div class="footer-top-contact">
+                                <a href="#" class="footer-top-contact__address footer-top-contact__address--red">Lâm Đồng</a>
+                                <span>05 Phan Đình Phùng</span>
+                            </div>
+                            <div class="footer-top-contact">
+                                <a href="#" class="footer-top-contact__address footer-top-contact__address--red">Bình Dương</a>
+                                <span>151 Phú Lợi, P. Phú Lợi, Tp. Thủ Dầu Một</span>
+                            </div>
+                            <div class="footer-top-contact">
+                                <a href="#" class="footer-top-contact__address footer-top-contact__address--red">Biên Hòa</a>
+                                <span>40/198A Phạm Văn Thuận, KP.3, P.Tân Mai</span>
+                            </div>
+                            <div class="footer-top-contact">
+                                <a href="#" class="footer-top-contact__address footer-top-contact__address--red">Kiên Giang</a>
+                                <span>418 Nguyễn Trung Trực, Thành phố Rạch Giá</span>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="col-lg-3">
-                        <h3>VĂN PHÒNG ĐIỀU HÀNH</h3>
-                        <p>
-                            Công ty Cổ Phần Color Life
-                        </p>
-                        <p>
-                            Địa chỉ: 
-                            <span>270F Võ Thị Sáu, P.7, Q. 3, Tp. Hồ Chí Minh</span>
-                        </p>
-                        <p>
-                            MST: 
-                            <span>0313230072 cấp lần đầu ngày 25/04/2015 bởi Sở kế hoạch đầu tư Thành phố Hồ Chí Minh</span>
-                        </p>
-                        <p>
-                            Email: 
-                            <span>contact@hoayeuthuong.com</span>
-                        </p>
-                        <p>
-                            Điện thoại:
-                            <a href="#">028 7300 2010</a>
-                            -
-                            <a href="#">024 7300 2010</a>
-                            (24/7)
-                        </p>
+                        <div class="footer-top">
+                            <h3 class="footer-top__title footer-top__title--red">&nbsp;</h3>
+                            <div class="footer-top-contact">
+                                <a href="#" class="footer-top-contact__address footer-top-contact__address--red">Tp.Nha Trang</a>
+                                <span>181 Thống Nhất</span>
+                            </div>
+                            <div class="footer-top-contact">
+                                <a href="#" class="footer-top-contact__address footer-top-contact__address--red">Vũng Tàu</a>
+                                <span>185B Phạm Hồng Thái, Phường 7</span>
+                            </div>
+                            <div class="footer-top-contact">
+                                <a href="#" class="footer-top-contact__address footer-top-contact__address--red">Tây Ninh</a>
+                                <span>1174 Cách Mạng Tháng Tám</span>
+                            </div>
+                            <div class="footer-top-contact">
+                                <a href="#" class="footer-top-contact__address footer-top-contact__address--red">Vĩnh Long</a>
+                                <span>20/A2 Phạm Thái Bường</span>
+                            </div>
+                            <div class="footer-top-contact">
+                                <a href="#" class="footer-top-contact__address footer-top-contact__address--red">Long An</a>
+                                <span>163 Nguyễn Đình Chiểu, Phường 3</span>
+                            </div>
+                            <div class="footer-top-contact">
+                                <a href="#" class="footer-top-contact__address footer-top-contact__address--red">Xem thêm chi nhánh shop hoa</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="footer-top">
+                            <h3 class="footer-top__title">HOAYEUTHUONG.COM</h3>
+                            <ul class="footer-top-menu-greet">
+                                <li class="footer-top-menu-greet-ctl">
+                                    <a href="#">
+                                        <img src="../Publics/Images/Home/bullet_footer-icon-right.png" alt="Alternate Text" />
+                                        Giới thiệu
+                                    </a>
+                                </li>
+                                <li class="footer-top-menu-greet-ctl">
+                                    <a href="#">
+                                        <img src="../Publics/Images/Home/bullet_footer-icon-right.png" alt="Alternate Text" />
+                                        Tin tức
+                                    </a>
+                                </li>
+                                <li class="footer-top-menu-greet-ctl">
+                                    <a href="#">
+                                        <img src="../Publics/Images/Home/bullet_footer-icon-right.png" alt="Alternate Text" />
+                                        Trách nhiệm xã hội 
+                                    </a>
+                                </li>
+                                <li class="footer-top-menu-greet-ctl">
+                                    <a href="#">
+                                        <img src="../Publics/Images/Home/bullet_footer-icon-right.png" alt="Alternate Text" />
+                                        Tuyển dụng
+                                    </a>
+                                </li>
+                                <li class="footer-top-menu-greet-ctl">
+                                    <a href="#">
+                                        <img src="../Publics/Images/Home/bullet_footer-icon-right.png" alt="Alternate Text" />
+                                        Câu hỏi thường gặp (FAQs)
+                                    </a>
+                                </li>
+                                <li class="footer-top-menu-greet-ctl">
+                                    <a href="#">
+                                        <img src="../Publics/Images/Home/bullet_footer-icon-right.png" alt="Alternate Text" />
+                                        Blogs
+                                    </a>
+                                </li>
+                                <li class="footer-top-menu-greet-ctl">
+                                    <a href="#">
+                                        <img src="../Publics/Images/Home/bullet_footer-icon-right.png" alt="Alternate Text" />
+                                        Giới thiệu Hoayeuthuong.com đến người thân
+                                    </a>
+                                </li>
+                                <li class="footer-top-menu-greet-ctl">
+                                    <a href="#">
+                                        <img src="../Publics/Images/Home/bullet_footer-icon-right.png" alt="Alternate Text" />
+                                        Liên hệ
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <div class="footer-top">
+                            <h3 class="footer-top__title">SHOP HOA HÀ NỘI</h3>
+                            <ul class="footer-top-menu-greet">
+                                <li class="footer-top-menu-greet-ctl">
+                                    <a href="#">
+                                        <img src="../Publics/Images/Home/bullet_footer-icon-right.png" alt="Alternate Text" />
+                                        Thắc mắc và khiếu nại
+                                    </a>
+                                </li>
+                                <li class="footer-top-menu-greet-ctl">
+                                    <a href="#">
+                                        <img src="../Publics/Images/Home/bullet_footer-icon-right.png" alt="Alternate Text" />
+                                        Cam kết hài lòng 100%
+                                    </a>
+                                </li>
+                                <li class="footer-top-menu-greet-ctl">
+                                    <a href="#">
+                                        <img src="../Publics/Images/Home/bullet_footer-icon-right.png" alt="Alternate Text" />
+                                        Chính sách bảo mật thông tin
+                                    </a>
+                                </li>
+                                <li class="footer-top-menu-greet-ctl">
+                                    <a href="#">
+                                        <img src="../Publics/Images/Home/bullet_footer-icon-right.png" alt="Alternate Text" />
+                                        Chính sách và điều khoản
+                                    </a>
+                                </li>
+                                <li class="footer-top-menu-greet-ctl">
+                                    <a href="#">
+                                        <img src="../Publics/Images/Home/bullet_footer-icon-right.png" alt="Alternate Text" />
+                                        Hướng dẫn đặt hàng
+                                    </a>
+                                </li>
+                                <li class="footer-top-menu-greet-ctl">
+                                    <a href="#">
+                                        <img src="../Publics/Images/Home/bullet_footer-icon-right.png" alt="Alternate Text" />
+                                        Chính sách bảo mật thanh toán
+                                    </a>
+                                </li>
+                                <li class="footer-top-menu-greet-ctl">
+                                    <a href="#" class="footer-top-menu-greet-ctl footer-top-menu-greet-ctl--bold">
+                                        <img src="../Publics/Images/Home/bullet_footer-icon-right.png" alt="Alternate Text" />
+                                        Hướng dẫn thanh toán
+                                    </a>
+                                </li>
+                            </ul>
+
+                            <div class="footer-top-links">
+                                <h3 class="footer-top__title">KẾT NỐI</h3>
+                                <a href="#">
+                                    <img src="../Publics/Images/Home/icon-fb.png" alt="Alternate Text" />
+                                </a>
+                                <a href="#">
+                                    <img src="../Publics/Images/Home/icon-twitter.png" alt="Alternate Text" />
+                                </a>
+                                <a href="#">
+                                    <img src="../Publics/Images/Home/icon-youtube.png" alt="Alternate Text" />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <div class="footer-top">
+                            <h3 class="footer-top__title">GIỚI THIỆU VỀ HOA</h3>
+                            <ul class="footer-top-menu-greet">
+                                <li class="footer-top-menu-greet-ctl">
+                                    <a href="#">
+                                        <img src="../Publics/Images/Home/bullet_footer-icon-right.png" alt="Alternate Text" />
+                                        Ý nghĩa hoa
+                                    </a>
+                                </li>
+                                <li class="footer-top-menu-greet-ctl">
+                                    <a href="#">
+                                        <img src="../Publics/Images/Home/bullet_footer-icon-right.png" alt="Alternate Text" />
+                                        Cách chăm sóc hoa
+                                    </a>
+                                </li>
+                            </ul>
+
+                            <div class="footer-top-newsletter">
+                                <h3 class="footer-top__title">NEWSLETTER</h3>
+                                <p class="footer-top-newsletter-greet">Đăng kí ngay để nhận được các thông tin khuyến mãi và ưu đãi đặc biệt từ:</p>
+                                <p class="footer-top-newsletter-greet footer-top-newsletter-greet--red">hoayeuthuong.com</p>
+                            </div>
+                            <div class="footer-top-profile">
+                                <asp:TextBox runat="server" placeholder="Email của bạn" CssClass="footer-top-profile__register" />
+                                <asp:Button Text="OK" runat="server" CssClass="footer-top-profile__btn" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <div class="footer-top">
+                            <h3 class="footer-top__title footer-top__title--red">VĂN PHÒNG ĐIỀU HÀNH</h3>
+                            <div class="footer-top-address">
+                                <p class="footer-top-address__address-red">Công ty Cổ Phần Color Life</p>
+                            </div>
+                            <div class="footer-top-address">
+                                <p class="footer-top-address__address-red">Địa chỉ:</p>
+                                <span>270F Võ Thị Sáu, P.7, Q. 3, Tp. Hồ Chí Minh</span>
+                            </div>
+                            <div class="footer-top-address">
+                                <p class="footer-top-address__address-red">MST:</p>
+                                <span>0313230072 cấp lần đầu ngày 25/04/2015 bởi Sở kế hoạch đầu tư Thành phố Hồ Chí Minh</span>
+                            </div>
+                            <div class="footer-top-address">
+                                <p class="footer-top-address__address-red">Email:</p>
+                                <span>contact@hoayeuthuong.com</span>
+                            </div>
+                            <div class="footer-top-address">
+                                <p class="footer-top-address__address-red">Điện thoại:</p>
+                                <a href="#" class="footer-top-address__hotline-red">028 73002010 - 024 73002010</a>
+                                <span>(24/7)</span>
+                            </div>
+                            <img src="../Publics/Images/Home/logo-thongbao.png" alt="Alternate Text" />
+                            <img src="../Publics/Images/Home/logo-DMCA.png" alt="Alternate Text" />
+                        </div>
                     </div>
                 </div>
 
                 <div class="row">
-                    <h3>SHOP HOA TƯƠI, DỊCH VỤ ĐIỆN HOA 63 TỈNH THÀNH</h3>
-                    <div>
-                        <h4>
-                            <img src="../Publics/Images/Home/icon-hyt.png" alt="Alternate Text" />
-                            HƠN 150.000 ĐIỆN HOA ĐƯỢC HOAYEUTHUONG CHUYỂN TRONG NĂM QUA
-                        </h4>
-                        <p>
-                            Không có một shop hoa nào tốt hơn để bạn lựa chọn cho một dịch vụ điện hoa chuyên nghiệp như shop hoa tươi Hoayeuthuong.com. Bằng tất cả niềm đam mê và tận tâm, Hoayeuthuong.com luôn chọn những bông hoa tươi nhất và sáng tạo lên những mẫu hoa tuyệt vời để chuyển đến người thân yêu của bạn cùng với những lời chúc tốt đẹp. Với hơn 150.000 điện hoa được chúng tôi chuyển trong năm qua là một sự khởi đầu cho sự tin tưởng tuyệt vời. Ngoài các dịch vụ về hoa tươi như: hoa sinh nhật, hoa chúc mừng, hoa chia buồn và shop hoa chúng tôi hiểu được thêm nhu cầu của bạn, chúng tôi có liên kết với các hãng có uy tín để cung cấp thêm các dịch vụ như: bánh sinh nhật, Chocolate, Gấu bông, kẹo ngọt, trái cây...
-                        </p>
+                    <div class="footer-bottom">
+                        <h2 class="footer-bottom__title">SHOP HOA TƯƠI, DỊCH VỤ ĐIỆN HOA 63 TỈNH THÀNH</h2>
+                        <div style="border-bottom: 3px solid red; width: 30%;"></div>
                     </div>
                     <div>
-                        <h4>
-                            <img src="../Publics/Images/Home/icon-hyt.png" alt="Alternate Text" />
-                            CAM KẾT DỊCH VỤ HOA TƯƠI TUYỆT VỜI NHẤT, GIAO HOA NHANH NHẤT, GIÁ TỐT NHẤT, CHẤT LƯỢNG HOA TỐT NHẤT.
-                        </h4>
-                        <p>Với sự liên tục cải tiến quy trình, shop hoa tươi Hoayeuthuong.com nỗ lực đáp ứng trong vòng 2 giờ sẽ giao hoa cho người nhận, chúng tôi là một số ít công ty phục vụ dịch vụ điện hoa cho cả những mẫu hoa có giá từ 100.000đ (5$) mà không có phụ phí gì thêm. Ngoài ra, các mẫu hoa tươi của chúng tôi có xác nhận bảo hành tươi tối thiểu 3 ngày trong điều kiện bình thường.</p>
+                        <img src="../Publics/Images/Home/icon-hyt.png" alt="Alternate Text" />
+                        <h3></h3>
+                        <p></p>
                     </div>
-                    <div>
-                        <h4>
-                            <img src="../Publics/Images/Home/icon-hyt.png" alt="Alternate Text" />
-                            TRỞ THÀNH CÔNG TY ĐIỆN HOA SỐ 1 TẠI VIỆT NAM
-                        </h4>
-                        <p>Với sự đầu tư nghiêm túc, shop hoa tươi Hoayeuthuong tập trung nâng cao trải nghiệm người dùng (Customer Experience) kể cả trên môi trường trực tuyến và ngoại tuyến để đem lại một dịch vụ điện hoa hoàn hảo xứng đáng trong nỗ lực trở thành công ty điện hoa số 1 tại Việt Nam.</p>
-                    </div>
-                    <div>
-                        <h4>
-                            <img src="../Publics/Images/Home/icon-hyt.png" alt="Alternate Text" />
-                            CAM KẾT DỊCH VỤ ĐIỆN HOA 100% HÀI LÒNG
-                        </h4>
-                        <p>Với nhiều năm kinh nghiệm phục vụ trong ngành điện hoa, shop hoa tươi Hoayeuthuong.com hiểu mức độ quan trọng trong công việc của mình là truyền tải đúng và đủ thông điệp của người tặng đến người nhận. Vì thế chúng tôi cam kết 100% sự hài lòng của khách hàng với dịch vụ điện hoa của chúng tôi. Với bất cứ điều gì không hài lòng bạn đều được hoàn lại 100% phí dịch vụ đã chuyển cho chúng tôi.</p>
-                    </div>
-                    <div>
-                        <h4>
-                            <img src="../Publics/Images/Home/icon-hyt.png" alt="Alternate Text" />
-                            SHOP HOA TƯƠI HOAYEUTHUONG.COM LÀ MỘT CÔNG TY KHỞI NGHIỆP VỀ CÔNG NGHỆ (IT STARTUP).
-                        </h4>
-                        <p>Shop hoa Hoayeuthuong.com được thành lập đầu tiên bởi anh Phạm Hoàng Thái Dương, với mong muốn xây dựng một hệ sinh thái cho ngành hoa tươi tại Việt Nam dựa trên nền tảng Công Nghệ Thông Tin. Việc ứng dụng công nghệ giúp chúng tôi tiết kiệm những quy trình không cần thiết để giảm giá thành sản phẩm và giải quyết được nhiều bài toán lớn về chuỗi cung ứng hoa tươi trên cả nước.</p>
-                    </div>
-                    <div class="footer-content--center">
-                        <p style="text-align: center;">
-                            Copyright ©2015, Hoayeuthuong.com, All rights reserved
-                        </p>
-                    </div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
                 </div>
             </div>
         </footer>
