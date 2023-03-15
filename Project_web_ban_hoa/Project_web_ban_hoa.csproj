@@ -91,6 +91,9 @@
     <Content Include="Publics\Css\Topic.css" />
     <Content Include="Publics\Images\404\404.gif" />
     <Content Include="Publics\Images\Admin\dropdown-arrow-457731.png" />
+    <Content Include="Publics\Images\Home\bullet_footer-icon-right.png" />
+    <Content Include="Publics\Images\Home\logo-DMCA.png" />
+    <Content Include="Publics\Images\Home\logo-thongbao.png" />
     <Content Include="Publics\Images\Login\profile-background.jpg" />
     <Content Include="Publics\Images\Admin\user-icon.png" />
     <Content Include="Publics\Images\Home\icon-fb.png" />
