@@ -88,6 +88,7 @@
     <Content Include="Publics\Css\Home.css" />
     <Content Include="Publics\Css\Login.css" />
     <Content Include="Publics\Css\NotFound.css" />
+    <Content Include="Publics\Css\ProductDetail.css" />
     <Content Include="Publics\Css\Reset.css" />
     <Content Include="Publics\Css\Topic.css" />
     <Content Include="Publics\Images\404\404.gif" />
@@ -111,6 +112,7 @@
     <Content Include="Publics\Images\Home\logoytb.png" />
     <Content Include="Publics\Images\Home\zalo-chat-icon.png" />
     <Content Include="Publics\Images\logo-hoa-yeu-thuong.png" />
+    <Content Include="Publics\Images\ProductDetail\12490_romance.jpg" />
     <Content Include="Publics\Images\Product\10258_white-roses.jpg" />
     <Content Include="Publics\Images\Product\12490_romance.jpg" />
     <Content Include="Publics\Images\Product\13262_tinh-dau-tho-ngay.jpg" />
