@@ -12,6 +12,8 @@ INSERT INTO Users (First_Name, Last_Name, Email, Password, Role_Id)
 VALUES
 ('Admin', 'Admin', 'admin@gmail.com', '123456', 1)
 
+SELECT   * FROM dbo.Users
+
 -- THÊM DỮ LIỆU MẪU BẢNG DANH MỤC
 INSERT INTO dbo.Categories (Name,Seo_Name,Thumbnail,Created_At,Updated_At)
 VALUES

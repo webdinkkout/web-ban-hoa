@@ -12,7 +12,7 @@
     <title>Hoa Yêu Thương</title>
 
     <%-- Thêm CSS Labrary --%>
-    <link href="../Publics/Css/Library/Bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link href="../Publics/Css/Library/Bootstrap/bootstrap-grid.min.css" rel="stylesheet" />
     <link href="../Publics/Css/Library/FontAwesome/all.min.css" rel="stylesheet" />
 
 
