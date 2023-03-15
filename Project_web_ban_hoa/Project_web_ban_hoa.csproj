@@ -70,6 +70,7 @@
     <Content Include="Publics\Css\Library\FontAwesome\all.min.css" />
     <Content Include="Publics\Css\Library\OwlCarousel2\owl.carousel.min.css" />
     <Content Include="Publics\Css\Library\OwlCarousel2\owl.theme.default.min.css" />
+    <Content Include="Publics\Js\Library\Chart\chart.js" />
     <Content Include="Publics\Js\Library\Jquery\jquery-3.6.4.min.js" />
     <Content Include="Publics\Js\Library\OwlCarousel2\owl.carousel.min.js" />
     <Content Include="NotFound.aspx" />
@@ -122,6 +123,8 @@
     <Content Include="Publics\Images\Product\13262_tinh-dau-tho-ngay.jpg" />
     <Content Include="Publics\Js\Admin.js" />
     <Content Include="Publics\Js\Library\Bootstrap\bootstrap.bundle.min.js" />
+    <Content Include="Publics\Js\Library\Toastify\chart.js" />
+    <Content Include="Publics\Js\Library\Toastify\toastify-js.js" />
     <Content Include="Publics\Js\Main.js" />
     <Content Include="Publics\Uploads\Category\87846349-da8b-49e4-94b8-5ec2a38e1eac-tai-đep-zai.jpg" />
     <Content Include="Publics\Uploads\Category\97177053-93eb-478b-8f83-30d8a5125b59-icon-hoa-tinh-yeu.png" />
