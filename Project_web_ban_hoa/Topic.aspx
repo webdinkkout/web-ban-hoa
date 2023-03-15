@@ -29,7 +29,7 @@
                                 <div class="col-lg-3">
                                     <div class="content-wrapper-card-product">
                                         <div class="content-wrapper-card-product-card-product-top">
-                                            <a href="#">
+                                            <a href='ProductDetail.aspx/<%# Eval("Seo_Name") %>'>
                                                 <img src='<%# Eval("Thumbnail") %>' />
                                             </a>
                                         </div>
