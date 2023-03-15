@@ -4,15 +4,28 @@
 
 <html>
 <head runat="server">
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>Hoa Yêu Thương</title>
+
+    <%-- Thêm CSS Labrary --%>
     <link href="../Publics/Css/Library/Bootstrap/bootstrap.min.css" rel="stylesheet" />
-    <link href="../Publics/Css/Reset.css" rel="stylesheet" />
+    <link href="../Publics/Css/Library/FontAwesome/all.min.css" rel="stylesheet" />
+
+
+    <%-- Thêm Font Chữ --%>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
+
+    <%-- CSS Main --%>
+    <link href="../Publics/Css/Reset.css" rel="stylesheet" />
     <link href="../Publics/Css/Home.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>

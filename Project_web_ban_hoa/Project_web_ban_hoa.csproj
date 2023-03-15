@@ -66,7 +66,12 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Register.aspx" />
+    <Content Include="Publics\Css\Library\Bootstrap\bootstrap-grid.min.css" />
+    <Content Include="Publics\Css\Library\FontAwesome\all.min.css" />
+    <Content Include="Publics\Css\Library\OwlCarousel2\owl.carousel.min.css" />
+    <Content Include="Publics\Css\Library\OwlCarousel2\owl.theme.default.min.css" />
+    <Content Include="Publics\Js\Library\Jquery\jquery-3.6.4.min.js" />
+    <Content Include="Publics\Js\Library\OwlCarousel2\owl.carousel.min.js" />
     <Content Include="NotFound.aspx" />
     <Content Include="Admin.aspx" />
     <Content Include="Global.asax" />
@@ -133,13 +138,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Data\Database\Auth.cs" />
-    <Compile Include="Register.aspx.cs">
-      <DependentUpon>Register.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Register.aspx.designer.cs">
-      <DependentUpon>Register.aspx</DependentUpon>
-    </Compile>
     <Compile Include="NotFound.aspx.cs">
       <DependentUpon>NotFound.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
