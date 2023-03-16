@@ -123,17 +123,9 @@
     color: #363636;
 }
 
-
-
-
-
-
-
-
-
-
-
-
+.home-logo-flower-items {
+    display: flex;
+}
 /*CSS PHẦN FOOTER*/
 .footer {
     background: #ebebeb;
