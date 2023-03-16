@@ -1,5 +1,6 @@
 ﻿/*CSS PHẦN HEADER*/
 
+
 .header-menu {
     background: #ebebeb;
 }
@@ -118,13 +119,55 @@
 /*CSS PHẦN HOME*/
 
 .home {
-    background: #0000001a;
     font-size: 13px;
     color: #363636;
 }
 
+.home-top {
+    background: #e9ecef;
+    margin-bottom: 25px;
+}
+
+.home-logo-flower__title {
+    color: #bd2026;
+    font-size: 18px;
+}
+
 .home-logo-flower-items {
     display: flex;
+    text-align: center;
+    justify-content: space-between;
+}
+
+    .home-logo-flower-items > li > a {
+        display: block;
+    }
+
+        .home-logo-flower-items > li > a:hover {
+            color: red;
+        }
+
+.home-logo-flower-items-item > a > img {
+    width: 183px;
+}
+
+
+.home-logo-flower-items-item > a > div {
+    font-weight: 600;
+    margin: 10px;
+    font-size: 15px;
+    color: #636363;
+}
+
+.home-product-flower {
+    background-color: #ffe6dd;
+}
+
+.home-product-flower__title {
+    margin: 5px 0;
+    font-weight: 600;
+    font-size: 16px;
+    color: #bd2026;
 }
 /*CSS PHẦN FOOTER*/
 .footer {
