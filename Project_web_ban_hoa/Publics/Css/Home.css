@@ -1,4 +1,4 @@
-﻿
+﻿/*CSS PHẦN HEADER*/
 
 .header-menu {
     background: #ebebeb;
@@ -115,6 +115,26 @@
     min-height: 30px;
 }
 
+/*CSS PHẦN HOME*/
+
+.home {
+    background: #0000001a;
+    font-size: 13px;
+    color: #363636;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*CSS PHẦN FOOTER*/
 .footer {
     background: #ebebeb;
     font-size: 14px;
