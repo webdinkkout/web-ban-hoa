@@ -87,6 +87,28 @@
         width: 32px;
     }
 
+
+.header-wrapper-menu-address > a:hover {
+    border-bottom: 3px solid red;
+}
+
+
+.header-search-contact-search > button:hover {
+    background-color: #eee;
+}
+
+.header-search-user-control-cart-account > a:hover {
+    color: #bd2026;
+}
+
+.header-search-contact-hotline-number-phone > a:hover {
+    color: #bd2026;
+}
+
+.header-menu-ctls > ul > li > a:hover {
+    color: #bd2026;
+}
+
 .header__mh30 {
     width: 100%;
     background: #ff9800;
@@ -97,6 +119,18 @@
     background: #ebebeb;
     font-size: 14px;
     color: #555555;
+}
+
+.footer-top > h3 {
+    margin: 15px 0px;
+}
+
+.footer-top-contact > p {
+    margin: 5px;
+}
+
+.footer-top-contact {
+    padding: 3px;
 }
 
 .footer-top-contact__address.footer-top-contact__address--red {
@@ -117,8 +151,25 @@
     color: #555555;
 }
 
+    .footer-top-menu-greet > li {
+        padding: 3px;
+    }
+
 .footer-top-menu-greet-ctl.footer-top-menu-greet-ctl--bold {
     font-weight: bold;
+}
+
+    .footer-top-menu-greet-ctl.footer-top-menu-greet-ctl--bold:hover {
+        color: #bd2026;
+    }
+
+.footer-top-newsletter > h3 {
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+.footer-top-newsletter > p {
+    padding: 3px 0px;
 }
 
 .footer-top-newsletter-greet.footer-top-newsletter-greet--red {
@@ -126,19 +177,39 @@
     color: #bd2026;
 }
 
+.footer-top-profile {
+    padding: 5px 0px;
+}
+
 .footer-top-profile__register {
     padding: 5px 10px;
 }
+
 
 .footer-top-profile__btn {
     padding: 5px 12px;
     background: #bd2026;
     color: white;
     border: 1px solid #bd2026;
+    transition: background .3s linear;
+    cursor: pointer;
 }
+
+    .footer-top-profile__btn:hover {
+        background: #fcb040;
+    }
 
 .footer-top-address {
     display: flex;
+    padding: 3px 0px;
+}
+
+.footer-top-links > h3 {
+    padding: 10px 0px;
+}
+
+.footer-top-links > a > img {
+    width: 38px;
 }
 
 .footer-top-address__address-red {
@@ -158,4 +229,23 @@
 .footer-bottom__title {
     font-weight: bold;
     text-align: center;
+    position: relative;
+    padding: 5px;
+}
+
+    .footer-bottom__title::before {
+        content: '';
+        position: absolute;
+        display: inline-block;
+        bottom: 0px;
+        left: calc(50% - 80px);
+        width: 160px;
+        height: 3px;
+        background: #bd2026;
+    }
+
+.footer-bottom__title--grey {
+    font-weight: 600;
+    color: #707070;
+    margin: 5px;
 }
