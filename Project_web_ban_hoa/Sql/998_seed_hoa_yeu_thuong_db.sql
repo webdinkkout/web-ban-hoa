@@ -10,19 +10,21 @@ VALUES
 -- THÊM DỮ LIỆU MẪU CHO BẢNG NGƯỜI DÙNG
 INSERT INTO Users (First_Name, Last_Name, Email, Password, Role_Id)
 VALUES
-('Admin', 'Admin', 'admin@gmail.com', '123456', 1)
-
-SELECT   * FROM dbo.Users
+(N'Admin', 'Admin', 'admin@gmail.com', '123456', 1),
+(N'Lê Trần Tấn', 'Tài', 'taic21a.th1@gmail.com', '123456', 2),
+(N'Nguyễn Tấn ', 'Tài', 'tantai@gmail.com', '123456', 2),
+(N'Trần Nguyễn Nhật', 'Dũng', 'dung@gmail.com', '123456', 2)
 
 -- THÊM DỮ LIỆU MẪU BẢNG DANH MỤC
-INSERT INTO dbo.Categories (Name,Seo_Name,Thumbnail,Created_At,Updated_At)
+INSERT INTO dbo.Categories (Name,Seo_Name,Thumbnail,Parent_Id,Level,Created_At,Updated_At)
 VALUES
-( N'Hoa Sinh Nhật', 'hoa-sinh-nhat', N'https://hoayeuthuong.com/images/icon-hoa-sinh-nhat.png', DEFAULT, DEFAULT ),
-( N'Hoa Tình Yêu', 'hoa-tinh-yeu', N'https://hoayeuthuong.com/images/icon-hoa-tinh-yeu.png', DEFAULT, DEFAULT ),
-( N'Hoa Mới', 'hoa-moi', N'https://hoayeuthuong.com/images/icon-mau-hoa-moi.png', DEFAULT, DEFAULT ),
-( N'Cây Văn Phòng', 'cay-van-phong', N'https://hoayeuthuong.com/images/icon-cay-vp.png', DEFAULT, DEFAULT ),
-( N'Hoa Chúc Mừng', 'hoa-chuc-mung', N'https://hoayeuthuong.com/images/icon-hoa-chuc-mung.png', DEFAULT, DEFAULT ),
-( N'Lãng hoa chia buồn', 'lang-hoa-chia-buon', N'https://hoayeuthuong.com/images/icon-hoa-tang-le.png', DEFAULT, DEFAULT )
+( N'Chủ đề','chu-de',null,null,0,DEFAULT, DEFAULT),
+( N'Hoa Sinh Nhật', 'hoa-sinh-nhat', N'https://hoayeuthuong.com/images/icon-hoa-sinh-nhat.png',1,1, DEFAULT, DEFAULT ),
+( N'Hoa Tình Yêu', 'hoa-tinh-yeu', N'https://hoayeuthuong.com/images/icon-hoa-tinh-yeu.png',1,1, DEFAULT, DEFAULT ),
+( N'Hoa Mới', 'hoa-moi', N'https://hoayeuthuong.com/images/icon-mau-hoa-moi.png', DEFAULT,1,1, DEFAULT ),
+( N'Cây Văn Phòng', 'cay-van-phong', N'https://hoayeuthuong.com/images/icon-cay-vp.png',1,1, DEFAULT, DEFAULT ),
+( N'Hoa Chúc Mừng', 'hoa-chuc-mung', N'https://hoayeuthuong.com/images/icon-hoa-chuc-mung.png',1,1, DEFAULT, DEFAULT ),
+( N'Lãng hoa chia buồn', 'lang-hoa-chia-buon', N'https://hoayeuthuong.com/images/icon-hoa-tang-le.png',1,1, DEFAULT, DEFAULT )
 
 -- THÊM DỮ LIỆU MẪU BẢNG SẢN PHẨM
 INSERT INTO dbo.Products
@@ -81,8 +83,42 @@ VALUES
     DEFAULT, -- Updated_At - datetime2(7)
     2        -- Category_Id - int
     )
+    GO
 
---THÊM DỮ LIỆU BẢNG ĐƠN HÀNG
+-- THÊM DỮ LIỆU PAYMENT
+INSERT INTO Payment_Methods 
+VALUES
+( N'Chuyển khoản' ),
+( N'Cod' )
+GO
+
+--THÊM DỮ LIỆU BẢNG ĐƠN ĐẶT HÀNG
+INSERT INTO Orders
+(User_Id,Delivery_Date,Order_Date,Payment_Method_Id)
+VALUES
+(
+	2,
+	'2023/3/15',
+	'2023/3/14',
+	1
+),
+(
+	3,
+	'2023/3/15',
+	'2023/3/14',
+	1
+)
+GO
 
 --THÊM DỮ LIỆU VÀ BẢNG CHI TIẾT ĐƠN HÀNG
+INSERT INTO Order_Details
+(Order_Id,Product_Id,Quantity,Total_Price)
+VALUES
+(1,2,2,70000),(2,2,4,140000)
 
+--select o.Id, u.First_Name + ' ' + u.Last_Name as User_Name, p.Name as Product_Name, pm.Name Payment_Name, od.Quantity, od.Total_Price, o.Order_Date, o.Delivery_Date
+--from Orders o 
+--inner join Order_Details od on o.Id = od.Order_Id 
+--inner join Users u on o.User_Id = u.Id 
+--inner join Products p on p.Id = od.Product_Id 
+--inner join Payment_Methods pm on pm.Id = o.Payment_Method_Id

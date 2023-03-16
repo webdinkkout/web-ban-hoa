@@ -11,7 +11,8 @@
                 <div class="col-lg-4">
                     <div class="wrapper-card-view-category">
                         <div class="wrapper-card-view-category-heading">
-                            <asp:Image ID="imgThumbnail" ImageUrl='<%# Eval("Thumbnail") %>' runat="server" />
+                            <asp:Image ID="imgThumbnail" ImageUrl='<%# Eval("Thumbnail") == null ? "~/Publics/Images/DefaultImg/null-image.png" : Eval("Thumbnail") %>'
+                                runat="server" />
                         </div>
                         <div class="wrapper-card-view-category-content">
                             <div class="wrapper-card-view-category-body">

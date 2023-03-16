@@ -24,7 +24,7 @@ namespace Project_web_ban_hoa.Private.Admin.Category.Update
             if (!string.IsNullOrEmpty(Request.QueryString["id-category"]))
             {
                 idCategory = Convert.ToInt32(Request.QueryString["id-category"]);
-                DataTable category = Project_web_ban_hoa.Category.GetOneCategory(idCategory);
+                DataTable category = DAO.Category.GetOneCategory(idCategory);
                 rptUpdateCategory.DataSource = category;
                 rptUpdateCategory.DataBind();
             }
@@ -48,7 +48,7 @@ namespace Project_web_ban_hoa.Private.Admin.Category.Update
             if (file.ContentType.ToLower().StartsWith("image/"))
             {
                 // Xóa ảnh cũ
-                DataTable category = Project_web_ban_hoa.Category.GetOneCategory(idCategory);
+                DataTable category = DAO.Category.GetOneCategory(idCategory);
                 string oldThumbnail = category.Rows[0]["Thumbnail"].ToString();
                 string[] arrOldThumbnail = oldThumbnail.Split('/');
                 Components.DeleteThumbnailOnSystem(arrOldThumbnail, Server);
@@ -61,7 +61,7 @@ namespace Project_web_ban_hoa.Private.Admin.Category.Update
                 file.SaveAs(savePath);
             }
 
-            int n = Project_web_ban_hoa.Category.UpdateCategory(idCategory, categoryModel.Name, categoryModel.SeoName, categoryModel.Thumbnail);
+            int n = DAO.Category.UpdateCategory(idCategory, categoryModel.Name, categoryModel.SeoName, categoryModel.Thumbnail);
 
             Session["showToastDuration"] = 3000;
             Session["showToastPosition"] = "right";

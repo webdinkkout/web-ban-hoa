@@ -18,7 +18,7 @@ namespace Project_web_ban_hoa.Private.Admin.Product.Create
         {
             if (!Page.IsPostBack)
             {
-                DataTable categoriesTable = Project_web_ban_hoa.Category.GetAllCategories();
+                DataTable categoriesTable = DAO.Category.GetAllCategories();
                 foreach (DataRow categoryRow in categoriesTable.Rows)
                 {
                     ListItem listItem = new ListItem();
@@ -45,7 +45,7 @@ namespace Project_web_ban_hoa.Private.Admin.Product.Create
                 string saveFileName = Guid.NewGuid().ToString() + "-" + Components.ConvertToUnSign(fileName);
                 string savePath = Server.MapPath("~/Publics/Uploads/Category/" + saveFileName);
                 string thumbnail = ConfigurationManager.AppSettings["UrlEnv"] + $"/Publics/Uploads/Category/{saveFileName}";
-                int n = Project_web_ban_hoa.Product.CreateProduct(nameProduct, seoName, descProduct, oldPrice, currentPrice, quantity, thumbnail, categoryId);
+                int n = DAO.Product.CreateProduct(nameProduct, seoName, descProduct, oldPrice, currentPrice, quantity, thumbnail, categoryId);
                 if (n > 0)
                 {
                     file.SaveAs(savePath);

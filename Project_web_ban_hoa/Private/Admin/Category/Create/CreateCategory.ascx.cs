@@ -37,7 +37,7 @@ namespace Project_web_ban_hoa.Private.Admin.Category.Create
                     string savePath = Server.MapPath("~/Publics/Uploads/Category/" + saveFileName);
                     string thumbnail = ConfigurationManager.AppSettings["UrlEnv"] + $"/Publics/Uploads/Category/{saveFileName}";
 
-                    int n = Project_web_ban_hoa.Category.InsertCategory(name, seoName, thumbnail);
+                    int n = DAO.Category.InsertCategory(name, seoName, thumbnail);
                     if (n > 0)
                     {
                         file.SaveAs(savePath);

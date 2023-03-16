@@ -1,7 +1,7 @@
 ﻿using System.Data;
 using System.Data.SqlClient;
 
-namespace Project_web_ban_hoa
+namespace DAO
 {
     public class Category
     {
@@ -27,13 +27,13 @@ namespace Project_web_ban_hoa
         /// </summary>
         /// <returns>Tất cả các danh mục</returns>
         [System.Obsolete]
-        public static DataTable GetAllCategories(int pageNumber = 1, int pageSize = 10)
+        public static DataTable GetAllCategories(int pageNumber = 1, int pageSize = 10, int level = 1)
         {
-            SqlCommand cmd = new SqlCommand("proc_pagination");
+            SqlCommand cmd = new SqlCommand("proc_pagination_category");
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@table_name", "Categories");
             cmd.Parameters.AddWithValue("@page_number", pageNumber);
             cmd.Parameters.AddWithValue("@page_size", pageSize);
+            cmd.Parameters.AddWithValue("@level", level);
             return SqlDatabase.GetData(cmd);
 
         }

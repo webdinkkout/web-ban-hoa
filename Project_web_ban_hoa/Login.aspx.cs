@@ -32,7 +32,7 @@ namespace Project_web_ban_hoa
             string gmail = txtGmail.Text.Trim();
             string password = txtPassword.Text.Trim();
 
-            DataTable user = Auth.Login(gmail, password);
+            DataTable user = DAO.Auth.Login(gmail, password);
 
             if (user.Rows.Count > 0)
             {

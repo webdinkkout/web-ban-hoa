@@ -20,7 +20,7 @@ namespace Project_web_ban_hoa.Private.Admin.Category.View
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            DataTable categoriesTable = Project_web_ban_hoa.Category.GetAllCategories();
+            DataTable categoriesTable = DAO.Category.GetAllCategories();
 
             rptViewCategories.DataSource = categoriesTable;
             rptViewCategories.DataBind();
@@ -52,7 +52,7 @@ namespace Project_web_ban_hoa.Private.Admin.Category.View
                     {
                         string script;
                         int idCategory = Convert.ToInt32(e.CommandArgument);
-                        int n = Project_web_ban_hoa.Category.DeleteCategory(idCategory);
+                        int n = DAO.Category.DeleteCategory(idCategory);
                         if (n > 0)
                         {
                             Components.DeleteThumbnailOnSystem(arrNameThumbnail, Server);
