@@ -19,9 +19,17 @@ VALUES
 INSERT INTO dbo.Categories (Name,Seo_Name,Thumbnail,Parent_Id,Level,Created_At,Updated_At)
 VALUES
 ( N'Chủ đề','chu-de',null,null,0,DEFAULT, DEFAULT),
+( N'Đối tượng','doi-tuong',null,null,0,DEFAULT, DEFAULT),
+( N'Kiểu dáng','kieu-dang',null,null,0,DEFAULT, DEFAULT),
+( N'Hoa tươi','hoa-tuoi',null,null,0,DEFAULT, DEFAULT),
+( N'Màu sắc','mau-sac',null,null,0,DEFAULT, DEFAULT),
+( N'Bộ sưu tập','bo-suu-tap',null,null,0,DEFAULT, DEFAULT),
+( N'Quà tặng kèm','qua-tang-kem',null,null,0,DEFAULT, DEFAULT),
+( N'Hoa cưới','hoa-cuoi',null,null,0,DEFAULT, DEFAULT),
+( N'Ý nghĩa hoa','y-nghia-hoa',null,null,0,DEFAULT, DEFAULT),
 ( N'Hoa Sinh Nhật', 'hoa-sinh-nhat', N'https://hoayeuthuong.com/images/icon-hoa-sinh-nhat.png',1,1, DEFAULT, DEFAULT ),
 ( N'Hoa Tình Yêu', 'hoa-tinh-yeu', N'https://hoayeuthuong.com/images/icon-hoa-tinh-yeu.png',1,1, DEFAULT, DEFAULT ),
-( N'Hoa Mới', 'hoa-moi', N'https://hoayeuthuong.com/images/icon-mau-hoa-moi.png', DEFAULT,1,1, DEFAULT ),
+( N'Hoa Mới', 'hoa-moi', N'https://hoayeuthuong.com/images/icon-mau-hoa-moi.png',1,1, DEFAULT,DEFAULT ),
 ( N'Cây Văn Phòng', 'cay-van-phong', N'https://hoayeuthuong.com/images/icon-cay-vp.png',1,1, DEFAULT, DEFAULT ),
 ( N'Hoa Chúc Mừng', 'hoa-chuc-mung', N'https://hoayeuthuong.com/images/icon-hoa-chuc-mung.png',1,1, DEFAULT, DEFAULT ),
 ( N'Lãng hoa chia buồn', 'lang-hoa-chia-buon', N'https://hoayeuthuong.com/images/icon-hoa-tang-le.png',1,1, DEFAULT, DEFAULT )

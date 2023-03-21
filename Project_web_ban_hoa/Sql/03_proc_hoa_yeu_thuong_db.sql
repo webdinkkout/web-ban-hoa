@@ -31,17 +31,17 @@ END
 GO
 
 
-CREATE PROC proc_insert_category -- Thêm danh mục
+Create PROC proc_insert_category_level_1 -- Thêm danh mục
 	@name nvarchar(50),
 	@seo_name varchar(50),
 	@thumbnail nvarchar(255),
-	@parent_id int = null
+	@parent_id int
 AS
 BEGIN
 	INSERT INTO	dbo.Categories
-		(Name,Seo_Name,Thumbnail, Parent_Id)
+		(Name,Seo_Name,Thumbnail, Parent_Id,Level)
 	values
-		(@name, @seo_name, @thumbnail,@parent_id)
+		(@name, @seo_name, @thumbnail,@parent_id,1)
 END
 GO
 
@@ -76,11 +76,11 @@ BEGIN
 END
 GO
 
-CREATE PROC proc_get_category_by_level
+CREATE PROC proc_get_categories_by_level
 @level INT
 AS
 BEGIN
-	SELECT * FROM Categories WHERE Level = @level
+	SELECT * FROM Categories WHERE Level = @level ORDER BY Created_At desc
 END
 GO
 
@@ -129,6 +129,7 @@ begin
     UPDATE dbo.Products SET View_Count = View_Count + 1 WHERE Id = @id
 end
 GO
+
 
 CREATE PROC proc_get_one_product_by_seo_name
 	@seo_name VARCHAR(50)

@@ -2,6 +2,25 @@
     --primary-color: #ff9800;
 }
 
+.grouping-text > fieldset > legend {
+    margin-left: 16px;
+}
+
+.grouping-text > fieldset {
+    border-radius: 10px;
+    border: 1px dashed green;
+    padding: 0 10px 10px 10px;
+    color: #ff9800;
+    font-weight: 600;
+}
+
+.grouping-text-dropdown {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+
 
 .admin-header {
     display: flex;
@@ -98,6 +117,24 @@
     user-select: none;
 }
 
+.wrapper-create-category-panel .wrapper-create-category-panel__control {
+    width: 100%;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.wrapper-create-category-panel > fieldset {
+    padding: 0 20px 10px 10px;
+    border-style: dashed;
+    border-color: green;
+}
+
+    .wrapper-create-category-panel > fieldset > legend {
+        font-size: 1.6rem;
+        font-weight: 600;
+        color: #ff9800;
+    }
+
 .wrapper-create-category__title {
     text-transform: uppercase;
     font-weight: 600;
@@ -138,6 +175,10 @@
     padding: 10px 22px;
     border: none;
     font-size: 1.8rem;
+    background-color: #28a745;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
     .wrapper-create-category .wrapper-create-category__btn:active {
@@ -177,6 +218,7 @@
 
         .wrapper-card-view-category .wrapper-card-view-category-body .wrapper-card-view-category-body__name {
             text-transform: capitalize;
+            font-size: 1.8rem;
         }
 
 .wrapper-card-view-category-footer__btn {

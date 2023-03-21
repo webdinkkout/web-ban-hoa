@@ -67,12 +67,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Object.aspx" />
+    <Content Include="ObjectDetail.aspx" />
     <Content Include="Publics\Css\Library\Bootstrap\bootstrap-grid.min.css" />
     <Content Include="Publics\Css\Library\FontAwesome\all.min.css" />
     <Content Include="Publics\Css\Library\OwlCarousel2\owl.carousel.min.css" />
     <Content Include="Publics\Css\Library\OwlCarousel2\owl.theme.default.min.css" />
     <Content Include="Publics\Css\Object.css" />
+    <Content Include="Publics\Css\ObjectDetail.css" />
     <Content Include="Publics\Images\DefaultImg\null-image.png" />
+    <Content Include="Publics\Images\Home\favicon.ico" />
     <Content Include="Publics\Js\Library\Chart\chart.js" />
     <Content Include="Publics\Js\Library\Jquery\jquery-3.6.4.min.js" />
     <Content Include="Publics\Js\Library\OwlCarousel2\owl.carousel.min.js" />
@@ -206,6 +209,13 @@
     </Compile>
     <Compile Include="Object.aspx.designer.cs">
       <DependentUpon>Object.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ObjectDetail.aspx.cs">
+      <DependentUpon>ObjectDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ObjectDetail.aspx.designer.cs">
+      <DependentUpon>ObjectDetail.aspx</DependentUpon>
     </Compile>
     <Compile Include="Private\Admin\AdminControl.ascx.cs">
       <DependentUpon>AdminControl.ascx</DependentUpon>

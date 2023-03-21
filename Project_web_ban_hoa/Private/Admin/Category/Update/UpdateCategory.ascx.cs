@@ -42,7 +42,7 @@ namespace Project_web_ban_hoa.Private.Admin.Category.Update
             if (!string.IsNullOrEmpty(txtName.Text))
             {
                 categoryModel.Name = txtName.Text;
-                categoryModel.SeoName = Components.ConvertToUnSign(txtName.Text).Replace(" ", "-");
+                categoryModel.SeoName = Guid.NewGuid().ToString() + "_" + Components.ConvertToUnSign(txtName.Text).Replace(" ", "-");
             }
 
             if (file.ContentType.ToLower().StartsWith("image/"))

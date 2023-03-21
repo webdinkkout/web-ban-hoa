@@ -4,12 +4,13 @@
 
 <html>
 <head runat="server">
-    
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <title>Hoa Yêu Thương</title>
+
+    <link rel="Shortcut Icon" href="../Publics/Images/Home/favicon.ico" type="image/x-icon" />
 
     <%-- Thêm CSS Labrary --%>
     <link href="../Publics/Css/Library/Bootstrap/bootstrap-grid.min.css" rel="stylesheet" />
@@ -89,11 +90,13 @@
                         <div class="header-search-contact-hotline">
                             <div class="header-search-contact-hotline-number-phone">
                                 <a href="#">HOTLINE MIỀN NAM</a>
-                                <a href="#" class="header-search-contact-hotline-number-phone header-search-contact-hotline-number-phone--orangen">028 73002010</a>
+                                <a href="#" class="header-search-contact-hotline-number-phone header-search-contact-hotline-number-phone--orangen">
+                                    028 73002010</a>
                             </div>
                             <div class="header-search-contact-hotline-number-phone">
                                 <a href="#">HOTLINE MIỀN BẮC</a>
-                                <a href="#" class="header-search-contact-hotline-number-phone header-search-contact-hotline-number-phone--orangen">024 73002010</a>
+                                <a href="#" class="header-search-contact-hotline-number-phone header-search-contact-hotline-number-phone--orangen">
+                                    024 73002010</a>
                             </div>
                             <div class="header-search-contact-hotline-zalo">
                                 <img src="../Publics/Images/Home/zalo-chat-icon.png" alt="Alternate Text" />
@@ -269,18 +272,29 @@
                                 <p class="footer-top-contact__address">
                                     - 230B Võ Thị Sáu, P. Võ Thị Sáu, Quận 3
                                 </p>
-                                <p class="footer-top-contact__address">- 270L Võ Thị Sáu, P.Võ Thị Sáu, Quận 3 (Góc ngã tư Bà Huyện Thành Quan)</p>
-                                <p class="footer-top-contact__address">- 17D Nguyễn Thái Học, P. Cầu Ông Lãnh, Quận 1</p>
+                                <p class="footer-top-contact__address">
+                                    - 270L Võ Thị Sáu, P.Võ Thị Sáu, Quận 3 (Góc
+                                    ngã tư Bà Huyện Thành Quan)
+                                </p>
+                                <p class="footer-top-contact__address">
+                                    - 17D Nguyễn Thái Học, P. Cầu Ông Lãnh, Quận
+                                    1
+                                </p>
                             </div>
                             <div class="footer-top-contact">
                                 <p class="footer-top-contact__address footer-top-contact__address--red">
                                     Điện thoại:
-                                <a href="#" class="footer-top-contact__address footer-top-contact__address--hotline">028 7300 2010</a>
+                                <a href="#" class="footer-top-contact__address footer-top-contact__address--hotline">
+                                    028 7300 2010</a>
                                 </p>
                             </div>
                             <div>
-                                <p class="footer-top-contact__address">Miễn phí giao hoa nội thành Tp. Hồ Chí Minh. Các quận ngoại thành vui lòng liên hệ để biết thêm chi tiết (Giá giao sẽ từ 30.000đ-70.000đ).</p>
-                                <a href="#" class="footer-top-contact__address footer-top-contact__address--hotline">Shop hoa ở Tp. HCM</a>
+                                <p class="footer-top-contact__address">
+                                    Miễn phí giao hoa nội thành Tp. Hồ Chí Minh.
+                                    Các quận ngoại thành vui lòng liên hệ để biết thêm chi tiết (Giá giao sẽ từ 30.000đ-70.000đ).
+                                </p>
+                                <a href="#" class="footer-top-contact__address footer-top-contact__address--hotline">
+                                    Shop hoa ở Tp. HCM</a>
                             </div>
                         </div>
                     </div>
@@ -299,12 +313,18 @@
                             <div class="footer-top-contact">
                                 <p class="footer-top-contact__address footer-top-contact__address--red">
                                     Điện thoại:
-                                <a href="#" class="footer-top-contact__address footer-top-contact__address--hotline">024 7300 2010</a>
+                                <a href="#" class="footer-top-contact__address footer-top-contact__address--hotline">
+                                    024 7300 2010</a>
                                 </p>
                             </div>
                             <div>
-                                <p class="footer-top-contact__address">Miễn phí giao hoa tươi trên địa bàn Hà Nội: Cầu Giấy, Ba Đình, Đống Đa, Nam Từ Liêm, Hai Bà Trưng, Hoàn Kiếm, Thanh Xuân. Các quận khác vui lòng liên hệ để biết thêm chi tiết (Giá giao sẽ từ 30.000đ-70.000đ)</p>
-                                <a href="#" class="footer-top-contact__address footer-top-contact__address--hotline">Shop hoa ở Hà Nội</a>
+                                <p class="footer-top-contact__address">
+                                    Miễn phí giao hoa tươi trên địa bàn Hà Nội: Cầu
+                                    Giấy, Ba Đình, Đống Đa, Nam Từ Liêm, Hai Bà Trưng, Hoàn Kiếm, Thanh Xuân. Các quận
+                                    khác vui lòng liên hệ để biết thêm chi tiết (Giá giao sẽ từ 30.000đ-70.000đ)
+                                </p>
+                                <a href="#" class="footer-top-contact__address footer-top-contact__address--hotline">
+                                    Shop hoa ở Hà Nội</a>
                             </div>
                         </div>
                     </div>
@@ -313,11 +333,13 @@
                         <div class="footer-top">
                             <h3 class="footer-top__title footer-top__title--red">SHOP HOA CÁC TỈNH</h3>
                             <div class="footer-top-contact">
-                                <a href="#" class="footer-top-contact__address footer-top-contact__address--red">Cần Thơ</a>
+                                <a href="#" class="footer-top-contact__address footer-top-contact__address--red">Cần
+                                    Thơ</a>
                                 <span>266 đường 30/4, P. Xuân khánh, Q.Ninh Kiều</span>
                             </div>
                             <div class="footer-top-contact">
-                                <a href="#" class="footer-top-contact__address footer-top-contact__address--red">Đà Nẵng</a>
+                                <a href="#" class="footer-top-contact__address footer-top-contact__address--red">Đà
+                                    Nẵng</a>
                                 <span>32 Lê Thanh Nghị, Quận Hải Châu</span>
                             </div>
                             <div class="footer-top-contact">
@@ -325,19 +347,23 @@
                                 <span>71 Trường Chinh, Phường Xuân Phú</span>
                             </div>
                             <div class="footer-top-contact">
-                                <a href="#" class="footer-top-contact__address footer-top-contact__address--red">Lâm Đồng</a>
+                                <a href="#" class="footer-top-contact__address footer-top-contact__address--red">Lâm
+                                    Đồng</a>
                                 <span>05 Phan Đình Phùng</span>
                             </div>
                             <div class="footer-top-contact">
-                                <a href="#" class="footer-top-contact__address footer-top-contact__address--red">Bình Dương</a>
+                                <a href="#" class="footer-top-contact__address footer-top-contact__address--red">Bình
+                                    Dương</a>
                                 <span>151 Phú Lợi, P. Phú Lợi, Tp. Thủ Dầu Một</span>
                             </div>
                             <div class="footer-top-contact">
-                                <a href="#" class="footer-top-contact__address footer-top-contact__address--red">Biên Hòa</a>
+                                <a href="#" class="footer-top-contact__address footer-top-contact__address--red">Biên
+                                    Hòa</a>
                                 <span>40/198A Phạm Văn Thuận, KP.3, P.Tân Mai</span>
                             </div>
                             <div class="footer-top-contact">
-                                <a href="#" class="footer-top-contact__address footer-top-contact__address--red">Kiên Giang</a>
+                                <a href="#" class="footer-top-contact__address footer-top-contact__address--red">Kiên
+                                    Giang</a>
                                 <span>418 Nguyễn Trung Trực, Thành phố Rạch Giá</span>
                             </div>
                         </div>
@@ -347,27 +373,33 @@
                         <div class="footer-top">
                             <h3 class="footer-top__title footer-top__title--red">&nbsp;</h3>
                             <div class="footer-top-contact">
-                                <a href="#" class="footer-top-contact__address footer-top-contact__address--red">Tp.Nha Trang</a>
+                                <a href="#" class="footer-top-contact__address footer-top-contact__address--red">Tp.Nha
+                                    Trang</a>
                                 <span>181 Thống Nhất</span>
                             </div>
                             <div class="footer-top-contact">
-                                <a href="#" class="footer-top-contact__address footer-top-contact__address--red">Vũng Tàu</a>
+                                <a href="#" class="footer-top-contact__address footer-top-contact__address--red">Vũng
+                                    Tàu</a>
                                 <span>185B Phạm Hồng Thái, Phường 7</span>
                             </div>
                             <div class="footer-top-contact">
-                                <a href="#" class="footer-top-contact__address footer-top-contact__address--red">Tây Ninh</a>
+                                <a href="#" class="footer-top-contact__address footer-top-contact__address--red">Tây
+                                    Ninh</a>
                                 <span>1174 Cách Mạng Tháng Tám</span>
                             </div>
                             <div class="footer-top-contact">
-                                <a href="#" class="footer-top-contact__address footer-top-contact__address--red">Vĩnh Long</a>
+                                <a href="#" class="footer-top-contact__address footer-top-contact__address--red">Vĩnh
+                                    Long</a>
                                 <span>20/A2 Phạm Thái Bường</span>
                             </div>
                             <div class="footer-top-contact">
-                                <a href="#" class="footer-top-contact__address footer-top-contact__address--red">Long An</a>
+                                <a href="#" class="footer-top-contact__address footer-top-contact__address--red">Long
+                                    An</a>
                                 <span>163 Nguyễn Đình Chiểu, Phường 3</span>
                             </div>
                             <div class="footer-top-contact">
-                                <a href="#" class="footer-top-contact__address footer-top-contact__address--red">Xem thêm chi nhánh shop hoa</a>
+                                <a href="#" class="footer-top-contact__address footer-top-contact__address--red">Xem
+                                    thêm chi nhánh shop hoa</a>
                             </div>
                         </div>
                     </div>
@@ -515,8 +547,13 @@
 
                             <div class="footer-top-newsletter">
                                 <h3 class="footer-top__title">NEWSLETTER</h3>
-                                <p class="footer-top-newsletter-greet">Đăng kí ngay để nhận được các thông tin khuyến mãi và ưu đãi đặc biệt từ:</p>
-                                <p class="footer-top-newsletter-greet footer-top-newsletter-greet--red">hoayeuthuong.com</p>
+                                <p class="footer-top-newsletter-greet">
+                                    Đăng kí ngay để nhận được các thông tin khuyến
+                                    mãi và ưu đãi đặc biệt từ:
+                                </p>
+                                <p class="footer-top-newsletter-greet footer-top-newsletter-greet--red">
+                                    hoayeuthuong.com
+                                </p>
                             </div>
                             <div class="footer-top-profile">
                                 <asp:TextBox runat="server" placeholder="Email của bạn" CssClass="footer-top-profile__register" />
@@ -537,7 +574,8 @@
                             </div>
                             <div class="footer-top-address">
                                 <p class="footer-top-address__address-red">MST:</p>
-                                <span>0313230072 cấp lần đầu ngày 25/04/2015 bởi Sở kế hoạch đầu tư Thành phố Hồ Chí Minh</span>
+                                <span>0313230072 cấp lần đầu ngày 25/04/2015 bởi Sở kế hoạch đầu tư Thành phố Hồ Chí
+                                    Minh</span>
                             </div>
                             <div class="footer-top-address">
                                 <p class="footer-top-address__address-red">Email:</p>

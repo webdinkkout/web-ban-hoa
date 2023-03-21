@@ -2,9 +2,14 @@
     Inherits="Project_web_ban_hoa.Private.Admin.Category.View.ViewCategories" %>
 
 <div class="wrapper-view-category">
-
+    <asp:Panel Width="300" GroupingText="Danh mục gốc" CssClass="grouping-text"
+        runat="server">
+        <asp:DropDownList CssClass="grouping-text-dropdown" ID="ddlCategories" runat="server"
+            AutoPostBack="True"
+            OnSelectedIndexChanged="ddlCategories_SelectedIndexChanged">
+        </asp:DropDownList>
+    </asp:Panel>
     <div class="row">
-
         <asp:Repeater ID="rptViewCategories" runat="server"
             OnItemCommand="rptViewCategories_ItemCommand">
             <ItemTemplate>

@@ -30,6 +30,7 @@ CREATE TABLE Categories (
   Thumbnail NVARCHAR(255) ,
   Parent_Id INT REFERENCES Categories(Id),
   Level INT DEFAULT(0),
+  Url VARCHAR(MAX) DEFAULT('#'), 
   Created_At DATETIME2 DEFAULT(GETDATE()) NOT NULL,
   Updated_At DATETIME2 DEFAULT(GETDATE()) NOT NULL
 );

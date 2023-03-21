@@ -1,6 +1,7 @@
 ﻿using Project_web_ban_hoa.Models;
 using Project_web_ban_hoa.Models.Component;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,15 +16,25 @@ namespace Project_web_ban_hoa.Private.Admin.Category.View
 
     public partial class ViewCategories : System.Web.UI.UserControl
     {
-
         [Obsolete]
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            DataTable categoriesTable = DAO.Category.GetAllCategories();
+            if (!Page.IsPostBack)
+            {
+                int level = 0;
+                ddlCategories.DataSource = DAO.Category.GetCategoriesByLevel(level);
+                ddlCategories.DataTextField = "Name";
+                ddlCategories.DataValueField = "Id";
+                ddlCategories.DataBind();
+                ddlCategories.Items.Insert(0, new ListItem("Tất cả", "0"));
+            }
+
+            DataTable categoriesTable = DAO.Category.GetCategoriesByLevel();
 
             rptViewCategories.DataSource = categoriesTable;
             rptViewCategories.DataBind();
+
 
             // kiểm tra: xem có thông báo không nếu có thì thông báo
             if ((Session["showToastMessage"] != null && Session["showToastDuration"] != null && Session["showToastPosition"] != null) || Session["showToastBackColor"] != null)
@@ -77,6 +88,21 @@ namespace Project_web_ban_hoa.Private.Admin.Category.View
             }
         }
 
+        protected void ddlCategories_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int categoryId = Convert.ToInt32(ddlCategories.SelectedValue);
+            if (categoryId <= 0)
+            {
+                rptViewCategories.DataSource = DAO.Category.GetCategoriesByLevel();
+                rptViewCategories.DataBind();
+            }
+            else
+            {
+                rptViewCategories.DataSource = DAO.Category.GetCategoryByParentIdAndLevel(categoryId);
+                rptViewCategories.DataBind();
+                IList dataSource = ((IListSource)rptViewCategories.DataSource)?.GetList();
 
+            }
+        }
     }
 }
