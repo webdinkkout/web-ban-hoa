@@ -9,19 +9,19 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-3">
-                    <img class="img-item" src="Publics/Images/Product/12490_romance.jpg" alt="Alternate Text" />
+                    <img class="img-item" src='<%= productModel.Thumbnail %>' alt="Alternate Text" />
                 </div>
                 <div class="col-lg-9">
                     <div class="detail">
                         <div class="detail-heading">
-                            <h2 class="detail-heading__title">Khuyễn mãi - Light in the morning - 13212
+                            <h2 class="detail-heading__title">Khuyễn mãi - <%= productModel.Name %> - 13212
                             </h2>
                             <div class="detail-heading-price">
                                 <p class="detail-heading-price__price detail-heading-price__price--old">
-                                    950.000đ
+                                    <%= string.Format("{0:##,#0đ}", productModel.OldPrice) %>
                                 </p>
                                 <p class="detail-heading-price__price detail-heading-price__price--current">
-                                    800.000đ
+                                    <%= string.Format("{0:##,#0đ}", productModel.CurrentPrice) %>
                                 </p>
                             </div>
                             <span class="detail-heading__note">Giá đã bao gồm 10% VAT</span>
@@ -29,8 +29,7 @@
 
                         <div class="detail-body">
                             <p class="detail-body__desc">
-                                Sản phẩm thực nhận có thể khác với hình đại diện trên website
-                            (đặc điểm thủ công và tính chất tự nhiên của hàng nông nghiệp)
+                                <%= productModel.Desc %>
                             </p>
                             <p class="detail-body__sub-desc">
                                 Hoa giao nhanh 60 phút Hồ Chí Minh

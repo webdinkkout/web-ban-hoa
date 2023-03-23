@@ -137,10 +137,6 @@
     <Content Include="Publics\Js\Library\Toastify\chart.js" />
     <Content Include="Publics\Js\Library\Toastify\toastify-js.js" />
     <Content Include="Publics\Js\Main.js" />
-    <Content Include="Publics\Uploads\Category\87846349-da8b-49e4-94b8-5ec2a38e1eac-tai-đep-zai.jpg" />
-    <Content Include="Publics\Uploads\Category\97177053-93eb-478b-8f83-30d8a5125b59-icon-hoa-tinh-yeu.png" />
-    <Content Include="Publics\Uploads\Category\f23ea415-7d6c-47af-8128-8ffa6cebd083-icon-hoa-sinh-nhat.png" />
-    <Content Include="Publics\Uploads\Category\fd5617f9-a77c-436a-8525-51ae574547a1-icon-cay-vp.png" />
     <Content Include="Sql\01_create_database_hoa_yeu_thuong.sql" />
     <Content Include="Sql\02_table_hoa_yeu_thuong_db.sql" />
     <Content Include="Sql\03_proc_hoa_yeu_thuong_db.sql" />
@@ -323,6 +319,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Publics\Uploads\Category\" />
+    <Folder Include="Publics\Uploads\Product\" />
     <Folder Include="Ultils\" />
   </ItemGroup>
   <PropertyGroup>

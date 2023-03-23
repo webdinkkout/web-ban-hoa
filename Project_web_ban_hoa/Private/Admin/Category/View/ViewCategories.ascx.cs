@@ -66,7 +66,7 @@ namespace Project_web_ban_hoa.Private.Admin.Category.View
                         int n = DAO.Category.DeleteCategory(idCategory);
                         if (n > 0)
                         {
-                            Components.DeleteThumbnailOnSystem(arrNameThumbnail, Server);
+                            Components.DeleteThumbnailOnSystem("Category", arrNameThumbnail, Server);
                             ((IListSource)rptViewCategories.DataSource).GetList().RemoveAt(e.Item.ItemIndex);
                             rptViewCategories.DataBind();
                             script = "showToast('Xóa thành công', 3000, 'right', 'green')";

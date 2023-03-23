@@ -21,9 +21,11 @@ namespace Project_web_ban_hoa.Private.Admin.Product.Create
                 DataTable categoriesTable = DAO.Category.GetAllCategories();
                 foreach (DataRow categoryRow in categoriesTable.Rows)
                 {
-                    ListItem listItem = new ListItem();
-                    listItem.Text = categoryRow["Name"].ToString();
-                    listItem.Value = categoryRow["Id"].ToString();
+                    ListItem listItem = new ListItem
+                    {
+                        Text = categoryRow["Name"].ToString(),
+                        Value = categoryRow["Id"].ToString()
+                    };
                     ddlCategory.Items.Add(listItem);
                 }
             }
@@ -43,8 +45,8 @@ namespace Project_web_ban_hoa.Private.Admin.Product.Create
             {
                 string fileName = Path.GetFileName(file.FileName).Replace(" ", "-");
                 string saveFileName = Guid.NewGuid().ToString() + "-" + Components.ConvertToUnSign(fileName);
-                string savePath = Server.MapPath("~/Publics/Uploads/Category/" + saveFileName);
-                string thumbnail = ConfigurationManager.AppSettings["UrlEnv"] + $"/Publics/Uploads/Category/{saveFileName}";
+                string savePath = Server.MapPath("~/Publics/Uploads/Product/" + saveFileName);
+                string thumbnail = ConfigurationManager.AppSettings["UrlEnv"] + $"/Publics/Uploads/Product/{saveFileName}";
                 int n = DAO.Product.CreateProduct(nameProduct, seoName, descProduct, oldPrice, currentPrice, quantity, thumbnail, categoryId);
                 if (n > 0)
                 {
@@ -59,10 +61,6 @@ namespace Project_web_ban_hoa.Private.Admin.Product.Create
             {
 
             }
-
-
-
-
         }
     }
 }

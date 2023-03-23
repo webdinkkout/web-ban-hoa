@@ -51,7 +51,7 @@ namespace Project_web_ban_hoa.Private.Admin.Category.Update
                 DataTable category = DAO.Category.GetOneCategory(idCategory);
                 string oldThumbnail = category.Rows[0]["Thumbnail"].ToString();
                 string[] arrOldThumbnail = oldThumbnail.Split('/');
-                Components.DeleteThumbnailOnSystem(arrOldThumbnail, Server);
+                Components.DeleteThumbnailOnSystem("Category", arrOldThumbnail, Server);
 
                 // Lưu ảnh mới
                 string fileName = Path.GetFileName(file.FileName).Replace(" ", "-");

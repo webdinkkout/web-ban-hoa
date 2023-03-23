@@ -89,7 +89,7 @@ namespace Project_web_ban_hoa.Private.Admin.Product.View
                         int n = DAO.Product.DeleteProduct(idProduct);
                         if (n > 0)
                         {
-                            Components.DeleteThumbnailOnSystem(arrNameThumbnail, Server);
+                            Components.DeleteThumbnailOnSystem("Product", arrNameThumbnail, Server);
                             IList dataSource = ((IListSource)rptViewProduct.DataSource)?.GetList();
                             if (dataSource != null && e.Item.ItemIndex < dataSource.Count)
                             {

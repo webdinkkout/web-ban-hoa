@@ -40,7 +40,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="content-obj-product-card">
                                                         <div class="content-obj-product-card-top">
-                                                            <a href="#">
+                                                            <a href='ObjectDetail.aspx?cid=<%# Eval("Category_Id") %>&sn=<%# Eval("Seo_Name") %>'>
                                                                 <img src='<%# Eval("Thumbnail") %>'
                                                                     alt="Alternate Text" />
                                                             </a>
