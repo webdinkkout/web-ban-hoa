@@ -185,6 +185,8 @@
         transform: scale(.9);
     }
 
+
+
 /*=== CATEGORIES VIEW ===*/
 
 .wrapper-card-view-category {
@@ -222,8 +224,26 @@
         }
 
 .wrapper-card-view-category-footer__btn {
-    padding: 5px 15px;
+    padding: 11px 20px;
     font-size: 1.6rem;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    color: #fff;
+}
+
+.wrapper-card-view-category-footer__btn--destroy {
+    background-color: red;
+}
+
+
+.wrapper-card-view-category-footer__btn--success {
+    background-color: green;
+}
+
+.wrapper-card-view-category-footer__btn:active {
+    transform: scale(.9);
 }
 
 .wrapper-create-category__imgPreview {
