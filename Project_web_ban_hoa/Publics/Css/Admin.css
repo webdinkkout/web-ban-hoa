@@ -33,11 +33,84 @@
 
 
     .admin-header .admin-header-user {
+        position: relative;
     }
 
-        .admin-header .admin-header-user .admin-header-user__icon {
-            width: 35px;
+        .admin-header .admin-header-user:hover {
+            cursor: pointer;
         }
+
+            .admin-header .admin-header-user:hover > .wrapper-control-user {
+                opacity: 1;
+                visibility: visible;
+            }
+
+.wrapper-control-user {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    background-color: rgba(0,0,0);
+    padding: 10px;
+    border-radius: 10px;
+    color: #fff;
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all .2s;
+}
+
+    .wrapper-control-user::after {
+        content: "";
+        position: absolute;
+        top: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0px;
+        height: 0px;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-bottom: 10px solid #000;
+    }
+
+.wrapper-control-user__top-menu {
+    border-bottom: 1px solid #ff9800;
+}
+
+    .wrapper-control-user__top-menu > p {
+        font-size: 1.4rem;
+        padding-bottom: 16px;
+    }
+
+.wrapper-control-user__body-menu {
+    display: flex;
+    flex-direction: column;
+}
+
+
+    .wrapper-control-user__body-menu > .wrapper-control-user__control {
+        display: inline-block;
+        color: #fff;
+        font-size: 1.6rem;
+        padding: 8px 0;
+        transition: color .5s;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        border-bottom: 1px solid #ff9800;
+    }
+
+        .wrapper-control-user__body-menu > .wrapper-control-user__control:last-child {
+            border-bottom: 0px solid #000;
+        }
+
+        .wrapper-control-user__body-menu > .wrapper-control-user__control:hover {
+            color: #ff9800;
+        }
+
+.admin-header .admin-header-user .admin-header-user__icon {
+    width: 35px;
+}
 
 /*==== NAVIGATE STYLE ====*/
 
@@ -348,9 +421,16 @@
 .wrapper-control-admin__btn {
     width: 30%;
     color: #fff;
-    font-size: 1.4rem;
-    padding: 5px 10px;
+    font-size: 1.6rem;
+    padding: 11px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
 }
+
+    .wrapper-control-admin__btn.wrapper-control-admin__btn--success {
+        background-color: green;
+    }
 
 .wrapper-control-admin-control-group__err-msg {
     margin-left: 8px;
