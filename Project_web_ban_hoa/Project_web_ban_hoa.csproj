@@ -73,7 +73,6 @@
     <Content Include="Publics\Css\Library\FontAwesome\all.min.css" />
     <Content Include="Publics\Css\Library\OwlCarousel2\owl.carousel.min.css" />
     <Content Include="Publics\Css\Library\OwlCarousel2\owl.theme.default.min.css" />
-
     <Content Include="Publics\Images\Home\img-footer\bullet_footer-icon-right.png" />
     <Content Include="Publics\Images\Home\img-footer\icon-fb.png" />
     <Content Include="Publics\Images\Home\img-footer\icon-hyt.png" />
@@ -154,6 +153,8 @@
     <Content Include="Sql\01_create_database_hoa_yeu_thuong.sql" />
     <Content Include="Sql\02_table_hoa_yeu_thuong_db.sql" />
     <Content Include="Sql\03_proc_hoa_yeu_thuong_db.sql" />
+    <Content Include="Sql\04_trigger_hoa_yeu_thuong_db.sql" />
+    <Content Include="Sql\05_seed_hoa_yeu_thuong_db.sql" />
     <Content Include="Sql\997_drop_proc_hoa_yeu_thuong_db.sql" />
     <Content Include="Sql\998_seed_hoa_yeu_thuong_db.sql" />
     <Content Include="Sql\999_drop_table_hoa_yeu_thuong.sql" />
