@@ -29,14 +29,14 @@
 
                 <div class="col-lg-9">
                     <asp:Repeater ID="rptCategory" runat="server">
-                        <ItemTemplate>
+                        <itemtemplate>
                             <div class="content-obj">
                                 <%# GetProduct(Convert.ToInt32(Eval("Id"))).Rows.Count > 0 ? $"<h2 class='content-obj__title'>{Eval("Name")}</h2>": "" %>
                                 <div class="content-obj-product">
                                     <div class="row">
                                         <asp:Repeater ID="rptProductByCategoryId" DataSource='<%# GetProduct(Convert.ToInt32(Eval("Id"))) %>'
                                             runat="server">
-                                            <ItemTemplate>
+                                            <itemtemplate>
                                                 <div class="col-lg-3">
                                                     <div class="content-obj-product-card">
                                                         <div class="content-obj-product-card-top">
@@ -58,12 +58,12 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </ItemTemplate>
+                                            </itemtemplate>
                                         </asp:Repeater>
                                     </div>
                                 </div>
                             </div>
-                        </ItemTemplate>
+                        </itemtemplate>
                     </asp:Repeater>
                 </div>
             </div>

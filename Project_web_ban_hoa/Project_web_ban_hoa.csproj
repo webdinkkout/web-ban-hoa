@@ -68,6 +68,7 @@
   <ItemGroup>
     <Content Include="Object.aspx" />
     <Content Include="ObjectDetail.aspx" />
+    <Content Include="Private\Admin\User\UserInfo\UserInfo.ascx" />
     <Content Include="Publics\Css\Library\Bootstrap\bootstrap-grid.min.css" />
     <Content Include="Publics\Css\Library\FontAwesome\all.min.css" />
     <Content Include="Publics\Css\Library\OwlCarousel2\owl.carousel.min.css" />
@@ -289,6 +290,13 @@
     </Compile>
     <Compile Include="Private\Admin\User\UserControl.ascx.designer.cs">
       <DependentUpon>UserControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Private\Admin\User\UserInfo\UserInfo.ascx.cs">
+      <DependentUpon>UserInfo.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Private\Admin\User\UserInfo\UserInfo.ascx.designer.cs">
+      <DependentUpon>UserInfo.ascx</DependentUpon>
     </Compile>
     <Compile Include="ProductDetail.aspx.cs">
       <DependentUpon>ProductDetail.aspx</DependentUpon>

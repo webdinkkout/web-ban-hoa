@@ -1,8 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Admin.aspx.cs" Inherits="Project_web_ban_hoa.Admin" %>
 
 <%@ Register Src="~/Private/Admin/AdminControl.ascx" TagPrefix="uc1" TagName="AdminControl" %>
-
-
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -22,7 +20,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
 
     <%-- Css Main --%>
     <link href="Publics/Css/Reset.css" rel="stylesheet" />
@@ -51,7 +49,9 @@
                                 </p>
                             </div>
                             <div class="wrapper-control-user__body-menu">
-                                <asp:Button ID="Button1" Text="Thông tin cá nhân" runat="server" CssClass="wrapper-control-user__control" />
+                                <a href="/Admin.aspx?modul=user&t=user-info&id=1" class="wrapper-control-user__control">
+                                    Thông
+                                    tin cá nhân  </a>
                                 <asp:Button ID="hplLogOut" Text="Đăng Xuất" runat="server" CssClass="wrapper-control-user__control"
                                     OnClick="hplLogOut_Click" />
                             </div>
@@ -78,7 +78,6 @@
             </section>
         </div>
     </form>
-
     <script src="Publics/Js/Library/Jquery/jquery-3.6.4.min.js"></script>
 </body>
 </html>
