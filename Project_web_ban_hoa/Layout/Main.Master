@@ -91,13 +91,11 @@
                         <div class="header-search-contact-hotline">
                             <div class="header-search-contact-hotline-number-phone">
                                 <a href="#">HOTLINE MIỀN NAM</a>
-                                <a href="#" class="header-search-contact-hotline-number-phone header-search-contact-hotline-number-phone--orangen">
-                                    028 73002010</a>
+                                <a href="#" class="header-search-contact-hotline-number-phone header-search-contact-hotline-number-phone--orangen">028 73002010</a>
                             </div>
                             <div class="header-search-contact-hotline-number-phone">
                                 <a href="#">HOTLINE MIỀN BẮC</a>
-                                <a href="#" class="header-search-contact-hotline-number-phone header-search-contact-hotline-number-phone--orangen">
-                                    024 73002010</a>
+                                <a href="#" class="header-search-contact-hotline-number-phone header-search-contact-hotline-number-phone--orangen">024 73002010</a>
                             </div>
                             <div class="header-search-contact-hotline-zalo">
                                 <img src="../Publics/Images/Home/img-header/zalo-chat-icon.png" alt="Alternate Text" />
@@ -155,7 +153,7 @@
                                 </ul>
                             </li>
                             <li class="header-menu-ctls-ctl__item">
-                                <a href="#">ĐỐI TƯỢNG</a>
+                                <a href="../Object.aspx">ĐỐI TƯỢNG</a>
                                 <ul class="header-menu-ctls-ctl-sub-menu">
                                     <li class="header-menu-ctls-ctl-sub-menu__item">
                                         <a href="#">Hoa Tặng Người Yêu</a>
@@ -378,8 +376,7 @@
                             <div class="footer-top-contact">
                                 <p class="footer-top-contact__address footer-top-contact__address--red">
                                     Điện thoại:
-                                <a href="#" class="footer-top-contact__address footer-top-contact__address--hotline">
-                                    028 7300 2010</a>
+                                <a href="#" class="footer-top-contact__address footer-top-contact__address--hotline">028 7300 2010</a>
                                 </p>
                             </div>
 
@@ -404,8 +401,7 @@
                             <div class="footer-top-contact">
                                 <p class="footer-top-contact__address footer-top-contact__address--red">
                                     Điện thoại:
-                                <a href="#" class="footer-top-contact__address footer-top-contact__address--hotline">
-                                    024 7300 2010</a>
+                                <a href="#" class="footer-top-contact__address footer-top-contact__address--hotline">024 7300 2010</a>
                                 </p>
                             </div>
                             <div class="footer-top-contact">
