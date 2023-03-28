@@ -59,10 +59,15 @@ BEGIN
 		UPDATE Products
 		SET Seo_Name = @new_seo_name
 		WHERE Id = @id;
-		RETURN
     END
 
-    IF @update_flag = 0
+	IF UPDATE(View_Count)
+	BEGIN
+        SET @update_flag = 1
+		RETURN
+	END
+
+    IF @update_flag = 0 
     BEGIN
 		SET @new_seo_name = CONCAT(@id, '-', @seo_name)
 		UPDATE Products

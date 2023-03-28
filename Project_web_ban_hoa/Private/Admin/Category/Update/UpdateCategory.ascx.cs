@@ -42,7 +42,7 @@ namespace Project_web_ban_hoa.Private.Admin.Category.Update
             if (!string.IsNullOrEmpty(txtName.Text))
             {
                 categoryModel.Name = txtName.Text;
-                categoryModel.SeoName = Guid.NewGuid().ToString() + "_" + Components.ConvertToUnSign(txtName.Text).Replace(" ", "-");
+                categoryModel.SeoName = Components.ConvertToUnSign(txtName.Text).Replace(" ", "-");
             }
 
             if (file.ContentType.ToLower().StartsWith("image/"))
@@ -55,7 +55,7 @@ namespace Project_web_ban_hoa.Private.Admin.Category.Update
 
                 // Lưu ảnh mới
                 string fileName = Path.GetFileName(file.FileName).Replace(" ", "-");
-                string saveFileName = $"{Guid.NewGuid()}-{Components.ConvertToUnSign(fileName)}";
+                string saveFileName = Components.ConvertToUnSign(fileName);
                 string savePath = Server.MapPath($"~/Publics/Uploads/Category/{saveFileName}");
                 categoryModel.Thumbnail = $"{ConfigurationManager.AppSettings["UrlEnv"]}/Publics/Uploads/Category/{saveFileName}";
                 file.SaveAs(savePath);

@@ -40,26 +40,30 @@ namespace Project_web_ban_hoa.Private.Admin.Product.Create
             double currentPrice = Convert.ToDouble(txtCurrentPrice.Text);
             int categoryId = Convert.ToInt32(ddlCategory.SelectedValue);
             int quantity = Convert.ToInt32(txtQuantiry.Text);
-            HttpPostedFile file = Request.Files[0];
-            if (file.ContentType.ToLower().StartsWith("image/"))
-            {
-                string fileName = Path.GetFileName(file.FileName).Replace(" ", "-");
-                string saveFileName = Guid.NewGuid().ToString() + "-" + Components.ConvertToUnSign(fileName);
-                string savePath = Server.MapPath("~/Publics/Uploads/Product/" + saveFileName);
-                string thumbnail = ConfigurationManager.AppSettings["UrlEnv"] + $"/Publics/Uploads/Product/{saveFileName}";
-                int n = DAO.Product.CreateProduct(nameProduct, seoName, descProduct, oldPrice, currentPrice, quantity, thumbnail, categoryId);
-                if (n > 0)
-                {
-                    file.SaveAs(savePath);
-                    Session["showToastMessage"] = "Tạo sản phẩm thành công";
-                    Session["showToastDuration"] = 3000;
-                    Session["showToastPosition"] = "right";
-                    Response.Redirect("~/Admin.aspx?modul=product&sub-modul=view-products");
-                }
-            }
-            else
-            {
 
+            if (fulThumbnail.HasFile)
+            {
+                HttpPostedFile file = Request.Files[0];
+                if (file.ContentType.ToLower().StartsWith("image/"))
+                {
+                    string fileName = Path.GetFileName(file.FileName).Replace(" ", "-");
+                    string saveFileName = Components.ConvertToUnSign(fileName);
+                    string savePath = Server.MapPath("~/Publics/Uploads/Product/" + saveFileName);
+                    string thumbnail = ConfigurationManager.AppSettings["UrlEnv"] + $"/Publics/Uploads/Product/{saveFileName}";
+                    int n = DAO.Product.CreateProduct(nameProduct, seoName, descProduct, oldPrice, currentPrice, quantity, thumbnail, categoryId);
+                    if (n > 0)
+                    {
+                        file.SaveAs(savePath);
+                        Session["showToastMessage"] = "Tạo sản phẩm thành công";
+                        Session["showToastDuration"] = 3000;
+                        Session["showToastPosition"] = "right";
+                        Response.Redirect("~/Admin.aspx?modul=product&sub-modul=view-products");
+                    }
+                }
+                else
+                {
+
+                }
             }
         }
     }
