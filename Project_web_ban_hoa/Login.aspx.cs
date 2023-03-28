@@ -12,9 +12,7 @@ namespace Project_web_ban_hoa
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            string slug = Request.QueryString["slug"];
-
-            if (Session["ISLOGIN"] != null)
+            if (Session["ISLOGIN"] != null && Session["CURRENT_USER"] != null)
             {
                 Session["showToastDuration"] = 3000;
                 Session["showToastPosition"] = "right";
@@ -32,11 +30,12 @@ namespace Project_web_ban_hoa
             string gmail = txtGmail.Text.Trim();
             string password = txtPassword.Text.Trim();
 
-            DataTable user = Auth.Login(gmail, password);
+            DataTable user = DAO.Auth.Login(gmail, password);
 
             if (user.Rows.Count > 0)
             {
                 Session["ISLOGIN"] = "isLoagined";
+                Session["CURRENT_USER"] = user;
                 Session["showToastDuration"] = 3000;
                 Session["showToastPosition"] = "right";
                 Session["showToastMessage"] = "Đăng nhập thành công";

@@ -22,11 +22,11 @@ namespace Project_web_ban_hoa.Private.Admin.Product.View
         [Obsolete]
         protected void Page_Load(object sender, EventArgs e)
         {
-            BindingProductList(Project_web_ban_hoa.Product.GetAllProdcts(), rptViewProduct);
+            BindingProductList(DAO.Product.GetAllProdcts(), rptViewProduct);
 
             if (!Page.IsPostBack)
             {
-                DataTable categoriesTable = Project_web_ban_hoa.Category.GetAllCategories();
+                DataTable categoriesTable = DAO.Category.GetAllCategories();
 
                 foreach (DataRow categoryRow in categoriesTable.Rows)
                 {
@@ -58,12 +58,12 @@ namespace Project_web_ban_hoa.Private.Admin.Product.View
             int idCategory = Convert.ToInt32(ddlCategory.SelectedValue);
             if (idCategory <= 0)
             {
-                BindingProductList(Project_web_ban_hoa.Product.GetAllProdcts(), rptViewProduct);
+                BindingProductList(DAO.Product.GetAllProdcts(), rptViewProduct);
                 lbl404.Text = "";
             }
             else
             {
-                BindingProductList(Project_web_ban_hoa.Product.GetProductWithCategoryId(idCategory), rptViewProduct);
+                BindingProductList(DAO.Product.GetProductWithCategoryId(idCategory), rptViewProduct);
                 IList dataSource = ((IListSource)rptViewProduct.DataSource)?.GetList();
                 if (dataSource.Count <= 0)
                 {
@@ -86,10 +86,10 @@ namespace Project_web_ban_hoa.Private.Admin.Product.View
                     {
                         string script;
                         int idProduct = Convert.ToInt32(e.CommandArgument);
-                        int n = Project_web_ban_hoa.Product.DeleteProduct(idProduct);
+                        int n = DAO.Product.DeleteProduct(idProduct);
                         if (n > 0)
                         {
-                            Components.DeleteThumbnailOnSystem(arrNameThumbnail, Server);
+                            Components.DeleteThumbnailOnSystem("Product", arrNameThumbnail, Server);
                             IList dataSource = ((IListSource)rptViewProduct.DataSource)?.GetList();
                             if (dataSource != null && e.Item.ItemIndex < dataSource.Count)
                             {

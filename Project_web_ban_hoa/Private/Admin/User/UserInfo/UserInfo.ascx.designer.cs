@@ -7,47 +7,47 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Project_web_ban_hoa
+namespace Project_web_ban_hoa.Private.Admin.User.UserInfo
 {
 
 
-    public partial class Admin
+    public partial class UserInfo
     {
 
         /// <summary>
-        /// form1 control.
+        /// txtFirstName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.TextBox txtFirstName;
 
         /// <summary>
-        /// ScriptManager1 control.
+        /// txtLastName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.ScriptManager ScriptManager1;
+        protected global::System.Web.UI.WebControls.TextBox txtLastName;
 
         /// <summary>
-        /// hplLogOut control.
+        /// txtEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button hplLogOut;
+        protected global::System.Web.UI.WebControls.TextBox txtEmail;
 
         /// <summary>
-        /// AdminControl control.
+        /// ddlRole control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Project_web_ban_hoa.Private.Admin.AdminControl AdminControl;
+        protected global::System.Web.UI.WebControls.DropDownList ddlRole;
     }
 }

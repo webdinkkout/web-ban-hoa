@@ -16,7 +16,7 @@ namespace Project_web_ban_hoa
 
             if (!IsPostBack)
             {
-                DataTable productsTable = Project_web_ban_hoa.Product.GetAllProdcts();
+                DataTable productsTable = DAO.Product.GetAllProdcts();
                 rptRenderCard.DataSource = productsTable;
                 rptRenderCard.DataBind();
             }

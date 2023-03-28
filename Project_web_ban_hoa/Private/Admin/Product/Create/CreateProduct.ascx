@@ -91,7 +91,7 @@
                         Display="Dynamic"></asp:RequiredFieldValidator>
                 </div>
 
-                <asp:Button Text="Tạo" ID="btnCreateProduct" CssClass="btn btn-success wrapper-control-admin__btn"
+                <asp:Button Text="Tạo" ID="btnCreateProduct" CssClass="wrapper-control-admin__btn wrapper-control-admin__btn--success"
                     runat="server" OnClick="btnCreateProduct_Click" />
             </div>
         </div>

@@ -66,10 +66,14 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Object.aspx" />
+    <Content Include="ObjectDetail.aspx" />
+    <Content Include="Private\Admin\User\UserInfo\UserInfo.ascx" />
     <Content Include="Publics\Css\Library\Bootstrap\bootstrap-grid.min.css" />
     <Content Include="Publics\Css\Library\FontAwesome\all.min.css" />
     <Content Include="Publics\Css\Library\OwlCarousel2\owl.carousel.min.css" />
     <Content Include="Publics\Css\Library\OwlCarousel2\owl.theme.default.min.css" />
+
     <Content Include="Publics\Images\Home\img-footer\bullet_footer-icon-right.png" />
     <Content Include="Publics\Images\Home\img-footer\icon-fb.png" />
     <Content Include="Publics\Images\Home\img-footer\icon-hyt.png" />
@@ -147,10 +151,6 @@
     <Content Include="Publics\Js\Library\Toastify\chart.js" />
     <Content Include="Publics\Js\Library\Toastify\toastify-js.js" />
     <Content Include="Publics\Js\Main.js" />
-    <Content Include="Publics\Uploads\Category\87846349-da8b-49e4-94b8-5ec2a38e1eac-tai-đep-zai.jpg" />
-    <Content Include="Publics\Uploads\Category\97177053-93eb-478b-8f83-30d8a5125b59-icon-hoa-tinh-yeu.png" />
-    <Content Include="Publics\Uploads\Category\f23ea415-7d6c-47af-8128-8ffa6cebd083-icon-hoa-sinh-nhat.png" />
-    <Content Include="Publics\Uploads\Category\fd5617f9-a77c-436a-8525-51ae574547a1-icon-cay-vp.png" />
     <Content Include="Sql\01_create_database_hoa_yeu_thuong.sql" />
     <Content Include="Sql\02_table_hoa_yeu_thuong_db.sql" />
     <Content Include="Sql\03_proc_hoa_yeu_thuong_db.sql" />
@@ -213,6 +213,20 @@
     <Compile Include="Models\ProductModel.cs" />
     <Compile Include="Models\RoleModel.cs" />
     <Compile Include="Models\UserModel.cs" />
+    <Compile Include="Object.aspx.cs">
+      <DependentUpon>Object.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Object.aspx.designer.cs">
+      <DependentUpon>Object.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ObjectDetail.aspx.cs">
+      <DependentUpon>ObjectDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ObjectDetail.aspx.designer.cs">
+      <DependentUpon>ObjectDetail.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Private\Admin\AdminControl.ascx.cs">
       <DependentUpon>AdminControl.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -290,6 +304,13 @@
     <Compile Include="Private\Admin\User\UserControl.ascx.designer.cs">
       <DependentUpon>UserControl.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Private\Admin\User\UserInfo\UserInfo.ascx.cs">
+      <DependentUpon>UserInfo.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Private\Admin\User\UserInfo\UserInfo.ascx.designer.cs">
+      <DependentUpon>UserInfo.ascx</DependentUpon>
+    </Compile>
     <Compile Include="ProductDetail.aspx.cs">
       <DependentUpon>ProductDetail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -319,6 +340,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Publics\Uploads\Category\" />
+    <Folder Include="Publics\Uploads\Product\" />
     <Folder Include="Ultils\" />
   </ItemGroup>
   <PropertyGroup>

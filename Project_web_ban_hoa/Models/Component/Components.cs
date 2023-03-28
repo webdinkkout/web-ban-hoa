@@ -41,11 +41,11 @@ namespace Project_web_ban_hoa.Models.Component
         /// </summary>
         /// <param name="array">Đưa 1 mãng ký tự lấy về từ database vd: "https://exemp/image.png"</param>
         /// <param name="server">Đưa server nào cần xóa vào</param>
-        public static void DeleteThumbnailOnSystem(string[] array, HttpServerUtility server)
+        public static void DeleteThumbnailOnSystem(string path, string[] array, HttpServerUtility server)
         {
             if (array.Length >= 3)
             {
-                string filePath = server.MapPath($"~/Publics/Uploads/Category/{GetLastItem(array)}");
+                string filePath = server.MapPath($"~/Publics/Uploads/{path}/{GetLastItem(array)}");
                 File.Delete(filePath);
             }
         }

@@ -33,6 +33,15 @@ namespace Project_web_ban_hoa.Private.Admin.Category.Create
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
 
         /// <summary>
+        /// ddlCategories control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlCategories;
+
+        /// <summary>
         /// fulThumbnailCategory control.
         /// </summary>
         /// <remarks>

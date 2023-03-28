@@ -13,71 +13,44 @@ BEGIN
 END
 GO	
 
-
-CREATE PROCEDURE proc_pagination
-@table_name VARCHAR(50),
+--PROC CATEGORIES
+CREATE PROCEDURE proc_pagination_category
 @page_number INT,
-@page_size INT
+@page_size INT,
+@level INT = 1
 AS
 BEGIN
-		SET NOCOUNT ON;
 
     DECLARE @start_row int, @end_row int
     SET @start_row = (@page_number - 1) * @page_size + 1
     SET @end_row = @start_row + @page_size - 1
 
-    DECLARE @sql nvarchar(max)
-    SET @sql = N'SELECT * FROM (
-        SELECT ROW_NUMBER() OVER (ORDER BY Created_At DESC) as rownum, *
-        FROM ' + QUOTENAME(@table_name) + '
-    ) as rows
-    WHERE rownum BETWEEN ' + CAST(@start_row AS nvarchar(10)) + ' AND ' + CAST(@end_row AS nvarchar(10))
-
-    EXEC sp_executesql @sql
-END
-GO
-
-CREATE PROCEDURE proc_pagination_category
-@page_number INT,
-@page_size INT
-AS
-BEGIN
-		SET NOCOUNT ON;
-
-		DECLARE @start_row int, @end_row int
-		SET @start_row = (@page_number - 1) * @page_size + 1
-		SET @end_row = @start_row + @page_size - 1
-
-		SELECT *
-		FROM (
-		  SELECT ROW_NUMBER() OVER (ORDER BY Created_At DESC) as rownum, *
-		  FROM dbo.Categories
-		) as rows
-		WHERE rows.rownum BETWEEN @start_row AND @end_row
+	SELECT * FROM ( SELECT ROW_NUMBER() OVER (ORDER BY Created_At DESC) as rownum, * FROM  Categories where Level = @level) as rows
+    WHERE rownum BETWEEN CAST(@start_row AS nvarchar(10)) AND  CAST(@end_row AS nvarchar(10))
 END
 GO
 
 
-
---PROC CATEGORIES
-CREATE PROC proc_insert_category
+Create PROC proc_insert_category_level_1 -- Thêm danh mục
 	@name nvarchar(50),
 	@seo_name varchar(50),
-	@thumbnail nvarchar(255)
+	@thumbnail nvarchar(255),
+	@parent_id int
 AS
 BEGIN
 	INSERT INTO	dbo.Categories
-		(Name, Seo_Name,Thumbnail)
+		(Name,Seo_Name,Thumbnail, Parent_Id,Level)
 	values
-		(@name, @seo_name, @thumbnail)
+		(@name, @seo_name, @thumbnail,@parent_id,1)
 END
 GO
 
-CREATE PROC proc_update_category
+CREATE PROC proc_update_category -- Cập nhật danh mục
 	@id int,
 	@name nvarchar(50) = null,
 	@seo_name varchar(50) = null,
-	@thumbnail nvarchar(255) = NULL
+	@thumbnail nvarchar(255) = NULL,
+	@parent_id int = null
 AS
 BEGIN
 	UPDATE dbo.Categories
@@ -85,13 +58,14 @@ BEGIN
 			Name = ISNULL(@name, Name),
 			Seo_Name = ISNULL(@seo_name, Seo_Name),
 			Thumbnail = ISNULL(@thumbnail, Thumbnail),
+			Parent_Id = ISNULL(@parent_id, Parent_Id),
 			updated_at = GETDATE()
 		WHERE
 			Id = @id
 END
 GO
 
-CREATE PROC proc_get_one_category
+CREATE PROC proc_get_one_category --Lấy 1 danh mục với mã danh mục
 	@id int
 AS
 BEGIN
@@ -102,7 +76,25 @@ BEGIN
 END
 GO
 
-CREATE PROC proc_delete_category
+CREATE PROC proc_get_categories_by_level
+@level INT
+AS
+BEGIN
+	SELECT * FROM Categories WHERE Level = @level ORDER BY Created_At desc
+END
+GO
+
+CREATE PROC proc_get_category_by_parent_id_and_level
+@parent_id INT,
+@level INT = 1
+AS
+BEGIN
+	SELECT * FROM Categories WHERE Parent_Id = @parent_id and Level = @level
+END
+GO
+
+
+CREATE PROC proc_delete_category -- Xóa danh mục bằng mã danh mục
 	@id int
 AS
 BEGIN
@@ -113,6 +105,20 @@ GO
 
 
 --PROC PRODUCTS
+CREATE PROCEDURE proc_pagination_product
+@page_number INT,
+@page_size INT
+AS
+BEGIN
+    DECLARE @start_row int, @end_row int
+    SET @start_row = (@page_number - 1) * @page_size + 1
+    SET @end_row = @start_row + @page_size - 1
+
+    SELECT * FROM ( SELECT ROW_NUMBER() OVER (ORDER BY Created_At DESC) as rownum, * FROM Products ) as rows
+    WHERE rownum BETWEEN  CAST(@start_row AS nvarchar(10))  AND  CAST(@end_row AS nvarchar(10))
+END
+GO
+
 CREATE PROC proc_get_one_product_by_id
 	@id int
 as
@@ -123,6 +129,7 @@ begin
     UPDATE dbo.Products SET View_Count = View_Count + 1 WHERE Id = @id
 end
 GO
+
 
 CREATE PROC proc_get_one_product_by_seo_name
 	@seo_name VARCHAR(50)

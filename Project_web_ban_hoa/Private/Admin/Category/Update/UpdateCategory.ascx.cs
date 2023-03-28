@@ -24,7 +24,7 @@ namespace Project_web_ban_hoa.Private.Admin.Category.Update
             if (!string.IsNullOrEmpty(Request.QueryString["id-category"]))
             {
                 idCategory = Convert.ToInt32(Request.QueryString["id-category"]);
-                DataTable category = Project_web_ban_hoa.Category.GetOneCategory(idCategory);
+                DataTable category = DAO.Category.GetOneCategory(idCategory);
                 rptUpdateCategory.DataSource = category;
                 rptUpdateCategory.DataBind();
             }
@@ -48,20 +48,20 @@ namespace Project_web_ban_hoa.Private.Admin.Category.Update
             if (file.ContentType.ToLower().StartsWith("image/"))
             {
                 // Xóa ảnh cũ
-                DataTable category = Project_web_ban_hoa.Category.GetOneCategory(idCategory);
+                DataTable category = DAO.Category.GetOneCategory(idCategory);
                 string oldThumbnail = category.Rows[0]["Thumbnail"].ToString();
                 string[] arrOldThumbnail = oldThumbnail.Split('/');
-                Components.DeleteThumbnailOnSystem(arrOldThumbnail, Server);
+                Components.DeleteThumbnailOnSystem("Category", arrOldThumbnail, Server);
 
                 // Lưu ảnh mới
                 string fileName = Path.GetFileName(file.FileName).Replace(" ", "-");
-                string saveFileName = $"{Guid.NewGuid()}-{Components.ConvertToUnSign(fileName)}";
+                string saveFileName = Components.ConvertToUnSign(fileName);
                 string savePath = Server.MapPath($"~/Publics/Uploads/Category/{saveFileName}");
                 categoryModel.Thumbnail = $"{ConfigurationManager.AppSettings["UrlEnv"]}/Publics/Uploads/Category/{saveFileName}";
                 file.SaveAs(savePath);
             }
 
-            int n = Project_web_ban_hoa.Category.UpdateCategory(idCategory, categoryModel.Name, categoryModel.SeoName, categoryModel.Thumbnail);
+            int n = DAO.Category.UpdateCategory(idCategory, categoryModel.Name, categoryModel.SeoName, categoryModel.Thumbnail);
 
             Session["showToastDuration"] = 3000;
             Session["showToastPosition"] = "right";
