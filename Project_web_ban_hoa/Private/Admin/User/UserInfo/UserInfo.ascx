@@ -21,13 +21,9 @@
             <div class="info__group-control">
                 <asp:Label CssClass="info__label" Text="Chức vụ" runat="server" AssociatedControlID="ddlRole" />
                 <asp:DropDownList ID="ddlRole" runat="server"
-                    CssClass="info__control info__control--ddl" DataSourceID="hehe"
+                    CssClass="info__control info__control--ddl"
                     DataTextField="Name" DataValueField="Id">
                 </asp:DropDownList>
-
-                <asp:SqlDataSource runat="server" ID="hehe"
-                    ConnectionString="<%$ ConnectionStrings:ConnectionString %>"
-                    SelectCommand="SELECT * FROM [Roles]" />
             </div>
         </div>
     </div>
