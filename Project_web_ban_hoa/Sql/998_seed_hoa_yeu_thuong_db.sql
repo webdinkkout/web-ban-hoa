@@ -123,10 +123,3 @@ INSERT INTO Order_Details
 (Order_Id,Product_Id,Quantity,Total_Price)
 VALUES
 (1,2,2,70000),(2,2,4,140000)
-
---select o.Id, u.First_Name + ' ' + u.Last_Name as User_Name, p.Name as Product_Name, pm.Name Payment_Name, od.Quantity, od.Total_Price, o.Order_Date, o.Delivery_Date
---from Orders o 
---inner join Order_Details od on o.Id = od.Order_Id 
---inner join Users u on o.User_Id = u.Id 
---inner join Products p on p.Id = od.Product_Id 
---inner join Payment_Methods pm on pm.Id = o.Payment_Method_Id

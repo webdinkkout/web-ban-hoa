@@ -4,7 +4,7 @@ GO
 CREATE TABLE Roles (
   Id INT IDENTITY(1,1) PRIMARY KEY,
   Name NVARCHAR(100) NOT NULL,
-  Seo_Name VARCHAR(100) NOT NULL UNIQUE,
+  Seo_Name VARCHAR(100)NOT NULL,
   Created_At datetime2 DEFAULT(getdate()) NOT NULL,
   Updated_At datetime2 DEFAULT(getdate()) NOT NULL,
 );
@@ -26,7 +26,7 @@ GO
 CREATE TABLE Categories (
   Id INT PRIMARY KEY IDENTITY(1,1),
   Name NVARCHAR(100) NOT NULL,
-  Seo_Name VARCHAR(100) NOT NULL UNIQUE,
+  Seo_Name VARCHAR(100)NOT NULL,
   Thumbnail NVARCHAR(255) ,
   Parent_Id INT REFERENCES Categories(Id),
   Level INT DEFAULT(0),
@@ -39,7 +39,7 @@ GO
 CREATE TABLE Products (
   Id INT PRIMARY KEY IDENTITY(1,1),
   Name NVARCHAR(100) NOT NULL,
-  Seo_Name VARCHAR(100) NOT NULL UNIQUE,
+  Seo_Name VARCHAR(100) NOT NULL,
   Description NVARCHAR(MAX),
   View_Count INT DEFAULT 0 NOT NULL,
   Old_Price DECIMAL(12, 2) DEFAULT(0) NOT NULL,
@@ -66,7 +66,7 @@ CREATE TABLE Orders (
   Id INT PRIMARY KEY IDENTITY(1,1),
   User_Id INT REFERENCES Users(Id) NOT NULL,
   Delivery_Date DATETIME2 NOT NULL,
-  Order_Date DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+  Order_Date DATETIME2 NOT NULL DEFAULT GETDATE(),
   Payment_Method_Id INT REFERENCES Payment_Methods(Id) NOT NULL,
   Created_At datetime2 DEFAULT(getdate()) NOT NULL,
   Updated_At datetime2 DEFAULT(getdate()) NOT NULL
