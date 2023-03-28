@@ -96,7 +96,7 @@
                                 <a href="#" class="header-search-contact-hotline-number-phone header-search-contact-hotline-number-phone--orangen">024 73002010</a>
                             </div>
                             <div class="header-search-contact-hotline-zalo">
-                                <img src="../Publics/Images/Home/zalo-chat-icon.png" alt="Alternate Text" />
+                                <img src="../Publics/Images/Home/img-header/zalo-chat-icon.png" alt="Alternate Text" />
                             </div>
                         </div>
                     </div>
@@ -108,7 +108,7 @@
                         </div>
                         <div class="header-search-user-control-cart-account">
                             <img src="../Publics/Images/Home/img-header/icon-user.png" alt="Alternate Text" />
-                            <a href="#">Tài khoản</a>
+                            <a href="../Login.aspx">Tài khoản</a>
                         </div>
                     </div>
                 </div>
@@ -119,11 +119,11 @@
                     <div class="header-menu-ctls">
                         <ul class="header-menu-ctls-ctl">
                             <li class="header-menu-ctls-ctl__item">
-                                <a href="#">TRANG CHỦ</a>
+                                <a href="../Home.aspx">TRANG CHỦ</a>
                             </li>
                             <li class="header-menu-ctls-ctl__item">
-                                <a href="#">CHỦ ĐỀ</a>
-                                <%--  <ul class="header-menu-ctls-ctl-sub-menu">
+                                <a href="../Topic.aspx">CHỦ ĐỀ</a>
+                                <ul class="header-menu-ctls-ctl-sub-menu">
                                     <li class="header-menu-ctls-ctl-sub-menu__item">
                                         <a href="#">Hoa Sinh Nhật</a>
                                     </li>
@@ -148,11 +148,11 @@
                                     <li class="header-menu-ctls-ctl-sub-menu__item">
                                         <a href="#">Hoa Mừng Tốt Nghiệp</a>
                                     </li>
-                                </ul>--%>
+                                </ul>
                             </li>
                             <li class="header-menu-ctls-ctl__item">
                                 <a href="#">ĐỐI TƯỢNG</a>
-                                <%-- <ul class="header-menu-ctls-ctl-sub-menu">
+                                <ul class="header-menu-ctls-ctl-sub-menu">
                                     <li class="header-menu-ctls-ctl-sub-menu__item">
                                         <a href="#">Hoa Tặng Người Yêu</a>
                                     </li>
@@ -183,11 +183,11 @@
                                     <li class="header-menu-ctls-ctl-sub-menu__item">
                                         <a href="#">Hoa Tặng Đồng Nghiệp</a>
                                     </li>
-                                </ul>--%>
+                                </ul>
                             </li>
                             <li class="header-menu-ctls-ctl__item">
                                 <a href="#">KIỂU DÁNG</a>
-                                <%-- <ul class="header-menu-ctls-ctl-sub-menu">
+                                <ul class="header-menu-ctls-ctl-sub-menu">
                                     <li class="header-menu-ctls-ctl-sub-menu__item">
                                         <a href="#">Bó Hoa Tươi</a>
                                     </li>
@@ -209,11 +209,11 @@
                                     <li class="header-menu-ctls-ctl-sub-menu__item">
                                         <a href="#">Lãng Hoa Chia Buồn</a>
                                     </li>
-                                </ul>--%>
+                                </ul>
                             </li>
                             <li class="header-menu-ctls-ctl__item">
                                 <a href="#">HOA TƯƠI</a>
-                                <%-- <ul class="header-menu-ctls-ctl-sub-menu">
+                                <ul class="header-menu-ctls-ctl-sub-menu">
                                     <li class="header-menu-ctls-ctl-sub-menu__item">
                                         <a href="#">Only Rose</a>
                                     </li>
@@ -226,29 +226,29 @@
                                     <li class="header-menu-ctls-ctl-sub-menu__item">
                                         <a href="#">Hoa Đồng Tiền</a>
                                     </li>
-                                     <li class="header-menu-ctls-ctl-sub-menu__item">
+                                    <li class="header-menu-ctls-ctl-sub-menu__item">
                                         <a href="#">Lan Hồ Điệp</a>
                                     </li>
-                                     <li class="header-menu-ctls-ctl-sub-menu__item">
+                                    <li class="header-menu-ctls-ctl-sub-menu__item">
                                         <a href="#">Cẩm Chướng</a>
                                     </li>
-                                     <li class="header-menu-ctls-ctl-sub-menu__item">
+                                    <li class="header-menu-ctls-ctl-sub-menu__item">
                                         <a href="#">Hoa Cát Tường</a>
                                     </li>
-                                     <li class="header-menu-ctls-ctl-sub-menu__item">
+                                    <li class="header-menu-ctls-ctl-sub-menu__item">
                                         <a href="#">Hoa Ly</a>
                                     </li>
-                                     <li class="header-menu-ctls-ctl-sub-menu__item">
+                                    <li class="header-menu-ctls-ctl-sub-menu__item">
                                         <a href="#">Baby Flower</a>
                                     </li>
-                                     <li class="header-menu-ctls-ctl-sub-menu__item">
+                                    <li class="header-menu-ctls-ctl-sub-menu__item">
                                         <a href="#">Hoa Cúc</a>
                                     </li>
-                                </ul>--%>
+                                </ul>
                             </li>
                             <li class="header-menu-ctls-ctl__item">
                                 <a href="#">MÀU SẮC</a>
-                                <%-- <ul class="header-menu-ctls-ctl-sub-menu">
+                                <ul class="header-menu-ctls-ctl-sub-menu">
                                     <li class="header-menu-ctls-ctl-sub-menu__item">
                                         <a href="#">Màu Trắng</a>
                                     </li>
@@ -273,11 +273,11 @@
                                     <li class="header-menu-ctls-ctl-sub-menu__item">
                                         <a href="#">Kết Hợp Màu</a>
                                     </li>
-                                </ul>--%>
+                                </ul>
                             </li>
                             <li class="header-menu-ctls-ctl__item">
                                 <a href="#">BỘ SƯU TẬP</a>
-                                <%--<ul class="header-menu-ctls-ctl-sub-menu">
+                                <ul class="header-menu-ctls-ctl-sub-menu">
                                     <li class="header-menu-ctls-ctl-sub-menu__item">
                                         <a href="#">Hoa Cao Cấp</a>
                                     </li>
@@ -311,11 +311,11 @@
                                     <li class="header-menu-ctls-ctl-sub-menu__item">
                                         <a href="#">Ngày Quốc Tế Phụ Nữ</a>
                                     </li>
-                                </ul>--%>
+                                </ul>
                             </li>
                             <li class="header-menu-ctls-ctl__item">
                                 <a href="#">QUÀ TẶNG KÈM</a>
-                                <%-- <ul class="header-menu-ctls-ctl-sub-menu">
+                                <ul class="header-menu-ctls-ctl-sub-menu">
                                     <li class="header-menu-ctls-ctl-sub-menu__item">
                                         <a href="#">Bánh Kem Tous Les Jours</a>
                                     </li>
@@ -337,13 +337,7 @@
                                     <li class="header-menu-ctls-ctl-sub-menu__item">
                                         <a href="#">Hamper</a>
                                     </li>
-                                </ul>--%>
-                            </li>
-                            <li class="header-menu-ctls-ctl__item">
-                                <a href="#">HOA CƯỚI</a>
-                            </li>
-                            <li class="header-menu-ctls-ctl__item">
-                                <a href="#">Ý NGHĨA HOA</a>
+                                </ul>
                             </li>
                         </ul>
                     </div>

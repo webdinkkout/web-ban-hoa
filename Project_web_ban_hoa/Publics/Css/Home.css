@@ -1,5 +1,15 @@
-﻿/*CSS PHẦN HEADER*/
+﻿.row > .col-2-5 {
+    flex: 0 0 auto;
+    width: 20%;
+}
 
+
+
+/*CSS PHẦN HEADER*/
+
+.header {
+    margin-bottom: 30px;
+}
 
 .header-menu {
     background: #ebebeb;
@@ -14,6 +24,37 @@
     font-size: 13px;
     padding: 10px;
 }
+
+.header-menu-ctls-ctl__item {
+    position: relative;
+}
+
+
+    .header-menu-ctls-ctl__item:hover > .header-menu-ctls-ctl-sub-menu {
+        display: block;
+    }
+
+.header-menu-ctls-ctl-sub-menu {
+    display: none;
+    position: absolute;
+    z-index: 9;
+    padding: 10px 0;
+    box-shadow: 0px 4px 13px -3px #808080;
+    background-color: #fff;
+    width: 250px;
+}
+
+.header-menu-ctls-ctl-sub-menu__item > a {
+    font-weight: 400;
+    font-size: 13px;
+    padding: 8px 26px 8px 15px;
+    display: block;
+}
+
+    .header-menu-ctls-ctl-sub-menu__item > a:hover {
+        background-color: #f5f5f5;
+        color: #bd2026;
+    }
 
 .header-wrapper-menu-address {
     display: flex;
@@ -124,6 +165,7 @@
 }
 
 .home-top {
+    padding: 30px 0;
     background: #e9ecef;
     margin-bottom: 25px;
 }
@@ -160,14 +202,78 @@
 }
 
 .home-product-flower {
-    background-color: #ffe6dd;
+    position: relative;
+    z-index: 1;
+    margin-top: 40px;
+    margin-bottom: 50px;
 }
 
+    .home-product-flower::after {
+        position: absolute;
+        content: '';
+        inset: -10px;
+        background-color: #ffe6dd;
+        z-index: -1;
+    }
+
 .home-product-flower__title {
-    margin: 5px 0;
+    margin-bottom: 20px;
     font-weight: 600;
     font-size: 16px;
     color: #bd2026;
+}
+
+.home-product-flower-card {
+    background-color: #FFF;
+}
+
+.home-product-flower-card-top {
+    border: 1px solid #cdcdcd;
+}
+
+    .home-product-flower-card-top:hover > img {
+        transform: scale(1);
+    }
+
+    .home-product-flower-card-top > img {
+        width: 100%;
+        transform: scale(0.9);
+        transition: all 0.5s;
+    }
+
+.home-product-flower-card-bottom {
+    border: 1px solid #cdcdcd;
+    text-align: center;
+    padding: 5px 0px;
+    font-size: 14px;
+}
+
+    .home-product-flower-card-bottom > a:hover {
+        color: #bd2026;
+    }
+
+.home-product-flower-card-bottom-items {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.home-product-flower-card-bottom-items__price.home-product-flower-card-bottom-items__price--old {
+    text-decoration: line-through;
+    font-weight: 300;
+    color: #555;
+}
+
+.home-product-flower-card-bottom-items__price.home-product-flower-card-bottom-items__price--current {
+    font-weight: 600;
+    color: #bd2026;
+}
+
+
+.home-product-flower-items-price.home-product-flower-items-price__red {
+    color: red;
+    font-weight: bold;
 }
 /*CSS PHẦN FOOTER*/
 .footer {

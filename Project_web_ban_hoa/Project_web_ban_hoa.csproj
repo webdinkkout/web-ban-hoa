@@ -89,6 +89,16 @@
     <Content Include="Publics\Images\Home\img-header\logo8.png" />
     <Content Include="Publics\Images\Home\img-header\logohyt-hd.png" />
     <Content Include="Publics\Images\Home\img-header\zalo-chat-icon.png" />
+    <Content Include="Publics\Images\Home\img-home\img-product\icon-1.png" />
+    <Content Include="Publics\Images\Home\img-home\img-product\icon-10.png" />
+    <Content Include="Publics\Images\Home\img-home\img-product\icon-2.png" />
+    <Content Include="Publics\Images\Home\img-home\img-product\icon-3.png" />
+    <Content Include="Publics\Images\Home\img-home\img-product\icon-4.png" />
+    <Content Include="Publics\Images\Home\img-home\img-product\icon-5.png" />
+    <Content Include="Publics\Images\Home\img-home\img-product\icon-6.png" />
+    <Content Include="Publics\Images\Home\img-home\img-product\icon-7.png" />
+    <Content Include="Publics\Images\Home\img-home\img-product\icon-8.png" />
+    <Content Include="Publics\Images\Home\img-home\img-product\icon-9.png" />
     <Content Include="Publics\Images\Home\img-home\logo-1.png" />
     <Content Include="Publics\Images\Home\img-home\logo-2.png" />
     <Content Include="Publics\Images\Home\img-home\logo-3.png" />

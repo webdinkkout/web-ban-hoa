@@ -67,9 +67,23 @@
         </div>
 
         <div class="container">
-            <div class="row">
-                <div class="home-product-flower">
-                    <h2 class="home-product-flower__title">KHUYẾN MÃI</h2>
+            <div class="home-product-flower">
+                <h2 class="home-product-flower__title">KHUYẾN MÃI</h2>
+                <div class="row">
+                    <div class="col-2-5">
+                        <div class="home-product-flower-card">
+                            <div class="home-product-flower-card-top">
+                                <img src="Publics/Images/Home/img-home/img-product/icon-1.png" alt="Alternate Text" />
+                            </div>
+                            <div class="home-product-flower-card-bottom">
+                                <a href="#">Tỏa sáng 2</a>
+                                <div class="home-product-flower-card-bottom-items">
+                                    <p class="home-product-flower-card-bottom-items__price home-product-flower-card-bottom-items__price--old">600.000 đ</p>
+                                    <p class="home-product-flower-card-bottom-items__price home-product-flower-card-bottom-items__price--current">550.000 đ</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
