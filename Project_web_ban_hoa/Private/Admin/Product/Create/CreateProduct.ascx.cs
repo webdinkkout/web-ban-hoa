@@ -44,7 +44,7 @@ namespace Project_web_ban_hoa.Private.Admin.Product.Create
 
             if (fulThumbnail.HasFile)
             {
-                if (fulThumbnail.PostedFile.ContentType == "image/")
+                if (fulThumbnail.PostedFile.ContentType.StartsWith("image/"))
                 {
                     string fileName = Path.GetFileName(fulThumbnail.FileName).Replace(" ", "-");
                     string saveFileName = Components.ConvertToUnSign(fileName);
