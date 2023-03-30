@@ -10,7 +10,7 @@ VALUES
 -- THÊM DỮ LIỆU MẪU CHO BẢNG NGƯỜI DÙNG
 INSERT INTO Users (First_Name, Last_Name, Email, Password, Role_Id)
 VALUES
-(N'Admin', 'Admin', 'admin@gmail.com', '123456', 1),
+(N'Quản trị', 'viên', 'admin@gmail.com', '123456', 1),
 (N'Lê Trần Tấn', 'Tài', 'taic21a.th1@gmail.com', '123456', 2),
 (N'Nguyễn Tấn ', 'Tài', 'tantai@gmail.com', '123456', 2),
 (N'Trần Nguyễn Nhật', 'Dũng', 'dung@gmail.com', '123456', 2)
@@ -179,25 +179,5 @@ VALUES
 GO
 
 --THÊM DỮ LIỆU BẢNG ĐƠN ĐẶT HÀNG
-INSERT INTO Orders
-(User_Id,Delivery_Date,Order_Date,Payment_Method_Id)
-VALUES
-(
-	2,
-	'2023/3/15',
-	'2023/3/14',
-	1
-),
-(
-	3,
-	'2023/3/15',
-	'2023/3/14',
-	1
-)
-GO
 
 --THÊM DỮ LIỆU VÀ BẢNG CHI TIẾT ĐƠN HÀNG
-INSERT INTO Order_Details
-(Order_Id,Product_Id,Quantity,Total_Price)
-VALUES
-(1,2,2,70000),(2,2,4,140000)

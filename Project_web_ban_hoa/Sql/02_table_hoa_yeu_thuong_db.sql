@@ -16,6 +16,7 @@ CREATE TABLE Users (
   Email VARCHAR(255) UNIQUE NOT NULL,
   Password VARCHAR(255) NOT NULL,
   Role_Id INT REFERENCES Roles(Id) DEFAULT(2) NOT NULL,
+  Avatar Nvarchar(255) Default(Null),
   Created_At datetime2 DEFAULT(getdate()) NOT NULL,
   Updated_At datetime2 DEFAULT(getdate()) NOT NULL
 );
@@ -29,7 +30,6 @@ CREATE TABLE Categories (
   Thumbnail NVARCHAR(255) ,
   Parent_Id INT REFERENCES Categories(Id),
   Level INT DEFAULT(0),
-  Url VARCHAR(MAX) DEFAULT('#'), 
   Created_At DATETIME2 DEFAULT(GETDATE()) NOT NULL,
   Updated_At DATETIME2 DEFAULT(GETDATE()) NOT NULL
 );

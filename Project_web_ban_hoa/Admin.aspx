@@ -49,9 +49,10 @@
                                 </p>
                             </div>
                             <div class="wrapper-control-user__body-menu">
+                                <a href="/" class="wrapper-control-user__control"><i class="fa-solid fa-house"></i>Trở
+                                    về trang Home</a>
                                 <a href="/Admin.aspx?modul=user&t=user-info&id=1" class="wrapper-control-user__control">
-                                    Thông
-                                    tin cá nhân  </a>
+                                    <i class="fa fa-info"></i>Thông tin cá nhân  </a>
                                 <asp:Button ID="hplLogOut" Text="Đăng Xuất" runat="server" CssClass="wrapper-control-user__control"
                                     OnClick="hplLogOut_Click" />
                             </div>
