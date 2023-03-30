@@ -66,8 +66,6 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Object.aspx" />
-    <Content Include="ObjectDetail.aspx" />
     <Content Include="Private\Admin\User\UserInfo\UserInfo.ascx" />
     <Content Include="Product.aspx" />
     <Content Include="Publics\Css\Library\Bootstrap\bootstrap-grid.min.css" />
@@ -76,6 +74,7 @@
     <Content Include="Publics\Css\Library\OwlCarousel2\owl.theme.default.min.css" />
     <Content Include="Publics\Images\DefaultImg\no-image.jpg" />
     <Content Include="Publics\Images\DefaultImg\null-image.png" />
+    <Content Include="Publics\Images\Home\favicon.ico" />
     <Content Include="Publics\Images\Home\img-footer\bullet_footer-icon-right.png" />
     <Content Include="Publics\Images\Home\img-footer\icon-fb.png" />
     <Content Include="Publics\Images\Home\img-footer\icon-hyt.png" />
@@ -150,17 +149,22 @@
     <Content Include="Publics\Images\Product\13262_tinh-dau-tho-ngay.jpg" />
     <Content Include="Publics\Js\Admin.js" />
     <Content Include="Publics\Js\Library\Bootstrap\bootstrap.bundle.min.js" />
-    <Content Include="Publics\Js\Library\Toastify\chart.js" />
     <Content Include="Publics\Js\Library\Toastify\toastify-js.js" />
     <Content Include="Publics\Js\Main.js" />
+    <Content Include="Publics\Uploads\Category\11610_sound-of-love.jpg" />
+    <Content Include="Publics\Uploads\Category\img_4507.jpg" />
+    <Content Include="Publics\Uploads\Category\img_4547.jpg" />
+    <Content Include="Publics\Uploads\Category\k-gion.png" />
+    <Content Include="Publics\Uploads\Category\screenshot-2023-03-24-014507.png" />
+    <Content Include="Publics\Uploads\Category\tai-đep-zai.jpg" />
+    <Content Include="Publics\Uploads\Product\9.jpg" />
+    <Content Include="Publics\Uploads\Product\bt4.jpg" />
+    <Content Include="Publics\Uploads\Product\tai-xuong.jfif" />
     <Content Include="Sql\01_create_database_hoa_yeu_thuong.sql" />
     <Content Include="Sql\02_table_hoa_yeu_thuong_db.sql" />
     <Content Include="Sql\03_proc_hoa_yeu_thuong_db.sql" />
     <Content Include="Sql\04_trigger_hoa_yeu_thuong_db.sql" />
     <Content Include="Sql\05_seed_hoa_yeu_thuong_db.sql" />
-    <Content Include="Sql\997_drop_proc_hoa_yeu_thuong_db.sql" />
-    <Content Include="Sql\998_seed_hoa_yeu_thuong_db.sql" />
-    <Content Include="Sql\999_drop_table_hoa_yeu_thuong.sql" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -216,20 +220,6 @@
     <Compile Include="Models\ProductModel.cs" />
     <Compile Include="Models\RoleModel.cs" />
     <Compile Include="Models\UserModel.cs" />
-    <Compile Include="Object.aspx.cs">
-      <DependentUpon>Object.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Object.aspx.designer.cs">
-      <DependentUpon>Object.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ObjectDetail.aspx.cs">
-      <DependentUpon>ObjectDetail.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ObjectDetail.aspx.designer.cs">
-      <DependentUpon>ObjectDetail.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Private\Admin\AdminControl.ascx.cs">
       <DependentUpon>AdminControl.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -332,8 +322,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Layout\Main.Master" />
-    <Content Include=".gitconfig" />
-    <Content Include=".githooks\commit-msg" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -343,8 +331,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Publics\Uploads\Category\" />
-    <Folder Include="Publics\Uploads\Product\" />
+    <Folder Include=".githooks\" />
     <Folder Include="Ultils\" />
   </ItemGroup>
   <PropertyGroup>
