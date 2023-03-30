@@ -69,6 +69,7 @@
     <Content Include="Object.aspx" />
     <Content Include="ObjectDetail.aspx" />
     <Content Include="Private\Admin\User\UserInfo\UserInfo.ascx" />
+    <Content Include="Product.aspx" />
     <Content Include="Publics\Css\Library\Bootstrap\bootstrap-grid.min.css" />
     <Content Include="Publics\Css\Library\FontAwesome\all.min.css" />
     <Content Include="Publics\Css\Library\OwlCarousel2\owl.carousel.min.css" />
@@ -160,7 +161,6 @@
     <Content Include="Sql\997_drop_proc_hoa_yeu_thuong_db.sql" />
     <Content Include="Sql\998_seed_hoa_yeu_thuong_db.sql" />
     <Content Include="Sql\999_drop_table_hoa_yeu_thuong.sql" />
-    <Content Include="Topic.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -314,6 +314,13 @@
     <Compile Include="Private\Admin\User\UserInfo\UserInfo.ascx.designer.cs">
       <DependentUpon>UserInfo.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Product.aspx.cs">
+      <DependentUpon>Product.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Product.aspx.designer.cs">
+      <DependentUpon>Product.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ProductDetail.aspx.cs">
       <DependentUpon>ProductDetail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -322,13 +329,6 @@
       <DependentUpon>ProductDetail.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Topic.aspx.cs">
-      <DependentUpon>Topic.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Topic.aspx.designer.cs">
-      <DependentUpon>Topic.aspx</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Layout\Main.Master" />

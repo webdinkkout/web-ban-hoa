@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Layout/Main.Master" AutoEventWireup="true" CodeBehind="Topic.aspx.cs" Inherits="Project_web_ban_hoa.Topic" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Layout/Main.Master" AutoEventWireup="true" CodeBehind="Product.aspx.cs" Inherits="Project_web_ban_hoa.Product1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="Publics/Css/Topic.css" rel="stylesheet" />
@@ -29,7 +29,7 @@
                                 <div class="col-lg-3">
                                     <div class="content-wrapper-card-product">
                                         <div class="content-wrapper-card-product-card-product-top">
-                                            <a href='ProductDetail.aspx/<%# Eval("Seo_Name") %>'>
+                                            <a href='ProductDetail.aspx?Seo-name=<%# Eval("Seo_Name") %>'>
                                                 <img src='<%# Eval("Thumbnail") %>' />
                                             </a>
                                         </div>
