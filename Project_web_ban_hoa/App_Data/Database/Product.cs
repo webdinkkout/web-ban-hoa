@@ -2,7 +2,7 @@
 using System.Data;
 using System.Data.SqlClient;
 
-namespace Project_web_ban_hoa
+namespace DAO
 {
     public class Product
     {
@@ -28,8 +28,7 @@ namespace Project_web_ban_hoa
         /// <returns> Tất cả sản phẩm </returns>
         public static DataTable GetAllProdcts(int pageNumber = 1, int pageSize = 10)
         {
-            SqlCommand cmd = CreateCMD("proc_pagination");
-            cmd.Parameters.AddWithValue("@table_name", "Products");
+            SqlCommand cmd = CreateCMD("proc_pagination_product");
             cmd.Parameters.AddWithValue("@page_number", pageNumber);
             cmd.Parameters.AddWithValue("@page_size", pageSize);
             return SqlDatabase.GetData(cmd);

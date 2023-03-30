@@ -1,7 +1,12 @@
-﻿public class Role
+﻿
+namespace DAO
+{
+public class Role
 {
     public Role()
     {
 
     }
+}
+
 }

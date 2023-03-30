@@ -1,7 +1,7 @@
 ﻿using System.Data;
 using System.Data.SqlClient;
 
-namespace Project_web_ban_hoa
+namespace DAO
 {
     public class Auth
     {
