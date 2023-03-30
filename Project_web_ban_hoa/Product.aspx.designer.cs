@@ -11,7 +11,7 @@ namespace Project_web_ban_hoa
 {
 
 
-    public partial class Topic
+    public partial class Product1
     {
 
         /// <summary>

@@ -73,6 +73,8 @@
     <Content Include="Publics\Css\Library\FontAwesome\all.min.css" />
     <Content Include="Publics\Css\Library\OwlCarousel2\owl.carousel.min.css" />
     <Content Include="Publics\Css\Library\OwlCarousel2\owl.theme.default.min.css" />
+    <Content Include="Publics\Images\DefaultImg\no-image.jpg" />
+    <Content Include="Publics\Images\DefaultImg\null-image.png" />
     <Content Include="Publics\Images\Home\img-footer\bullet_footer-icon-right.png" />
     <Content Include="Publics\Images\Home\img-footer\icon-fb.png" />
     <Content Include="Publics\Images\Home\img-footer\icon-hyt.png" />
@@ -158,7 +160,6 @@
     <Content Include="Sql\997_drop_proc_hoa_yeu_thuong_db.sql" />
     <Content Include="Sql\998_seed_hoa_yeu_thuong_db.sql" />
     <Content Include="Sql\999_drop_table_hoa_yeu_thuong.sql" />
-    <Content Include="Topic.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -320,13 +321,6 @@
       <DependentUpon>ProductDetail.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Topic.aspx.cs">
-      <DependentUpon>Topic.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Topic.aspx.designer.cs">
-      <DependentUpon>Topic.aspx</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Layout\Main.Master" />
