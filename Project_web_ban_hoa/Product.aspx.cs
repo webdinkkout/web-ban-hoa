@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -13,7 +14,13 @@ namespace Project_web_ban_hoa
         {
             if (!Page.IsPostBack)
             {
+                rptRenderCategories.DataSource = DAO.Category.GetAllCategories();
+                rptRenderCategories.DataBind();
             }
+        }
+        protected DataTable Data(int categoryID)
+        {
+            return DAO.Product.GetProductWithCategoryId(categoryID);
         }
     }
 }
