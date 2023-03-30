@@ -1,7 +1,7 @@
 ﻿using System.Data;
 using System.Data.SqlClient;
 
-namespace Project_web_ban_hoa
+namespace DAO
 {
     public class Category
     {
@@ -11,13 +11,14 @@ namespace Project_web_ban_hoa
         /// <param name="NameCategory">Tên của danh mục</param>
         /// <param name="pathThumnail">Link tới ảnh của danh mục trong server</param>
         [System.Obsolete]
-        public static int InsertCategory(string nameCategory, string seoName, string pathThumnail)
+        public static int InsertCategory(string nameCategory, string seoName, string pathThumnail, int parentId)
         {
-            SqlCommand cmd = new SqlCommand("proc_insert_category");
+            SqlCommand cmd = new SqlCommand("proc_insert_category_level_1");
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@name", nameCategory);
             cmd.Parameters.AddWithValue("@seo_name", seoName);
             cmd.Parameters.AddWithValue("@thumbnail", pathThumnail);
+            cmd.Parameters.AddWithValue("@parent_id", parentId);
             return SqlDatabase.ExecuteNoneQuery(cmd);
         }
 
@@ -25,12 +26,14 @@ namespace Project_web_ban_hoa
         /// <summary>
         /// Phương thức lấy tất cả dữ liệu categories
         /// </summary>
-        /// <returns>DataTable</returns>
-        [System.Obsolete]
-        public static DataTable GetAllCategories()
+        /// <returns>Tất cả các danh mục</returns>
+        public static DataTable GetAllCategories(int pageNumber = 1, int pageSize = 10, int level = 1)
         {
-            SqlCommand cmd = new SqlCommand("proc_get_all_categories");
+            SqlCommand cmd = new SqlCommand("proc_pagination_category");
             cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@page_number", pageNumber);
+            cmd.Parameters.AddWithValue("@page_size", pageSize);
+            cmd.Parameters.AddWithValue("@level", level);
             return SqlDatabase.GetData(cmd);
 
         }
@@ -40,7 +43,6 @@ namespace Project_web_ban_hoa
         /// </summary>
         /// <param name="idCategory">Truyền id muốn xóa vào</param>
         /// <returns>Số lượng xóa</returns>
-        [System.Obsolete]
         public static int DeleteCategory(int idCategory)
         {
             SqlCommand cmd = new SqlCommand("proc_delete_category");
@@ -54,7 +56,6 @@ namespace Project_web_ban_hoa
         /// </summary>
         /// <param name="idCategory">id category</param>
         /// <returns>Category lấy đc</returns>
-        [System.Obsolete]
         public static DataTable GetOneCategory(int idCategory)
         {
             SqlCommand cmd = new SqlCommand("proc_get_one_category");
@@ -63,9 +64,14 @@ namespace Project_web_ban_hoa
             return SqlDatabase.GetData(cmd);
         }
 
-
-
-        [System.Obsolete]
+        /// <summary>
+        /// Cập nhật danh mục
+        /// </summary>
+        /// <param name="idCateory">Mã danh mục</param>
+        /// <param name="name">Tên danh mục</param>
+        /// <param name="seoName">Tên thu gọn của danh mục</param>
+        /// <param name="thumbnail">Ảnh danh mục</param>
+        /// <returns>Số dòng được cập nhật thành công</returns>
         public static int UpdateCategory(int idCateory, string name, string seoName, string thumbnail)
         {
             SqlCommand cmd = new SqlCommand("proc_update_category");
@@ -73,8 +79,38 @@ namespace Project_web_ban_hoa
             cmd.Parameters.AddWithValue("@id", idCateory);
             cmd.Parameters.AddWithValue("@name", name);
             cmd.Parameters.AddWithValue("@seo_name", seoName);
-            cmd.Parameters.AddWithValue("@thumbnail", string.IsNullOrEmpty(thumbnail) ? null : thumbnail);
+            cmd.Parameters.AddWithValue("@thumbnail", thumbnail);
             return SqlDatabase.ExecuteNoneQuery(cmd);
+        }
+
+        /// <summary>
+        /// Phương thức tìm kiếm danh mục
+        /// </summary>
+        /// <param name="result"> Từ tìm kiếm </param>
+        /// <returns> Kết quả tìm kiếm </returns>
+        public static DataTable SearchCategory(string result)
+        {
+            SqlCommand cmd = new SqlCommand("proc_search");
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@table_name", "Categories");
+            cmd.Parameters.AddWithValue("@result", result);
+            return SqlDatabase.GetData(cmd);
+        }
+
+        public static DataTable GetCategoriesByLevel(int level = 1)
+        {
+            SqlCommand cmd = new SqlCommand("proc_get_categories_by_level");
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@level", level);
+            return SqlDatabase.GetData(cmd);
+        }
+        public static DataTable GetCategoryByParentIdAndLevel(int parrentId, int level = 1)
+        {
+            SqlCommand cmd = new SqlCommand("proc_get_category_by_parent_id_and_level");
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@parent_id", parrentId);
+            cmd.Parameters.AddWithValue("@level", level);
+            return SqlDatabase.GetData(cmd);
         }
     }
 }

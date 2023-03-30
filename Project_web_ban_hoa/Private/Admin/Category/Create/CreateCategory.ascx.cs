@@ -17,7 +17,13 @@ namespace Project_web_ban_hoa.Private.Admin.Category.Create
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!Page.IsPostBack)
+            {
+                ddlCategories.DataSource = DAO.Category.GetCategoriesByLevel(0);
+                ddlCategories.DataTextField = "Name";
+                ddlCategories.DataValueField = "Id";
+                ddlCategories.DataBind();
+            }
         }
 
         [Obsolete]
@@ -29,19 +35,19 @@ namespace Project_web_ban_hoa.Private.Admin.Category.Create
                 HttpPostedFile file = Request.Files[0];
                 if (file.ContentType.ToLower().StartsWith("image/"))
                 {
+                    string fileName = Path.GetFileName(file.FileName).Replace(" ", "-");
+                    string saveFileName = Components.ConvertToUnSign(fileName);
+                    string savePath = Server.MapPath("~/Publics/Uploads/Category/" + saveFileName);
+
                     string name = txtName.Text;
                     string seoName = Components.ConvertToUnSign(name).Replace(" ", "-");
-                    string thumbnail;
+                    string thumbnail = ConfigurationManager.AppSettings["UrlEnv"] + $"/Publics/Uploads/Category/{saveFileName}";
+                    int parentId = Convert.ToInt32(ddlCategories.SelectedValue);
 
-                    string fileName = Path.GetFileName(file.FileName).Replace(" ", "-");
-                    string saveFileName = Guid.NewGuid().ToString() + "-" + Components.ConvertToUnSign(fileName);
-                    string savePath = Server.MapPath("~/Publics/Uploads/Category/" + saveFileName);
-                    thumbnail = ConfigurationManager.AppSettings["UrlEnv"] + $"/Publics/Uploads/Category/{saveFileName}";
-                    file.SaveAs(savePath);
-
-                    int n = Project_web_ban_hoa.Category.InsertCategory(name, seoName, thumbnail);
+                    int n = DAO.Category.InsertCategory(name, seoName, thumbnail, parentId);
                     if (n > 0)
                     {
+                        file.SaveAs(savePath);
                         Session["showToastMessage"] = "Tạo sản phẩm thành công";
                         Session["showToastDuration"] = 3000;
                         Session["showToastPosition"] = "right";

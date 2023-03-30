@@ -43,7 +43,7 @@ h1, h2, h3, h4, h5, h6 {
 
 
 @media (min-width: 992px) {
-    .col-lg-4 {
+    .col-lg-4, .col-lg-3 {
         margin: 7.5px 0;
     }
 }
@@ -58,10 +58,13 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 26px;
     padding: 0 20px 0 23px;
     position: relative;
-    margin: 0 10px 10px 0;
+    margin: 10px 10px 10px 0;
     text-decoration: none;
     -webkit-transition: opacity 0.2s;
-    cursor: pointer;
+    cursor: default;
+    user-select: none;
+    font-size: 1.6rem;
+    text-transform: capitalize;
 }
 
     .tag::before {
@@ -96,3 +99,41 @@ h1, h2, h3, h4, h5, h6 {
         .tag.tag--chart::after {
             border-left: 10px solid #2ab7ca;
         }
+
+
+
+
+.btn {
+    display: block;
+    border-radius: 10px;
+    font-size: 1.6rem;
+    font-weight: 600;
+    background-color: transparent;
+    cursor: pointer;
+    padding: 8px 16px;
+    min-width: 200px;
+}
+
+    .btn.btn-solid {
+        color: #fff;
+        background-color: currentColor;
+        border: 3px solid;
+    }
+
+    .btn.btn-regular {
+        border: 3px solid;
+        border-color: currentColor;
+    }
+
+    .btn.btn--red {
+        background-color: red;
+        border-color: red;
+    }
+
+    .btn.btn--orange {
+        color: orange;
+    }
+
+    .btn.btn--green {
+        color: green;
+    }

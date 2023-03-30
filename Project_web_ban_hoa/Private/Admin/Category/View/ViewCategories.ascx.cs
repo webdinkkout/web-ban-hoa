@@ -1,6 +1,7 @@
 ﻿using Project_web_ban_hoa.Models;
 using Project_web_ban_hoa.Models.Component;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,13 +20,21 @@ namespace Project_web_ban_hoa.Private.Admin.Category.View
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            DataTable categoriesTable = Project_web_ban_hoa.Category.GetAllCategories();
-
-            if (categoriesTable.Rows.Count > 0)
+            if (!Page.IsPostBack)
             {
-                rptViewCategories.DataSource = categoriesTable;
-                rptViewCategories.DataBind();
+                int level = 0;
+                ddlCategories.DataSource = DAO.Category.GetCategoriesByLevel(level);
+                ddlCategories.DataTextField = "Name";
+                ddlCategories.DataValueField = "Id";
+                ddlCategories.DataBind();
+                ddlCategories.Items.Insert(0, new ListItem("Tất cả", "0"));
             }
+
+            DataTable categoriesTable = DAO.Category.GetCategoriesByLevel();
+
+            rptViewCategories.DataSource = categoriesTable;
+            rptViewCategories.DataBind();
+
 
             // kiểm tra: xem có thông báo không nếu có thì thông báo
             if ((Session["showToastMessage"] != null && Session["showToastDuration"] != null && Session["showToastPosition"] != null) || Session["showToastBackColor"] != null)
@@ -50,21 +59,27 @@ namespace Project_web_ban_hoa.Private.Admin.Category.View
             string[] arrNameThumbnail = imgThumbnail.ImageUrl.Split('/');
             switch (e.CommandName)
             {
-
                 case "delete":
                     {
-                        Components.DeleteThumbnailOnSystem(arrNameThumbnail, Server);
+                        string script;
                         int idCategory = Convert.ToInt32(e.CommandArgument);
-                        Project_web_ban_hoa.Category.DeleteCategory(idCategory);
-                        ((IListSource)rptViewCategories.DataSource).GetList().RemoveAt(e.Item.ItemIndex);
-                        rptViewCategories.DataBind();
-                        string script = "showToast('Xóa thành công', 3000, 'right', 'green')";
+                        int n = DAO.Category.DeleteCategory(idCategory);
+                        if (n > 0)
+                        {
+                            Components.DeleteThumbnailOnSystem("Category", arrNameThumbnail, Server);
+                            ((IListSource)rptViewCategories.DataSource).GetList().RemoveAt(e.Item.ItemIndex);
+                            rptViewCategories.DataBind();
+                            script = "showToast('Xóa thành công', 3000, 'right', 'green')";
+                        }
+                        else
+                        {
+                            script = "showToast('Xóa không thành công vui lòng kiểm tra lại', 3000, 'right', 'red')";
+                        }
                         ScriptManager.RegisterStartupScript(this, this.GetType(), "ShowToast", script, true);
                         break;
                     }
                 case "update":
                     {
-
                         Response.Redirect($"Admin.aspx?modul=category&sub-modul=update-category&id-category={Convert.ToInt32(e.CommandArgument)}");
                         break;
                     }
@@ -73,6 +88,21 @@ namespace Project_web_ban_hoa.Private.Admin.Category.View
             }
         }
 
+        protected void ddlCategories_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int categoryId = Convert.ToInt32(ddlCategories.SelectedValue);
+            if (categoryId <= 0)
+            {
+                rptViewCategories.DataSource = DAO.Category.GetCategoriesByLevel();
+                rptViewCategories.DataBind();
+            }
+            else
+            {
+                rptViewCategories.DataSource = DAO.Category.GetCategoryByParentIdAndLevel(categoryId);
+                rptViewCategories.DataBind();
+                IList dataSource = ((IListSource)rptViewCategories.DataSource)?.GetList();
 
+            }
+        }
     }
 }

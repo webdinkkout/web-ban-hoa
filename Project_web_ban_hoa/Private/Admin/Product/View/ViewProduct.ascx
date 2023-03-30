@@ -8,17 +8,14 @@
             <asp:ListItem Text="Tất cả" Value="0" />
         </asp:DropDownList>
     </div>
-    <div class="wrapper-control-search">
-        <asp:TextBox runat="server" CssClass="wrapper-control-search__search" placeholder="Nhập từ khóa tìm kiếm" />
-        <asp:Button Text="Tìm kiếm" CssClass="wrapper-control-search__btn-search" runat="server" />
-    </div>
 </div>
 
 
-
 <div class="wrapper-view-category">
+    <asp:Label Text="" ID="lbl404" CssClass="wrapper-view-category__info" runat="server" />
+
     <div class="row">
-        <asp:Repeater ID="rptViewProduct" runat="server">
+        <asp:Repeater ID="rptViewProduct" runat="server" OnItemCommand="rptViewProduct_ItemCommand">
             <ItemTemplate>
                 <div class="col-lg-4">
                     <div class="wrapper-card-view-category">
@@ -30,9 +27,9 @@
                                 <h3 class="wrapper-card-view-category-body__name"><%# Eval("Name") %></h3>
                             </div>
                             <div class="wrapper-card-view-category-footer">
-                                <asp:Button ID="btnUpdate" CssClass="btn btn-success wrapper-card-view-category-footer__btn"
+                                <asp:Button ID="btnUpdate" CssClass="wrapper-card-view-category-footer__btn wrapper-card-view-category-footer__btn--success"
                                     runat="server" Text="Sửa" CommandArgument='<%# Eval("Id") %>' CommandName="update" />
-                                <asp:Button ID="btnDelete" CssClass="btn btn-danger wrapper-card-view-category-footer__btn"
+                                <asp:Button ID="btnDelete" CssClass="wrapper-card-view-category-footer__btn wrapper-card-view-category-footer__btn--destroy"
                                     runat="server" Text="Xóa" CommandArgument='<%#  Eval("Id") %>' CommandName="delete"
                                     OnClientClick="return confirm('Bạn có chắc chắn muốn xóa?');" />
                             </div>

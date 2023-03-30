@@ -2,7 +2,7 @@
 using System.Data.SqlClient;
 using System.Configuration;
 
-namespace Project_web_ban_hoa
+namespace DAO
 {
     public class SqlDatabase
     {

@@ -21,7 +21,7 @@ namespace Project_web_ban_hoa.Private.Admin.Product.Home
         public string[] GetNamesFromDatabase()
         {
             List<string> productNames = new List<string>();
-            DataTable productTable = Project_web_ban_hoa.Product.GetAllProdcts();
+            DataTable productTable = DAO.Product.GetAllProdcts();
 
             foreach (DataRow category in productTable.Rows)
             {
@@ -36,7 +36,7 @@ namespace Project_web_ban_hoa.Private.Admin.Product.Home
         public double[] GetViewCountsFromDatabase()
         {
             List<double> productViewCounts = new List<double>();
-            DataTable prodcutTable = Project_web_ban_hoa.Product.GetAllProdcts();
+            DataTable prodcutTable = DAO.Product.GetAllProdcts();
 
             foreach (DataRow category in prodcutTable.Rows)
             {

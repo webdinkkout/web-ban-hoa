@@ -1,25 +1,34 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Admin.aspx.cs" Inherits="Project_web_ban_hoa.Admin" %>
 
 <%@ Register Src="~/Private/Admin/AdminControl.ascx" TagPrefix="uc1" TagName="AdminControl" %>
-
-
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Trang admin</title>
-    <link href="Publics/Css/Library/Bootstrap/bootstrap.min.css" rel="stylesheet" />
-    <link href="Publics/Css/Reset.css" rel="stylesheet" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <title>Trang admin</title>
+
+    <%-- Thêm CSS Library --%>
+    <link href="Publics/Css/Library/Bootstrap/bootstrap-grid.min.css" rel="stylesheet" />
+
+    <%-- Thêm Font chữ  --%>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
 
+    <%-- Css Main --%>
+    <link href="Publics/Css/Reset.css" rel="stylesheet" />
     <link href="Publics/Css/Admin.css" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+    <%-- Library Javascript --%>
+    <script src="Publics/Js/Library/Chart/chart.js"></script>
+    <script src="Publics/Js/Library/Toastify/toastify-js.js"></script>
 
 </head>
 <body>
@@ -32,6 +41,21 @@
                         <img src="Publics/Images/logo-hoa-yeu-thuong.png" class="admin-header__logo" alt="logo page" /></a>
                     <div class="admin-header-user">
                         <img src="Publics/Images/Admin/user-icon.png" alt="user-icon" class="admin-header-user__icon" />
+                        <div class="wrapper-control-user">
+                            <div class="wrapper-control-user__top-menu">
+                                <p>
+                                    <i class="fa-solid fa-user-tag"></i>
+                                    <%= fullName %>
+                                </p>
+                            </div>
+                            <div class="wrapper-control-user__body-menu">
+                                <a href="/Admin.aspx?modul=user&t=user-info&id=1" class="wrapper-control-user__control">
+                                    Thông
+                                    tin cá nhân  </a>
+                                <asp:Button ID="hplLogOut" Text="Đăng Xuất" runat="server" CssClass="wrapper-control-user__control"
+                                    OnClick="hplLogOut_Click" />
+                            </div>
+                        </div>
                     </div>
                 </header>
             </div>
@@ -54,6 +78,6 @@
             </section>
         </div>
     </form>
-
+    <script src="Publics/Js/Library/Jquery/jquery-3.6.4.min.js"></script>
 </body>
 </html>
