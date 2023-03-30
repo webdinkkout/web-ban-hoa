@@ -11,7 +11,9 @@ namespace Project_web_ban_hoa
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!Page.IsPostBack)
+            {
+            }
         }
     }
 }
