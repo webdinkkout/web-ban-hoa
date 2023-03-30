@@ -66,11 +66,50 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Product.aspx" />
+    <Content Include="Object.aspx" />
+    <Content Include="ObjectDetail.aspx" />
+    <Content Include="Private\Admin\User\UserInfo\UserInfo.ascx" />
     <Content Include="Publics\Css\Library\Bootstrap\bootstrap-grid.min.css" />
     <Content Include="Publics\Css\Library\FontAwesome\all.min.css" />
     <Content Include="Publics\Css\Library\OwlCarousel2\owl.carousel.min.css" />
     <Content Include="Publics\Css\Library\OwlCarousel2\owl.theme.default.min.css" />
+    <Content Include="Publics\Images\DefaultImg\no-image.jpg" />
+    <Content Include="Publics\Images\DefaultImg\null-image.png" />
+    <Content Include="Publics\Images\Home\img-footer\bullet_footer-icon-right.png" />
+    <Content Include="Publics\Images\Home\img-footer\icon-fb.png" />
+    <Content Include="Publics\Images\Home\img-footer\icon-hyt.png" />
+    <Content Include="Publics\Images\Home\img-footer\icon-twitter.png" />
+    <Content Include="Publics\Images\Home\img-footer\icon-youtube.png" />
+    <Content Include="Publics\Images\Home\img-footer\logo-DMCA.png" />
+    <Content Include="Publics\Images\Home\img-footer\logo-thongbao.png" />
+    <Content Include="Publics\Images\Home\img-header\icon-giohang.png" />
+    <Content Include="Publics\Images\Home\img-header\icon-user.png" />
+    <Content Include="Publics\Images\Home\img-header\logo1.png" />
+    <Content Include="Publics\Images\Home\img-header\logo2.png" />
+    <Content Include="Publics\Images\Home\img-header\logo3.png" />
+    <Content Include="Publics\Images\Home\img-header\logo4.png" />
+    <Content Include="Publics\Images\Home\img-header\logo5.png" />
+    <Content Include="Publics\Images\Home\img-header\logo6.png" />
+    <Content Include="Publics\Images\Home\img-header\logo7.png" />
+    <Content Include="Publics\Images\Home\img-header\logo8.png" />
+    <Content Include="Publics\Images\Home\img-header\logohyt-hd.png" />
+    <Content Include="Publics\Images\Home\img-header\zalo-chat-icon.png" />
+    <Content Include="Publics\Images\Home\img-home\img-product\icon-1.png" />
+    <Content Include="Publics\Images\Home\img-home\img-product\icon-10.png" />
+    <Content Include="Publics\Images\Home\img-home\img-product\icon-2.png" />
+    <Content Include="Publics\Images\Home\img-home\img-product\icon-3.png" />
+    <Content Include="Publics\Images\Home\img-home\img-product\icon-4.png" />
+    <Content Include="Publics\Images\Home\img-home\img-product\icon-5.png" />
+    <Content Include="Publics\Images\Home\img-home\img-product\icon-6.png" />
+    <Content Include="Publics\Images\Home\img-home\img-product\icon-7.png" />
+    <Content Include="Publics\Images\Home\img-home\img-product\icon-8.png" />
+    <Content Include="Publics\Images\Home\img-home\img-product\icon-9.png" />
+    <Content Include="Publics\Images\Home\img-home\logo-1.png" />
+    <Content Include="Publics\Images\Home\img-home\logo-2.png" />
+    <Content Include="Publics\Images\Home\img-home\logo-3.png" />
+    <Content Include="Publics\Images\Home\img-home\logo-4.png" />
+    <Content Include="Publics\Images\Home\img-home\logo-5.png" />
+    <Content Include="Publics\Images\Home\img-home\logo-6.png" />
     <Content Include="Publics\Js\Library\Chart\chart.js" />
     <Content Include="Publics\Js\Library\Jquery\jquery-3.6.4.min.js" />
     <Content Include="Publics\Js\Library\OwlCarousel2\owl.carousel.min.js" />
@@ -101,27 +140,8 @@
     <Content Include="Publics\Css\Topic.css" />
     <Content Include="Publics\Images\404\404.gif" />
     <Content Include="Publics\Images\Admin\dropdown-arrow-457731.png" />
-    <Content Include="Publics\Images\Home\bullet_footer-icon-right.png" />
-    <Content Include="Publics\Images\Home\logo-DMCA.png" />
-    <Content Include="Publics\Images\Home\logo-thongbao.png" />
     <Content Include="Publics\Images\Login\profile-background.jpg" />
     <Content Include="Publics\Images\Admin\user-icon.png" />
-    <Content Include="Publics\Images\Home\icon-fb.png" />
-    <Content Include="Publics\Images\Home\icon-giohang.png" />
-    <Content Include="Publics\Images\Home\icon-hyt.png" />
-    <Content Include="Publics\Images\Home\icon-twitter.png" />
-    <Content Include="Publics\Images\Home\icon-user.png" />
-    <Content Include="Publics\Images\Home\icon-youtube.png" />
-    <Content Include="Publics\Images\Home\logo1.png" />
-    <Content Include="Publics\Images\Home\logo2.png" />
-    <Content Include="Publics\Images\Home\logo3.png" />
-    <Content Include="Publics\Images\Home\logo4.png" />
-    <Content Include="Publics\Images\Home\logo5.png" />
-    <Content Include="Publics\Images\Home\logo6.png" />
-    <Content Include="Publics\Images\Home\logo7.png" />
-    <Content Include="Publics\Images\Home\logo8.png" />
-    <Content Include="Publics\Images\Home\logohyt-hd.png" />
-    <Content Include="Publics\Images\Home\zalo-chat-icon.png" />
     <Content Include="Publics\Images\logo-hoa-yeu-thuong.png" />
     <Content Include="Publics\Images\ProductDetail\12490_romance.jpg" />
     <Content Include="Publics\Images\Product\10258_white-roses.jpg" />
@@ -132,13 +152,11 @@
     <Content Include="Publics\Js\Library\Toastify\chart.js" />
     <Content Include="Publics\Js\Library\Toastify\toastify-js.js" />
     <Content Include="Publics\Js\Main.js" />
-    <Content Include="Publics\Uploads\Category\87846349-da8b-49e4-94b8-5ec2a38e1eac-tai-đep-zai.jpg" />
-    <Content Include="Publics\Uploads\Category\97177053-93eb-478b-8f83-30d8a5125b59-icon-hoa-tinh-yeu.png" />
-    <Content Include="Publics\Uploads\Category\f23ea415-7d6c-47af-8128-8ffa6cebd083-icon-hoa-sinh-nhat.png" />
-    <Content Include="Publics\Uploads\Category\fd5617f9-a77c-436a-8525-51ae574547a1-icon-cay-vp.png" />
     <Content Include="Sql\01_create_database_hoa_yeu_thuong.sql" />
     <Content Include="Sql\02_table_hoa_yeu_thuong_db.sql" />
     <Content Include="Sql\03_proc_hoa_yeu_thuong_db.sql" />
+    <Content Include="Sql\04_trigger_hoa_yeu_thuong_db.sql" />
+    <Content Include="Sql\05_seed_hoa_yeu_thuong_db.sql" />
     <Content Include="Sql\997_drop_proc_hoa_yeu_thuong_db.sql" />
     <Content Include="Sql\998_seed_hoa_yeu_thuong_db.sql" />
     <Content Include="Sql\999_drop_table_hoa_yeu_thuong.sql" />
@@ -197,6 +215,20 @@
     <Compile Include="Models\ProductModel.cs" />
     <Compile Include="Models\RoleModel.cs" />
     <Compile Include="Models\UserModel.cs" />
+    <Compile Include="Object.aspx.cs">
+      <DependentUpon>Object.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Object.aspx.designer.cs">
+      <DependentUpon>Object.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ObjectDetail.aspx.cs">
+      <DependentUpon>ObjectDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ObjectDetail.aspx.designer.cs">
+      <DependentUpon>ObjectDetail.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Private\Admin\AdminControl.ascx.cs">
       <DependentUpon>AdminControl.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -274,12 +306,12 @@
     <Compile Include="Private\Admin\User\UserControl.ascx.designer.cs">
       <DependentUpon>UserControl.ascx</DependentUpon>
     </Compile>
-    <Compile Include="Product.aspx.cs">
-      <DependentUpon>Product.aspx</DependentUpon>
+    <Compile Include="Private\Admin\User\UserInfo\UserInfo.ascx.cs">
+      <DependentUpon>UserInfo.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Product.aspx.designer.cs">
-      <DependentUpon>Product.aspx</DependentUpon>
+    <Compile Include="Private\Admin\User\UserInfo\UserInfo.ascx.designer.cs">
+      <DependentUpon>UserInfo.ascx</DependentUpon>
     </Compile>
     <Compile Include="ProductDetail.aspx.cs">
       <DependentUpon>ProductDetail.aspx</DependentUpon>
@@ -303,6 +335,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Publics\Uploads\Category\" />
+    <Folder Include="Publics\Uploads\Product\" />
     <Folder Include="Ultils\" />
   </ItemGroup>
   <PropertyGroup>

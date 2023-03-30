@@ -82,16 +82,10 @@
                 <div class="wrapper-control-admin-control-group">
                     <asp:Label Text="Ảnh sản phẩm (*)" runat="server" AssociatedControlID="fulThumbnail"
                         CssClass="wrapper-control-admin-control-group__label" />
-
                     <asp:FileUpload ID="fulThumbnail" runat="server" CssClass="wrapper-control-admin-control-group__file" />
-                    <asp:RequiredFieldValidator
-                        ID="RequiredFieldValidator5" CssClass="wrapper-control-admin-control-group__err-msg"
-                        runat="server" ErrorMessage="Vui lòng nhập trường này"
-                        ControlToValidate="fulThumbnail" ViewStateMode="Inherit"
-                        Display="Dynamic"></asp:RequiredFieldValidator>
                 </div>
 
-                <asp:Button Text="Tạo" ID="btnCreateProduct" CssClass="btn btn-success wrapper-control-admin__btn"
+                <asp:Button Text="Tạo" ID="btnCreateProduct" CssClass="wrapper-control-admin__btn wrapper-control-admin__btn--success"
                     runat="server" OnClick="btnCreateProduct_Click" />
             </div>
         </div>
@@ -100,7 +94,7 @@
             <div class="wrapper-card-product-admin">
                 <div class="wrapper-card-product-admin-top">
                     <div class="wrapper-card-product-admin-top-wrapper-img">
-                        <img src="../../../../Publics/Uploads/Category/97177053-93eb-478b-8f83-30d8a5125b59-icon-hoa-tinh-yeu.png" />
+                        <img src="../../../../Publics/Images/DefaultImg/no-image.jpg" />
                     </div>
                     <div class="wrapper-card-product-admin-top-content">
                         <h2 data-name="name">Tên sản phẩm</h2>

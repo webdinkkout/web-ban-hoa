@@ -5,13 +5,20 @@
 
     <div class="wrapper-create-category-group">
         <asp:TextBox ID="txtName" runat="server" CssClass="wrapper-create-category-group__input"
-            placeholder="Nhập tên danh mục"></asp:TextBox>
+            placeholder="Nhập tên danh mục">
+        </asp:TextBox>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator1"
             runat="server" ErrorMessage="Vui lòng nhập trường này" ForeColor="red" CssClass="wrapper-create-category-group__smg"
             ControlToValidate="txtName"
-            SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
-
+            SetFocusOnError="true" Display="Dynamic">
+        </asp:RequiredFieldValidator>
     </div>
+
+    <asp:Panel CssClass="wrapper-create-category-panel" runat="server" GroupingText="Danh mục chính">
+        <asp:DropDownList CssClass="wrapper-create-category-panel__control" ID="ddlCategories"
+            runat="server">
+        </asp:DropDownList>
+    </asp:Panel>
 
     <div class="wrapper-create-category-group">
 
@@ -19,7 +26,8 @@
             runat="server" accept="image/png, image/jpg, image/gif, image/jpeg" />
         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" CssClass="wrapper-create-category-group__smg"
             runat="server" SetFocusOnError="true" Display="Dynamic" ErrorMessage="Vui lòng nhập trường này"
-            ForeColor="red" ControlToValidate="fulThumbnailCategory"></asp:RequiredFieldValidator>
+            ForeColor="red" ControlToValidate="fulThumbnailCategory">
+        </asp:RequiredFieldValidator>
     </div>
 
     <asp:Button ID="btnCreateCategory" runat="server" Text="Thêm danh mục"

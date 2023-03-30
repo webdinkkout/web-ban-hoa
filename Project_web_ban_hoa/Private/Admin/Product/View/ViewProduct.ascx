@@ -27,9 +27,9 @@
                                 <h3 class="wrapper-card-view-category-body__name"><%# Eval("Name") %></h3>
                             </div>
                             <div class="wrapper-card-view-category-footer">
-                                <asp:Button ID="btnUpdate" CssClass="btn btn-success wrapper-card-view-category-footer__btn"
+                                <asp:Button ID="btnUpdate" CssClass="wrapper-card-view-category-footer__btn wrapper-card-view-category-footer__btn--success"
                                     runat="server" Text="Sửa" CommandArgument='<%# Eval("Id") %>' CommandName="update" />
-                                <asp:Button ID="btnDelete" CssClass="btn btn-danger wrapper-card-view-category-footer__btn"
+                                <asp:Button ID="btnDelete" CssClass="wrapper-card-view-category-footer__btn wrapper-card-view-category-footer__btn--destroy"
                                     runat="server" Text="Xóa" CommandArgument='<%#  Eval("Id") %>' CommandName="delete"
                                     OnClientClick="return confirm('Bạn có chắc chắn muốn xóa?');" />
                             </div>
