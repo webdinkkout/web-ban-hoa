@@ -35,12 +35,6 @@
     <form id="form1" runat="server">
 
         <header class="header">
-            <div class="header__mh30">
-                <div class="container">
-                    <p>Nơi sinh sống:</p>
-                </div>
-            </div>
-
             <div class="container">
                 <div class="header-wrapper-menu-address">
                     <a href="#">
@@ -81,7 +75,6 @@
                     <div class="header-search-logo">
                         <img src="../Publics/Images/Home/img-header/logohyt-hd.png" alt="Alternate Text" />
                     </div>
-
                     <div class="header-search-contact">
                         <div class="header-search-contact-search">
                             <asp:TextBox runat="server" placeholder="Tìm sản phẩm" CssClass="header-search-contact-search__search" />
@@ -115,7 +108,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="header-menu">
                 <div class="container">
                     <div class="header-menu-ctls">
@@ -123,224 +115,20 @@
                             <li class="header-menu-ctls-ctl__item">
                                 <a href="../Home.aspx">TRANG CHỦ</a>
                             </li>
-                            <li class="header-menu-ctls-ctl__item">
-                                <a href="../Topic.aspx">CHỦ ĐỀ</a>
-                                <ul class="header-menu-ctls-ctl-sub-menu">
-                                    <li class="header-menu-ctls-ctl-sub-menu__item">
-                                        <a href="#">Hoa Sinh Nhật</a>
+                            <asp:Repeater runat="server" ID="rptCategoriesParent">
+                                <ItemTemplate>
+                                    <li class="header-menu-ctls-ctl__item">
+                                        <a href='product.aspx?ci=<%# Eval("id") %>'><%# Eval("Name") %></a>
+                                        <%# GetAllCategoryChildByParentId(Convert.ToInt32(Eval("Id"))).Rows.Count > 0 ? "<ul class='header-menu-ctls-ctl-sub-menu'>" : "" %>
+                                        <asp:Repeater runat="server" ID="rptCategoriesChild" DataSource='<%# GetAllCategoryChildByParentId(Convert.ToInt32(Eval("Id"))) %>'>
+                                            <ItemTemplate>
+                                                <li class='header-menu-ctls-ctl-sub-menu__item'><a href='<%# Eval("Id","Fillter.aspx?ci={0}") %>'><%# Eval("Name") %></a></li>
+                                            </ItemTemplate>
+                                        </asp:Repeater>
+                                        <%# GetAllCategoryChildByParentId(Convert.ToInt32(Eval("Id"))).Rows.Count > 0 ? "</ul>" : "" %>
                                     </li>
-                                    <li class="header-menu-ctls-ctl-sub-menu__item">
-                                        <a href="#">Hoa Khai Trương</a>
-                                    </li>
-                                    <li class="header-menu-ctls-ctl-sub-menu__item">
-                                        <a href="#">Hoa Chúc Mừng</a>
-                                    </li>
-                                    <li class="header-menu-ctls-ctl-sub-menu__item">
-                                        <a href="#">Hoa Chia Buồn</a>
-                                    </li>
-                                    <li class="header-menu-ctls-ctl-sub-menu__item">
-                                        <a href="#">Hoa Chúc Sức Khỏe</a>
-                                    </li>
-                                    <li class="header-menu-ctls-ctl-sub-menu__item">
-                                        <a href="#">Hoa Tình Yêu</a>
-                                    </li>
-                                    <li class="header-menu-ctls-ctl-sub-menu__item">
-                                        <a href="#">Hoa Cảm Ơn</a>
-                                    </li>
-                                    <li class="header-menu-ctls-ctl-sub-menu__item">
-                                        <a href="#">Hoa Mừng Tốt Nghiệp</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="header-menu-ctls-ctl__item">
-                                <a href="../Object.aspx">ĐỐI TƯỢNG</a>
-                                <ul class="header-menu-ctls-ctl-sub-menu">
-                                    <li class="header-menu-ctls-ctl-sub-menu__item">
-                                        <a href="#">Hoa Tặng Người Yêu</a>
-                                    </li>
-                                    <li class="header-menu-ctls-ctl-sub-menu__item">
-                                        <a href="#">Hoa Tặng Bạn Bè</a>
-                                    </li>
-                                    <li class="header-menu-ctls-ctl-sub-menu__item">
-                                        <a href="#">Hoa Tặng Vợ</a>
-                                    </li>
-                                    <li class="header-menu-ctls-ctl-sub-menu__item">
-                                        <a href="#">Hoa Tặng Chồng</a>
-                                    </li>
-                                    <li class="header-menu-ctls-ctl-sub-menu__item">
-                                        <a href="#">Hoa Tặng Mẹ</a>
-                                    </li>
-                                    <li class="header-menu-ctls-ctl-sub-menu__item">
-                                        <a href="#">Hoa Tặng Trẻ Em</a>
-                                    </li>
-                                    <li class="header-menu-ctls-ctl-sub-menu__item">
-                                        <a href="#">Hoa Tặng Cho Nữ</a>
-                                    </li>
-                                    <li class="header-menu-ctls-ctl-sub-menu__item">
-                                        <a href="#">Hoa Tặng Cho Nam</a>
-                                    </li>
-                                    <li class="header-menu-ctls-ctl-sub-menu__item">
-                                        <a href="#">Hoa Tặng Sếp</a>
-                                    </li>
-                                    <li class="header-menu-ctls-ctl-sub-menu__item">
-                                        <a href="#">Hoa Tặng Đồng Nghiệp</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="header-menu-ctls-ctl__item">
-                                <a href="#">KIỂU DÁNG</a>
-                                <ul class="header-menu-ctls-ctl-sub-menu">
-                                    <li class="header-menu-ctls-ctl-sub-menu__item">
-                                        <a href="#">Bó Hoa Tươi</a>
-                                    </li>
-                                    <li class="header-menu-ctls-ctl-sub-menu__item">
-                                        <a href="#">Giỏ Hoa Tươi</a>
-                                    </li>
-                                    <li class="header-menu-ctls-ctl-sub-menu__item">
-                                        <a href="#">Hộp Hoa Tươi</a>
-                                    </li>
-                                    <li class="header-menu-ctls-ctl-sub-menu__item">
-                                        <a href="#">Bình Hoa Tươi</a>
-                                    </li>
-                                    <li class="header-menu-ctls-ctl-sub-menu__item">
-                                        <a href="#">Hoa Thả Bình</a>
-                                    </li>
-                                    <li class="header-menu-ctls-ctl-sub-menu__item">
-                                        <a href="#">Lãng Hoa Khai Trương</a>
-                                    </li>
-                                    <li class="header-menu-ctls-ctl-sub-menu__item">
-                                        <a href="#">Lãng Hoa Chia Buồn</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="header-menu-ctls-ctl__item">
-                                <a href="#">HOA TƯƠI</a>
-                                <ul class="header-menu-ctls-ctl-sub-menu">
-                                    <li class="header-menu-ctls-ctl-sub-menu__item">
-                                        <a href="#">Only Rose</a>
-                                    </li>
-                                    <li class="header-menu-ctls-ctl-sub-menu__item">
-                                        <a href="#">Hoa Hồng</a>
-                                    </li>
-                                    <li class="header-menu-ctls-ctl-sub-menu__item">
-                                        <a href="#">Hoa Hướng Dương</a>
-                                    </li>
-                                    <li class="header-menu-ctls-ctl-sub-menu__item">
-                                        <a href="#">Hoa Đồng Tiền</a>
-                                    </li>
-                                    <li class="header-menu-ctls-ctl-sub-menu__item">
-                                        <a href="#">Lan Hồ Điệp</a>
-                                    </li>
-                                    <li class="header-menu-ctls-ctl-sub-menu__item">
-                                        <a href="#">Cẩm Chướng</a>
-                                    </li>
-                                    <li class="header-menu-ctls-ctl-sub-menu__item">
-                                        <a href="#">Hoa Cát Tường</a>
-                                    </li>
-                                    <li class="header-menu-ctls-ctl-sub-menu__item">
-                                        <a href="#">Hoa Ly</a>
-                                    </li>
-                                    <li class="header-menu-ctls-ctl-sub-menu__item">
-                                        <a href="#">Baby Flower</a>
-                                    </li>
-                                    <li class="header-menu-ctls-ctl-sub-menu__item">
-                                        <a href="#">Hoa Cúc</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="header-menu-ctls-ctl__item">
-                                <a href="#">MÀU SẮC</a>
-                                <ul class="header-menu-ctls-ctl-sub-menu">
-                                    <li class="header-menu-ctls-ctl-sub-menu__item">
-                                        <a href="#">Màu Trắng</a>
-                                    </li>
-                                    <li class="header-menu-ctls-ctl-sub-menu__item">
-                                        <a href="#">Màu Đỏ</a>
-                                    </li>
-                                    <li class="header-menu-ctls-ctl-sub-menu__item">
-                                        <a href="#">Màu Hồng</a>
-                                    </li>
-                                    <li class="header-menu-ctls-ctl-sub-menu__item">
-                                        <a href="#">Màu Cam</a>
-                                    </li>
-                                    <li class="header-menu-ctls-ctl-sub-menu__item">
-                                        <a href="#">Màu Tím</a>
-                                    </li>
-                                    <li class="header-menu-ctls-ctl-sub-menu__item">
-                                        <a href="#">Màu Vàng</a>
-                                    </li>
-                                    <li class="header-menu-ctls-ctl-sub-menu__item">
-                                        <a href="#">Màu Xanh(Xanh lá, Xanh dương)</a>
-                                    </li>
-                                    <li class="header-menu-ctls-ctl-sub-menu__item">
-                                        <a href="#">Kết Hợp Màu</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="header-menu-ctls-ctl__item">
-                                <a href="#">BỘ SƯU TẬP</a>
-                                <ul class="header-menu-ctls-ctl-sub-menu">
-                                    <li class="header-menu-ctls-ctl-sub-menu__item">
-                                        <a href="#">Hoa Cao Cấp</a>
-                                    </li>
-                                    <li class="header-menu-ctls-ctl-sub-menu__item">
-                                        <a href="#">Hoa Sinh Viên</a>
-                                    </li>
-                                    <li class="header-menu-ctls-ctl-sub-menu__item">
-                                        <a href="#">Mẫu Hoa Mới</a>
-                                    </li>
-                                    <li class="header-menu-ctls-ctl-sub-menu__item">
-                                        <a href="#">Khuyến Mãi</a>
-                                    </li>
-                                    <li class="header-menu-ctls-ctl-sub-menu__item">
-                                        <a href="#">Ngày Phụ Nữ Việt Nam (20/10)</a>
-                                    </li>
-                                    <li class="header-menu-ctls-ctl-sub-menu__item">
-                                        <a href="#">Ngày Nhà Giáo</a>
-                                    </li>
-                                    <li class="header-menu-ctls-ctl-sub-menu__item">
-                                        <a href="#">Giáng Sinh</a>
-                                    </li>
-                                    <li class="header-menu-ctls-ctl-sub-menu__item">
-                                        <a href="#">Hoa Tết</a>
-                                    </li>
-                                    <li class="header-menu-ctls-ctl-sub-menu__item">
-                                        <a href="#">Hoa Sự Kiện</a>
-                                    </li>
-                                    <li class="header-menu-ctls-ctl-sub-menu__item">
-                                        <a href="#">Hoa Tình Yêu</a>
-                                    </li>
-                                    <li class="header-menu-ctls-ctl-sub-menu__item">
-                                        <a href="#">Ngày Quốc Tế Phụ Nữ</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="header-menu-ctls-ctl__item">
-                                <a href="#">QUÀ TẶNG KÈM</a>
-                                <ul class="header-menu-ctls-ctl-sub-menu">
-                                    <li class="header-menu-ctls-ctl-sub-menu__item">
-                                        <a href="#">Bánh Kem Tous Les Jours</a>
-                                    </li>
-                                    <li class="header-menu-ctls-ctl-sub-menu__item">
-                                        <a href="#">Bánh Kem Brodard</a>
-                                    </li>
-                                    <li class="header-menu-ctls-ctl-sub-menu__item">
-                                        <a href="#">Chocolate</a>
-                                    </li>
-                                    <li class="header-menu-ctls-ctl-sub-menu__item">
-                                        <a href="#">Trái Cây</a>
-                                    </li>
-                                    <li class="header-menu-ctls-ctl-sub-menu__item">
-                                        <a href="#">Gấu Bông</a>
-                                    </li>
-                                    <li class="header-menu-ctls-ctl-sub-menu__item">
-                                        <a href="#">Nến Thơm</a>
-                                    </li>
-                                    <li class="header-menu-ctls-ctl-sub-menu__item">
-                                        <a href="#">Hamper</a>
-                                    </li>
-                                </ul>
-                            </li>
+                                </ItemTemplate>
+                            </asp:Repeater>
                         </ul>
                     </div>
                 </div>

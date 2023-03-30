@@ -29,6 +29,10 @@
     position: relative;
 }
 
+    .header-menu-ctls-ctl__item > a {
+        text-transform: uppercase;
+    }
+
 
     .header-menu-ctls-ctl__item:hover > .header-menu-ctls-ctl-sub-menu {
         display: block;
@@ -67,6 +71,7 @@
         color: #bd2026;
         font-size: 13px;
         font-weight: bold;
+        cursor: default;
     }
 
         .header-wrapper-menu-address > a > img {
@@ -84,7 +89,7 @@
 
 
 .header-search-contact-search__search {
-    width: 700px;
+    width: 550px;
     padding: 3px 10px;
 }
 
@@ -97,6 +102,7 @@
     align-items: center;
     justify-content: space-between;
     width: 100%;
+    margin-top: 12px;
 }
 
 .header-search-contact-hotline-number-phone {
@@ -128,6 +134,8 @@
     .header-search-user-control-cart-account > img {
         width: 32px;
     }
+
+
 
 
 .header-wrapper-menu-address > a:hover {

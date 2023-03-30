@@ -15,12 +15,30 @@ namespace Project_web_ban_hoa
     {
 
         /// <summary>
-        /// rptRenderCard control.
+        /// rptCategoriesSideBarHeading control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptRenderCard;
+        protected global::System.Web.UI.WebControls.Repeater rptCategoriesSideBarHeading;
+
+        /// <summary>
+        /// rptCategoriesSideBar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptCategoriesSideBar;
+
+        /// <summary>
+        /// rptCategories control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptCategories;
     }
 }
