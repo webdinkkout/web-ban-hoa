@@ -29,9 +29,23 @@
                     <div class="product-detail-desc">
                         <p>Sản phẩm bao gồm:</p>
                         <p>-Baby nhuộm hồng nhạt NK: 3</p>
-                        <i style="font-size: 16px">-Sản phẩm thực nhận có thể khác với hình đại diện trên website (đặc điểm thủ công và tính chất tự nhiên của hàng nông nghiệp)</i>
+                        <i style="font-size: 14px; color: black">-Sản phẩm thực nhận có thể khác với hình đại diện trên website (đặc điểm thủ công và tính chất tự nhiên của hàng nông nghiệp)</i>
+                    </div>
+                    <p style="font-weight: 600">Hoa giao nhanh 60 phút Hồ Chí Minh</p>
+                    <div class="product-detail-note">
+                        <span>LƯU Ý</span>
+                        <p class="product-detail-note__text">Sản phẩm bạn đang chọn là sản phẩm được thiết kế đặc biệt!</p>
+                        <p class="product-detail-note__text">Hiện nay, Hoayeuthuong.com chỉ thử nghiệm cung cấp cho thị trường </p>
+                    </div>
+                    <div class="product-detail-control">
+                        <div>
+                            <a class="btn-control btn-control--solid btn-control--orange" href="#">Thêm vào giỏ</a>
+                            <a class="btn-control btn-control--fill btn-control--text-white btn-control--fill-red " href="#">Mua ngay</a>
+                        </div>
+                        <a class="btn-control btn-control--solid btn-control--green btn-control--w415 " href="#">Gọi ngay:0399999999</a>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>

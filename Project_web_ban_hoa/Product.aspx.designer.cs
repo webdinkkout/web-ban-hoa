@@ -11,16 +11,16 @@ namespace Project_web_ban_hoa
 {
 
 
-    public partial class Object
+    public partial class Product1
     {
 
         /// <summary>
-        /// rptCategory control.
+        /// rptRenderCard control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptCategory;
+        protected global::System.Web.UI.WebControls.Repeater rptRenderCard;
     }
 }
