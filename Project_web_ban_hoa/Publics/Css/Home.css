@@ -1,6 +1,7 @@
 ﻿.row > .col-2-5 {
     flex: 0 0 auto;
     width: 20%;
+    margin: 7.5px 0;
 }
 
 
@@ -229,6 +230,9 @@
 
 .home-product-flower-card-top {
     border: 1px solid #cdcdcd;
+    width: 100%;
+    overflow: hidden;
+    height: 303px;
 }
 
     .home-product-flower-card-top:hover > img {
@@ -236,7 +240,9 @@
     }
 
     .home-product-flower-card-top > img {
+        height: 100%;
         width: 100%;
+        object-fit: cover;
         transform: scale(0.9);
         transition: all 0.5s;
     }
@@ -250,6 +256,15 @@
 
     .home-product-flower-card-bottom > a:hover {
         color: #bd2026;
+    }
+
+    .home-product-flower-card-bottom > a {
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-break: break-word;
     }
 
 .home-product-flower-card-bottom-items {

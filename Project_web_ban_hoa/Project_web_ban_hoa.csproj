@@ -73,6 +73,8 @@
     <Content Include="Publics\Css\Library\FontAwesome\all.min.css" />
     <Content Include="Publics\Css\Library\OwlCarousel2\owl.carousel.min.css" />
     <Content Include="Publics\Css\Library\OwlCarousel2\owl.theme.default.min.css" />
+    <Content Include="Publics\Css\Object.css" />
+    <Content Include="Publics\Css\ObjectDetail.css" />
     <Content Include="Publics\Images\Home\img-footer\bullet_footer-icon-right.png" />
     <Content Include="Publics\Images\Home\img-footer\icon-fb.png" />
     <Content Include="Publics\Images\Home\img-footer\icon-hyt.png" />
