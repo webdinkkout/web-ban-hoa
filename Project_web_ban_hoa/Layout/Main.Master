@@ -123,6 +123,7 @@
                             <li class="header-menu-ctls-ctl__item">
                                 <a href="../Home.aspx">TRANG CHỦ</a>
                             </li>
+                            //fix
                             <asp:Repeater runat="server" ID="rptCategoriesNav">
                                 <ItemTemplate>
                                     <li class="header-menu-ctls-ctl__item">

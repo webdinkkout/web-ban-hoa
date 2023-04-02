@@ -10,6 +10,8 @@
                 <div class="row">
                     <div class="home-logo-flower">
                         <h2 class="home-logo-flower__title">MẪU HOA MỚI NĂM 2023</h2>
+
+                        //Fixx 
                         <ul class="home-logo-flower-items">
                             <li class="home-logo-flower-items-item">
                                 <a href="#">
@@ -68,6 +70,7 @@
 
         <div class="container">
             <div class="home-product-flower">
+                //fix
                 <h2 class="home-product-flower__title">KHUYẾN MÃI</h2>
                 <div class="row">
                     <asp:Repeater runat="server" ID="rptProducts">
