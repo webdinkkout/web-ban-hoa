@@ -14,13 +14,11 @@ namespace Project_web_ban_hoa
         {
             if (!Page.IsPostBack)
             {
-                rptRenderCategories.DataSource = DAO.Category.GetAllCategories();
-                rptRenderCategories.DataBind();
+                rptRenderCard.DataSource = DAO.Product.GetProductWithCategoryId(16);
+                rptRenderCard.DataBind();
             }
         }
-        protected DataTable Data(int categoryID)
-        {
-            return DAO.Product.GetProductWithCategoryId(categoryID);
-        }
+
+
     }
 }
