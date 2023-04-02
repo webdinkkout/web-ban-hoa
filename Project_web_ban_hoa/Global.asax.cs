@@ -15,7 +15,6 @@ namespace Project_web_ban_hoa
         protected void Application_Start(object sender, EventArgs e)
         {
             DAO.SqlDatabase.ConnectString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
-            System.Web.HttpContext.Current.Cache.Remove("Home.aspx");
         }
         protected void Application_BeginRequest(object sender, EventArgs e)
         {
