@@ -247,6 +247,7 @@ CREATE PROC proc_register
 @first_name NVARCHAR(50),
 @last_name NVARCHAR(50),
 @email VARCHAR(255),
+@address NVARCHAR(255),
 @password VARCHAR(255)
 AS
 BEGIN
@@ -254,6 +255,7 @@ BEGIN
 	(
 	    First_Name,
 	    Last_Name,
+		Address,
 	    Email,
 	    Password,
 	    Role_Id,
@@ -263,6 +265,7 @@ BEGIN
 	VALUES
 	(  @first_name,     -- First_Name - nvarchar(50)
 	    @last_name,     -- Last_Name - nvarchar(50)
+		@address,
 	    @email,      -- Email - varchar(100)
 	    @password,      -- Password - varchar(255)
 		2,       -- Role_Id - int
