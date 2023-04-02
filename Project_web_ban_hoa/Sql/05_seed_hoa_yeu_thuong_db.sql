@@ -8,9 +8,9 @@ VALUES
 (N'Khách hàng');
 
 -- THÊM DỮ LIỆU MẪU CHO BẢNG NGƯỜI DÙNG
-INSERT INTO Users (First_Name, Last_Name,Address, Email, Password, Role_Id)
+INSERT INTO Users (First_Name, Last_Name,Address, Avatar,Email, Password, Role_Id)
 VALUES
-(N'Quản trị', 'viên',N'Bình Chanh' , 'admin@gmail.com','$2a$10$fiwZgjvURHHOSWfTbNUhLeXceYft9LWoLufP59dNHQWN65UbdoKVm', 1)
+(N'Quản trị', 'viên',N'Bình Chanh' , N'https://luv.vn/wp-content/uploads/2021/11/avatar-gai-xinh-41.jpg','admin@gmail.com','$2a$10$fiwZgjvURHHOSWfTbNUhLeXceYft9LWoLufP59dNHQWN65UbdoKVm', 1)
 GO
 
 -- THÊM DỮ LIỆU MẪU BẢNG DANH MỤC
