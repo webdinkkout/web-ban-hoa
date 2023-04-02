@@ -39,8 +39,8 @@
                 </div>
 
                 <div class="form-login-links">
-                    <asp:HyperLink NavigateUrl="#" Text="Quên mật khẩu ?" runat="server" />
-                    <asp:HyperLink NavigateUrl="~/Register.aspx" Text="Đăng ký" runat="server" />
+                    <asp:HyperLink NavigateUrl="~/Register.aspx" Text="Bạn chưa có tài khoản ?" runat="server" />
+                    <asp:HyperLink NavigateUrl="~/Register.aspx" Text="Đăng ký ngay" runat="server" />
                 </div>
 
                 <asp:Button Text="Login" CssClass="form-login__btn-submit" runat="server" ID="btnLogin"

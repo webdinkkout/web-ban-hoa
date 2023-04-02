@@ -78,7 +78,7 @@
                 </div>
 
                 <div class="form-login-links">
-                    <asp:HyperLink NavigateUrl="#" Text="Quên mật khẩu ?" runat="server" />
+                    <asp:HyperLink NavigateUrl="~/Login.aspx" Text="Bạn đã có tài khoản ?" runat="server" />
                     <asp:HyperLink NavigateUrl="~/Login.aspx" Text="Đăng nhập" runat="server" />
                 </div>
 

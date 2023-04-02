@@ -23,6 +23,10 @@
         height: 700px;
     }
 
+    .wrapper-form.wrapper-form--forgot {
+        height: 520px;
+    }
+
     .wrapper-form::before {
         content: "";
         position: absolute;
