@@ -25,11 +25,6 @@ namespace Project_web_ban_hoa.Private.Admin.User.UserInfo
             if (!Page.IsPostBack)
             {
                 user = ConvertSessionToUser("CURRENT_USER");
-                txtFirstName.Text = user.FirstName;
-                txtLastName.Text = user.LastName;
-                txtEmail.Text = user.Email;
-
-
             }
         }
 

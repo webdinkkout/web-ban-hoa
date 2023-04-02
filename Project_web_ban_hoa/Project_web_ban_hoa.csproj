@@ -78,6 +78,7 @@
     <Content Include="Publics\Css\Library\OwlCarousel2\owl.theme.default.min.css" />
     <Content Include="Publics\Images\DefaultImg\no-image.jpg" />
     <Content Include="Publics\Images\DefaultImg\null-image.png" />
+    <Content Include="Publics\Images\DefaultImg\user.png" />
     <Content Include="Publics\Images\Home\favicon.ico" />
     <Content Include="Publics\Images\Home\img-footer\bullet_footer-icon-right.png" />
     <Content Include="Publics\Images\Home\img-footer\icon-fb.png" />
