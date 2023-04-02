@@ -28,6 +28,7 @@
 
 .header-menu-ctls-ctl__item {
     position: relative;
+    text-transform: uppercase;
 }
 
 
