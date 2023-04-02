@@ -48,6 +48,29 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
+.form-gr {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+    .form-gr + .form-gr {
+        margin-top: 8px;
+    }
+
+.form-gr__label {
+    width: 30%;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.form-gr__control {
+    width: calc(70% - 8px);
+    padding: 8px 12px;
+    outline: none;
+    transition: all 0.5s;
+}
 /*== TAGS ==*/
 .tag {
     background: #28a745;
@@ -104,7 +127,10 @@ h1, h2, h3, h4, h5, h6 {
 
 
 .btn {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
     border-radius: 10px;
     font-size: 1.6rem;
     font-weight: 600;
@@ -114,9 +140,13 @@ h1, h2, h3, h4, h5, h6 {
     min-width: 200px;
 }
 
+    .btn:active {
+        transform: scale(.9);
+    }
+
     .btn.btn-solid {
-        color: #fff;
         background-color: currentColor;
+        color: #fff;
         border: 3px solid;
     }
 
@@ -137,3 +167,8 @@ h1, h2, h3, h4, h5, h6 {
     .btn.btn--green {
         color: green;
     }
+
+.btn-solid.btn--green {
+    background-color: green;
+    color: #fff;
+}

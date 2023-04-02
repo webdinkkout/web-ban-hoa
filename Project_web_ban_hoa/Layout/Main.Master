@@ -106,11 +106,11 @@
                     <div class="header-search-user-control">
                         <div class="header-search-user-control-cart-account">
                             <img src="../Publics/Images/Home/img-header/icon-giohang.png" alt="Alternate Text" />
-                            <a href="#">Giỏ hàng</a>
+                            <a class="header-search-user-control-cart-account__link" href="#">Giỏ hàng</a>
                         </div>
                         <div class="header-search-user-control-cart-account">
-                            <img src="../Publics/Images/Home/img-header/icon-user.png" alt="Alternate Text" />
-                            <a href="../Login.aspx">Tài khoản</a>
+                            <asp:ImageButton ID="ImageButton1" ImageUrl="../Publics/Images/Home/img-header/icon-user.png" runat="server" OnClick="btnLogin_Click" />
+                            <asp:Button CssClass="header-search-user-control-cart-account__link" runat="server" ID="btnLogin" Text="Tài Khoản" OnClick="btnLogin_Click" />
                         </div>
                     </div>
                 </div>

@@ -86,7 +86,7 @@
 
 
 .header-search-contact-search__search {
-    width: 700px;
+    width: 550px;
     padding: 3px 10px;
 }
 
@@ -131,6 +131,17 @@
         width: 32px;
     }
 
+.header-search-user-control-cart-account__link {
+    border: none;
+    outline: none;
+    font-size: 1.6rem;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+    .header-search-user-control-cart-account__link:hover {
+        color: #bd2026;
+    }
 
 .header-wrapper-menu-address > a:hover {
     border-bottom: 3px solid red;
@@ -141,9 +152,7 @@
     background-color: #eee;
 }
 
-.header-search-user-control-cart-account > a:hover {
-    color: #bd2026;
-}
+
 
 .header-search-contact-hotline-number-phone > a:hover {
     color: #bd2026;

@@ -1,6 +1,9 @@
-﻿public class User
+﻿using System.Data;
+using System.Data.SqlClient;
+
+namespace DAO
 {
-    public User()
+    public class User
     {
 
     }
