@@ -28,7 +28,8 @@
                             </div>
                             <div class="wrapper-card-view-category-footer">
                                 <asp:Button ID="btnUpdate" CssClass="wrapper-card-view-category-footer__btn wrapper-card-view-category-footer__btn--success"
-                                    runat="server" Text="Sửa" CommandArgument='<%# Eval("Id") %>' CommandName="update" />
+                                    runat="server" Text="Sửa" CommandArgument='<%# string.Format("{0}|{1}",Eval("Id"),Eval("Category_Id")) %>'
+                                    CommandName="update" />
                                 <asp:Button ID="btnDelete" CssClass="wrapper-card-view-category-footer__btn wrapper-card-view-category-footer__btn--destroy"
                                     runat="server" Text="Xóa" CommandArgument='<%#  Eval("Id") %>' CommandName="delete"
                                     OnClientClick="return confirm('Bạn có chắc chắn muốn xóa?');" />

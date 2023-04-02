@@ -107,6 +107,11 @@ namespace Project_web_ban_hoa.Private.Admin.Product.View
                     }
                 case "update":
                     {
+                        string[] reqString = e.CommandArgument.ToString().Split('|');
+                        int productId = Convert.ToInt32(reqString[0]);
+                        int categoryId = Convert.ToInt32(reqString[1]);
+
+                        Response.Redirect($"~/Admin.aspx?modul=product&sub-modul=update-product&pi={productId}&ci={categoryId}");
                         break;
                     }
                 default:

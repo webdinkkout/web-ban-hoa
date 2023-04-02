@@ -30,24 +30,35 @@ namespace Project_web_ban_hoa
             string gmail = txtGmail.Text.Trim();
             string password = txtPassword.Text.Trim();
 
-            DataTable user = DAO.Auth.Login(gmail, password);
-
+            DataTable user = DAO.Auth.GetUserbyEmail(gmail);
             if (user.Rows.Count > 0)
             {
-                Session["ISLOGIN"] = "isLoagined";
-                Session["CURRENT_USER"] = user;
-                Session["showToastDuration"] = 3000;
-                Session["showToastPosition"] = "right";
-                Session["showToastMessage"] = "Đăng nhập thành công";
-                Session["showToastBackColor"] = "green";
-                Response.Redirect("~/admin.aspx");
+                string passwordHashed = user.Rows[0]["Password"].ToString();
+                bool isPasswordCorrect = BCrypt.Net.BCrypt.Verify(password, passwordHashed);
+                if (isPasswordCorrect)
+                {
+                    Session["ISLOGIN"] = "isLoagined";
+                    Session["CURRENT_USER"] = user;
+
+                    Session["showToastDuration"] = 3000;
+                    Session["showToastPosition"] = "right";
+                    Session["showToastMessage"] = "Đăng nhập thành công";
+                    Session["showToastBackColor"] = "green";
+                    Response.Redirect("~/admin.aspx");
+                }
+                else
+                {
+                    string script = "showToast('Sai mật khẩu',3000 , 'right' , 'red')";
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "ShowToast", script, true);
+                    txtPassword.Focus();
+                }
             }
             else
             {
-                string script = "showToast('Sai tên đăng nhập hoặc mật khẩu',3000 , 'right' , 'red')";
+                string script = "showToast('Sai tên đăng nhập',3000 , 'right' , 'red')";
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "ShowToast", script, true);
+                txtGmail.Focus();
             }
-
         }
     }
 }

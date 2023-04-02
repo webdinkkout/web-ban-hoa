@@ -13,5 +13,11 @@ namespace Project_web_ban_hoa.Layout
         {
 
         }
+
+        protected void btnLogin_Click(object sender, EventArgs e)
+        {
+            Session.Add("CURRENT_URL", Request.Url);
+            Response.Redirect("~/Login.aspx");
+        }
     }
 }

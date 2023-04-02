@@ -2,9 +2,20 @@
     Inherits="Project_web_ban_hoa.Private.Admin.Product.Home.HomeProduct" %>
 <%@ Register Assembly="System.Web.DataVisualization, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"
     Namespace="System.Web.UI.DataVisualization.Charting" TagPrefix="asp" %>
+<div class="home-admin-product-control">
+    <div class="form-gr home-admin-product-control-form-gr">
+        <a href="Admin.aspx?modul=product&sub-modul=view-products" class="btn btn-regular btn--orange">
+            Xem tất cả sản phẩm <i class="fa-solid fa-file-export"></i></a>
+        <a href="Admin.aspx?modul=product&sub-modul=create-product" class="btn btn-regular btn--green">
+            Thêm sản phẩm <i class="fa-solid fa-plus"></i>
+        </a>
+    </div>
+</div>
+
 <div class="wrapper-card">
     <canvas id="chart"></canvas>
 </div>
+
 
 <script>
     // Lấy tham chiếu đến đối tượng canvas
