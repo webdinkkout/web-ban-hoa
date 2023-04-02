@@ -234,14 +234,13 @@ END
 GO	
 
 -- NGƯỜI DÙNG
-CREATE PROC proc_login
-@gmail VARCHAR(255),
-@password VARCHAR(255)
+CREATE PROC proc_get_user
+@gmail VARCHAR(255)
 AS
 BEGIN
-	SELECT * FROM dbo.Users WHERE Email = @gmail AND Password = @password
+	SELECT * FROM Users WHERE Email= @gmail
 END
-GO	
+GO
 
 CREATE PROC proc_register
 @first_name NVARCHAR(50),

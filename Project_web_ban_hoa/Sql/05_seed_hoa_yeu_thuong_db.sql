@@ -10,10 +10,8 @@ VALUES
 -- THÊM DỮ LIỆU MẪU CHO BẢNG NGƯỜI DÙNG
 INSERT INTO Users (First_Name, Last_Name,Address, Email, Password, Role_Id)
 VALUES
-(N'Quản trị', 'viên',N'Bình Chanh' , 'admin@gmail.com','123456', 1),
-(N'Lê Trần Tấn', 'Tài',N'Bình Chanh' , 'taic21a.th1@gmail.com', '123456', 2),
-(N'Nguyễn Tấn ', 'Tài',N'Bình Chanh' , 'tantai@gmail.com', '123456', 2),
-(N'Trần Nguyễn Nhật', 'Dũng',N'Bình Chanh' , 'dung@gmail.com', '123456', 2)
+(N'Quản trị', 'viên',N'Bình Chanh' , 'admin@gmail.com','$2a$10$fiwZgjvURHHOSWfTbNUhLeXceYft9LWoLufP59dNHQWN65UbdoKVm', 1)
+GO
 
 -- THÊM DỮ LIỆU MẪU BẢNG DANH MỤC
 INSERT INTO dbo.Categories (Name,Seo_Name,Thumbnail,Parent_Id,Level,Created_At,Updated_At)

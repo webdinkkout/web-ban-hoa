@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using BCrypt.Net;
 
 namespace Project_web_ban_hoa
 {
@@ -24,10 +25,12 @@ namespace Project_web_ban_hoa
             string password = txtPassword.Text;
             string address = txtAddress.Text;
 
-            int n = DAO.Auth.Register(firstName, lastName, address, email, password);
+            string salt = BCrypt.Net.BCrypt.GenerateSalt();
+            string hashedPasswrod = BCrypt.Net.BCrypt.HashPassword(password, salt);
+
+            int n = DAO.Auth.Register(firstName, lastName, address, email, hashedPasswrod);
             if (n > 0)
             {
-                DAO.Auth.Login(email, password);
                 Response.Redirect("~/Home.aspx");
             }
         }
