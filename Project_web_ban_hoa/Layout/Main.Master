@@ -110,7 +110,7 @@
                         </div>
                         <div class="header-search-user-control-cart-account">
                             <img src="../Publics/Images/Home/img-header/icon-user.png" alt="Alternate Text" />
-                            <a href="../Login.aspx">Tài khoản</a>
+                            <asp:Button runat="server" ID="btnLogin" Text="Tài Khoản" OnClick="btnLogin_Click" />
                         </div>
                     </div>
                 </div>

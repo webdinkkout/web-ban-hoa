@@ -24,8 +24,12 @@ namespace Project_web_ban_hoa
             string password = txtPassword.Text;
             string address = txtAddress.Text;
 
-
-
+            int n = DAO.Auth.Register(firstName, lastName, address, email, password);
+            if (n > 0)
+            {
+                DAO.Auth.Login(email, password);
+                Response.Redirect("~/Home.aspx");
+            }
         }
     }
 }
