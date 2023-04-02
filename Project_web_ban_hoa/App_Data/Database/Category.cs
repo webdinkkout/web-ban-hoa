@@ -97,6 +97,11 @@ namespace DAO
             return SqlDatabase.GetData(cmd);
         }
 
+        /// <summary>
+        /// Lấy tất cả danh mục theo level
+        /// </summary>
+        /// <param name="level">Level của danh mục</param>
+        /// <returns>Danh sách các danh mục có level tương ứng</returns>
         public static DataTable GetCategoriesByLevel(int level = 1)
         {
             SqlCommand cmd = new SqlCommand("proc_get_categories_by_level");
@@ -104,6 +109,13 @@ namespace DAO
             cmd.Parameters.AddWithValue("@level", level);
             return SqlDatabase.GetData(cmd);
         }
+
+        /// <summary>
+        /// Lấy tất cả danh mục có mã danh mục cha và level
+        /// </summary>
+        /// <param name="parrentId">Mã danh mục cha</param>
+        /// <param name="level">Level</param>
+        /// <returns>Danh sách các danh mục có mã danh mục cha và level tương ứng</returns>
         public static DataTable GetCategoryByParentIdAndLevel(int parrentId, int level = 1)
         {
             SqlCommand cmd = new SqlCommand("proc_get_category_by_parent_id_and_level");
