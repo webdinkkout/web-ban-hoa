@@ -37,6 +37,10 @@ namespace Project_web_ban_hoa
 
                 if (user.RoleId != 1)
                 {
+                    if (Session["CURRENT_URL"] != null)
+                    {
+                        Response.Redirect(Session["CURRENT_URL"].ToString());
+                    }
                     Response.Redirect("~/Home.aspx");
                 }
                 else if (user.RoleId == 1)

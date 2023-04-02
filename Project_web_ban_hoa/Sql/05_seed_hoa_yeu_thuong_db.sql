@@ -8,41 +8,15 @@ VALUES
 (N'Khách hàng');
 
 -- THÊM DỮ LIỆU MẪU CHO BẢNG NGƯỜI DÙNG
-INSERT INTO Users (First_Name, Last_Name, Email, Password, Role_Id)
+INSERT INTO Users (First_Name, Last_Name,Address, Email, Password, Role_Id)
 VALUES
-(N'Admin', 'Admin', 'admin@gmail.com', '123456', 1),
-(N'Lê Trần Tấn', 'Tài', 'taic21a.th1@gmail.com', '123456', 2),
-(N'Nguyễn Tấn ', 'Tài', 'tantai@gmail.com', '123456', 2),
-(N'Trần Nguyễn Nhật', 'Dũng', 'dung@gmail.com', '123456', 2)
+(N'Quản trị', 'viên',N'Bình Chanh' , 'admin@gmail.com','$2a$10$fiwZgjvURHHOSWfTbNUhLeXceYft9LWoLufP59dNHQWN65UbdoKVm', 1)
+GO
 
 -- THÊM DỮ LIỆU MẪU BẢNG DANH MỤC
 INSERT INTO dbo.Categories (Name,Seo_Name,Thumbnail,Parent_Id,Level,Created_At,Updated_At)
 VALUES
-( N'Chủ đề','chu-de',null,null,0,DEFAULT, DEFAULT)
-GO
-INSERT INTO dbo.Categories (Name,Seo_Name,Thumbnail,Parent_Id,Level,Created_At,Updated_At)
-VALUES
-( N'Đối tượng','doi-tuong',null,null,0,DEFAULT, DEFAULT)
-GO
-INSERT INTO dbo.Categories (Name,Seo_Name,Thumbnail,Parent_Id,Level,Created_At,Updated_At)
-VALUES
-( N'Kiểu dáng','kieu-dang',null,null,0,DEFAULT, DEFAULT)
-GO
-INSERT INTO dbo.Categories (Name,Seo_Name,Thumbnail,Parent_Id,Level,Created_At,Updated_At)
-VALUES
-( N'Hoa tươi','hoa-tuoi',null,null,0,DEFAULT, DEFAULT)
-GO
-INSERT INTO dbo.Categories (Name,Seo_Name,Thumbnail,Parent_Id,Level,Created_At,Updated_At)
-VALUES
-( N'Màu sắc','mau-sac',null,null,0,DEFAULT, DEFAULT)
-GO
-INSERT INTO dbo.Categories (Name,Seo_Name,Thumbnail,Parent_Id,Level,Created_At,Updated_At)
-VALUES
-( N'Bộ sưu tập','bo-suu-tap',null,null,0,DEFAULT, DEFAULT)
-GO
-INSERT INTO dbo.Categories (Name,Seo_Name,Thumbnail,Parent_Id,Level,Created_At,Updated_At)
-VALUES
-( N'Quà tặng kèm','qua-tang-kem',null,null,0,DEFAULT, DEFAULT)
+( N'Ý nghĩa hoa','y-nghia-hoa',null,null,0,DEFAULT, DEFAULT)
 GO
 INSERT INTO dbo.Categories (Name,Seo_Name,Thumbnail,Parent_Id,Level,Created_At,Updated_At)
 VALUES
@@ -50,7 +24,31 @@ VALUES
 GO
 INSERT INTO dbo.Categories (Name,Seo_Name,Thumbnail,Parent_Id,Level,Created_At,Updated_At)
 VALUES
-( N'Ý nghĩa hoa','y-nghia-hoa',null,null,0,DEFAULT, DEFAULT)
+( N'Quà tặng kèm','qua-tang-kem',null,null,0,DEFAULT, DEFAULT)
+GO
+INSERT INTO dbo.Categories (Name,Seo_Name,Thumbnail,Parent_Id,Level,Created_At,Updated_At)
+VALUES
+( N'Bộ sưu tập','bo-suu-tap',null,null,0,DEFAULT, DEFAULT)
+GO
+INSERT INTO dbo.Categories (Name,Seo_Name,Thumbnail,Parent_Id,Level,Created_At,Updated_At)
+VALUES
+( N'Màu sắc','mau-sac',null,null,0,DEFAULT, DEFAULT)
+GO
+INSERT INTO dbo.Categories (Name,Seo_Name,Thumbnail,Parent_Id,Level,Created_At,Updated_At)
+VALUES
+( N'Hoa tươi','hoa-tuoi',null,null,0,DEFAULT, DEFAULT)
+GO
+INSERT INTO dbo.Categories (Name,Seo_Name,Thumbnail,Parent_Id,Level,Created_At,Updated_At)
+VALUES
+( N'Kiểu dáng','kieu-dang',null,null,0,DEFAULT, DEFAULT)
+GO
+INSERT INTO dbo.Categories (Name,Seo_Name,Thumbnail,Parent_Id,Level,Created_At,Updated_At)
+VALUES
+( N'Đối tượng','doi-tuong',null,null,0,DEFAULT, DEFAULT)
+GO
+INSERT INTO dbo.Categories (Name,Seo_Name,Thumbnail,Parent_Id,Level,Created_At,Updated_At)
+VALUES
+( N'Chủ đề','chu-de',null,null,0,DEFAULT, DEFAULT)
 GO
 INSERT INTO dbo.Categories (Name,Seo_Name,Thumbnail,Parent_Id,Level,Created_At,Updated_At)
 VALUES
@@ -179,25 +177,5 @@ VALUES
 GO
 
 --THÊM DỮ LIỆU BẢNG ĐƠN ĐẶT HÀNG
-INSERT INTO Orders
-(User_Id,Delivery_Date,Order_Date,Payment_Method_Id)
-VALUES
-(
-	2,
-	'2023/3/15',
-	'2023/3/14',
-	1
-),
-(
-	3,
-	'2023/3/15',
-	'2023/3/14',
-	1
-)
-GO
 
 --THÊM DỮ LIỆU VÀ BẢNG CHI TIẾT ĐƠN HÀNG
-INSERT INTO Order_Details
-(Order_Id,Product_Id,Quantity,Total_Price)
-VALUES
-(1,2,2,70000),(2,2,4,140000)
