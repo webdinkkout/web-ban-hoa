@@ -10,15 +10,10 @@ namespace Project_web_ban_hoa
 {
     public partial class ProductDetail : System.Web.UI.Page
     {
-        string slug;
-        DataTable dataProduct;
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            //slug = Request.Url.LocalPath;
-            //string seoName = slug.Split('/')[2];
-            //dataProduct = Project_web_ban_hoa.Product.GetOneProductBySeoName(seoName);
-            //GridView1.DataSource = dataProduct;
-            //GridView1.DataBind();
+
         }
     }
 }
