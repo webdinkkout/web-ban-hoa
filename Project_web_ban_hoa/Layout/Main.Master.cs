@@ -29,8 +29,6 @@ namespace Project_web_ban_hoa.Layout
 
                 }
             }
-
-
         }
 
         protected DataTable LayConThuocCha(int parentId)
