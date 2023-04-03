@@ -171,6 +171,7 @@
     <Content Include="Sql\03_proc_hoa_yeu_thuong_db.sql" />
     <Content Include="Sql\04_trigger_hoa_yeu_thuong_db.sql" />
     <Content Include="Sql\05_seed_hoa_yeu_thuong_db.sql" />
+    <Content Include="UserInfo.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -338,6 +339,13 @@
     </Compile>
     <Compile Include="Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserInfo.aspx.cs">
+      <DependentUpon>UserInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserInfo.aspx.designer.cs">
+      <DependentUpon>UserInfo.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
