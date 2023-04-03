@@ -72,6 +72,7 @@
     <Content Include="Cart.aspx" />
     <Content Include="Private\Admin\User\UserInfo\UserInfo.ascx" />
     <Content Include="Product.aspx" />
+    <Content Include="Publics\Css\Cart.css" />
     <Content Include="Publics\Css\Library\Bootstrap\bootstrap-grid.min.css" />
     <Content Include="Publics\Css\Library\FontAwesome\all.min.css" />
     <Content Include="Publics\Css\Library\OwlCarousel2\owl.carousel.min.css" />

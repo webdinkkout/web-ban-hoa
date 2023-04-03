@@ -106,12 +106,13 @@
                     <div class="header-search-user-control">
                         <div class="header-search-user-control-cart-account">
                             <img src="../Publics/Images/Home/img-header/icon-giohang.png" alt="Alternate Text" />
-                            <a class="header-search-user-control-cart-account__link" href="../Cart.aspx">Giỏ hàng</a>
+                            <%--<a class="header-search-user-control-cart-account__link" href="../Cart.aspx?iu=<%= GetUserId() %>">Giỏ hàng</a>--%>
+                            <asp:Button Text="Giỏ hàng" ID="btnCart" CssClass="header-search-user-control-cart-account__link" OnClick="btnCart_Click" runat="server" />
                         </div>
                         <% if (Session["isLogin"] != null)
                             { %>
                         <div class="header-search-user-control-cart-account">
-                            <asp:ImageButton ID="imbAvatar" CssClass="header-search-user-control-cart-account__img" runat="server" OnClick="imbAvatar_Click" CommandArgument="1" />
+                            <asp:ImageButton ID="imbAvatar" CssClass="header-search-user-control-cart-account__img" runat="server" OnClick="imbAvatar_Click" />
                             <p class="header-search-user-control-cart-account__link header-search-user-control-cart-account__link--active"><%= GetFullName() %></p>
                             <div class="info">
                                 <div class="info-item active">
