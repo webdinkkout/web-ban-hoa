@@ -106,25 +106,32 @@
                     <div class="header-search-user-control">
                         <div class="header-search-user-control-cart-account">
                             <img src="../Publics/Images/Home/img-header/icon-giohang.png" alt="Alternate Text" />
-                            <a class="header-search-user-control-cart-account__link" href="#">Giỏ hàng</a>
+                            <a class="header-search-user-control-cart-account__link" href="../Cart.aspx">Giỏ hàng</a>
                         </div>
                         <% if (Session["isLogin"] != null)
                             { %>
                         <div class="header-search-user-control-cart-account">
-                            <asp:ImageButton ID="imbAvatar" CssClass="header-search-user-control-cart-account__img" runat="server" />
+                            <asp:ImageButton ID="imbAvatar" CssClass="header-search-user-control-cart-account__img" runat="server" OnClick="imbAvatar_Click" CommandArgument="1" />
                             <p class="header-search-user-control-cart-account__link header-search-user-control-cart-account__link--active"><%= GetFullName() %></p>
                             <div class="info">
                                 <div class="info-item active">
                                     <i class="fa-solid fa-user"></i>
                                     <a class="info-item__link" href="#"><%= GetFullName() %></a>
                                 </div>
+                                <% if (GetRoleId() == 1)
+                                    { %>
+                                <div class="info-item">
+                                    <i class="fa-solid fa-toolbox"></i>
+                                    <a class="info-item__link" href="../Admin.aspx">Trang Admin</a>
+                                </div>
+                                <% } %>
                                 <div class="info-item">
                                     <i class="fa-solid fa-info"></i>
-                                    <a class="info-item__link" href="#">Thông tin cá nhân</a>
+                                    <a class="info-item__link" href='../UserInfo.aspx?iu=<%= GetUserId() %>'>Thông tin cá nhân</a>
                                 </div>
                                 <div class="info-item">
                                     <i class="fa-solid fa-cart-shopping"></i>
-                                    <a class="info-item__link" href="#">Giỏ hàng của bạn</a>
+                                    <a class="info-item__link" href='../Cart.aspx?iu=<%= GetUserId() %>'>Giỏ hàng của bạn</a>
                                 </div>
                                 <div class="info-item">
                                     <i class="fa-solid fa-right-from-bracket"></i>

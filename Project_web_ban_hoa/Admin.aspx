@@ -40,7 +40,7 @@
                     <a href="/admin.aspx">
                         <img src="Publics/Images/logo-hoa-yeu-thuong.png" class="admin-header__logo" alt="logo page" /></a>
                     <div class="admin-header-user">
-                        <img src="Publics/Images/Admin/user-icon.png" alt="user-icon" class="admin-header-user__icon" />
+                        <img src='<%= GetAvatar() %>' alt="user-icon" class="admin-header-user__icon" />
                         <div class="wrapper-control-user">
                             <div class="wrapper-control-user__top-menu">
                                 <p>

@@ -26,6 +26,7 @@ namespace Project_web_ban_hoa.Layout
 
                     imbAvatar.ImageUrl = IsAvatar() ? GetAvatar() : "../Publics/Images/Home/img-header/icon-user.png";
                     imbAvatar.AlternateText = GetFullName();
+                    imbAvatar.CommandArgument = GetUserId().ToString();
 
                 }
             }
@@ -48,6 +49,16 @@ namespace Project_web_ban_hoa.Layout
         protected string GetAvatar()
         {
             return user.Avatar;
+        }
+
+        protected int GetRoleId()
+        {
+            return user.RoleId;
+        }
+
+        protected int GetUserId()
+        {
+            return user.Id;
         }
 
         protected void btnLogin_Click(object sender, EventArgs e)
@@ -80,6 +91,12 @@ namespace Project_web_ban_hoa.Layout
             }).FirstOrDefault();
 
             return user;
+        }
+
+        protected void imbAvatar_Click(object sender, ImageClickEventArgs e)
+        {
+            string userId = imbAvatar.CommandArgument;
+            Response.Redirect($"~/UserInfo.aspx?iu={userId}");
         }
     }
 }

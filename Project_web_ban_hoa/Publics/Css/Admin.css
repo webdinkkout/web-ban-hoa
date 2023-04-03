@@ -36,6 +36,8 @@
         position: relative;
     }
 
+
+
         .admin-header .admin-header-user:hover {
             cursor: pointer;
         }
@@ -115,6 +117,9 @@
 
 .admin-header .admin-header-user .admin-header-user__icon {
     width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
 /*==== NAVIGATE STYLE ====*/
