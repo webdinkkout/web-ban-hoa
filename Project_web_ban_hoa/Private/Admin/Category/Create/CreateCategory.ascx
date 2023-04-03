@@ -14,7 +14,7 @@
         </asp:RequiredFieldValidator>
     </div>
 
-    <asp:Panel CssClass="wrapper-create-category-panel" runat="server" GroupingText="Danh mục chính">
+    <asp:Panel CssClass="wrapper-create-category-panel" runat="server" GroupingText="Danh mục gốc">
         <asp:DropDownList CssClass="wrapper-create-category-panel__control" ID="ddlCategories"
             runat="server">
         </asp:DropDownList>

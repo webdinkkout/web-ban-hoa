@@ -25,11 +25,6 @@ namespace Project_web_ban_hoa.Private.Admin.User.UserInfo
             if (!Page.IsPostBack)
             {
                 user = ConvertSessionToUser("CURRENT_USER");
-                txtFirstName.Text = user.FirstName;
-                txtLastName.Text = user.LastName;
-                txtEmail.Text = user.Email;
-
-
             }
         }
 
@@ -48,6 +43,7 @@ namespace Project_web_ban_hoa.Private.Admin.User.UserInfo
                 Email = row["Email"].ToString(),
                 Password = row["Password"].ToString(),
                 RoleId = Convert.ToInt32(row["Role_Id"].ToString()),
+                Avatar = row["Avatar"].ToString(),
                 CreatedAt = Convert.ToDateTime(row["Created_At"].ToString()),
                 UpdatedAt = Convert.ToDateTime(row["Updated_At"].ToString())
             }).FirstOrDefault();

@@ -28,6 +28,7 @@ namespace Project_web_ban_hoa
                     LastName = row["Last_Name"].ToString(),
                     Email = row["Email"].ToString(),
                     Password = row["Password"].ToString(),
+                    Avatar = row["Avatar"].ToString(),
                     RoleId = Convert.ToInt32(row["Role_Id"].ToString()),
                     CreatedAt = Convert.ToDateTime(row["Created_At"].ToString()),
                     UpdatedAt = Convert.ToDateTime(row["Updated_At"].ToString())
@@ -37,7 +38,10 @@ namespace Project_web_ban_hoa
 
                 if (user.RoleId != 1)
                 {
-                    Response.Redirect("~/Home.aspx");
+                    if (Session["CURRENT_URL"] != null)
+                    {
+                        Response.Redirect(Session["CURRENT_URL"].ToString());
+                    }
                 }
                 else if (user.RoleId == 1)
                 {
@@ -54,6 +58,10 @@ namespace Project_web_ban_hoa
             }
         }
 
+        protected string GetAvatar()
+        {
+            return user.Avatar.Length > 0 ? user.Avatar : "Publics/Images/Admin/user-icon.png";
+        }
 
 
         protected void hplLogOut_Click(object sender, EventArgs e)
