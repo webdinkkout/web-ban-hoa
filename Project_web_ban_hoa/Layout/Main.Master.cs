@@ -14,7 +14,20 @@ namespace Project_web_ban_hoa.Layout
         UserModel user = new UserModel();
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!Page.IsPostBack)
+            {
+                rptCategoriesNav.DataSource = DAO.Category.GetAllCategories(1, 9, 0);
 
+                rptCategoriesNav.DataBind();
+
+            }
+
+
+        }
+
+        protected DataTable LayConThuocCha(int parentId)
+        {
+            return DAO.Category.GetCategoryByParentIdAndLevel(parentId);
             if (Session["ISLOGIN"] != null && Session["CURRENT_USER"] != null)
             {
                 user = ConvertSessionToUser("CURRENT_USER");
