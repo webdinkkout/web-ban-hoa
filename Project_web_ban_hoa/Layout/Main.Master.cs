@@ -28,6 +28,8 @@ namespace Project_web_ban_hoa.Layout
                     imbAvatar.AlternateText = GetFullName();
                     imbAvatar.CommandArgument = GetUserId().ToString();
 
+                    btnCart.CommandArgument = GetUserId().ToString();
+
                 }
             }
         }
@@ -97,6 +99,20 @@ namespace Project_web_ban_hoa.Layout
         {
             string userId = imbAvatar.CommandArgument;
             Response.Redirect($"~/UserInfo.aspx?iu={userId}");
+        }
+
+        protected void btnCart_Click(object sender, EventArgs e)
+        {
+            if (Session["ISLOGIN"] == null)
+            {
+                Session.Add("CURRENT_URL", Request.Url);
+                Response.Redirect("~/Login.aspx");
+            }
+            else
+            {
+                string userId = btnCart.CommandArgument;
+                Response.Redirect($"~/Cart.aspx?iu={userId}");
+            }
         }
     }
 }
