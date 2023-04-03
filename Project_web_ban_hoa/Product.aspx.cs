@@ -14,6 +14,8 @@ namespace Project_web_ban_hoa
         {
             if (!Page.IsPostBack)
             {
+                rptCategories.DataSource = DAO.Category.GetAllCategories();
+                rptCategories.DataBind();
                 rptRenderCard.DataSource = DAO.Product.GetProductWithCategoryId(16);
                 rptRenderCard.DataBind();
             }

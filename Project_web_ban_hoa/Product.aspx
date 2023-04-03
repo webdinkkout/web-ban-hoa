@@ -22,15 +22,42 @@
             <div class="col-lg-9">
 
                 <div class="content">
-                    <asp:Repeater runat="server">
+                    <asp:Repeater runat="server" ID="rptCategories">
                         <ItemTemplate>
                             <h2>
-                                <a href='#'>Hoa Sinh Nhật</a>
+                                <a href='#'><%# Eval("Name") %></a>
                             </h2>
+
+                            <div class="row">
+                                <asp:Repeater ID="rptRenderCard" runat="server" DataSource='<%# GetProductID(Convert.ToInt32(Eval("ID")))%>'>
+                                    <ItemTemplate>
+                                        <div class="col-lg-3">
+                                            <div class="content-wrapper-card-product">
+                                                <div class="content-wrapper-card-product-card-product-top">
+                                                    <a href='ProductDetail.aspx'>
+                                                        <img src='<%# Eval("Thumbnail") %>' />
+                                                    </a>
+                                                </div>
+                                                <div class="content-wrapper-card-product-card-product-bottom">
+                                                    <a class="content-wrapper-card-product-card-product-bottom__link"><%# Eval("Name") %></a>
+                                                    <div class="content-wrapper-card-product-card-product-price">
+                                                        <p class="content-wrapper-card-product-card-product-price__price-product wrapper-card-product-card-product-price__price-product--old">
+                                                            <%# string.Format("{0:##,#đ}", Eval("Old_Price")) %>
+                                                        </p>
+                                                        <p class="content-wrapper-card-product-card-product-price__price-product wrapper-card-product-card-product-price__price-product--current">
+                                                            <%# string.Format ("{0:##,#đ}", Eval("Current_Price")) %>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </ItemTemplate>
+                                </asp:Repeater>
+                            </div>
                         </ItemTemplate>
                     </asp:Repeater>
 
-                    <div class="row">
+                    <%--                    <div class="row">
                         <asp:Repeater ID="rptRenderCard" runat="server">
                             <ItemTemplate>
                                 <div class="col-lg-3">
@@ -55,10 +82,7 @@
                                 </div>
                             </ItemTemplate>
                         </asp:Repeater>
-                    </div>
-
-
-
+                    </div>--%>
                 </div>
             </div>
         </div>
