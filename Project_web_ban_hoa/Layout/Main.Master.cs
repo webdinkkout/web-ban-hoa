@@ -114,5 +114,15 @@ namespace Project_web_ban_hoa.Layout
                 Response.Redirect($"~/Cart.aspx?iu={userId}");
             }
         }
+
+        protected void btnSearch_Click(object sender, EventArgs e)
+        {
+            string value = txtSearch.Text;
+
+            if (!string.IsNullOrEmpty(value))
+            {
+                Response.Redirect($"~/Search.aspx?key={HttpUtility.UrlEncode(value)}");
+            }
+        }
     }
 }

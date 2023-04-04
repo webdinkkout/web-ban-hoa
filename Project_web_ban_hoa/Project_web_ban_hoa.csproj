@@ -69,6 +69,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Cart.aspx" />
+    <Content Include="CategoriesDetail.aspx" />
     <Content Include="Private\Admin\User\UserInfo\UserInfo.ascx" />
     <Content Include="Product.aspx" />
     <Content Include="Publics\Css\Cart.css" />
@@ -76,6 +77,7 @@
     <Content Include="Publics\Css\Library\FontAwesome\all.min.css" />
     <Content Include="Publics\Css\Library\OwlCarousel2\owl.carousel.min.css" />
     <Content Include="Publics\Css\Library\OwlCarousel2\owl.theme.default.min.css" />
+    <Content Include="Publics\Css\Search.css" />
     <Content Include="Publics\Images\DefaultImg\no-image.jpg" />
     <Content Include="Publics\Images\DefaultImg\null-image.png" />
     <Content Include="Publics\Images\DefaultImg\user.png" />
@@ -166,6 +168,7 @@
     <Content Include="Publics\Uploads\Product\bt4.jpg" />
     <Content Include="Publics\Uploads\Product\tai-xuong.jfif" />
     <Content Include="Register.aspx" />
+    <Content Include="Search.aspx" />
     <Content Include="Sql\01_create_database_hoa_yeu_thuong.sql" />
     <Content Include="Sql\02_table_hoa_yeu_thuong_db.sql" />
     <Content Include="Sql\03_proc_hoa_yeu_thuong_db.sql" />
@@ -182,6 +185,13 @@
     </Compile>
     <Compile Include="Cart.aspx.designer.cs">
       <DependentUpon>Cart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CategoriesDetail.aspx.cs">
+      <DependentUpon>CategoriesDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CategoriesDetail.aspx.designer.cs">
+      <DependentUpon>CategoriesDetail.aspx</DependentUpon>
     </Compile>
     <Compile Include="NotFound.aspx.cs">
       <DependentUpon>NotFound.aspx</DependentUpon>
@@ -339,6 +349,13 @@
     </Compile>
     <Compile Include="Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Search.aspx.cs">
+      <DependentUpon>Search.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Search.aspx.designer.cs">
+      <DependentUpon>Search.aspx</DependentUpon>
     </Compile>
     <Compile Include="UserInfo.aspx.cs">
       <DependentUpon>UserInfo.aspx</DependentUpon>

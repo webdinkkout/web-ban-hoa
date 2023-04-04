@@ -35,11 +35,7 @@
     <form id="form1" runat="server">
 
         <header class="header">
-            <div class="header__mh30">
-                <div class="container">
-                    <p>Nơi sinh sống:</p>
-                </div>
-            </div>
+
 
             <div class="container">
                 <div class="header-wrapper-menu-address">
@@ -84,8 +80,8 @@
 
                     <div class="header-search-contact">
                         <div class="header-search-contact-search">
-                            <asp:TextBox runat="server" placeholder="Tìm sản phẩm" CssClass="header-search-contact-search__search" />
-                            <asp:Button Text="Tìm kiếm" runat="server" CssClass="header-search-contact-search__btn-search" />
+                            <asp:TextBox runat="server" ID="txtSearch" placeholder="Tìm sản phẩm" CssClass="header-search-contact-search__search" />
+                            <asp:Button Text="Tìm kiếm" ID="btnSearch" OnClick="btnSearch_Click" runat="server" CssClass="header-search-contact-search__btn-search" />
                         </div>
 
                         <div class="header-search-contact-hotline">
@@ -162,12 +158,12 @@
                             <asp:Repeater runat="server" ID="rptCategoriesNav">
                                 <ItemTemplate>
                                     <li class="header-menu-ctls-ctl__item">
-                                        <a href='../product.aspx?ci=<%# Eval("Id") %>'><%# Eval("Name") %></a>
+                                        <a href='../product.aspx?ci=<%# Eval("Seo_Name") %>'><%# Eval("Name") %></a>
                                         <%# LayConThuocCha(Convert.ToInt32(Eval("id"))).Rows.Count > 0 ? "<ul class='header-menu-ctls-ctl-sub-menu'>" : "" %>
                                         <asp:Repeater runat="server" DataSource='<%# LayConThuocCha(Convert.ToInt32(Eval("ID"))) %>' ID="rptCategoriesNavChild">
                                             <ItemTemplate>
                                                 <li class="header-menu-ctls-ctl-sub-menu__item">
-                                                    <a href="#"><%# Eval("Name") %></a>
+                                                    <a href='<%# Eval("Seo_Name","CategoriesDetail.aspx?sn={0}") %>'><%# Eval("Name") %></a>
                                                 </li>
                                             </ItemTemplate>
                                         </asp:Repeater>
