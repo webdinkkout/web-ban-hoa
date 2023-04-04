@@ -2,16 +2,40 @@
 GO
 
 -- CHUNG
-CREATE PROC proc_search
+Create PROC proc_search
 @table_name VARCHAR(50),
-@result NVARCHAR(255)
+@result NVARCHAR(255),
+@num_sort Int = 999
 AS
 BEGIN
+	declare @sort varchar(50)
+	If (@num_sort = 0)
+	begin
+		SET @sort = 'ORDER BY current_price DESC' --giá từ cao tới thấp
+	end
+	else if(@num_sort = 1)
+	begin
+		SET @sort = 'ORDER BY current_price'
+	end	
+	else if(@num_sort = 2)
+	begin
+		SET @sort = 'ORDER BY Name DESC'
+	end	
+	else if(@num_sort = 3)
+	begin
+		SET @sort = 'ORDER BY Name'
+	end	
+	else 
+	begin
+		set	 @sort = ''
+	end
+
 	DECLARE @sql NVARCHAR(MAX)
-	SET @sql = 'Select * from ' + QUOTENAME(@table_name) + ' WHERE Name LIKE ''%' + @result + '%'''
-    EXEC sp_executesql @sql
+		SET @sql = 'Select * from ' + QUOTENAME(@table_name) + ' WHERE Name LIKE N''%' + @result + '%'' ' + @sort
+		EXEC sp_executesql @sql
 END
 GO	
+
 
 --PROC CATEGORIES
 CREATE PROCEDURE proc_pagination_category
