@@ -27,12 +27,12 @@
                                 <div class="col-lg-2-5">
                                     <div class="content-wrapper-card-product">
                                         <div class="content-wrapper-card-product-card-product-top">
-                                            <a href='ProductDetail.aspx'>
+                                            <a href='ProductDetail.aspx?id=<%# Eval("id") %>'>
                                                 <img src='<%# Eval("Thumbnail") %>' />
                                             </a>
                                         </div>
                                         <div class="content-wrapper-card-product-card-product-bottom">
-                                            <a class="content-wrapper-card-product-card-product-bottom__link"><%# Eval("Name") %></a>
+                                            <a href='ProductDetail.aspx?id=<%# Eval("id") %>' class="content-wrapper-card-product-card-product-bottom__link"><%# Eval("Name") %></a>
                                             <div class="content-wrapper-card-product-card-product-price">
                                                 <p class="content-wrapper-card-product-card-product-price__price-product wrapper-card-product-card-product-price__price-product--old">
                                                     <%# Eval("Old_Price","{0:##,#0 đ}") %>
