@@ -8,14 +8,12 @@
         <div class="row">
             <div class="col-lg-3">
                 <div class="sidebar">
-                    <a class="active" href="#home">CHỦ ĐỀ</a>
-                    <a href="#news">Hoa Sinh Nhật</a>
-                    <a href="#contact">Hoa Khai Trương</a>
-                    <a href="#about">Hoa Chúc Mừng</a>
-                    <a href="#about">Hoa Chia Buồn</a>
-                    <a href="#about">Hoa chúc sức khỏe</a>
-                    <a href="#about">Hoa Cảm ơn</a>
-                    <a href="#about">Hoa Mừng tốt nghiệp</a>
+                    <a class="active" href="#home"><%= GetNameCategory() %></a>
+                    <asp:Repeater ID="rptMenuSubCategories" runat="server">
+                        <ItemTemplate>
+                            <%# GetProductID(Convert.ToInt32(Eval("id"))).Rows.Count > 0 ? $"<a href='#news'>{Eval("Name")}</a>" : "" %>
+                        </ItemTemplate>
+                    </asp:Repeater>
                 </div>
             </div>
 
@@ -25,7 +23,7 @@
                     <asp:Repeater runat="server" ID="rptCategories">
                         <ItemTemplate>
                             <h2>
-                                <a href='#'><%# Eval("Name") %></a>
+                                <%# GetProductID(Convert.ToInt32(Eval("id"))).Rows.Count > 0 ? $"<a href='#news'>{Eval("Name")}</a>" : "" %>
                             </h2>
 
                             <div class="row">
