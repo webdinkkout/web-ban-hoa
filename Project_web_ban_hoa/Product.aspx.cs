@@ -10,15 +10,17 @@ namespace Project_web_ban_hoa
 {
     public partial class Product1 : System.Web.UI.Page
     {
+        protected DataTable GetProductID(int id)
+        {
+            return DAO.Product.GetProductWithCategoryId(id);
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
             {
-                rptRenderCard.DataSource = DAO.Product.GetProductWithCategoryId(16);
-                rptRenderCard.DataBind();
+                rptCategories.DataSource = DAO.Category.GetCategoryByParentIdAndLevel(9);
+                rptCategories.DataBind();
             }
         }
-
-
     }
 }
