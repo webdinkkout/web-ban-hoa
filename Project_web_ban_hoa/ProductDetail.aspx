@@ -34,8 +34,8 @@
                     </div>
                     <div class="product-detail-control">
                         <div>
-                            <a class="btn-control btn-control--solid btn-control--orange" href="#">Thêm vào giỏ</a>
-                            <a class="btn-control btn-control--fill btn-control--text-white btn-control--fill-red " href="#">Mua ngay</a>
+                            <asp:Button ID="btnAddCart" Text="Thêm vào giỏ" CssClass="btn-control btn-control--solid btn-control--orange" runat="server" />
+                            <asp:Button ID="btnBuy" OnClick="btnBuy_Click" Text="Mua ngay" CssClass="btn-control btn-control--fill btn-control--text-white btn-control--fill-red " runat="server" />
                         </div>
                         <a class="btn-control btn-control--solid btn-control--green btn-control--w415 " href="#">Gọi ngay:0399999999</a>
                     </div>

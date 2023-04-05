@@ -72,5 +72,10 @@ namespace Project_web_ban_hoa
             mProduct.ViewCount = dProducts.Rows[0]["View_Count"] as int?;
             mProduct.Desc = dProducts.Rows[0]["Description"].ToString();
         }
+
+        protected void btnBuy_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
