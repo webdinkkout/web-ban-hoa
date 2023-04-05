@@ -158,12 +158,12 @@
                             <asp:Repeater runat="server" ID="rptCategoriesNav">
                                 <ItemTemplate>
                                     <li class="header-menu-ctls-ctl__item">
-                                        <a href='../product.aspx?ci=<%# Eval("Seo_Name") %>'><%# Eval("Name") %></a>
+                                        <a href='../product.aspx?pi=<%# Eval("id") %>'><%# Eval("Name") %></a>
                                         <%# LayConThuocCha(Convert.ToInt32(Eval("id"))).Rows.Count > 0 ? "<ul class='header-menu-ctls-ctl-sub-menu'>" : "" %>
                                         <asp:Repeater runat="server" DataSource='<%# LayConThuocCha(Convert.ToInt32(Eval("ID"))) %>' ID="rptCategoriesNavChild">
                                             <ItemTemplate>
                                                 <li class="header-menu-ctls-ctl-sub-menu__item">
-                                                    <a href='<%# Eval("Seo_Name","CategoriesDetail.aspx?sn={0}") %>'><%# Eval("Name") %></a>
+                                                    <a href='<%# Eval("id","CategoriesDetail.aspx?ci={0}") %>'><%# Eval("Name") %></a>
                                                 </li>
                                             </ItemTemplate>
                                         </asp:Repeater>
