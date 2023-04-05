@@ -18,7 +18,6 @@
     <% }
         else
         { %>
-
     <div class="container">
         <div class="row">
             <div class="col-lg-3">
@@ -69,13 +68,9 @@
                             </div>
                         </ItemTemplate>
                     </asp:Repeater>
-
-
                 </div>
             </div>
         </div>
-
     </div>
-
     <% } %>
 </asp:Content>
