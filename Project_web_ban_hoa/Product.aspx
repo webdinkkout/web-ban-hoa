@@ -4,6 +4,21 @@
     <link href="Publics/Css/Topic.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <% if (IsEmpTy())
+        { %>
+    <div class="container">
+        <div class="empty">
+            <h4>
+                <i class="fa-regular fa-file"></i>
+            </h4>
+            <h4>Trang hiện tại đang chưa có sản phẩm
+            </h4>
+        </div>
+    </div>
+    <% }
+        else
+        { %>
+
     <div class="container">
         <div class="row">
             <div class="col-lg-3">
@@ -23,7 +38,7 @@
                     <asp:Repeater runat="server" ID="rptCategories">
                         <ItemTemplate>
                             <h2>
-                                <%# GetProductID(Convert.ToInt32(Eval("id"))).Rows.Count > 0 ? $"<a href='#news'>{Eval("Name")}</a>" : "" %>
+                                <%# GetProductID(Convert.ToInt32(Eval("id"))).Rows.Count > 0 ? $"<a href='#news'>{Eval("Name")}</a>" : ""%>
                             </h2>
 
                             <div class="row">
@@ -61,4 +76,6 @@
         </div>
 
     </div>
+
+    <% } %>
 </asp:Content>

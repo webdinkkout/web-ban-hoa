@@ -54,6 +54,13 @@ BEGIN
 END
 GO
 
+create proc proc_count_product_by_category_parent_id
+@parent_id int
+as
+begin
+	select count(products.id) as 'Product_count' from Products inner join Categories on Products.Category_Id = Categories.Id where Categories.Parent_Id = @parent_id
+end
+go
 
 Create PROC proc_insert_category_level_1 -- Thêm danh mục
 	@name nvarchar(50),

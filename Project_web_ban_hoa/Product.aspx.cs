@@ -13,6 +13,7 @@ namespace Project_web_ban_hoa
     {
         int parentId;
         CategoryModel category = new CategoryModel();
+        DataTable categories;
 
         protected DataTable GetProductID(int id)
         {
@@ -32,7 +33,7 @@ namespace Project_web_ban_hoa
                 rptMenuSubCategories.DataSource = DAO.Category.GetCategoryByParentIdAndLevel(parentId);
                 rptMenuSubCategories.DataBind();
 
-                DataTable categories = DAO.Category.GetOneCategory(parentId);
+                categories = DAO.Category.GetOneCategory(parentId);
                 if (categories != null)
                 {
                     DataRow rCategry = categories.Rows[0];
@@ -50,6 +51,18 @@ namespace Project_web_ban_hoa
         protected string GetNameCategory()
         {
             return category.Name;
+        }
+
+        protected bool IsEmpTy()
+        {
+            bool isEmty = false;
+
+            if (DAO.Category.GetCountProductByParentIdCategory(parentId) <= 0)
+            {
+                isEmty = true;
+            }
+
+            return isEmty;
         }
     }
 }
