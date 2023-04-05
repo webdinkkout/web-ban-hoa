@@ -47,12 +47,12 @@
                                         <div class="col-lg-3">
                                             <div class="content-wrapper-card-product">
                                                 <div class="content-wrapper-card-product-card-product-top">
-                                                    <a href='ProductDetail.aspx'>
+                                                    <a href='ProductDetail.aspx?product-id=<%# Eval("id") %>'>
                                                         <img src='<%# Eval("Thumbnail") %>' />
                                                     </a>
                                                 </div>
                                                 <div class="content-wrapper-card-product-card-product-bottom">
-                                                    <a class="content-wrapper-card-product-card-product-bottom__link"><%# Eval("Name") %></a>
+                                                    <a href='ProductDetail.aspx?product-id=<%# Eval("id") %>' class="content-wrapper-card-product-card-product-bottom__link"><%# Eval("Name") %></a>
                                                     <div class="content-wrapper-card-product-card-product-price">
                                                         <p class="content-wrapper-card-product-card-product-price__price-product wrapper-card-product-card-product-price__price-product--old">
                                                             <%# string.Format("{0:##,#đ}", Eval("Old_Price")) %>
