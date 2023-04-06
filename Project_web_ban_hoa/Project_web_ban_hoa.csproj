@@ -70,6 +70,7 @@
   <ItemGroup>
     <Content Include="Cart.aspx" />
     <Content Include="CategoriesDetail.aspx" />
+    <Content Include="GetProductsByCategory.aspx" />
     <Content Include="Private\Admin\User\UserInfo\UserInfo.ascx" />
     <Content Include="Product.aspx" />
     <Content Include="Publics\Css\Cart.css" />
@@ -192,6 +193,13 @@
     </Compile>
     <Compile Include="CategoriesDetail.aspx.designer.cs">
       <DependentUpon>CategoriesDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GetProductsByCategory.aspx.cs">
+      <DependentUpon>GetProductsByCategory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GetProductsByCategory.aspx.designer.cs">
+      <DependentUpon>GetProductsByCategory.aspx</DependentUpon>
     </Compile>
     <Compile Include="NotFound.aspx.cs">
       <DependentUpon>NotFound.aspx</DependentUpon>

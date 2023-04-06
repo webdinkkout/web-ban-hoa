@@ -150,6 +150,27 @@ BEGIN
 END
 GO
 
+Create PROCEDURE proc_get_products_by_array_category_id
+    @category_ids nvarchar(max) = NULL
+AS
+BEGIN
+    DECLARE @Sql nvarchar(max);
+
+    IF @category_ids = ''
+    BEGIN
+        SET @Sql = 'SELECT * FROM Products';
+    END
+    ELSE
+    BEGIN
+        SET @Sql = 'SELECT * FROM Products WHERE Category_Id IN (' + @category_ids + ')';
+    END
+
+    EXECUTE sp_executesql @Sql;
+END
+go
+
+
+
 CREATE PROC proc_get_one_product_by_id
 	@id int
 as

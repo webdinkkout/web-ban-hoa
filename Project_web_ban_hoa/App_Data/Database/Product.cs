@@ -170,5 +170,18 @@ namespace DAO
             return SqlDatabase.GetData(cmd);
         }
 
+
+        /// <summary>
+        /// Lấy tất cả sản phẩm theo 1 mãng mã danh mục được truyền vào
+        /// </summary>
+        /// <param name="categoryIds">chuổi mãng mã</param>
+        /// <returns>Danh sách sản phẩm tương ứng</returns>
+        public static DataTable GetAllProductByCategoryIds(string categoryIds)
+        {
+            SqlCommand cmd = CreateCMD("proc_get_products_by_array_category_id");
+            cmd.Parameters.AddWithValue("@category_ids", categoryIds);
+            return SqlDatabase.GetData(cmd);
+        }
+
     }
 }

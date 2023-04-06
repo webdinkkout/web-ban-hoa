@@ -25,7 +25,7 @@
                     <a class="active" href="#home"><%= GetNameCategory() %></a>
                     <asp:Repeater ID="rptMenuSubCategories" runat="server">
                         <ItemTemplate>
-                            <%# GetProductID(Convert.ToInt32(Eval("id"))).Rows.Count > 0 ? $"<a href='#news'>{Eval("Name")}</a>" : "" %>
+                            <%# GetProductID(Convert.ToInt32(Eval("id"))).Rows.Count > 0 ? $"<a href='{string.Format("CategoriesDetail.aspx?ci={0}&pi={1}",Eval("id").ToString(),Eval("Parent_id").ToString())}'>{Eval("Name")}</a>" : "" %>
                         </ItemTemplate>
                     </asp:Repeater>
                 </div>

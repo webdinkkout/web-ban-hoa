@@ -28,6 +28,7 @@
     <link href="../Publics/Css/Reset.css" rel="stylesheet" />
     <link href="../Publics/Css/Home.css" rel="stylesheet" />
 
+    <script src="../Publics/Js/Library/Jquery/jquery-3.6.4.min.js"></script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -163,7 +164,7 @@
                                             <asp:Repeater runat="server" DataSource='<%# LayConThuocCha(Convert.ToInt32(Eval("ID"))) %>' ID="rptCategoriesNavChild">
                                                 <ItemTemplate>
                                                     <li class='header-menu-ctls-ctl-sub-menu__item <%# GetCountChildProduct(Convert.ToInt32(Eval("id"))).Rows.Count > 0 ? "" : "hidden-e" %>'>
-                                                        <a href='<%# Eval("id","CategoriesDetail.aspx?ci={0}") %>'><%# Eval("Name") %></a>
+                                                        <a href='<%# string.Format("CategoriesDetail.aspx?ci={0}&pi={1}",Eval("id").ToString(),Eval("Parent_id").ToString()) %>'><%# Eval("Name") %></a>
                                                     </li>
                                                 </ItemTemplate>
                                             </asp:Repeater>
