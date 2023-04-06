@@ -9,12 +9,12 @@
             <div class="container">
                 <div class="row">
                     <div class="home-logo-flower">
-                        <h2 class="home-logo-flower__title">MẪU HOA MỚI NĂM 2023</h2>
+                        <h2 class="home-logo-flower__title">MẪU HOA Nổi bật NĂM 2023</h2>
                         <div class="row">
                             <asp:Repeater runat="server" ID="rptCaterogies">
                                 <ItemTemplate>
-                                    <div class="col-lg-2 home-logo-flower-item">
-                                        <a href="#">
+                                    <div class='col-lg-2 home-logo-flower-item  <%# GetAllProdutsbyCategoryId(Convert.ToInt32(Eval("id"))).Rows.Count > 0 ? "" : "hidden-e" %>'>
+                                        <a href='<%# string.Format("CategoriesDetail.aspx?ci={0}&pi={1}",Eval("id").ToString(),Eval("Parent_id").ToString()) %>'>
                                             <img src="<%# Eval("Thumbnail") %>" alt="Alternate Text" />
                                             <span class="">
                                                 <%# Eval("Name") %>
@@ -32,9 +32,8 @@
         <div class="container">
             <asp:Repeater runat="server" ID="rptTitles">
                 <ItemTemplate>
-                    <div class="home-product-flower">
+                    <div class='home-product-flower <%# GetAllProdutsbyCategoryId(Convert.ToInt32(Eval("id"))).Rows.Count > 0 ? "" : "hidden-e" %>'>
                         <h2 class="home-product-flower__title"><%# Eval("Name") %></h2>
-
                         <div class="row">
                             <asp:Repeater runat="server" ID="rptProducts" DataSource='<%# GetAllProdutsbyCategoryId(Convert.ToInt32(Eval("id"))) %>'>
                                 <ItemTemplate>
