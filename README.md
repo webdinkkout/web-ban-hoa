@@ -60,9 +60,9 @@ Website về chủ đề mua bán hàn online(Bán hoa), với các chức năng
 ## Hướng dẫn cho người clone Repositories
 
 
-**_Bước 1_**: `Clone Repositories`
-**_Bước 2_**: `Chạy các script SQL `
-**_Bước 3_**: `Chạy Project`
++ **_Bước 1_**: `Clone Repositories`
++ **_Bước 2_**: `Chạy các script SQL `
++ **_Bước 3_**: `Chạy Project`
 
 ***
 
