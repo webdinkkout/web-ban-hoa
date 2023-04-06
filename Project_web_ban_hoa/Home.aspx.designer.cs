@@ -15,12 +15,21 @@ namespace Project_web_ban_hoa
     {
 
         /// <summary>
-        /// rptProducts control.
+        /// rptCaterogies control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptProducts;
+        protected global::System.Web.UI.WebControls.Repeater rptCaterogies;
+
+        /// <summary>
+        /// rptTitles control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptTitles;
     }
 }

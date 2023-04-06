@@ -198,33 +198,38 @@
 .home-logo-flower__title {
     color: #bd2026;
     font-size: 18px;
+    margin-bottom: 20px;
 }
 
-.home-logo-flower-items {
-    display: flex;
+.home-logo-flower-item {
     text-align: center;
-    justify-content: space-between;
 }
 
-    .home-logo-flower-items > li > a {
-        display: block;
+
+    .home-logo-flower-item > a:hover > img {
+        transform: scale(1.1);
     }
 
-        .home-logo-flower-items > li > a:hover {
-            color: red;
-        }
+    .home-logo-flower-item > a:hover > span {
+        color: #bd2026;
+    }
 
-.home-logo-flower-items-item > a > img {
-    width: 183px;
-}
+    .home-logo-flower-item > a > span {
+        display: block;
+        text-transform: capitalize;
+        margin-top: 8px;
+        font-weight: 600;
+    }
+
+    .home-logo-flower-item > a > img {
+        width: 175px;
+        height: 175px;
+        object-fit: cover;
+        border-radius: 50%;
+        transition: all 0.3s linear;
+    }
 
 
-.home-logo-flower-items-item > a > div {
-    font-weight: 600;
-    margin: 10px;
-    font-size: 15px;
-    color: #636363;
-}
 
 .home-product-flower {
     position: relative;
