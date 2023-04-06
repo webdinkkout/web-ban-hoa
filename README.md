@@ -10,6 +10,8 @@
     + **Vai trò:**
         + Thiết kế cơ sở dữ liệu
         + Thiết kế các phương thức lấy dữ liệu
+        + Thiết kế giao diện(UI) web
+        + Xử lý và render dữ liệu lên UI
     + **Các trang đã làm:**
         + Admin.aspx
         + CategoriesDetail.aspx
