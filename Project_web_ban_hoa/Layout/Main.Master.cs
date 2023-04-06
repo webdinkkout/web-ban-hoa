@@ -34,9 +34,14 @@ namespace Project_web_ban_hoa.Layout
             }
         }
 
-        protected DataTable LayConThuocCha(int parentId)
+        protected DataTable LayConThuocCha(int? parentId)
         {
-            return DAO.Category.GetCategoryByParentIdAndLevel(parentId);
+            return DAO.Category.GetCategoryByParentIdAndLevel(parentId.Value);
+        }
+
+        protected DataTable GetCountChildProduct(int categoryId)
+        {
+            return DAO.Product.GetProductWithCategoryId(categoryId);
         }
 
         protected string GetFullName()
