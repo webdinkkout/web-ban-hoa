@@ -35,11 +35,11 @@
     <form id="form1" runat="server">
 
         <header class="header">
-            <div class="header__mh30">
+            <%--     <div class="header__mh30">
                 <div class="container">
                     <p>Nơi sinh sống:</p>
                 </div>
-            </div>
+            </div>--%>
 
             <div class="container">
                 <div class="header-wrapper-menu-address">
