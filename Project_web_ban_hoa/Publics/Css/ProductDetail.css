@@ -132,3 +132,11 @@
     .btn-control.btn-control--w415 {
         width: 415px;
     }
+
+.product-list h2 {
+    font-weight: 600;
+    font-size: 16px;
+    text-transform: uppercase;
+    clear: both;
+    color: #bd2026;
+}

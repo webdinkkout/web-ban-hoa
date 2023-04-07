@@ -22,7 +22,25 @@ namespace Project_web_ban_hoa
             }
 
         }
-
+        protected string GetColor(int seed)
+        {
+            Random random = new Random(seed);
+            int randomNumber = random.Next(1, 4);
+            string colorClass = "";
+            switch (randomNumber)
+            {
+                case 1:
+                    colorClass = "green";
+                    break;
+                case 2:
+                    colorClass = "pink";
+                    break;
+                case 3:
+                    colorClass = "orage";
+                    break;
+            }
+            return colorClass;
+        }
         protected DataTable GetAllProdutsbyCategoryId(int categoryId)
         {
             return DAO.Product.GetProductWithCategoryId(categoryId);

@@ -239,11 +239,22 @@
     margin-bottom: 50px;
 }
 
+    .home-product-flower.green.home-product-flower::after {
+        background-color: #28a745ad;
+    }
+
+    .home-product-flower.pink.home-product-flower::after {
+        background-color: #ffe6dd;
+    }
+
+    .home-product-flower.orage.home-product-flower::after {
+        background-color: #e16900a8;
+    }
+
     .home-product-flower::after {
         position: absolute;
         content: '';
         inset: -10px;
-        background-color: #ffe6dd;
         z-index: -1;
     }
 
@@ -262,6 +273,7 @@
     border: 1px solid #cdcdcd;
     width: 100%;
     overflow: hidden;
+    display: block;
     height: 303px;
 }
 

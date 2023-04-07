@@ -199,5 +199,13 @@ namespace DAO
             return SqlDatabase.GetData(cmd);
         }
 
+
+        public static DataTable GetProductReletionShips(int categoryId, int id)
+        {
+            SqlCommand cmd = CreateCMD("proc_get_reletionship_pruduct");
+            cmd.Parameters.AddWithValue("@category_id", categoryId);
+            cmd.Parameters.AddWithValue("@id", id);
+            return SqlDatabase.GetData(cmd);
+        }
     }
 }

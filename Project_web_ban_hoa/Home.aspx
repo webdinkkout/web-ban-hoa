@@ -32,18 +32,18 @@
         <div class="container">
             <asp:Repeater runat="server" ID="rptTitles">
                 <ItemTemplate>
-                    <div class='home-product-flower <%# GetAllProdutsbyCategoryId(Convert.ToInt32(Eval("id"))).Rows.Count > 0 ? "" : "hidden-e" %>'>
+                    <div class='home-product-flower <%# GetColor(Convert.ToInt32(Eval("id"))) %> <%# GetAllProdutsbyCategoryId(Convert.ToInt32(Eval("id"))).Rows.Count > 0 ? "" : "hidden-e" %>'>
                         <h2 class="home-product-flower__title"><%# Eval("Name") %></h2>
                         <div class="row">
                             <asp:Repeater runat="server" ID="rptProducts" DataSource='<%# GetAllProdutsbyCategoryId(Convert.ToInt32(Eval("id"))) %>'>
                                 <ItemTemplate>
                                     <div class="col-2-5">
                                         <div class="home-product-flower-card">
-                                            <div class="home-product-flower-card-top">
-                                                <img src='<%# Eval("Thumbnail") %>' alt="Alternate Text" />
-                                            </div>
+                                            <a href='ProductDetail.aspx?product-id=<%# Eval("id") %>&ci=<%# Eval("category_id") %>' class="home-product-flower-card-top">
+                                                <img src='<%# Eval("Thumbnail") %>' alt='<%# Eval("Name") %>' />
+                                            </a>
                                             <div class="home-product-flower-card-bottom">
-                                                <a href="#" title='<%# Eval("Name") %>'><%# Eval("Name") %></a>
+                                                <a href='ProductDetail.aspx?product-id=<%# Eval("id") %>&ci=<%# Eval("category_id") %>' title='<%# Eval("Name") %>'><%# Eval("Name") %></a>
                                                 <div class="home-product-flower-card-bottom-items">
                                                     <p class="home-product-flower-card-bottom-items__price home-product-flower-card-bottom-items__price--old">
                                                         <%# string.Format("{0:##,# đ}", Eval("old_price")) %>

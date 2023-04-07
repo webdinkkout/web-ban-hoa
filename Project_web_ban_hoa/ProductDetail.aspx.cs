@@ -20,12 +20,16 @@ namespace Project_web_ban_hoa
             if (Request.QueryString["product-id"] != null)
             {
                 productId = Convert.ToInt32(Request.QueryString["product-id"]);
+                int categoryId = 0;
+                if (Request.QueryString["ci"] != null)
+                    categoryId = Convert.ToInt32(Request.QueryString["ci"]);
                 InsertValueToModel(productId);
-                string a = GetCurrentPrice().ToString();
+
+                rptReletionShips.DataSource = DAO.Product.GetProductReletionShips(categoryId, productId);
+                rptReletionShips.DataBind();
             }
-
-
         }
+
 
 
         protected string GetNameProduct()

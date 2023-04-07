@@ -211,7 +211,14 @@ BEGIN
 END
 go
 
-
+create PROC proc_get_reletionship_pruduct
+@category_id int,
+@id int
+AS
+BEGIN
+	select * from Products where Category_Id = @category_id and Id != @id order by Updated_at desc
+END
+GO
 
 CREATE PROC proc_get_one_product_by_id
 	@id int

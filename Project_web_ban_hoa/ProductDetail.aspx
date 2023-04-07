@@ -57,86 +57,30 @@
         <div class="container">
             <h2>Sản phẩm liên quan</h2>
             <div class="row">
-                <div class="col-lg-2-5">
-                    <div class="content-wrapper-card-product">
-                        <div class="content-wrapper-card-product-card-product-top">
-                            <a href='#'>
-                                <img src="Publics/Images/DefaultImg/no-image.jpg" />
-                            </a>
-                        </div>
-                        <div class="content-wrapper-card-product-card-product-bottom">
-                            <a class="content-wrapper-card-product-card-product-bottom__link" href="#">Product 1</a>
-                            <div class="content-wrapper-card-product-card-product-price">
-                                <p class="content-wrapper-card-product-card-product-price__price-product wrapper-card-product-card-product-price__price-product--old">200.000 đ</p>
-                                <p class="content-wrapper-card-product-card-product-price__price-product wrapper-card-product-card-product-price__price-product--current">200.000 đ</p>
+                <asp:Repeater ID="rptReletionShips" runat="server">
+                    <ItemTemplate>
+                        <div class="col-lg-2-5">
+                            <div class="content-wrapper-card-product">
+                                <div class="content-wrapper-card-product-card-product-top">
+                                    <a href='ProductDetail.aspx?product-id=<%# Eval("id") %>&ci=<%# Eval("category_id") %>'>
+                                        <img src='<%# Eval("Thumbnail") %>' />
+                                    </a>
+                                </div>
+                                <div class="content-wrapper-card-product-card-product-bottom">
+                                    <a href='ProductDetail.aspx?product-id=<%# Eval("id") %>&ci=<%# Eval("category_id") %>' class="content-wrapper-card-product-card-product-bottom__link"><%# Eval("Name") %></a>
+                                    <div class="content-wrapper-card-product-card-product-price">
+                                        <p class="content-wrapper-card-product-card-product-price__price-product wrapper-card-product-card-product-price__price-product--old">
+                                            <%# Eval("Old_Price","{0:#,##0} đ") %>
+                                        </p>
+                                        <p class="content-wrapper-card-product-card-product-price__price-product wrapper-card-product-card-product-price__price-product--current">
+                                            <%# Eval("Current_Price","{0:#,##0} đ") %>
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-lg-2-5">
-                    <div class="content-wrapper-card-product">
-                        <div class="content-wrapper-card-product-card-product-top">
-                            <a href='#'>
-                                <img src="Publics/Images/DefaultImg/no-image.jpg" />
-                            </a>
-                        </div>
-                        <div class="content-wrapper-card-product-card-product-bottom">
-                            <a class="content-wrapper-card-product-card-product-bottom__link" href="#">Product 1</a>
-                            <div class="content-wrapper-card-product-card-product-price">
-                                <p class="content-wrapper-card-product-card-product-price__price-product wrapper-card-product-card-product-price__price-product--old">200.000 đ</p>
-                                <p class="content-wrapper-card-product-card-product-price__price-product wrapper-card-product-card-product-price__price-product--current">200.000 đ</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-2-5">
-                    <div class="content-wrapper-card-product">
-                        <div class="content-wrapper-card-product-card-product-top">
-                            <a href='#'>
-                                <img src="Publics/Images/DefaultImg/no-image.jpg" />
-                            </a>
-                        </div>
-                        <div class="content-wrapper-card-product-card-product-bottom">
-                            <a class="content-wrapper-card-product-card-product-bottom__link" href="#">Product 1</a>
-                            <div class="content-wrapper-card-product-card-product-price">
-                                <p class="content-wrapper-card-product-card-product-price__price-product wrapper-card-product-card-product-price__price-product--old">200.000 đ</p>
-                                <p class="content-wrapper-card-product-card-product-price__price-product wrapper-card-product-card-product-price__price-product--current">200.000 đ</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-2-5">
-                    <div class="content-wrapper-card-product">
-                        <div class="content-wrapper-card-product-card-product-top">
-                            <a href='#'>
-                                <img src="Publics/Images/DefaultImg/no-image.jpg" />
-                            </a>
-                        </div>
-                        <div class="content-wrapper-card-product-card-product-bottom">
-                            <a class="content-wrapper-card-product-card-product-bottom__link" href="#">Product 1</a>
-                            <div class="content-wrapper-card-product-card-product-price">
-                                <p class="content-wrapper-card-product-card-product-price__price-product wrapper-card-product-card-product-price__price-product--old">200.000 đ</p>
-                                <p class="content-wrapper-card-product-card-product-price__price-product wrapper-card-product-card-product-price__price-product--current">200.000 đ</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-2-5">
-                    <div class="content-wrapper-card-product">
-                        <div class="content-wrapper-card-product-card-product-top">
-                            <a href='#'>
-                                <img src="Publics/Images/DefaultImg/no-image.jpg" />
-                            </a>
-                        </div>
-                        <div class="content-wrapper-card-product-card-product-bottom">
-                            <a class="content-wrapper-card-product-card-product-bottom__link" href="#">Product 1</a>
-                            <div class="content-wrapper-card-product-card-product-price">
-                                <p class="content-wrapper-card-product-card-product-price__price-product wrapper-card-product-card-product-price__price-product--old">200.000 đ</p>
-                                <p class="content-wrapper-card-product-card-product-price__price-product wrapper-card-product-card-product-price__price-product--current">200.000 đ</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                    </ItemTemplate>
+                </asp:Repeater>
             </div>
         </div>
     </section>
