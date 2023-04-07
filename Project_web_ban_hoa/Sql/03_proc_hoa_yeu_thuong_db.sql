@@ -36,6 +36,48 @@ BEGIN
 END
 GO	
 
+alter PROC proc_sort_by_category_id
+@table_name VARCHAR(50),
+@category_ids varchar(max),
+@num_sort Int = 999
+AS
+BEGIN
+	declare @sort varchar(50)
+	If (@num_sort = 0)
+	begin
+		SET @sort = 'ORDER BY current_price DESC' --giá từ cao tới thấp
+	end
+	else if(@num_sort = 1)
+	begin
+		SET @sort = 'ORDER BY current_price'
+	end	
+	else if(@num_sort = 2)
+	begin
+		SET @sort = 'ORDER BY Name DESC'
+	end	
+	else if(@num_sort = 3)
+	begin
+		SET @sort = 'ORDER BY Name'
+	end	
+	else 
+	begin
+		set	 @sort = ''
+	end
+
+	DECLARE @sql NVARCHAR(MAX)
+		IF @category_ids = ''
+		BEGIN
+			SET @Sql = 'SELECT * FROM Products';
+		END
+		ELSE
+		BEGIN
+			SET @Sql = 'SELECT * FROM Products WHERE Category_Id IN (' + @category_ids + ')' + @sort;
+		END
+
+		EXECUTE sp_executesql @Sql;
+END
+GO	
+
 
 --PROC CATEGORIES
 CREATE PROCEDURE proc_pagination_category

@@ -16,9 +16,14 @@ namespace Project_web_ban_hoa
             if (Request.QueryString["categoryIds"] != null)
             {
                 string categoryIds = Request.QueryString["categoryIds"];
+                int numSort = 999;
+                if (Request.QueryString["ns"] != null)
+                {
+                    numSort = Convert.ToInt32(Request.QueryString["ns"]);
+                }
 
                 // Lấy danh sách sản phẩm mới dựa trên các checkbox đã chọn
-                DataTable products = DAO.Product.GetAllProductByCategoryIds(categoryIds);
+                DataTable products = DAO.Product.SortProductsByCategoryId(categoryIds, numSort);
 
                 // Thiết lập dữ liệu sản phẩm mới vào Repeater
                 rptProducts.DataSource = products;

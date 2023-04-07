@@ -118,6 +118,7 @@
     <Content Include="Publics\Images\Home\img-home\logo-4.png" />
     <Content Include="Publics\Images\Home\img-home\logo-5.png" />
     <Content Include="Publics\Images\Home\img-home\logo-6.png" />
+    <Content Include="Publics\Js\CategoryDetail.js" />
     <Content Include="Publics\Js\Library\Chart\chart.js" />
     <Content Include="Publics\Js\Library\Jquery\jquery-3.6.4.min.js" />
     <Content Include="Publics\Js\Library\OwlCarousel2\owl.carousel.min.js" />
@@ -385,6 +386,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include=".githooks\" />
+    <Folder Include="Ajax\" />
     <Folder Include="Ultils\" />
   </ItemGroup>
   <PropertyGroup>

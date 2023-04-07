@@ -18,7 +18,7 @@
                                 </a>
                             </div>
                             <div class="content-wrapper-card-product-card-product-bottom">
-                                <a href='ProductDetail.aspx?product-id=<%# Eval("id") %>' class="content-wrapper-card-product-card-product-bottom__link">ProductName</a>
+                                <a href='ProductDetail.aspx?product-id=<%# Eval("id") %>' class="content-wrapper-card-product-card-product-bottom__link"><%# Eval("Name") %></a>
                                 <div class="content-wrapper-card-product-card-product-price">
                                     <p class="content-wrapper-card-product-card-product-price__price-product wrapper-card-product-card-product-price__price-product--old">
                                         <%# Eval("Old_Price","{0:#,##0} đ") %>

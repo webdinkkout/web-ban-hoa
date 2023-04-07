@@ -183,5 +183,21 @@ namespace DAO
             return SqlDatabase.GetData(cmd);
         }
 
+
+        /// <summary>
+        /// Lấy tất cả sản phẩm thuộc danh mục có sắp xếp
+        /// </summary>
+        /// <param name="categoryIds">Danh sách mã sản phẩm</param>
+        /// <param name="numSort">Sử dụng số để dịnh dạng kiểu sắp xếp: 0 : "Sắp xếp theo giá tiềm giảm dần", 1: "Sắp xếp theo giá tiền tăng dần", 2:"Sắp xếp theo tên giảm dần", 3:"Sắp xếp theo tên tăng dần"</param>
+        /// <returns>Danh sách đã được sắp xếp</returns>
+        public static DataTable SortProductsByCategoryId(string categoryIds, int numSort)
+        {
+            SqlCommand cmd = CreateCMD("proc_sort_by_category_id");
+            cmd.Parameters.AddWithValue("@table_name", "products");
+            cmd.Parameters.AddWithValue("@category_ids", categoryIds);
+            cmd.Parameters.AddWithValue("@num_sort", numSort);
+            return SqlDatabase.GetData(cmd);
+        }
+
     }
 }
