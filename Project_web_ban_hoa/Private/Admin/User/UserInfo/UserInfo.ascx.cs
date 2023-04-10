@@ -41,25 +41,6 @@ namespace Project_web_ban_hoa.Private.Admin.User.UserInfo
         }
 
 
-        private UserModel ConvertSessionToUser(string sessionStr)
-        {
-            UserModel user = ((DataTable)Session[sessionStr]).AsEnumerable().Select(row => new UserModel
-            {
-                Id = Convert.ToInt32(row["Id"].ToString()),
-                FirstName = row["First_Name"].ToString(),
-                LastName = row["Last_Name"].ToString(),
-                Email = row["Email"].ToString(),
-                Password = row["Password"].ToString(),
-                RoleId = Convert.ToInt32(row["Role_Id"].ToString()),
-                Avatar = row["Avatar"].ToString(),
-                Address = row["Address"].ToString(),
-                CreatedAt = Convert.ToDateTime(row["Created_At"].ToString()),
-                UpdatedAt = Convert.ToDateTime(row["Updated_At"].ToString())
-            }).FirstOrDefault();
-
-            return user;
-        }
-
         protected void btnUpdate_Click(object sender, EventArgs e)
         {
             user = (UserModel)Session["CURRENT_USER"];

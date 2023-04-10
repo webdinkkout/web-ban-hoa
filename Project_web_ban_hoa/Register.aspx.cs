@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using BCrypt.Net;
+using Project_web_ban_hoa.Models;
+using Project_web_ban_hoa.Models.Component;
 
 namespace Project_web_ban_hoa
 {
@@ -31,6 +34,9 @@ namespace Project_web_ban_hoa
             int n = DAO.Auth.Register(firstName, lastName, address, email, hashedPasswrod);
             if (n > 0)
             {
+                DataTable user = DAO.Auth.GetUserbyEmail(email);
+                Session["ISLOGIN"] = "isLoagined";
+                Session["CURRENT_USER"] = Components.ConvertDataTableToUser(user);
                 Response.Redirect("~/Home.aspx");
             }
         }

@@ -70,7 +70,7 @@
                             danh mục</a></li>
                         <li class="admin-nav-list__item"><a href="/Admin.aspx?modul=product">Trang quản lý san
                             phẩm</a></li>
-                        <li class="admin-nav-list__item"><a href="/Admin.aspx?modul=user">Trang quản lý người
+                        <li class="admin-nav-list__item"><a href="/Admin.aspx?modul=user&t=view">Trang quản lý người
                             dùng</a></li>
                     </ul>
                 </div>

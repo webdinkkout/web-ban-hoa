@@ -20,6 +20,10 @@ namespace DAO
             return cmd;
         }
 
+        /// <summary>
+        /// Lấy tất cả chức vụ
+        /// </summary>
+        /// <returns></returns>
         public static DataTable GetAllRoles()
         {
             SqlCommand cmd = CreateCMD("proc_get_all_roles");

@@ -43,10 +43,38 @@ namespace DAO
             return SqlDatabase.ExecuteNoneQuery(cmd);
         }
 
+
+        /// <summary>
+        /// Tìm người dùng theo mã người dùng
+        /// </summary>
+        /// <param name="id">Mã người dùng</param>
+        /// <returns>Trả về người dùng tương ứng</returns>
         public static DataTable FindById(int id)
         {
             SqlCommand cmd = CreateCMD("proc_get_one_user_by_id");
             cmd.Parameters.AddWithValue("@id", id);
+            return SqlDatabase.GetData(cmd);
+        }
+
+        /// <summary>
+        ///Lấy tất cả người dùng
+        /// </summary>
+        /// <returns>Trả về danh sách người dùng</returns>
+        public static DataTable GetAllUsers()
+        {
+            SqlCommand cmd = CreateCMD("proc_get_all_users");
+            return SqlDatabase.GetData(cmd);
+        }
+
+        /// <summary>
+        /// Lấy các người dùng thuộc chức vụ
+        /// </summary>
+        /// <param name="roleId">Mã chức vụ</param>
+        /// <returns>Trả về danh sách người dùng tương ứng</returns>
+        public static DataTable GetUsersByRoleId(int roleId)
+        {
+            SqlCommand cmd = CreateCMD("proc_get_users_by_role_id");
+            cmd.Parameters.AddWithValue("@role_id", roleId);
             return SqlDatabase.GetData(cmd);
         }
     }

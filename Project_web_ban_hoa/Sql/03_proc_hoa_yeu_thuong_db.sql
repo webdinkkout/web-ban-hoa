@@ -232,6 +232,18 @@ begin
 end
 go
 
+CREATE PROC proc_get_one_product_by_id
+@id int
+as
+begin
+select *
+	from dbo.Products
+	where Id= @id
+    UPDATE dbo.Products SET View_Count = View_Count + 1 WHERE id= @id
+end
+go
+
+
 CREATE proc proc_delete_product
 	@id int
 as
@@ -340,7 +352,6 @@ begin
 end
 go
 
-
 CREATE PROC proc_register
 @first_name NVARCHAR(50),
 @last_name NVARCHAR(50),
@@ -401,7 +412,20 @@ BEGIN
 END
 GO
 
+CREATE PROC proc_get_all_users
+as
+begin
+	select * from Users
+end
+go
 
+CREATE PROC proc_get_users_by_role_id
+@role_id int
+as
+begin
+	select * from Users where Role_Id = @role_id
+end
+go
 
 -- CHỨC NĂNG ADMIN
 CREATE PROC proc_delete_user_admin

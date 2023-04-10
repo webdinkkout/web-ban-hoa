@@ -27,6 +27,11 @@ namespace Project_web_ban_hoa.Private.Admin.User
                         plhUser.Controls.Add(LoadControl("UserInfo/UserInfo.ascx"));
                         break;
                     }
+                case "view":
+                    {
+                        plhUser.Controls.Add(LoadControl("View/ViewUser.ascx"));
+                        break;
+                    }
                 default:
                     break;
             }
