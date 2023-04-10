@@ -22,6 +22,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
 
+    <script src="Publics/Js/Library/Jquery/jquery-3.6.4.min.js"></script>
+
+
     <%-- Css Main --%>
     <link href="Publics/Css/Reset.css" rel="stylesheet" />
     <link href="Publics/Css/Admin.css" rel="stylesheet" />
@@ -51,7 +54,7 @@
                             <div class="wrapper-control-user__body-menu">
                                 <a href="/" class="wrapper-control-user__control"><i class="fa-solid fa-house"></i>Trở
                                     về trang Home</a>
-                                <a href="/Admin.aspx?modul=user&t=user-info&id=1" class="wrapper-control-user__control">
+                                <a href="/Admin.aspx?modul=user&t=user-info" class="wrapper-control-user__control">
                                     <i class="fa fa-info"></i>Thông tin cá nhân  </a>
                                 <asp:Button ID="hplLogOut" Text="Đăng Xuất" runat="server" CssClass="wrapper-control-user__control"
                                     OnClick="hplLogOut_Click" />
@@ -79,6 +82,5 @@
             </section>
         </div>
     </form>
-    <script src="Publics/Js/Library/Jquery/jquery-3.6.4.min.js"></script>
 </body>
 </html>

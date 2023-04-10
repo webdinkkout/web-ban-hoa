@@ -22,7 +22,7 @@ namespace Project_web_ban_hoa.Layout
 
                 if (Session["ISLOGIN"] != null && Session["CURRENT_USER"] != null)
                 {
-                    user = ConvertSessionToUser("CURRENT_USER");
+                    user = (UserModel)Session["CURRENT_USER"];
 
                     imbAvatar.ImageUrl = IsAvatar() ? GetAvatar() : "../Publics/Images/Home/img-header/icon-user.png";
                     imbAvatar.AlternateText = GetFullName();

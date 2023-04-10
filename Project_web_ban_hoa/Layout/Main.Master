@@ -81,7 +81,8 @@
 
                 <div class="header-search">
                     <div class="header-search-logo">
-                        <img src="../Publics/Images/Home/img-header/logohyt-hd.png" alt="Alternate Text" />
+                        <a href="/">
+                            <img src="../Publics/Images/Home/img-header/logohyt-hd.png" alt="Alternate Text" /></a>
                     </div>
 
                     <div class="header-search-contact">

@@ -36,7 +36,7 @@ BEGIN
 END
 GO	
 
-alter PROC proc_sort_by_category_id
+Create PROC proc_sort_by_category_id
 @table_name VARCHAR(50),
 @category_ids varchar(max),
 @num_sort Int = 999
@@ -220,17 +220,6 @@ BEGIN
 END
 GO
 
-CREATE PROC proc_get_one_product_by_id
-	@id int
-as
-begin
-	select *
-	from dbo.Products
-	where Id = @id
-    UPDATE dbo.Products SET View_Count = View_Count + 1 WHERE Id = @id
-end
-GO
-
 
 CREATE PROC proc_get_one_product_by_seo_name
 	@seo_name VARCHAR(50)
@@ -343,6 +332,15 @@ BEGIN
 END
 GO
 
+CREATE PROC proc_get_one_user_by_id
+@id int
+as
+begin
+	select * from Users where id = @id
+end
+go
+
+
 CREATE PROC proc_register
 @first_name NVARCHAR(50),
 @last_name NVARCHAR(50),
@@ -415,12 +413,13 @@ BEGIN
 END
 GO	
 
-CREATE PROC proc_update_user_admin
+create PROC proc_update_user_admin
 @id INT,
 @first_name NVARCHAR(50) = NULL,
 @last_name NVARCHAR(50) = NULL,
 @email VARCHAR(255) = NULL,
-@password VARCHAR(255) = NULL,
+@avatar Nvarchar(255) = null,
+@address nvarchar(255) = null,
 @role_id INT = NULL
 AS
 BEGIN
@@ -430,8 +429,9 @@ BEGIN
 				First_Name = ISNULL(@first_name, First_Name),
 				Last_Name = ISNULL(@last_name, Last_Name),
 				Email = ISNULL(@email, Email),
-				Password = ISNULL(@password, Password),
 				Role_Id = ISNULL(@role_id, Role_Id),
+				Avatar = ISNULL(@avatar, Avatar),
+				Address = ISNULL(@address,Address),
 				updated_at = GETDATE()
 			WHERE Id = @id
 END
@@ -443,3 +443,15 @@ AS
 BEGIN
     SELECT * FROM dbo.Products WHERE Id = @id
 END
+GO
+
+
+
+--ROLES
+CREATE PROC proc_get_all_roles
+as
+begin
+	select * from Roles
+end
+go
+

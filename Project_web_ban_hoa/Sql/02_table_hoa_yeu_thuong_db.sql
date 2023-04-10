@@ -9,6 +9,14 @@ CREATE TABLE Roles (
 );
 GO
 
+CREATE TABLE SLIDE (
+	Id INT IDENTITY(1,1) PRIMARY KEY,
+	Thumbnail NVARCHAR(255) NOT NULL,
+	  Created_At datetime2 DEFAULT(getdate()) NOT NULL,
+  Updated_At datetime2 DEFAULT(getdate()) NOT NULL,
+)
+GO
+
 CREATE TABLE Users (
   Id INT PRIMARY KEY IDENTITY(1,1),
   First_Name NVARCHAR(50) NOT NULL,

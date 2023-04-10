@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Project_web_ban_hoa.Models;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -39,6 +40,8 @@ namespace Project_web_ban_hoa
                 {
                     Session["ISLOGIN"] = "isLoagined";
                     Session["CURRENT_USER"] = user;
+                    Session["CURRENT_USER"] = ConvertSessionToUser("CURRENT_USER");
+
 
                     Session["showToastDuration"] = 3000;
                     Session["showToastPosition"] = "right";
@@ -59,6 +62,25 @@ namespace Project_web_ban_hoa
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "ShowToast", script, true);
                 txtGmail.Focus();
             }
+        }
+
+        private UserModel ConvertSessionToUser(string sessionStr)
+        {
+            UserModel user = ((DataTable)Session[sessionStr]).AsEnumerable().Select(row => new UserModel
+            {
+                Id = Convert.ToInt32(row["Id"].ToString()),
+                FirstName = row["First_Name"].ToString(),
+                LastName = row["Last_Name"].ToString(),
+                Email = row["Email"].ToString(),
+                Password = row["Password"].ToString(),
+                RoleId = Convert.ToInt32(row["Role_Id"].ToString()),
+                Avatar = row["Avatar"].ToString(),
+                Address = row["Address"].ToString(),
+                CreatedAt = Convert.ToDateTime(row["Created_At"].ToString()),
+                UpdatedAt = Convert.ToDateTime(row["Updated_At"].ToString())
+            }).FirstOrDefault();
+
+            return user;
         }
     }
 }

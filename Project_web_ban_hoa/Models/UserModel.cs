@@ -14,7 +14,7 @@ namespace Project_web_ban_hoa.Models
         public string Password { get; set; }
         public int RoleId { get; set; }
         public string Avatar { get; set; }
-
+        public string Address { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
     }

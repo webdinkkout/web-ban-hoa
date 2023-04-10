@@ -14,6 +14,7 @@
 
 .header-menu {
     background: #ebebeb;
+    box-shadow: 0 2px 5px #0000001a;
 }
 
 .header-menu-ctls-ctl {
@@ -83,6 +84,9 @@
     justify-content: space-between;
 }
 
+.header-search-contact-search {
+    margin-bottom: 12px;
+}
 
 
 .header-search-contact-search__search {

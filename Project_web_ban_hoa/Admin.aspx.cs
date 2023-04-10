@@ -21,18 +21,7 @@ namespace Project_web_ban_hoa
             }
             else
             {
-                user = ((DataTable)Session["CURRENT_USER"]).AsEnumerable().Select(row => new UserModel
-                {
-                    Id = Convert.ToInt32(row["Id"].ToString()),
-                    FirstName = row["First_Name"].ToString(),
-                    LastName = row["Last_Name"].ToString(),
-                    Email = row["Email"].ToString(),
-                    Password = row["Password"].ToString(),
-                    Avatar = row["Avatar"].ToString(),
-                    RoleId = Convert.ToInt32(row["Role_Id"].ToString()),
-                    CreatedAt = Convert.ToDateTime(row["Created_At"].ToString()),
-                    UpdatedAt = Convert.ToDateTime(row["Updated_At"].ToString())
-                }).FirstOrDefault();
+                user = (UserModel)Session["CURRENT_USER"];
 
                 fullName = user.FirstName + " " + user.LastName;
 
