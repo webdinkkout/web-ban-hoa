@@ -98,7 +98,10 @@ CREATE TABLE Carts (
 	User_Id INT REFERENCES Users(Id) NOT NULL,
 	Product_Id INT REFERENCES Products(Id) NOT NULL,
 	Quantity INT,
+	Product_Name nvarchar(255),
 	Price DECIMAL(12,2) DEFAULT(0) NOT NULL,
-	ToTal_Price DECIMAL(12,2) DEFAULT(0) NOT NULL,
+	Created_At datetime2 DEFAULT(getdate()) NOT NULL,
+	Updated_At datetime2 DEFAULT(getdate()) NOT NULL,
 );
 GO
+

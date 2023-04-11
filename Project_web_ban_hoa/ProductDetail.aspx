@@ -26,7 +26,7 @@
                     </div>
                     <i class="product-detail__note">Giá đã bao gồm 10% VAT</i>
                     <p style="font-weight: 600"><%= GetDesc() %></p>
-                    <div class="product-detail-note">
+                    <div class="product-detail-note mb-4">
                         <span>LƯU Ý</span>
                         <p class="product-detail-note__text">Sản phẩm bạn đang chọn là sản phẩm được thiết kế đặc biệt!</p>
                         <p class="product-detail-note__text">Hiện nay, Hoayeuthuong.com chỉ thử nghiệm cung cấp cho thị trường </p>

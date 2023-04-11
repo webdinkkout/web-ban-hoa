@@ -29,7 +29,9 @@ namespace Project_web_ban_hoa
                 {
                     if (Session["CURRENT_URL"] != null)
                     {
-                        Response.Redirect(Session["CURRENT_URL"].ToString());
+                        string url = Session["CURRENT_URL"].ToString();
+                        Session.Remove("CURRENT_URL");
+                        Response.Redirect(url);
                     }
                 }
                 else if (user.RoleId == 1)

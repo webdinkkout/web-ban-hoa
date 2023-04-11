@@ -82,7 +82,7 @@ namespace Project_web_ban_hoa.Models.Component
                 Desc = row["Description"].ToString(),
                 ViewCount = row["View_Count"] as int?,
                 OldPrice = row["Old_Price"] as decimal?,
-                CurrentPrice = row["Current_Price"] as decimal?,
+                CurrentPrice = Convert.ToDecimal(row["Current_Price"]),
                 Quantity = row["Quantity"] as int?,
                 Sold = row["Sold"] as int?,
                 Thumbnail = row["Thumbnail"].ToString(),

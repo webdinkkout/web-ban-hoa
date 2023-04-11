@@ -15,6 +15,7 @@ VALUES
     (N'Quản trị', 'viên', N'Bình Chanh' , N'https://luv.vn/wp-content/uploads/2021/11/avatar-gai-xinh-41.jpg', 'admin@gmail.com', '$2a$10$fiwZgjvURHHOSWfTbNUhLeXceYft9LWoLufP59dNHQWN65UbdoKVm', 1)
 GO
 
+
 -- THÊM DỮ LIỆU MẪU BẢNG DANH MỤC
 INSERT INTO dbo.Categories
     (Name,Seo_Name,Thumbnail,Parent_Id,Level,Created_At,Updated_At)

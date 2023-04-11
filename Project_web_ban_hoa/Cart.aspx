@@ -9,36 +9,25 @@
             <div class="row">
                 <div class="col-lg-9">
                     <div class="list-product">
-                        <div class="list-product__item">
-                            <asp:Button Text="x" ID="btnDelete" CssClass="list-product__delete" runat="server" />
-                            <div class="list-product__left">
-                                <img src="Publics/Images/DefaultImg/no-image.jpg" alt="Alternate Text" />
-                            </div>
-                            <div class="list-product__right">
-                                <a href="#" class="list-product__title">Product 1</a>
-                                <h4 class="list-product__price">900.000 đ</h4>
-                                <div class="list-product__controls">
-                                    <button class="list-product__control list-product__control--min"><i class="fa fa-minus"></i></button>
-                                    <input type="text" value="1" class="list-product__control list-product__control--count" />
-                                    <button class="list-product__control list-product__control--plus"><i class="fa fa-plus"></i></button>
+                        <asp:Repeater ID="rptCarts" runat="server">
+                            <ItemTemplate>
+                                <div class="list-product__item">
+                                    <asp:Button Text="x" ID="btnDelete" CssClass="list-product__delete" runat="server" />
+                                    <div class="list-product__left">
+                                        <img src="Publics/Images/DefaultImg/no-image.jpg" alt="Alternate Text" />
+                                    </div>
+                                    <div class="list-product__right">
+                                        <a href="#" class="list-product__title"><%# Eval("Product_Name") %></a>
+                                        <h4 class="list-product__price"><%# Eval("Price","{0:#,##0} đ") %></h4>
+                                        <div class="list-product__controls">
+                                            <button class="list-product__control list-product__control--min"><i class="fa fa-minus"></i></button>
+                                            <input type="text" value='<%# Eval("Total_Quantity") %>' class="list-product__control list-product__control--count" />
+                                            <button class="list-product__control list-product__control--plus"><i class="fa fa-plus"></i></button>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="list-product__item">
-                            <asp:Button Text="x" ID="Button1" CssClass="list-product__delete" runat="server" />
-                            <div class="list-product__left">
-                                <img src="Publics/Images/DefaultImg/no-image.jpg" alt="Alternate Text" />
-                            </div>
-                            <div class="list-product__right">
-                                <a href="#" class="list-product__title">Product 1</a>
-                                <h4 class="list-product__price">900.000 đ</h4>
-                                <div class="list-product__controls">
-                                    <button class="list-product__control list-product__control--min"><i class="fa fa-minus"></i></button>
-                                    <input type="text" value="1" class="list-product__control list-product__control--count" />
-                                    <button class="list-product__control list-product__control--plus"><i class="fa fa-plus"></i></button>
-                                </div>
-                            </div>
-                        </div>
+                            </ItemTemplate>
+                        </asp:Repeater>
                     </div>
                 </div>
                 <div class="col-lg-3">

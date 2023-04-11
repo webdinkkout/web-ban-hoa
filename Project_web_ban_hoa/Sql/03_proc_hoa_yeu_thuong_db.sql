@@ -36,9 +36,9 @@ BEGIN
 END
 GO	
 
-Create PROC proc_sort_by_category_id
+create PROC proc_sort_by_category_id
 @table_name VARCHAR(50),
-@category_ids varchar(max),
+@category_ids varchar(max) = '',
 @num_sort Int = 999
 AS
 BEGIN
@@ -67,7 +67,7 @@ BEGIN
 	DECLARE @sql NVARCHAR(MAX)
 		IF @category_ids = ''
 		BEGIN
-			SET @Sql = 'SELECT * FROM Products';
+			SET @Sql = 'SELECT * FROM Products ' + @sort;
 		END
 		ELSE
 		BEGIN
@@ -501,3 +501,32 @@ begin
 end
 go
 
+--CART
+create PROC proc_add_cart
+@user_id int,
+@product_id int,
+@quantity int = 1,
+@product_name nvarchar(255),
+@price decimal(12,2)
+as
+begin
+	INSERT INTO carts (User_Id, Product_Id,Product_Name,Quantity,Price) values (@user_id,@product_id,@product_name,@quantity,@price)
+end
+go
+
+Create PROC proc_get_cart_by_id_user
+@user_id int
+as
+begin
+	Select * from vw_user_carts where user_id = @user_id
+end
+go
+
+Create proc proc_delete_product_on_cart
+@user_id int,
+@product_id int
+as
+begin
+	delete from vw_user_carts where product_id = @product_id and User_id = @user_id
+end
+go

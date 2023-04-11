@@ -1,4 +1,4 @@
-USE hoa_yeu_thuong_db
+﻿USE hoa_yeu_thuong_db
 GO
 
 CREATE TRIGGER trig_add_id_in_seo_name_category
@@ -77,3 +77,16 @@ BEGIN
     END
 END
 GO
+
+
+Create TRIGGER tr_delete_product
+ON dbo.vw_user_carts
+INSTEAD OF DELETE
+AS
+BEGIN
+  DELETE FROM dbo.Carts WHERE EXISTS (
+    SELECT 1 FROM deleted d
+    WHERE d.Product_Id = dbo.Carts.Product_Id and d.User_id = dbo.Carts.User_id
+  );
+END
+go
