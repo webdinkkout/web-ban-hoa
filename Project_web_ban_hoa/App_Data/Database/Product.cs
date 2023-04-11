@@ -200,11 +200,33 @@ namespace DAO
         }
 
 
+        /// <summary>
+        /// Lấy các sản phẩm liên quan dựa trên mã danh mục
+        /// </summary>
+        /// <param name="categoryId">Mã danh mục</param>
+        /// <param name="id">Mã sản phẩm(Để loại trừ)</param>
+        /// <returns>Danh sách các sản phẩm tương ứng trừ sản phẩm đang hiện hành</returns>
         public static DataTable GetProductReletionShips(int categoryId, int id)
         {
             SqlCommand cmd = CreateCMD("proc_get_reletionship_pruduct");
             cmd.Parameters.AddWithValue("@category_id", categoryId);
             cmd.Parameters.AddWithValue("@id", id);
+            return SqlDatabase.GetData(cmd);
+        }
+
+
+        /// <summary>
+        /// Lấy các sản phẩm dựng trên giá được truyền vào
+        /// </summary>
+        /// <param name="min">Giá thấp nhất</param>
+        /// <param name="max">Giá cao nhất</param>
+        /// <returns>Danh sách các sản phẩm tương ứng</returns>
+        public static DataTable SearchByMinMaxPrice(int min, int max, string categoryIds)
+        {
+            SqlCommand cmd = CreateCMD("proc_search_product_by_min_max_price");
+            cmd.Parameters.AddWithValue("@min", min);
+            cmd.Parameters.AddWithValue("@max", max);
+            cmd.Parameters.AddWithValue("@category_ids", categoryIds);
             return SqlDatabase.GetData(cmd);
         }
     }

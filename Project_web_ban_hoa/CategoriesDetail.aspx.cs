@@ -1,8 +1,11 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using Project_web_ban_hoa.Models;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Web;
+using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -27,6 +30,13 @@ namespace Project_web_ban_hoa
             }
         }
 
+        [WebMethod]
+        public static string SearchByPrice(int minPrice, int maxPrice, string categoryIds)
+        {
+            DataTable product = DAO.Product.SearchByMinMaxPrice(minPrice, maxPrice, categoryIds);
+            string json = JsonConvert.SerializeObject(product, Formatting.None);
+            return json;
+        }
 
     }
 }

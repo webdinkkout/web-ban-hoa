@@ -335,6 +335,28 @@ BEGIN
 END
 GO	
 
+CREATE PROC proc_search_product_by_min_max_price
+@min int,
+@max int,
+ @category_ids nvarchar(max) = ''
+AS
+BEGIN
+	DECLARE @Sql nvarchar(max);
+
+    IF @category_ids = ''
+    BEGIN
+        SET @Sql = 'SELECT * FROM Products WHERE Current_Price >= ' + CAST(@min as varchar(20)) + ' AND Current_Price <= ' + CAST(@max as varchar(20));
+    END
+    ELSE
+    BEGIN
+        SET @Sql = 'SELECT * FROM Products WHERE Category_Id IN (' + @category_ids + ') AND Current_Price >= ' + CAST(@min as varchar(20)) + ' AND Current_Price <= ' + CAST(@max as varchar(20));
+    END
+
+    EXECUTE sp_executesql @Sql;
+END
+GO
+
+
 -- NGƯỜI DÙNG
 CREATE PROC proc_get_user
 @gmail VARCHAR(255)

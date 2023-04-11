@@ -169,6 +169,11 @@ h1, h2, h3, h4, h5, h6 {
         min-width: 50px;
     }
 
+    .btn.btn--thin {
+        border-width: 1px !important;
+        font-weight: 500 !important;
+    }
+
     .btn.btn--orange {
         border-color: orange;
         background-color: orange;
@@ -179,6 +184,12 @@ h1, h2, h3, h4, h5, h6 {
         background-color: green;
         border-color: green;
         color: green;
+    }
+
+    .btn.btn--blue {
+        background-color: dodgerblue;
+        border-color: dodgerblue;
+        color: dodgerblue;
     }
 
 .btn-solid.btn--green {

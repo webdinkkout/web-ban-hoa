@@ -3,13 +3,12 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="Publics/Css/Topic.css" rel="stylesheet" />
     <link href="Publics/Css/Search.css" rel="stylesheet" />
+    <link href="Publics/Css/CategoryDetail.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <section id="categories-detail">
         <div class="container">
             <div class="categories-detail-inner">
-
-
                 <div class="row">
                     <div class="col-lg-3">
                         <div class="search-inner-side-bar">
@@ -23,7 +22,16 @@
                                         </div>
                                     </ItemTemplate>
                                 </asp:Repeater>
-
+                            </div>
+                            <asp:Label Text="Tìm kiếm theo giá" CssClass="search-inner-side-bar__title mt-4" runat="server" />
+                            <div class="search-inner-side-bar__controls">
+                                <div class="wrapper-control-price">
+                                    <input type="text" hidden name="id" id="txtId" value='0' />
+                                    <input type="text" id="txtMin" name="min" placeholder="Min" value="" />
+                                    <span>-</span>
+                                    <input type="text" id="txtMax" name="max" placeholder="Max" value="" />
+                                </div>
+                                <a href="#" id="btnSearchPrice" class="btn btn-regular btn--blue btn--thin">Tìm kiếm</a>
                             </div>
                         </div>
                     </div>
