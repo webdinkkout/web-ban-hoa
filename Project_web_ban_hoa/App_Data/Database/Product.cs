@@ -137,7 +137,7 @@ namespace DAO
         /// <param name="thumbnail">Ảnh đại diện sản phẩm</param>
         /// <param name="categoryId">Id danh mục mà sản phẩm thuộc về</param>
         /// <returns></returns>
-        public static int UpdateProduct(int productId, string name, string seoName, string desc, int? viewCount, double? oldPrice, double? currentPrice, int? quantity, int? sold, string thumbnail, int? categoryId)
+        public static int UpdateProduct(int productId, string name, string seoName, string desc, int? viewCount, decimal? oldPrice, decimal? currentPrice, int? quantity, int? sold, string thumbnail, int? categoryId)
         {
             SqlCommand cmd = CreateCMD("proc_update_produt");
             cmd.Parameters.AddWithValue("@id", productId);

@@ -5,8 +5,7 @@
     <link href="Publics/Css/ProductDetail.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:GridView ID="GridView1" runat="server"></asp:GridView>
-    <div class="container">
+    <div class="container mb-4">
         <div class="row">
             <div class="col-lg-3">
                 <div class="product-deteil-img">
@@ -55,7 +54,10 @@
 
     <section class="product-list">
         <div class="container">
+            <% if (rptReletionShips.Items.Count > 0)
+                { %>
             <h2>Sản phẩm liên quan</h2>
+            <%} %>
             <div class="row">
                 <asp:Repeater ID="rptReletionShips" runat="server">
                     <ItemTemplate>

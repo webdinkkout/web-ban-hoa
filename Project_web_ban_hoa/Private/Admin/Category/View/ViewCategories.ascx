@@ -16,12 +16,17 @@
                 <div class="col-lg-4">
                     <div class="wrapper-card-view-category">
                         <div class="wrapper-card-view-category-heading">
-                            <asp:Image ID="imgThumbnail" ImageUrl='<%# Eval("Thumbnail") == null ? "~/Publics/Images/DefaultImg/null-image.png" : Eval("Thumbnail") %>'
-                                runat="server" />
+                            <a href="#">
+                                <asp:Image ID="imgThumbnail" ImageUrl='<%# Eval("Thumbnail") == null ? "~/Publics/Images/DefaultImg/null-image.png" : Eval("Thumbnail") %>'
+                                    runat="server" />
+                            </a>
                         </div>
                         <div class="wrapper-card-view-category-content">
                             <div class="wrapper-card-view-category-body">
-                                <h3 class="wrapper-card-view-category-body__name"><%# Eval("Name") %></h3>
+                                <a href="#">
+
+                                    <h3 class="wrapper-card-view-category-body__name"><%# Eval("Name") %></h3>
+                                </a>
                             </div>
                             <div class="wrapper-card-view-category-footer">
                                 <asp:Button ID="btnUpdate" CssClass="wrapper-card-view-category-footer__btn wrapper-card-view-category-footer__btn--success"

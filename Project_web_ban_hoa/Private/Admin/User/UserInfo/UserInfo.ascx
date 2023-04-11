@@ -3,8 +3,8 @@
     <div class="wrapper-info">
         <div class="user-info">
             <div class="user-info-top">
-                <asp:FileUpload runat="server" CssClass="fulAvatar" ID="fulAvatar" Style="display: none" onchange="previewImage()" accept="image/png, image/jpg, image/gif, image/jpeg" />
-                <a href="#" id="uploadLink">
+                <asp:FileUpload runat="server" CssClass="fulAvatar" ID="fulAvatar" Style="display: none" onchange="previewImage('.fulAvatar','preview')" accept="image/png, image/jpg, image/gif, image/jpeg" />
+                <a href="#" id="uploadLink" onclick="onClickShowImg('.fulAvatar')">
                     <img src='<%=  GetAvatar() != null ?  GetAvatar()  :$"../../../../Publics/Images/DefaultImg/{GetAvatar()}" %>' id="preview" alt="user img" />
 
                     <i class="fa fa-pen uploadLink--edit"></i>
@@ -54,41 +54,4 @@
             </div>
         </div>
     </div>
-
-    <script>
-        const userInfoBotElement = document.querySelector(".user-info-bot");
-        console.log(userInfoBotElement);
-        //userInfoBotElement.setAttribute("style", "display: none");
-        document.getElementById("uploadLink").onclick = function () {
-            document.querySelector(".fulAvatar").click();
-        };
-
-        function previewImage() {
-            var fileUpload = document.querySelector(".fulAvatar");
-            var preview = document.getElementById("preview");
-
-            // Kiểm tra nếu không có file nào được chọn
-            if (fileUpload.files.length === 0) {
-                return;
-            }
-
-            // Đọc file hình ảnh được chọn
-            var reader = new FileReader();
-            reader.onload = function (e) {
-                preview.setAttribute("src", e.target.result);
-                preview.style.display = "block";
-            };
-            reader.readAsDataURL(fileUpload.files[0]);
-        }
-        const swapElement = $("#chkSwapPassword");
-
-        swapElement.change(function (e) {
-            if (swapElement.prop("checked")) {
-                $(".user-info-mid-right.user-info-mid-right--toggle").addClass("user-info-mid-right--active")
-            } else {
-                $(".user-info-mid-right.user-info-mid-right--toggle").removeClass("user-info-mid-right--active")
-
-            }
-        });
-
-    </script>
+</div>

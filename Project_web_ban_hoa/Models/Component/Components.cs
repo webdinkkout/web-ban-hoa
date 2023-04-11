@@ -72,6 +72,24 @@ namespace Project_web_ban_hoa.Models.Component
 
             return user;
         }
+        public static ProductModel ConvertDataTableToProduct(DataTable objProduct)
+        {
+            ProductModel product = objProduct.AsEnumerable().Select(row => new ProductModel
+            {
+                Id = Convert.ToInt32(row["Id"].ToString()),
+                Name = row["Name"].ToString(),
+                SeoName = row["Seo_Name"].ToString(),
+                Desc = row["Description"].ToString(),
+                ViewCount = row["View_Count"] as int?,
+                OldPrice = row["Old_Price"] as decimal?,
+                CurrentPrice = row["Current_Price"] as decimal?,
+                Quantity = row["Quantity"] as int?,
+                Sold = row["Sold"] as int?,
+                Thumbnail = row["Thumbnail"].ToString(),
+                CategoryId = Convert.ToInt32(row["Category_Id"]),
+            }).FirstOrDefault();
 
+            return product;
+        }
     }
 }

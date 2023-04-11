@@ -47,13 +47,13 @@ namespace Project_web_ban_hoa.Private.Admin.User.UserInfo
             string thumbnail;
             string script;
 
+            DataTable users = DAO.User.FindById(user.Id);
             if (fulAvatar.HasFile)
             {
                 HttpPostedFile file = Request.Files[0];
                 if (file.ContentType.ToLower().StartsWith("image/"))
                 {
                     //Xóa avatar cũ
-                    DataTable users = DAO.User.FindById(user.Id);
                     string oldThumbnail = users.Rows[0]["Avatar"].ToString();
                     string[] arrOldThumbnail = oldThumbnail.Split('/');
                     Components.DeleteThumbnailOnSystem("Users", arrOldThumbnail, Server);
@@ -75,7 +75,7 @@ namespace Project_web_ban_hoa.Private.Admin.User.UserInfo
             }
             else
             {
-                thumbnail = ConfigurationManager.AppSettings["UrlEnv"] + $"/Publics/Images/DefaultImg/no-image.jpg";
+                thumbnail = users.Rows[0]["Avatar"].ToString();
             }
 
             if (!string.IsNullOrEmpty(txtFirstName.Text))

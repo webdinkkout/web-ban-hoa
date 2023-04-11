@@ -7,8 +7,11 @@
         </h2>
 
         <div class="update-product-box-edit">
+            <asp:FileUpload runat="server" ID="fulThumbnail" CssClass="fulThumbnail" Style="display: none" onchange="previewImage('.fulThumbnail','preview')" accept="image/png, image/jpg, image/gif, image/jpeg" />
             <div class="update-product-box-edit-top">
-                <img src="../../../../Publics/Images/DefaultImg/no-image.jpg" alt="Alternate Text" />
+                <a href="#" onclick="onClickShowImg('.fulThumbnail')">
+                    <img id="preview" src='<%= string.IsNullOrEmpty(productModel.Thumbnail) ? "../../../../Publics/Images/DefaultImg/no-image.jpg" : productModel.Thumbnail %>' alt="Alternate Text" />
+                </a>
             </div>
             <div class="update-product-box-edit-body">
                 <div class="form-gr">
@@ -24,7 +27,7 @@
                 </div>
                 <div class="form-gr">
                     <asp:Label Text="Mô tả sản phẩm" CssClass="form-gr__label" runat="server" />
-                    <textarea runat="server" class="form-gr__control" />
+                    <asp:TextBox runat="server" TextMode="MultiLine" CssClass="form-gr__control" ID="txtDesc" Rows="10" />
                 </div>
                 <div class="form-gr">
                     <asp:Label Text="Giá khuyễn mãi (nếu có)" CssClass="form-gr__label" runat="server" />
@@ -43,7 +46,8 @@
                     <asp:TextBox runat="server" ID="txtSold" CssClass="form-gr__control" />
                 </div>
                 <div class="form-gr">
-                    <asp:Button Text="Lưu" runat="server" ID="btnSave" CssClass="btn btn-solid btn--green" />
+                    <asp:Button Text="Lưu" runat="server" ID="btnSave" CssClass="btn btn-solid btn--green" OnClick="btnSave_Click" />
+                    <asp:Button Text="Trở về" runat="server" ID="btnBack" CssClass="btn btn-solid btn--red" OnClick="btnBack_Click" />
                 </div>
             </div>
         </div>
