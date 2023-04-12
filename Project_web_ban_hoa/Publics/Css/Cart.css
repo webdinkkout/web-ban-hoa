@@ -63,6 +63,7 @@
     width: 40px;
     border: none;
     outline: none;
+    cursor: pointer;
 }
 
     .list-product__control.list-product__control--count {

@@ -30,7 +30,7 @@ namespace Project_web_ban_hoa.Private.Admin.Product.Update
             if (!Page.IsPostBack)
             {
 
-                productModel = Components.ConvertDataTableToProduct(DAO.Product.GetOneProductById(productId));
+                productModel = Components.ConvertDataTableToProduct(DAO.Product.GetOneProductByIdAdmin(productId));
                 txtName.Text = productModel.Name;
                 txtSold.Text = productModel.Sold.ToString();
                 txtDesc.Text = productModel.Desc;

@@ -79,7 +79,7 @@ END
 GO
 
 
-Create TRIGGER tr_delete_product
+Create TRIGGER trig_delete_product
 ON dbo.vw_user_carts
 INSTEAD OF DELETE
 AS
@@ -90,3 +90,4 @@ BEGIN
   );
 END
 go
+

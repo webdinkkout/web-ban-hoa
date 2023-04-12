@@ -9,20 +9,20 @@
             <div class="row">
                 <div class="col-lg-9">
                     <div class="list-product">
-                        <asp:Repeater ID="rptCarts" runat="server">
+                        <asp:Repeater ID="rptCarts" runat="server" OnItemCommand="rptCarts_ItemCommand">
                             <ItemTemplate>
                                 <div class="list-product__item">
                                     <asp:Button Text="x" ID="btnDelete" CssClass="list-product__delete" runat="server" />
                                     <div class="list-product__left">
-                                        <img src="Publics/Images/DefaultImg/no-image.jpg" alt="Alternate Text" />
+                                        <img src='<%# Eval("Thumbnail") %>' alt="Alternate Text" />
                                     </div>
                                     <div class="list-product__right">
-                                        <a href="#" class="list-product__title"><%# Eval("Product_Name") %></a>
+                                        <a href='ProductDetail.aspx?product-id=<%# Eval("Product_Id") %>&ci=<%# Eval("category_id") %>' class="list-product__title"><%# Eval("Product_Name") %></a>
                                         <h4 class="list-product__price"><%# Eval("Price","{0:#,##0} đ") %></h4>
                                         <div class="list-product__controls">
-                                            <button class="list-product__control list-product__control--min"><i class="fa fa-minus"></i></button>
+                                            <asp:Button Text="-" runat="server" CssClass="list-product__control " ID="btnAddCart" CommandName="decreaseQuantity" CommandArgument='<%# Eval("Product_Id") %>' />
                                             <input type="text" value='<%# Eval("Total_Quantity") %>' class="list-product__control list-product__control--count" />
-                                            <button class="list-product__control list-product__control--plus"><i class="fa fa-plus"></i></button>
+                                            <asp:Button Text="+" runat="server" CssClass="list-product__control " ID="btnRemove" CommandName="increaseQuantity" CommandArgument='<%# Eval("Product_Id") %>' />
                                         </div>
                                     </div>
                                 </div>

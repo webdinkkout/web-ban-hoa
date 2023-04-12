@@ -530,3 +530,6 @@ begin
 	delete from vw_user_carts where product_id = @product_id and User_id = @user_id
 end
 go
+
+
+
