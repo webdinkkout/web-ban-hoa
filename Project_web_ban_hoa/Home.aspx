@@ -34,7 +34,8 @@
                 <ItemTemplate>
                     <div class="home-product-flower">
                         <h2 class="home-product-flower__title"><%# Eval("Name") %></h2>
-
+                        <% if (GetAllProdutsbyCategoryId(Convert.ToInt32(rptTitles.)))
+                            { %>
                         <div class="row">
                             <asp:Repeater runat="server" ID="rptProducts" DataSource='<%# GetAllProdutsbyCategoryId(Convert.ToInt32(Eval("id"))) %>'>
                                 <ItemTemplate>
@@ -59,6 +60,7 @@
                                 </ItemTemplate>
                             </asp:Repeater>
                         </div>
+                        <% } %>
                     </div>
                 </ItemTemplate>
             </asp:Repeater>
