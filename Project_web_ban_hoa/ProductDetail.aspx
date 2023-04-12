@@ -11,7 +11,7 @@
             <div class="col-lg-3">
                 <div class="product-deteil-img">
                     <a href="#">
-                        <img src="https://localhost:44313/Publics/Images/ProductDetail/12490_romance.jpg" />
+                        <img src='<%= GetThumbnail() %>' />
                     </a>
                     <p class="product-deteil-img__text">
                         THÔNG BÁO: Giá hoa ngày 7-8/3/2023 tăng 20% do giá nguyên liệu tăng.
@@ -20,13 +20,13 @@
             </div>
             <div class="col-lg-9">
                 <div class="product-detail">
-                    <h2 class="product-detail__title">Khuyến mãi - Baby flower - 13294</h2>
+                    <h2 class="product-detail__title"><%= GetNameProduct() + " - " + GetSeoNameProduct()  %></h2>
                     <div class="product-detail-price">
-                        <p class="content-wrapper-card-product-card-product-price__price-product wrapper-card-product-card-product-price__price-product--old">260.000 đ</p>
-                        <p class="content-wrapper-card-product-card-product-price__price-product wrapper-card-product-card-product-price__price-product--current">200.000 đ</p>
+                        <p class="content-wrapper-card-product-card-product-price__price-product wrapper-card-product-card-product-price__price-product--old"><%= string.Format("{0:##,#0 đ}", GetOldPrice()) %></p>
+                        <p class="content-wrapper-card-product-card-product-price__price-product wrapper-card-product-card-product-price__price-product--current"><%= string.Format("{0:##,#0 đ}", GetCurrentPrice()) %></p>
                     </div>
                     <i class="product-detail__note">Giá đã bao gồm 10% VAT</i>
-                    <p style="font-weight: 600">Hoa giao nhanh 60 phút Hồ Chí Minh</p>
+                    <p style="font-weight: 600"><%= GetDesc() %></p>
                     <div class="product-detail-note">
                         <span>LƯU Ý</span>
                         <p class="product-detail-note__text">Sản phẩm bạn đang chọn là sản phẩm được thiết kế đặc biệt!</p>
@@ -34,8 +34,8 @@
                     </div>
                     <div class="product-detail-control">
                         <div>
-                            <a class="btn-control btn-control--solid btn-control--orange" href="#">Thêm vào giỏ</a>
-                            <a class="btn-control btn-control--fill btn-control--text-white btn-control--fill-red " href="#">Mua ngay</a>
+                            <asp:Button ID="btnAddCart" Text="Thêm vào giỏ" CssClass="btn-control btn-control--solid btn-control--orange" runat="server" />
+                            <asp:Button ID="btnBuy" OnClick="btnBuy_Click" Text="Mua ngay" CssClass="btn-control btn-control--fill btn-control--text-white btn-control--fill-red " runat="server" />
                         </div>
                         <a class="btn-control btn-control--solid btn-control--green btn-control--w415 " href="#">Gọi ngay:0399999999</a>
                     </div>

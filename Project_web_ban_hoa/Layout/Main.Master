@@ -28,6 +28,7 @@
     <link href="../Publics/Css/Reset.css" rel="stylesheet" />
     <link href="../Publics/Css/Home.css" rel="stylesheet" />
 
+    <script src="../Publics/Js/Library/Jquery/jquery-3.6.4.min.js"></script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -35,6 +36,7 @@
     <form id="form1" runat="server">
 
         <header class="header">
+
             <%--     <div class="header__mh30">
                 <div class="container">
                     <p>Nơi sinh sống:</p>
@@ -84,8 +86,8 @@
 
                     <div class="header-search-contact">
                         <div class="header-search-contact-search">
-                            <asp:TextBox runat="server" placeholder="Tìm sản phẩm" CssClass="header-search-contact-search__search" />
-                            <asp:Button Text="Tìm kiếm" runat="server" CssClass="header-search-contact-search__btn-search" />
+                            <asp:TextBox runat="server" ID="txtSearch" placeholder="Tìm sản phẩm" CssClass="header-search-contact-search__search" />
+                            <asp:Button Text="Tìm kiếm" ID="btnSearch" OnClick="btnSearch_Click" runat="server" CssClass="header-search-contact-search__btn-search" />
                         </div>
 
                         <div class="header-search-contact-hotline">
@@ -159,16 +161,15 @@
                             <li class="header-menu-ctls-ctl__item">
                                 <a href="../Home.aspx">TRANG CHỦ</a>
                             </li>
-                            //fix
                             <asp:Repeater runat="server" ID="rptCategoriesNav">
                                 <ItemTemplate>
                                     <li class="header-menu-ctls-ctl__item">
-                                        <a href="../Topic.aspx"><%# Eval("Name") %></a>
-                                        <ul class="header-menu-ctls-ctl-sub-menu">
+                                        <a href='../product.aspx?pi=<%# Eval("id") %>'><%# Eval("Name") %></a>
+                                        <ul class='header-menu-ctls-ctl-sub-menu  <%# LayConThuocCha(Convert.ToInt32(Eval("id"))).Rows.Count > 0 ? "" : "hidden-e"%>'>
                                             <asp:Repeater runat="server" DataSource='<%# LayConThuocCha(Convert.ToInt32(Eval("ID"))) %>' ID="rptCategoriesNavChild">
                                                 <ItemTemplate>
-                                                    <li class="header-menu-ctls-ctl-sub-menu__item">
-                                                        <a href="#"><%# Eval("Name") %></a>
+                                                    <li class='header-menu-ctls-ctl-sub-menu__item <%# GetCountChildProduct(Convert.ToInt32(Eval("id"))).Rows.Count > 0 ? "" : "hidden-e" %>'>
+                                                        <a href='<%# string.Format("CategoriesDetail.aspx?ci={0}&pi={1}",Eval("id").ToString(),Eval("Parent_id").ToString()) %>'><%# Eval("Name") %></a>
                                                     </li>
                                                 </ItemTemplate>
                                             </asp:Repeater>

@@ -34,9 +34,14 @@ namespace Project_web_ban_hoa.Layout
             }
         }
 
-        protected DataTable LayConThuocCha(int parentId)
+        protected DataTable LayConThuocCha(int? parentId)
         {
-            return DAO.Category.GetCategoryByParentIdAndLevel(parentId);
+            return DAO.Category.GetCategoryByParentIdAndLevel(parentId.Value);
+        }
+
+        protected DataTable GetCountChildProduct(int categoryId)
+        {
+            return DAO.Product.GetProductWithCategoryId(categoryId);
         }
 
         protected string GetFullName()
@@ -112,6 +117,16 @@ namespace Project_web_ban_hoa.Layout
             {
                 string userId = btnCart.CommandArgument;
                 Response.Redirect($"~/Cart.aspx?iu={userId}");
+            }
+        }
+
+        protected void btnSearch_Click(object sender, EventArgs e)
+        {
+            string value = txtSearch.Text;
+
+            if (!string.IsNullOrEmpty(value))
+            {
+                Response.Redirect($"~/Search.aspx?key={HttpUtility.UrlEncode(value)}");
             }
         }
     }

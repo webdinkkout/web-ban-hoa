@@ -101,6 +101,8 @@
     text-align: center;
     border: 3px solid transparent;
     display: block;
+    background-color: transparent;
+    cursor: pointer;
 }
 
     .btn-control.btn-control--solid {

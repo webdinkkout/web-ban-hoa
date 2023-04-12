@@ -11,34 +11,25 @@ namespace Project_web_ban_hoa
 {
 
 
-    public partial class ProductDetail
+    public partial class Search
     {
 
         /// <summary>
-        /// GridView1 control.
+        /// lblCountResult control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::System.Web.UI.WebControls.Label lblCountResult;
 
         /// <summary>
-        /// btnAddCart control.
+        /// rptSearchProducts control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAddCart;
-
-        /// <summary>
-        /// btnBuy control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnBuy;
+        protected global::System.Web.UI.WebControls.Repeater rptSearchProducts;
     }
 }

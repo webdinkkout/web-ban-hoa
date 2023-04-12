@@ -12,8 +12,8 @@ namespace Project_web_ban_hoa.Models
         public string SeoName { get; set; }
         public string Desc { get; set; }
         public int? ViewCount { get; set; }
-        public double? OldPrice { get; set; }
-        public double? CurrentPrice { get; set; }
+        public decimal? OldPrice { get; set; }
+        public decimal? CurrentPrice { get; set; }
         public int? Quantity { get; set; }
         public int? Sold { get; set; }
         public string Thumbnail { get; set; }

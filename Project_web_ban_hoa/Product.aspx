@@ -4,64 +4,73 @@
     <link href="Publics/Css/Topic.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <% if (IsEmpTy())
+        { %>
+    <div class="container">
+        <div class="empty">
+            <h4>
+                <i class="fa-regular fa-file"></i>
+            </h4>
+            <h4>Trang hiện tại đang chưa có sản phẩm
+            </h4>
+        </div>
+    </div>
+    <% }
+        else
+        { %>
     <div class="container">
         <div class="row">
             <div class="col-lg-3">
                 <div class="sidebar">
-                    <a class="active" href="#home">CHỦ ĐỀ</a>
-                    <a href="#news">Hoa Sinh Nhật</a>
-                    <a href="#contact">Hoa Khai Trương</a>
-                    <a href="#about">Hoa Chúc Mừng</a>
-                    <a href="#about">Hoa Chia Buồn</a>
-                    <a href="#about">Hoa chúc sức khỏe</a>
-                    <a href="#about">Hoa Cảm ơn</a>
-                    <a href="#about">Hoa Mừng tốt nghiệp</a>
+                    <a class="active" href="#home"><%= GetNameCategory() %></a>
+                    <asp:Repeater ID="rptMenuSubCategories" runat="server">
+                        <ItemTemplate>
+                            <%# GetProductID(Convert.ToInt32(Eval("id"))).Rows.Count > 0 ? $"<a href='{string.Format("CategoriesDetail.aspx?ci={0}&pi={1}",Eval("id").ToString(),Eval("Parent_id").ToString())}'>{Eval("Name")}</a>" : "" %>
+                        </ItemTemplate>
+                    </asp:Repeater>
                 </div>
             </div>
 
             <div class="col-lg-9">
 
                 <div class="content">
-                    <asp:Repeater runat="server">
+                    <asp:Repeater runat="server" ID="rptCategories">
                         <ItemTemplate>
                             <h2>
-                                <a href='#'>Hoa Sinh Nhật</a>
+                                <%# GetProductID(Convert.ToInt32(Eval("id"))).Rows.Count > 0 ? $"<a href='#news'>{Eval("Name")}</a>" : ""%>
                             </h2>
-                        </ItemTemplate>
-                    </asp:Repeater>
 
-                    <div class="row">
-                        <asp:Repeater ID="rptRenderCard" runat="server">
-                            <ItemTemplate>
-                                <div class="col-lg-3">
-                                    <div class="content-wrapper-card-product">
-                                        <div class="content-wrapper-card-product-card-product-top">
-                                            <a href='ProductDetail.aspx'>
-                                                <img src='<%# Eval("Thumbnail") %>' />
-                                            </a>
-                                        </div>
-                                        <div class="content-wrapper-card-product-card-product-bottom">
-                                            <a class="content-wrapper-card-product-card-product-bottom__link"><%# Eval("Name") %></a>
-                                            <div class="content-wrapper-card-product-card-product-price">
-                                                <p class="content-wrapper-card-product-card-product-price__price-product wrapper-card-product-card-product-price__price-product--old">
-                                                    <%# string.Format("{0:##,#đ}", Eval("Old_Price")) %>
-                                                </p>
-                                                <p class="content-wrapper-card-product-card-product-price__price-product wrapper-card-product-card-product-price__price-product--current">
-                                                    <%# string.Format ("{0:##,#đ}", Eval("Current_Price")) %>
-                                                </p>
+                            <div class="row">
+                                <asp:Repeater ID="rptRenderCard" runat="server" DataSource='<%# GetProductID(Convert.ToInt32(Eval("ID")))%>'>
+                                    <ItemTemplate>
+                                        <div class="col-lg-3">
+                                            <div class="content-wrapper-card-product">
+                                                <div class="content-wrapper-card-product-card-product-top">
+                                                    <a href='ProductDetail.aspx?product-id=<%# Eval("id") %>'>
+                                                        <img src='<%# Eval("Thumbnail") %>' />
+                                                    </a>
+                                                </div>
+                                                <div class="content-wrapper-card-product-card-product-bottom">
+                                                    <a href='ProductDetail.aspx?product-id=<%# Eval("id") %>' class="content-wrapper-card-product-card-product-bottom__link"><%# Eval("Name") %></a>
+                                                    <div class="content-wrapper-card-product-card-product-price">
+                                                        <p class="content-wrapper-card-product-card-product-price__price-product wrapper-card-product-card-product-price__price-product--old">
+                                                            <%# string.Format("{0:##,#đ}", Eval("Old_Price")) %>
+                                                        </p>
+                                                        <p class="content-wrapper-card-product-card-product-price__price-product wrapper-card-product-card-product-price__price-product--current">
+                                                            <%# string.Format ("{0:##,#đ}", Eval("Current_Price")) %>
+                                                        </p>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-                            </ItemTemplate>
-                        </asp:Repeater>
-                    </div>
-
-
-
+                                    </ItemTemplate>
+                                </asp:Repeater>
+                            </div>
+                        </ItemTemplate>
+                    </asp:Repeater>
                 </div>
             </div>
         </div>
-
     </div>
+    <% } %>
 </asp:Content>

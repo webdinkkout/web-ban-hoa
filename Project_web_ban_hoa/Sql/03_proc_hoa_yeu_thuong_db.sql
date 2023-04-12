@@ -2,16 +2,40 @@
 GO
 
 -- CHUNG
-CREATE PROC proc_search
+Create PROC proc_search
 @table_name VARCHAR(50),
-@result NVARCHAR(255)
+@result NVARCHAR(255),
+@num_sort Int = 999
 AS
 BEGIN
+	declare @sort varchar(50)
+	If (@num_sort = 0)
+	begin
+		SET @sort = 'ORDER BY current_price DESC' --giá từ cao tới thấp
+	end
+	else if(@num_sort = 1)
+	begin
+		SET @sort = 'ORDER BY current_price'
+	end	
+	else if(@num_sort = 2)
+	begin
+		SET @sort = 'ORDER BY Name DESC'
+	end	
+	else if(@num_sort = 3)
+	begin
+		SET @sort = 'ORDER BY Name'
+	end	
+	else 
+	begin
+		set	 @sort = ''
+	end
+
 	DECLARE @sql NVARCHAR(MAX)
-	SET @sql = 'Select * from ' + QUOTENAME(@table_name) + ' WHERE Name LIKE ''%' + @result + '%'''
-    EXEC sp_executesql @sql
+		SET @sql = 'Select * from ' + QUOTENAME(@table_name) + ' WHERE Name LIKE N''%' + @result + '%'' ' + @sort
+		EXEC sp_executesql @sql
 END
 GO	
+
 
 --PROC CATEGORIES
 CREATE PROCEDURE proc_pagination_category
@@ -30,6 +54,13 @@ BEGIN
 END
 GO
 
+create proc proc_count_product_by_category_parent_id
+@parent_id int
+as
+begin
+	select count(products.id) as 'Product_count' from Products inner join Categories on Products.Category_Id = Categories.Id where Categories.Parent_Id = @parent_id
+end
+go
 
 Create PROC proc_insert_category_level_1 -- Thêm danh mục
 	@name nvarchar(50),
@@ -118,6 +149,27 @@ BEGIN
     WHERE rownum BETWEEN  CAST(@start_row AS nvarchar(10))  AND  CAST(@end_row AS nvarchar(10))
 END
 GO
+
+Create PROCEDURE proc_get_products_by_array_category_id
+    @category_ids nvarchar(max) = NULL
+AS
+BEGIN
+    DECLARE @Sql nvarchar(max);
+
+    IF @category_ids = ''
+    BEGIN
+        SET @Sql = 'SELECT * FROM Products';
+    END
+    ELSE
+    BEGIN
+        SET @Sql = 'SELECT * FROM Products WHERE Category_Id IN (' + @category_ids + ')';
+    END
+
+    EXECUTE sp_executesql @Sql;
+END
+go
+
+
 
 CREATE PROC proc_get_one_product_by_id
 	@id int

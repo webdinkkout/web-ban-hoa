@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 using System.Data.SqlClient;
 
 namespace DAO
@@ -123,6 +124,21 @@ namespace DAO
             cmd.Parameters.AddWithValue("@parent_id", parrentId);
             cmd.Parameters.AddWithValue("@level", level);
             return SqlDatabase.GetData(cmd);
+        }
+
+        /// <summary>
+        /// Lấy số lượng sản phẩm trong của category gốc
+        /// </summary>
+        /// <param name="parentId">Mã danh mục gốc</param>
+        /// <returns>Số lượng sản phẩm tương ứng</returns>
+        public static int GetCountProductByParentIdCategory(int parentId)
+        {
+            SqlCommand cmd = new SqlCommand("proc_count_product_by_category_parent_id");
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@parent_id", parentId);
+            DataTable dt = SqlDatabase.GetData(cmd);
+
+            return Convert.ToInt32(dt.Rows[0][0]);
         }
     }
 }

@@ -176,3 +176,22 @@ h1, h2, h3, h4, h5, h6 {
     background-color: green;
     color: #fff;
 }
+
+
+.empty {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    align-items: center;
+    min-height: 50vh;
+}
+
+    .empty > h4 {
+        font-size: 4rem;
+        color: #808080;
+        text-transform: uppercase;
+    }
+
+.hidden-e {
+    display: none !important;
+}

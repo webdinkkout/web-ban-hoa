@@ -154,5 +154,34 @@ namespace DAO
             return SqlDatabase.ExecuteNoneQuery(cmd);
         }
 
+
+        /// <summary>
+        /// Phương thức tìm kiếm sản phẩm theo tên
+        /// </summary>
+        /// <param name="result">Chuổi tìm kiếm</param>
+        /// <param name="numSort">Sử dụng số để dịnh dạng kiểu sắp xếp: 0 : "Sắp xếp theo giá tiềm giảm dần", 1: "Sắp xếp theo giá tiền tăng dần", 2:"Sắp xếp theo tên giảm dần", 3:"Sắp xếp theo tên tăng dần"</param>
+        /// <returns>Danh sách các sản phẩm tương ứng với kết quả tìm kiếm</returns>
+        public static DataTable SearchProducts(string result, int numSort = 0)
+        {
+            SqlCommand cmd = CreateCMD("proc_search");
+            cmd.Parameters.AddWithValue("@table_name", "Products");
+            cmd.Parameters.AddWithValue("@result", result);
+            cmd.Parameters.AddWithValue("@num_sort", numSort);
+            return SqlDatabase.GetData(cmd);
+        }
+
+
+        /// <summary>
+        /// Lấy tất cả sản phẩm theo 1 mãng mã danh mục được truyền vào
+        /// </summary>
+        /// <param name="categoryIds">chuổi mãng mã</param>
+        /// <returns>Danh sách sản phẩm tương ứng</returns>
+        public static DataTable GetAllProductByCategoryIds(string categoryIds)
+        {
+            SqlCommand cmd = CreateCMD("proc_get_products_by_array_category_id");
+            cmd.Parameters.AddWithValue("@category_ids", categoryIds);
+            return SqlDatabase.GetData(cmd);
+        }
+
     }
 }
