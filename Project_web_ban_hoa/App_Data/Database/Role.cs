@@ -29,6 +29,13 @@ namespace DAO
             SqlCommand cmd = CreateCMD("proc_get_all_roles");
             return SqlDatabase.GetData(cmd);
         }
+
+        public static DataTable GetRoleById(int id)
+        {
+            SqlCommand cmd = CreateCMD("proc_get_role_by_id");
+            cmd.Parameters.AddWithValue("@id", id);
+            return SqlDatabase.GetData(cmd);
+        }
     }
 
 }

@@ -54,20 +54,32 @@
     </div>
 
 
-    <asp:GridView Width="100%" CssClass="grv grv-border" runat="server" ID="grvUsers" AllowPaging="true" PageSize="10" CellPadding="4" ForeColor="#333333" GridLines="None" AutoGenerateColumns="false">
+    <asp:GridView OnRowCancelingEdit="grvUsers_RowCancelingEdit" OnRowUpdating="grvUsers_RowUpdating" OnRowEditing="grvUsers_RowEditing" OnRowDataBound="grvUsers_RowDataBound" OnDataBound="grvUsers_DataBound" OnRowDeleting="grvUsers_RowDeleting" Width="100%" DataKeyNames="id" CssClass="grv grv-border" runat="server" ID="grvUsers" AllowPaging="true" PageSize="10" CellPadding="4" ForeColor="#333333" GridLines="None" AutoGenerateColumns="false">
         <Columns>
-            <asp:BoundField HeaderText="Id" DataField="Id" ItemStyle-Width="30" />
-            <asp:ImageField HeaderText="Ảnh đại diện" DataImageUrlField="Avatar" ControlStyle-CssClass="grvImg"></asp:ImageField>
-            <asp:BoundField HeaderText="Họ và tên lót" DataField="First_Name" />
-            <asp:BoundField HeaderText="Tên" DataField="Last_Name" />
-            <asp:BoundField HeaderText="Địa chỉ" DataField="Address" />
-            <asp:BoundField HeaderText="Email" DataField="Email" />
+            <asp:BoundField HeaderText="Id" ReadOnly="true" DataField="Id" ItemStyle-Width="30" />
+            <asp:ImageField HeaderText="Ảnh đại diện" ReadOnly="true" DataImageUrlField="Avatar" ControlStyle-CssClass="grvImg"></asp:ImageField>
+            <asp:BoundField HeaderText="Họ và tên lót" ReadOnly="true" DataField="First_Name" />
+            <asp:BoundField HeaderText="Tên" DataField="Last_Name" ReadOnly="true" />
+            <asp:TemplateField HeaderText="Chức vụ">
+                <ItemTemplate>
+                    <asp:Label ID="lbMakh" runat="server" Text='<%# Eval("Role_id") %>'></asp:Label>
+                </ItemTemplate>
+                <EditItemTemplate>
+                    <asp:DropDownList ID="ddlRole" runat="server"></asp:DropDownList>
+                </EditItemTemplate>
+            </asp:TemplateField>
+            <asp:BoundField HeaderText="Địa chỉ" DataField="Address" ReadOnly="true" />
+            <asp:BoundField HeaderText="Email" DataField="Email" ReadOnly="true" />
 
             <asp:TemplateField ItemStyle-CssClass="wrapper-control-grv" HeaderText="Chức năng">
                 <ItemTemplate>
-                    <asp:Button Text="Sửa" CommandName="Edit" CssClass="btn btn-solid btn--green btn--min" runat="server" />
-                    <asp:Button Text="Xóa" CommandName="Delete" CssClass="btn btn-solid btn--red btn--min" runat="server" />
+                    <asp:Button ID="btnEdit" Text="Sửa" CommandName="Edit" CssClass="btn btn-solid btn--green btn--min" runat="server" />
+                    <asp:Button ID="DeleteButton" Text="Xóa" CommandName="Delete" CssClass="btn btn-solid btn--red btn--min" runat="server" OnClientClick="return sweetAlertConfirm(this,'Bạn chắc chắn muốn xóa?','Người dùng sẽ bị xóa vĩnh viễn');" />
                 </ItemTemplate>
+                <EditItemTemplate>
+                    <asp:Button ID="btnEdit" Text="Lưu" CommandName="Update" CssClass="btn btn-solid btn--green btn--min" runat="server" />
+                    <asp:Button ID="DeleteButton" Text="Thoát" CommandName="Cancel" CssClass="btn btn-solid btn--orange btn--min" runat="server" OnClientClick="return sweetAlertConfirm(this,'Bạn có chắc muốn thoát?','Bạn chưa lưu chỉnh sửa');" />
+                </EditItemTemplate>
             </asp:TemplateField>
         </Columns>
 
@@ -84,3 +96,30 @@
         <SortedDescendingHeaderStyle BackColor="#4870BE" />
     </asp:GridView>
 </div>
+
+<script>
+    function sweetAlertConfirm(btnDelete, title, text) {
+        if (btnDelete.dataset.confirmed) {
+            // The action was already confirmed by the user, proceed with server event
+            btnDelete.dataset.confirmed = false;
+            return true;
+        } else {
+            event.preventDefault();
+            swal.fire({
+                title: title,
+                text: text,
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ok'
+            }).then(function (result) {
+                if (result.value) {
+                    btnDelete.dataset.confirmed = true;
+                    btnDelete.click();
+                }
+            });
+        }
+    }
+
+</script>

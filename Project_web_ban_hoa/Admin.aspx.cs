@@ -61,5 +61,7 @@ namespace Project_web_ban_hoa
             Session.Remove("CURRENT_USER");
             Response.Redirect("~/Home.aspx");
         }
+
+
     }
 }

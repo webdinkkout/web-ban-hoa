@@ -423,16 +423,6 @@ BEGIN
 END
 GO
 
-CREATE PROC proc_swap_password
-@id INT,
-@old_password VARCHAR(255),
-@new_password VARCHAR(255)
-AS
-BEGIN
-		IF EXISTS (SELECT * FROM dbo.Users WHERE Password = @old_password AND Id = @id)
-				UPDATE dbo.Users SET Password = @new_password WHERE Id = @id
-END
-GO
 
 CREATE PROC proc_get_all_users
 as
@@ -449,7 +439,7 @@ begin
 end
 go
 
--- CHỨC NĂNG ADMIN
+--CHỨC NĂNG ADMIN
 CREATE PROC proc_delete_user_admin
 @id INT
 AS
@@ -503,33 +493,99 @@ go
 
 --CART
 create PROC proc_add_cart
-@user_id int,
-@product_id int,
-@quantity int = 1,
-@product_name nvarchar(255),
-@price decimal(12,2)
+	@user_id int,
+	@product_id int,
+	@quantity int = 1,
+	@price decimal(12,2)
 as
 begin
-	INSERT INTO carts (User_Id, Product_Id,Product_Name,Quantity,Price) values (@user_id,@product_id,@product_name,@quantity,@price)
+	IF EXISTS (SELECT * FROM carts WHERE User_Id = @user_id AND Product_Id = @product_id)
+	BEGIN
+		UPDATE Carts
+		SET Quantity = Quantity + @quantity, ToTal_Price = (Quantity + @quantity) * Price
+		WHERE User_Id = @user_id and Product_Id = @product_id;
+	END
+	ELSE
+	BEGIN
+		INSERT INTO Carts (User_Id,Product_Id,Quantity,Price,ToTal_Price) VALUES (@user_id,@product_id,@quantity,@price,@quantity * @price)
+	END
 end
 go
 
-Create PROC proc_get_cart_by_id_user
+
+CREATE PROC proc_get_cart_by_id_user
 @user_id int
 as
 begin
-	Select * from vw_user_carts where user_id = @user_id
+	SELECT c.Id,p.Id as 'Product_Id',p.Category_Id as 'Product_Category_Id',p.Name as 'Product_Name',p.Thumbnail as 'Product_Thumbnail',c.Price,c.ToTal_Price,c.Quantity from Carts c inner join Products p on p.id = c.Product_Id where c.User_Id = @user_id
 end
 go
 
-Create proc proc_delete_product_on_cart
+
+CREATE proc proc_remove_count_product
+@user_id INT,
+@product_id INT,
+@quantity INT
+AS
+BEGIN
+	IF EXISTS (SELECT * FROM carts WHERE user_id = @user_id AND product_id = @product_id)
+    BEGIN
+		DECLARE @current_quantity INT
+		SET @current_quantity = (SELECT quantity FROM carts WHERE user_id = @user_id AND product_id = @product_id)
+		IF @current_quantity > @quantity
+		BEGIN
+			UPDATE Carts
+			SET Quantity = Quantity - @quantity, ToTal_Price = (Quantity - @quantity) * Price
+			WHERE user_id = @user_id AND product_id = @product_id;
+		END
+		ELSE
+        BEGIN
+            DELETE FROM carts WHERE user_id = @user_id AND product_id = @product_id;
+        END
+	END
+END
+GO
+
+CREATE proc proc_delete_product_on_cart
 @user_id int,
 @product_id int
 as
 begin
-	delete from vw_user_carts where product_id = @product_id and User_id = @user_id
+	IF EXISTS (SELECT * FROM Carts WHERE User_Id = @user_id and Product_Id = @product_id)
+	BEGIN
+		DELETE FROM Carts WHERE User_Id = @user_id and Product_Id = @product_id
+	END
 end
 go
 
+CREATE proc proc_delete_cart
+@user_id int
+as
+begin
+	IF EXISTS (SELECT * FROM Carts WHERE User_Id = @user_id)
+	BEGIN
+		DELETE FROM Carts WHERE User_Id = @user_id
+	END
+end
+go
 
+create proc proc_get_role_by_id
+@id int
+as
+begin
+	select * from Roles where id = @id
+end
+go
 
+--ORDER
+create proc proc_add_order
+@VAT decimal(12,2),
+@user_id int,
+@product_id int,
+@status bit,
+@total_price decimal(12,2)
+as
+begin
+	insert into Orders (VAT, User_Id, Product_id, status, total_price)  values (@VAT,@user_id,@product_id,@status,@total_price)
+end
+go

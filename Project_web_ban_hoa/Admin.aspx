@@ -13,7 +13,7 @@
 
     <%-- Thêm CSS Library --%>
     <link href="Publics/Css/Library/Bootstrap/bootstrap-grid.min.css" rel="stylesheet" />
-
+    <link href="Publics/Css/Library/JqueryConfirm/sweetalert2.min.css" rel="stylesheet" />
     <%-- Thêm Font chữ  --%>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
@@ -22,7 +22,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
 
-    <script src="Publics/Js/Library/Jquery/jquery-3.6.4.min.js"></script>
 
 
     <%-- Css Main --%>
@@ -30,8 +29,10 @@
     <link href="Publics/Css/Admin.css" rel="stylesheet" />
 
     <%-- Library Javascript --%>
+    <script src="Publics/Js/Library/Jquery/jquery-3.6.4.min.js"></script>
     <script src="Publics/Js/Library/Chart/chart.js"></script>
     <script src="Publics/Js/Library/Toastify/toastify-js.js"></script>
+    <script src="Publics/Js/Library/JqueryConfirm/sweetalert2.all.min.js"></script>
 
 </head>
 <body>
@@ -75,12 +76,14 @@
                     </ul>
                 </div>
             </nav>
-
             <section class="admin-content">
                 <script src="Publics/Js/Admin.js"></script>
                 <uc1:AdminControl runat="server" ID="AdminControl" />
             </section>
         </div>
     </form>
+
+    <script>
+</script>
 </body>
 </html>

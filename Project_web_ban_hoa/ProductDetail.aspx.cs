@@ -87,7 +87,7 @@ namespace Project_web_ban_hoa
             }
 
             user = (UserModel)Session["CURRENT_USER"];
-            int n = DAO.Cart.AddCart(user.Id, productId, mProduct.Name, mProduct.CurrentPrice);
+            int n = DAO.Cart.AddCart(user.Id, productId, mProduct.CurrentPrice);
             if (n > 0)
             {
                 Response.Redirect("~/Cart.aspx");

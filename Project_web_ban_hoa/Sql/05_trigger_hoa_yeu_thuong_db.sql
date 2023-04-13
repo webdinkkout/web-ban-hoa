@@ -77,17 +77,3 @@ BEGIN
     END
 END
 GO
-
-
-Create TRIGGER trig_delete_product
-ON dbo.vw_user_carts
-INSTEAD OF DELETE
-AS
-BEGIN
-  DELETE FROM dbo.Carts WHERE EXISTS (
-    SELECT 1 FROM deleted d
-    WHERE d.Product_Id = dbo.Carts.Product_Id and d.User_id = dbo.Carts.User_id
-  );
-END
-go
-

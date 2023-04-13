@@ -77,5 +77,26 @@ namespace DAO
             cmd.Parameters.AddWithValue("@role_id", roleId);
             return SqlDatabase.GetData(cmd);
         }
+
+
+        /// <summary>
+        /// xóa người dùng
+        /// </summary>
+        /// <param name="id"> mã người dùng</param>
+        /// <returns> số người dùng bị xóa</returns>
+        public static int DeleteUser(int id)
+        {
+            SqlCommand cmd = CreateCMD("proc_delete_user_admin");
+            cmd.Parameters.AddWithValue("@id", id);
+            return SqlDatabase.ExecuteNoneQuery(cmd);
+        }
+
+        public static int UpdateRoleUserAdmin(int id, int roleId)
+        {
+            SqlCommand cmd = CreateCMD("proc_update_user_admin");
+            cmd.Parameters.AddWithValue("@id", id);
+            cmd.Parameters.AddWithValue("@role_id", roleId);
+            return SqlDatabase.ExecuteNoneQuery(cmd);
+        }
     }
 }

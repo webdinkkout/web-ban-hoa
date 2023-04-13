@@ -81,6 +81,8 @@
     <Content Include="Publics\Css\CategoryDetail.css" />
     <Content Include="Publics\Css\Library\Bootstrap\bootstrap-grid.min.css" />
     <Content Include="Publics\Css\Library\FontAwesome\all.min.css" />
+    <Content Include="Publics\Css\Library\JqueryConfirm\jquery-confirm.min.css" />
+    <Content Include="Publics\Css\Library\JqueryConfirm\sweetalert2.min.css" />
     <Content Include="Publics\Css\Library\OwlCarousel2\owl.carousel.min.css" />
     <Content Include="Publics\Css\Library\OwlCarousel2\owl.theme.default.min.css" />
     <Content Include="Publics\Css\Search.css" />
@@ -125,6 +127,8 @@
     <Content Include="Publics\Images\Home\img-home\logo-6.png" />
     <Content Include="Publics\Js\CategoryDetail.js" />
     <Content Include="Publics\Js\Library\Chart\chart.js" />
+    <Content Include="Publics\Js\Library\JqueryConfirm\jquery-confirm.min.js" />
+    <Content Include="Publics\Js\Library\JqueryConfirm\sweetalert2.all.min.js" />
     <Content Include="Publics\Js\Library\Jquery\jquery-3.6.4.min.js" />
     <Content Include="Publics\Js\Library\OwlCarousel2\owl.carousel.min.js" />
     <Content Include="NotFound.aspx" />
@@ -190,6 +194,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Data\Database\Auth.cs" />
+    <Compile Include="App_Data\Database\Order.cs" />
     <Compile Include="App_Data\Database\Cart.cs" />
     <Compile Include="Cart.aspx.cs">
       <DependentUpon>Cart.aspx</DependentUpon>

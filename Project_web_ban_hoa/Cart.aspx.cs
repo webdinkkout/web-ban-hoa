@@ -12,6 +12,7 @@ namespace Project_web_ban_hoa
     public partial class Cart : System.Web.UI.Page
     {
         UserModel user = new UserModel();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["ISLOGIN"] == null)
@@ -47,29 +48,77 @@ namespace Project_web_ban_hoa
 
         protected void rptCarts_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
+
             switch (e.CommandName)
             {
                 case "increaseQuantity":
                     {
                         ProductModel product = InsertValueToModel(Convert.ToInt32(e.CommandArgument));
 
-                        int n = DAO.Cart.AddCart(user.Id, product.Id, product.Name, product.CurrentPrice);
+
+                        int n = DAO.Cart.AddCart(user.Id, product.Id, product.CurrentPrice);
                         if (n > 0)
                         {
                             Response.Redirect("~/cart.aspx");
-                        }
-                        else
-                        {
-
                         }
                         break;
                     }
                 case "decreaseQuantity":
                     {
+                        ProductModel product = InsertValueToModel(Convert.ToInt32(e.CommandArgument));
+                        int n = DAO.Cart.RemoveCountProduct(user.Id, product.Id);
+                        if (n > 0)
+                        {
+                            Response.Redirect("~/cart.aspx");
+                        }
+                        break;
+                    }
+                case "deleteProduct":
+                    {
+                        ProductModel product = InsertValueToModel(Convert.ToInt32(e.CommandArgument));
+                        int n = DAO.Cart.DeleteProductOnCart(user.Id, product.Id);
+                        if (n > 0)
+                        {
+                            Response.Redirect("~/cart.aspx");
+                        }
                         break;
                     }
                 default:
                     break;
+            }
+
+
+
+        }
+
+        protected double GetToTalPrice()
+        {
+            DataTable t = DAO.Cart.GetCarts(user.Id);
+            double totalPrice = 0;
+            for (int i = 0; i < t.Rows.Count; i++)
+            {
+                totalPrice += Convert.ToDouble(t.Rows[i]["Total_Price"]);
+            }
+
+            return totalPrice;
+        }
+
+        protected double GetVAT()
+        {
+            return GetToTalPrice() * 0.1;
+        }
+
+        protected double GetUtilPrice()
+        {
+            return GetToTalPrice() + GetVAT();
+        }
+
+        protected void btnBuy_Click(object sender, EventArgs e)
+        {
+            int n = DAO.Cart.DeleteCarts(user.Id);
+            if (n > 0)
+            {
+                Response.Redirect("~/Cart.aspx");
             }
         }
     }
