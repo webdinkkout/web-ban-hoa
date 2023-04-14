@@ -15,9 +15,9 @@ namespace Project_web_ban_hoa
             if (!Page.IsPostBack)
             {
 
-                rptCaterogies.DataSource = DAO.Category.GetAllCategories();
+                rptCaterogies.DataSource = DAO.Category.GetAllCategories(1, 1, 7);
                 rptCaterogies.DataBind();
-                rptTitles.DataSource = DAO.Category.GetAllCategories();
+                rptTitles.DataSource = DAO.Category.GetAllCategories(1, 1, 7);
                 rptTitles.DataBind();
             }
 
@@ -45,8 +45,6 @@ namespace Project_web_ban_hoa
         {
             return DAO.Product.GetProductWithCategoryId(categoryId);
         }
-
-
     }
 }
 

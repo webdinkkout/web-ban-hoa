@@ -39,7 +39,7 @@ namespace Project_web_ban_hoa.Private.Admin.Product.Update
                 txtQuantity.Text = productModel.Quantity.ToString().Replace(",00", "");
 
 
-                ddlCategories.DataSource = DAO.Category.GetAllCategories();
+                ddlCategories.DataSource = DAO.Category.GetAllCategories(1, 1, 90);
                 ddlCategories.DataTextField = "Name";
                 ddlCategories.DataValueField = "Id";
                 ddlCategories.DataBind();

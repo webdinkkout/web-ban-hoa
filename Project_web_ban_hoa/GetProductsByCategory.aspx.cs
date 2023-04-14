@@ -23,7 +23,7 @@ namespace Project_web_ban_hoa
                 }
 
                 // Lấy danh sách sản phẩm mới dựa trên các checkbox đã chọn
-                DataTable products = DAO.Product.SortProductsByCategoryId(categoryIds, numSort);
+                DataTable products = DAO.Product.SortProductsByCategoryId(categoryIds, numSort, 1, 90);
 
                 // Thiết lập dữ liệu sản phẩm mới vào Repeater
                 rptProducts.DataSource = products;

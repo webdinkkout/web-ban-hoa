@@ -23,14 +23,14 @@ namespace Project_web_ban_hoa.Private.Admin.Category.View
             if (!Page.IsPostBack)
             {
                 int level = 0;
-                ddlCategories.DataSource = DAO.Category.GetCategoriesByLevel(level);
+                ddlCategories.DataSource = DAO.Category.GetCategoriesByLevel(level, 1, 90);
                 ddlCategories.DataTextField = "Name";
                 ddlCategories.DataValueField = "Id";
                 ddlCategories.DataBind();
                 ddlCategories.Items.Insert(0, new ListItem("Tất cả", "0"));
             }
 
-            DataTable categoriesTable = DAO.Category.GetCategoriesByLevel();
+            DataTable categoriesTable = DAO.Category.GetCategoriesByLevel(1, 1, 16);
 
             rptViewCategories.DataSource = categoriesTable;
             rptViewCategories.DataBind();
@@ -93,15 +93,13 @@ namespace Project_web_ban_hoa.Private.Admin.Category.View
             int categoryId = Convert.ToInt32(ddlCategories.SelectedValue);
             if (categoryId <= 0)
             {
-                rptViewCategories.DataSource = DAO.Category.GetCategoriesByLevel();
+                rptViewCategories.DataSource = DAO.Category.GetCategoriesByLevel(1, 1, 90);
                 rptViewCategories.DataBind();
             }
             else
             {
-                rptViewCategories.DataSource = DAO.Category.GetCategoryByParentIdAndLevel(categoryId);
+                rptViewCategories.DataSource = DAO.Category.GetCategoryByParentIdAndLevel(categoryId, 1, 1, 90);
                 rptViewCategories.DataBind();
-                IList dataSource = ((IListSource)rptViewCategories.DataSource)?.GetList();
-
             }
         }
     }

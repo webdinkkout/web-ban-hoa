@@ -20,7 +20,6 @@ namespace Project_web_ban_hoa
             if (Request.QueryString["ci"] != null)
             {
                 categoryId = Convert.ToInt32(Request.QueryString["ci"]);
-                DataTable products = DAO.Product.GetProductWithCategoryId(categoryId);
             }
             if (Request.QueryString["pi"] != null)
             {
@@ -33,7 +32,7 @@ namespace Project_web_ban_hoa
         [WebMethod]
         public static string SearchByPrice(int minPrice, int maxPrice, string categoryIds)
         {
-            DataTable product = DAO.Product.SearchByMinMaxPrice(minPrice, maxPrice, categoryIds);
+            DataTable product = DAO.Product.SearchByMinMaxPrice(minPrice, maxPrice, categoryIds, 1, 90);
             string json = JsonConvert.SerializeObject(product, Formatting.None);
             return json;
         }

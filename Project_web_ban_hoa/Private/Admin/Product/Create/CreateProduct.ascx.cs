@@ -18,7 +18,7 @@ namespace Project_web_ban_hoa.Private.Admin.Product.Create
         {
             if (!Page.IsPostBack)
             {
-                DataTable categoriesTable = DAO.Category.GetAllCategories();
+                DataTable categoriesTable = DAO.Category.GetAllCategories(1, 1, 90);
                 foreach (DataRow categoryRow in categoriesTable.Rows)
                 {
                     ListItem listItem = new ListItem

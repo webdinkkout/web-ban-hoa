@@ -16,7 +16,7 @@ namespace Project_web_ban_hoa.Layout
         {
             if (!Page.IsPostBack)
             {
-                rptCategoriesNav.DataSource = DAO.Category.GetAllCategories(1, 9, 0);
+                rptCategoriesNav.DataSource = DAO.Category.GetAllCategories(0);
 
                 rptCategoriesNav.DataBind();
 

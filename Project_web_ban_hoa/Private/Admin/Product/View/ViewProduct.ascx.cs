@@ -22,11 +22,11 @@ namespace Project_web_ban_hoa.Private.Admin.Product.View
         [Obsolete]
         protected void Page_Load(object sender, EventArgs e)
         {
-            BindingProductList(DAO.Product.GetAllProdcts(), rptViewProduct);
+            BindingProductList(DAO.Product.GetAllProdcts(1, 16), rptViewProduct);
 
             if (!Page.IsPostBack)
             {
-                DataTable categoriesTable = DAO.Category.GetAllCategories();
+                DataTable categoriesTable = DAO.Category.GetAllCategories(1, 1, 90);
 
                 foreach (DataRow categoryRow in categoriesTable.Rows)
                 {
@@ -58,12 +58,12 @@ namespace Project_web_ban_hoa.Private.Admin.Product.View
             int idCategory = Convert.ToInt32(ddlCategory.SelectedValue);
             if (idCategory <= 0)
             {
-                BindingProductList(DAO.Product.GetAllProdcts(), rptViewProduct);
+                BindingProductList(DAO.Product.GetAllProdcts(1, 16), rptViewProduct);
                 lbl404.Text = "";
             }
             else
             {
-                BindingProductList(DAO.Product.GetProductWithCategoryId(idCategory), rptViewProduct);
+                BindingProductList(DAO.Product.GetProductWithCategoryId(idCategory, 1, 16), rptViewProduct);
                 IList dataSource = ((IListSource)rptViewProduct.DataSource)?.GetList();
                 if (dataSource.Count <= 0)
                 {

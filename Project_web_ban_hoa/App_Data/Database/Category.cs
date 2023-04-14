@@ -28,7 +28,7 @@ namespace DAO
         /// Phương thức lấy tất cả dữ liệu categories
         /// </summary>
         /// <returns>Tất cả các danh mục</returns>
-        public static DataTable GetAllCategories(int pageNumber = 1, int pageSize = 10, int level = 1)
+        public static DataTable GetAllCategories(int level = 1, int pageNumber = 1, int pageSize = 10)
         {
             SqlCommand cmd = new SqlCommand("proc_pagination_category");
             cmd.CommandType = CommandType.StoredProcedure;
@@ -103,11 +103,13 @@ namespace DAO
         /// </summary>
         /// <param name="level">Level của danh mục</param>
         /// <returns>Danh sách các danh mục có level tương ứng</returns>
-        public static DataTable GetCategoriesByLevel(int level = 1)
+        public static DataTable GetCategoriesByLevel(int level = 1, int pageNumber = 1, int pageSize = 10)
         {
             SqlCommand cmd = new SqlCommand("proc_get_categories_by_level");
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@level", level);
+            cmd.Parameters.AddWithValue("@page_number", pageNumber);
+            cmd.Parameters.AddWithValue("@page_size", pageSize);
             return SqlDatabase.GetData(cmd);
         }
 
@@ -117,12 +119,14 @@ namespace DAO
         /// <param name="parrentId">Mã danh mục cha</param>
         /// <param name="level">Level</param>
         /// <returns>Danh sách các danh mục có mã danh mục cha và level tương ứng</returns>
-        public static DataTable GetCategoryByParentIdAndLevel(int parrentId, int level = 1)
+        public static DataTable GetCategoryByParentIdAndLevel(int parrentId, int level = 1, int pageNumber = 1, int pageSize = 10)
         {
             SqlCommand cmd = new SqlCommand("proc_get_category_by_parent_id_and_level");
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@parent_id", parrentId);
             cmd.Parameters.AddWithValue("@level", level);
+            cmd.Parameters.AddWithValue("@page_number", pageNumber);
+            cmd.Parameters.AddWithValue("@page_size", pageSize);
             return SqlDatabase.GetData(cmd);
         }
 
