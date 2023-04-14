@@ -15,21 +15,21 @@ namespace Project_web_ban_hoa
     {
 
         /// <summary>
-        /// btnDelete control.
+        /// rptCarts control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnDelete;
+        protected global::System.Web.UI.WebControls.Repeater rptCarts;
 
         /// <summary>
-        /// Button1 control.
+        /// btnBuy control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Button btnBuy;
     }
 }

@@ -14,18 +14,23 @@ namespace Project_web_ban_hoa
         int productId;
 
         ProductModel mProduct = new ProductModel();
+        UserModel user = new UserModel();
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Request.QueryString["product-id"] != null)
             {
                 productId = Convert.ToInt32(Request.QueryString["product-id"]);
+                int categoryId = 0;
+                if (Request.QueryString["ci"] != null)
+                    categoryId = Convert.ToInt32(Request.QueryString["ci"]);
                 InsertValueToModel(productId);
-                string a = GetCurrentPrice().ToString();
+
+                rptReletionShips.DataSource = DAO.Product.GetProductReletionShips(categoryId, productId);
+                rptReletionShips.DataBind();
             }
-
-
         }
+
 
 
         protected string GetNameProduct()
@@ -65,7 +70,7 @@ namespace Project_web_ban_hoa
             mProduct.SeoName = dProducts.Rows[0]["Seo_Name"].ToString();
             mProduct.Thumbnail = dProducts.Rows[0]["Thumbnail"].ToString();
             mProduct.OldPrice = dProducts.Rows[0]["Old_Price"] as decimal?;
-            mProduct.CurrentPrice = dProducts.Rows[0]["Current_Price"] as decimal?;
+            mProduct.CurrentPrice = Convert.ToDecimal(dProducts.Rows[0]["Current_Price"]);
             mProduct.Quantity = dProducts.Rows[0]["Quantity"] as int?;
             mProduct.Sold = dProducts.Rows[0]["Sold"] as int?;
             mProduct.CategoryId = dProducts.Rows[0]["Category_Id"] as int?;
@@ -75,7 +80,18 @@ namespace Project_web_ban_hoa
 
         protected void btnBuy_Click(object sender, EventArgs e)
         {
+            if (Session["CURRENT_USER"] == null)
+            {
+                Session.Add("CURRENT_URL", Request.Url);
+                Response.Redirect("~/Login.aspx");
+            }
 
+            user = (UserModel)Session["CURRENT_USER"];
+            int n = DAO.Cart.AddCart(user.Id, productId, mProduct.CurrentPrice);
+            if (n > 0)
+            {
+                Response.Redirect("~/Cart.aspx");
+            }
         }
     }
 }

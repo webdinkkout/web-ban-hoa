@@ -54,7 +54,51 @@ namespace Project_web_ban_hoa.Models.Component
             }
         }
 
+        public static UserModel ConvertDataTableToUser(DataTable objUser)
+        {
+            UserModel user = objUser.AsEnumerable().Select(row => new UserModel
+            {
+                Id = Convert.ToInt32(row["Id"].ToString()),
+                FirstName = row["First_Name"].ToString(),
+                LastName = row["Last_Name"].ToString(),
+                Email = row["Email"].ToString(),
+                Password = row["Password"].ToString(),
+                RoleId = Convert.ToInt32(row["Role_Id"].ToString()),
+                Avatar = row["Avatar"].ToString(),
+                Address = row["Address"].ToString(),
+                CreatedAt = Convert.ToDateTime(row["Created_At"].ToString()),
+                UpdatedAt = Convert.ToDateTime(row["Updated_At"].ToString())
+            }).FirstOrDefault();
 
+            return user;
+        }
+        public static ProductModel ConvertDataTableToProduct(DataTable objProduct)
+        {
+            ProductModel product = objProduct.AsEnumerable().Select(row => new ProductModel
+            {
+                Id = Convert.ToInt32(row["Id"].ToString()),
+                Name = row["Name"].ToString(),
+                SeoName = row["Seo_Name"].ToString(),
+                Desc = row["Description"].ToString(),
+                ViewCount = row["View_Count"] as int?,
+                OldPrice = row["Old_Price"] as decimal?,
+                CurrentPrice = Convert.ToDecimal(row["Current_Price"]),
+                Quantity = row["Quantity"] as int?,
+                Sold = row["Sold"] as int?,
+                Thumbnail = row["Thumbnail"].ToString(),
+                CategoryId = Convert.ToInt32(row["Category_Id"]),
+            }).FirstOrDefault();
 
+            return product;
+        }
+
+        public static string GetTimestamp()
+        {
+            DateTime currentTime = DateTime.UtcNow;
+            DateTime unixEpoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+            TimeSpan elapsedTime = currentTime.Subtract(unixEpoch);
+            long timestamp = (long)elapsedTime.TotalSeconds;
+            return timestamp.ToString().Replace(",", ""); // loại bỏ dấu phẩy
+        }
     }
 }

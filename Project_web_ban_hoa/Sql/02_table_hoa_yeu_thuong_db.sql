@@ -9,6 +9,14 @@ CREATE TABLE Roles (
 );
 GO
 
+CREATE TABLE SLIDE (
+	Id INT IDENTITY(1,1) PRIMARY KEY,
+	Thumbnail NVARCHAR(255) NOT NULL,
+	  Created_At datetime2 DEFAULT(getdate()) NOT NULL,
+  Updated_At datetime2 DEFAULT(getdate()) NOT NULL,
+)
+GO
+
 CREATE TABLE Users (
   Id INT PRIMARY KEY IDENTITY(1,1),
   First_Name NVARCHAR(50) NOT NULL,
@@ -54,37 +62,6 @@ CREATE TABLE Products (
 );
 GO
 
-
-CREATE TABLE Payment_Methods(
-	Id INT IDENTITY(1,1) PRIMARY KEY,
-	Name NVARCHAR(255) NOT NULL UNIQUE,
-)
-GO
-
-
-CREATE TABLE Orders (
-  Id INT PRIMARY KEY IDENTITY(1,1),
-  User_Id INT REFERENCES Users(Id) NOT NULL,
-  Delivery_Date DATETIME2 NOT NULL,
-  Order_Date DATETIME2 NOT NULL DEFAULT GETDATE(),
-  Payment_Method_Id INT REFERENCES Payment_Methods(Id) NOT NULL,
-  Created_At datetime2 DEFAULT(getdate()) NOT NULL,
-  Updated_At datetime2 DEFAULT(getdate()) NOT NULL
-);
-GO
-
-CREATE TABLE Order_Details (
-  Id INT PRIMARY KEY IDENTITY(1,1),
-  Order_Id INT REFERENCES Orders(Id) NOT NULL,
-  Product_Id INT REFERENCES Products(Id) NOT NULL,
-  Total_Price DECIMAL(12, 2) DEFAULT(0) NOT NULL,
-  Quantity INT NOT NULL DEFAULT 0,
-  Created_At datetime2 DEFAULT(getdate()) NOT NULL,
-  Updated_At datetime2 DEFAULT(getdate()) NOT NULL,
-  UNIQUE (Order_Id, Product_Id)
-);
-GO
-
 CREATE TABLE Carts (
 	Id INT PRIMARY KEY IDENTITY(1,1),
 	User_Id INT REFERENCES Users(Id) NOT NULL,
@@ -92,5 +69,29 @@ CREATE TABLE Carts (
 	Quantity INT,
 	Price DECIMAL(12,2) DEFAULT(0) NOT NULL,
 	ToTal_Price DECIMAL(12,2) DEFAULT(0) NOT NULL,
+	Created_At datetime2 DEFAULT(getdate()) NOT NULL,
+	Updated_At datetime2 DEFAULT(getdate()) NOT NULL,
 );
+GO
+
+
+CREATE TABLE Orders (
+	Id INT PRIMARY KEY IDENTITY(1,1),
+	VAT DECIMAL(12,2),
+	User_Id INT REFERENCES Users(Id) NOT NULL,
+	Status BIT DEFAULT(0),
+	Total_Price DECIMAL(12,2) DEFAULT(0) NOT NULL,
+	Created_At DATETIME2 DEFAULT(GETDATE()) NOT NULL,
+	Updated_At DATETIME2 DEFAULT(GETDATE()) NOT NULL
+)
+GO
+
+
+CREATE TABLE OrdersDeTails (
+	Id INT PRIMARY KEY IDENTITY(1,1),
+	User_Id INT REFERENCES Users(Id) NOT NULL,
+	Cart_Id INT REFERENCES carts(id) not null,
+	Created_At DATETIME2 DEFAULT(GETDATE()) NOT NULL,
+	Updated_At DATETIME2 DEFAULT(GETDATE()) NOT NULL
+)
 GO

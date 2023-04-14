@@ -16,13 +16,13 @@ namespace Project_web_ban_hoa.Layout
         {
             if (!Page.IsPostBack)
             {
-                rptCategoriesNav.DataSource = DAO.Category.GetAllCategories(1, 9, 0);
+                rptCategoriesNav.DataSource = DAO.Category.GetAllCategories(0);
 
                 rptCategoriesNav.DataBind();
 
                 if (Session["ISLOGIN"] != null && Session["CURRENT_USER"] != null)
                 {
-                    user = ConvertSessionToUser("CURRENT_USER");
+                    user = (UserModel)Session["CURRENT_USER"];
 
                     imbAvatar.ImageUrl = IsAvatar() ? GetAvatar() : "../Publics/Images/Home/img-header/icon-user.png";
                     imbAvatar.AlternateText = GetFullName();
@@ -80,24 +80,6 @@ namespace Project_web_ban_hoa.Layout
             Session.Remove("ISLOGIN");
             Session.Remove("CURRENT_USER");
             Response.Redirect("~/Home.aspx");
-        }
-
-        private UserModel ConvertSessionToUser(string sessionStr)
-        {
-            UserModel user = ((DataTable)Session[sessionStr]).AsEnumerable().Select(row => new UserModel
-            {
-                Id = Convert.ToInt32(row["Id"].ToString()),
-                FirstName = row["First_Name"].ToString(),
-                LastName = row["Last_Name"].ToString(),
-                Email = row["Email"].ToString(),
-                Password = row["Password"].ToString(),
-                Avatar = row["Avatar"].ToString(),
-                RoleId = Convert.ToInt32(row["Role_Id"].ToString()),
-                CreatedAt = Convert.ToDateTime(row["Created_At"].ToString()),
-                UpdatedAt = Convert.ToDateTime(row["Updated_At"].ToString())
-            }).FirstOrDefault();
-
-            return user;
         }
 
         protected void imbAvatar_Click(object sender, ImageClickEventArgs e)

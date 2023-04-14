@@ -17,7 +17,7 @@ namespace Project_web_ban_hoa
 
         protected DataTable GetProductID(int id)
         {
-            return DAO.Product.GetProductWithCategoryId(id);
+            return DAO.Product.GetProductWithCategoryId(id, 1, 8);
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -27,10 +27,10 @@ namespace Project_web_ban_hoa
                 if (Request.QueryString["pi"] != null)
                     parentId = Convert.ToInt32(Request.QueryString["pi"]);
 
-                rptCategories.DataSource = DAO.Category.GetCategoryByParentIdAndLevel(parentId);
+                rptCategories.DataSource = DAO.Category.GetCategoryByParentIdAndLevel(parentId, 1, 1, 90); // Có phân trang
                 rptCategories.DataBind();
 
-                rptMenuSubCategories.DataSource = DAO.Category.GetCategoryByParentIdAndLevel(parentId);
+                rptMenuSubCategories.DataSource = DAO.Category.GetCategoryByParentIdAndLevel(parentId, 1, 1, 90);
                 rptMenuSubCategories.DataBind();
 
                 categories = DAO.Category.GetOneCategory(parentId);

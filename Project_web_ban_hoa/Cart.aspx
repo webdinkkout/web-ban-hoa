@@ -6,46 +6,38 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <section id="cart">
         <div class="container">
+            <% if (rptCarts.Items.Count > 0)
+                { %>
             <div class="row">
                 <div class="col-lg-9">
                     <div class="list-product">
-                        <div class="list-product__item">
-                            <asp:Button Text="x" ID="btnDelete" CssClass="list-product__delete" runat="server" />
-                            <div class="list-product__left">
-                                <img src="Publics/Images/DefaultImg/no-image.jpg" alt="Alternate Text" />
-                            </div>
-                            <div class="list-product__right">
-                                <a href="#" class="list-product__title">Product 1</a>
-                                <h4 class="list-product__price">900.000 đ</h4>
-                                <div class="list-product__controls">
-                                    <button class="list-product__control list-product__control--min"><i class="fa fa-minus"></i></button>
-                                    <input type="text" value="1" class="list-product__control list-product__control--count" />
-                                    <button class="list-product__control list-product__control--plus"><i class="fa fa-plus"></i></button>
+                        <asp:Repeater ID="rptCarts" runat="server" OnItemCommand="rptCarts_ItemCommand">
+                            <ItemTemplate>
+                                <div class="list-product__item">
+                                    <asp:Button Text="x" ID="btnDelete" CssClass="list-product__delete" CommandArgument='<%# Eval("Product_Id") %>' CommandName="deleteProduct" runat="server" />
+                                    <div class="list-product__left">
+                                        <img src='<%# Eval("Product_Thumbnail") %>' alt="" />
+                                    </div>
+                                    <div class="list-product__right">
+                                        <a href='ProductDetail.aspx?product-id=<%# Eval("Product_Id") %>&ci=<%# Eval("product_category_id") %>' class="list-product__title"><%# Eval("Product_Name") %></a>
+                                        <h4 class="list-product__price"><%# Eval("Price","{0:#,##0} đ") %></h4>
+                                        <div class="list-product__controls">
+                                            <asp:Button Text="-" runat="server" CssClass="list-product__control " ID="btnAddCart" CommandName="decreaseQuantity" CommandArgument='<%# Eval("Product_Id") %>' />
+                                            <asp:TextBox runat="server" CssClass="list-product__control list-product__control--count" ID="txtQuantity" ReadOnly="true" Text='<%# Eval("Quantity") %>' />
+                                            <asp:Button Text="+" runat="server" CssClass="list-product__control " ID="btnRemove" CommandName="increaseQuantity" CommandArgument='<%# Eval("Product_Id") %>' />
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="list-product__item">
-                            <asp:Button Text="x" ID="Button1" CssClass="list-product__delete" runat="server" />
-                            <div class="list-product__left">
-                                <img src="Publics/Images/DefaultImg/no-image.jpg" alt="Alternate Text" />
-                            </div>
-                            <div class="list-product__right">
-                                <a href="#" class="list-product__title">Product 1</a>
-                                <h4 class="list-product__price">900.000 đ</h4>
-                                <div class="list-product__controls">
-                                    <button class="list-product__control list-product__control--min"><i class="fa fa-minus"></i></button>
-                                    <input type="text" value="1" class="list-product__control list-product__control--count" />
-                                    <button class="list-product__control list-product__control--plus"><i class="fa fa-plus"></i></button>
-                                </div>
-                            </div>
-                        </div>
+                            </ItemTemplate>
+                        </asp:Repeater>
                     </div>
                 </div>
+
                 <div class="col-lg-3">
                     <div class="cart-total">
                         <div class="cart-total__field">
                             <p>Tạm tính:</p>
-                            <span>772.700 đ</span>
+                            <span><%= string.Format("{0:#,##0} đ",GetToTalPrice()) %> </span>
                         </div>
                         <div class="cart-total__field">
                             <p>Phụ phí:</p>
@@ -57,17 +49,31 @@
                         </div>
                         <div class="cart-total__field">
                             <p>Hóa đơn VAT:</p>
-                            <span>77.200 đ</span>
+                            <span><%= string.Format("{0:#,##0} đ",GetVAT()) %> </span>
                         </div>
                         <div class="cart-total__field cart-total__field--sp-top">
                             <p>Tổng cộng:</p>
-                            <span>800.000 đ</span>
+                            <span><%= string.Format("{0:#,##0} đ",GetUtilPrice()) %> </span>
                         </div>
 
-                        <asp:Button Text="Đặt Hàng" CssClass="btn btn-solid btn--red" runat="server" />
+                        <asp:Button Text="Đặt Hàng" CssClass="btn btn-solid btn--red" ID="btnBuy" OnClick="btnBuy_Click" runat="server" />
                     </div>
                 </div>
             </div>
+            <% }
+                else
+                { %>
+            <div style="min-height: 200px; width: 100%; display: flex; justify-content: center; align-items: center; text-align: center;">
+                <h1>
+                    <p style="color: #333" class="m-4">Không có sản phẩm nào</p>
+                    <a href="Home.aspx" style="color: #ff6a00">Xem sản phẩm</a>
+                </h1>
+            </div>
+            <%} %>
         </div>
     </section>
+    <script>
+
+</script>
 </asp:Content>
+

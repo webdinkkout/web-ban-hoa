@@ -47,7 +47,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (min-width: 992px) {
-    .col-lg-4, .col-lg-3, .col-lg-2-5 {
+    .col-lg-4, .col-lg-3, .col-lg-2-5, .col-lg-8 {
         margin: 7.5px 0;
     }
 }
@@ -67,6 +67,7 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 1.8rem;
     font-weight: 600;
     color: var(--primary-color);
+    user-select: none;
 }
 
 .form-gr__control {
@@ -142,6 +143,7 @@ h1, h2, h3, h4, h5, h6 {
     cursor: pointer;
     padding: 8px 16px;
     min-width: 200px;
+    border: 3px solid;
 }
 
     .btn:active {
@@ -149,27 +151,45 @@ h1, h2, h3, h4, h5, h6 {
     }
 
     .btn.btn-solid {
-        background-color: currentColor;
-        color: #fff;
-        border: 3px solid;
+        color: #fff !important;
     }
 
     .btn.btn-regular {
-        border: 3px solid;
         border-color: currentColor;
+        background-color: transparent !important;
     }
 
     .btn.btn--red {
         background-color: red;
         border-color: red;
+        color: red;
+    }
+
+    .btn.btn--min {
+        min-width: 50px;
+    }
+
+    .btn.btn--thin {
+        border-width: 1px !important;
+        font-weight: 500 !important;
     }
 
     .btn.btn--orange {
+        border-color: orange;
+        background-color: orange;
         color: orange;
     }
 
     .btn.btn--green {
+        background-color: green;
+        border-color: green;
         color: green;
+    }
+
+    .btn.btn--blue {
+        background-color: dodgerblue;
+        border-color: dodgerblue;
+        color: dodgerblue;
     }
 
 .btn-solid.btn--green {

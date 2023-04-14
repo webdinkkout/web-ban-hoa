@@ -37,7 +37,7 @@
                     <asp:Repeater runat="server" ID="rptCategories">
                         <ItemTemplate>
                             <h2>
-                                <%# GetProductID(Convert.ToInt32(Eval("id"))).Rows.Count > 0 ? $"<a href='#news'>{Eval("Name")}</a>" : ""%>
+                                <%# GetProductID(Convert.ToInt32(Eval("id"))).Rows.Count > 0 ? $"<a href='#'>{Eval("Name")}</a>" : ""%>
                             </h2>
 
                             <div class="row">
@@ -46,7 +46,7 @@
                                         <div class="col-lg-3">
                                             <div class="content-wrapper-card-product">
                                                 <div class="content-wrapper-card-product-card-product-top">
-                                                    <a href='ProductDetail.aspx?product-id=<%# Eval("id") %>'>
+                                                    <a href='ProductDetail.aspx?product-id=<%# Eval("id") %>&ci=<%# Eval("category_id") %>'>
                                                         <img src='<%# Eval("Thumbnail") %>' />
                                                     </a>
                                                 </div>

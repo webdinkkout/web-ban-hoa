@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Project_web_ban_hoa.Models;
+using Project_web_ban_hoa.Models.Component;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -38,7 +40,8 @@ namespace Project_web_ban_hoa
                 if (isPasswordCorrect)
                 {
                     Session["ISLOGIN"] = "isLoagined";
-                    Session["CURRENT_USER"] = user;
+                    Session["CURRENT_USER"] = Components.ConvertDataTableToUser(user);
+
 
                     Session["showToastDuration"] = 3000;
                     Session["showToastPosition"] = "right";

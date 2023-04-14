@@ -73,6 +73,11 @@
     cursor: pointer;
 }
 
+
 .search-inner-side-bar__control {
+    cursor: pointer;
+}
+
+.search-inner-side-bar__control-item > label {
     cursor: pointer;
 }

@@ -1,11 +1,14 @@
 ﻿USE hoa_yeu_thuong_db
 GO
-
 -- CHUNG
-Create PROC proc_search
+
+--Có phân trang
+CREATE PROC proc_search
 @table_name VARCHAR(50),
 @result NVARCHAR(255),
-@num_sort Int = 999
+@num_sort Int = 999,
+@page_number INT = 1,
+@page_size INT = 10
 AS
 BEGIN
 	declare @sort varchar(50)
@@ -27,17 +30,74 @@ BEGIN
 	end	
 	else 
 	begin
-		set	 @sort = ''
+		set	 @sort = 'ORDER BY Created_At desc'
 	end
 
 	DECLARE @sql NVARCHAR(MAX)
-		SET @sql = 'Select * from ' + QUOTENAME(@table_name) + ' WHERE Name LIKE N''%' + @result + '%'' ' + @sort
+	DECLARE @offset INT
+
+		SET @offset = (@page_number - 1) * @page_size
+		SET @sql = 'SELECT * FROM ' + QUOTENAME(@table_name) + ' WHERE Name LIKE N''%' + @result + '%'' ' + @sort + ' OFFSET ' + CAST(@offset AS NVARCHAR) + ' ROWS FETCH NEXT ' + CAST(@page_size AS NVARCHAR) + ' ROWS ONLY;'
 		EXEC sp_executesql @sql
-END
+END 
 GO	
 
+--Có phân trang
+CREATE PROC proc_sort_by_category_id
+@table_name VARCHAR(50),
+@category_ids varchar(max) = '',
+@num_sort Int = 999,
+@page_number int = 1,
+@page_size int = 10
+AS
+BEGIN
+	declare @sort varchar(50)
+	If (@num_sort = 0)
+	begin
+		SET @sort = 'ORDER BY current_price DESC' --giá từ cao tới thấp
+	end
+	else if(@num_sort = 1)
+	begin
+		SET @sort = 'ORDER BY current_price'
+	end	
+	else if(@num_sort = 2)
+	begin
+		SET @sort = 'ORDER BY Name DESC'
+	end	
+	else if(@num_sort = 3)
+	begin
+		SET @sort = 'ORDER BY Name'
+	end	
+	else 
+	begin
+		set	 @sort = 'ORDER BY created_at desc'
+	end
+
+	DECLARE @sql NVARCHAR(MAX)
+	DECLARE @params NVARCHAR(MAX)
+	DECLARE @offset INT
+	DECLARE @fetch INT
+
+	SET @offset = (@page_number - 1) * @page_size
+	SET @fetch = @page_size
+
+		IF @category_ids = ''
+		BEGIN
+			SET @Sql = 'SELECT * FROM ' + QUOTENAME(@table_name) + ' ' + @sort + ' OFFSET @offset ROWS FETCH NEXT @fetch ROWS ONLY;'
+		END
+		ELSE
+		BEGIN
+			SET @Sql = 'SELECT * FROM ' + QUOTENAME(@table_name) + ' WHERE Category_Id IN (' + @category_ids + ') ' + @sort + ' OFFSET @offset ROWS FETCH NEXT @fetch ROWS ONLY;'
+		END
+
+		SET @params = N'@offset INT, @fetch INT';
+		EXECUTE sp_executesql @Sql, @params, @offset = @offset, @fetch = @fetch;
+END 
+GO	
 
 --PROC CATEGORIES
+
+--Có phân trang
 CREATE PROCEDURE proc_pagination_category
 @page_number INT,
 @page_size INT,
@@ -62,7 +122,7 @@ begin
 end
 go
 
-Create PROC proc_insert_category_level_1 -- Thêm danh mục
+Create PROC proc_insert_category_level_1 
 	@name nvarchar(50),
 	@seo_name varchar(50),
 	@thumbnail nvarchar(255),
@@ -76,7 +136,7 @@ BEGIN
 END
 GO
 
-CREATE PROC proc_update_category -- Cập nhật danh mục
+CREATE PROC proc_update_category 
 	@id int,
 	@name nvarchar(50) = null,
 	@seo_name varchar(50) = null,
@@ -96,7 +156,7 @@ BEGIN
 END
 GO
 
-CREATE PROC proc_get_one_category --Lấy 1 danh mục với mã danh mục
+CREATE PROC proc_get_one_category 
 	@id int
 AS
 BEGIN
@@ -107,25 +167,49 @@ BEGIN
 END
 GO
 
-CREATE PROC proc_get_categories_by_level
-@level INT
+--Có phân trang
+Create PROC proc_get_categories_by_level
+@level INT,
+@page_number INT = 1,
+@page_size INT = 10
 AS
 BEGIN
-	SELECT * FROM Categories WHERE Level = @level ORDER BY Created_At desc
+	DECLARE @offset INT = (@page_number - 1) * @page_size
+
+		SELECT *
+		FROM (
+		SELECT ROW_NUMBER() OVER (ORDER BY Created_At DESC) AS row_num, *
+		FROM Categories
+		WHERE Level = @level
+		) AS t
+		WHERE t.row_num > @offset AND t.row_num <= (@offset + @page_size)
+		ORDER BY t.Created_At DESC
 END
 GO
 
+--Có phân trang
 CREATE PROC proc_get_category_by_parent_id_and_level
 @parent_id INT,
-@level INT = 1
+@level INT = 1,
+@page_number INT = 1,
+@page_size INT = 10
 AS
 BEGIN
-	SELECT * FROM Categories WHERE Parent_Id = @parent_id and Level = @level
+	DECLARE @offset INT = (@page_number - 1) * @page_size
+
+		SELECT *
+		FROM (
+		SELECT ROW_NUMBER() OVER (ORDER BY Created_At DESC) AS row_num, *
+		FROM Categories
+		WHERE Parent_Id = @parent_id AND Level = @level
+		) AS t
+		WHERE t.row_num > @offset AND t.row_num <= (@offset + @page_size)
+		ORDER BY t.Created_At DESC
 END
 GO
 
 
-CREATE PROC proc_delete_category -- Xóa danh mục bằng mã danh mục
+CREATE PROC proc_delete_category 
 	@id int
 AS
 BEGIN
@@ -134,8 +218,9 @@ BEGIN
 END
 GO
 
-
 --PROC PRODUCTS
+
+--Có phân trang
 CREATE PROCEDURE proc_pagination_product
 @page_number INT,
 @page_size INT
@@ -150,38 +235,47 @@ BEGIN
 END
 GO
 
-Create PROCEDURE proc_get_products_by_array_category_id
-    @category_ids nvarchar(max) = NULL
+--Có phân trang
+CREATE PROCEDURE proc_get_products_by_array_category_id
+@category_ids nvarchar(max) = NULL,
+@page_number INT = 1,
+@page_size INT = 10
 AS
 BEGIN
     DECLARE @Sql nvarchar(max);
+	DECLARE @Offset INT = (@Page_Number - 1) * @Page_Size;
 
-    IF @category_ids = ''
-    BEGIN
-        SET @Sql = 'SELECT * FROM Products';
-    END
-    ELSE
-    BEGIN
-        SET @Sql = 'SELECT * FROM Products WHERE Category_Id IN (' + @category_ids + ')';
-    END
+		IF @category_ids = ''
+		BEGIN
+			SET @Sql = 'SELECT * FROM Products ORDER BY Created_At DESC';
+		END
+		ELSE
+		BEGIN
+			SET @Sql = 'SELECT * FROM Products WHERE Category_Id IN (' + @category_ids + ') ORDER BY Created_At DESC';
+		END
 
-    EXECUTE sp_executesql @Sql;
+		SET @Sql += ' OFFSET ' + CAST(@Offset AS NVARCHAR(10)) + ' ROWS FETCH NEXT ' + CAST(@Page_Size AS NVARCHAR(10)) + ' ROWS ONLY';
+
+		EXECUTE sp_executesql @Sql;
 END
 go
 
-
-
-CREATE PROC proc_get_one_product_by_id
-	@id int
-as
-begin
-	select *
-	from dbo.Products
-	where Id = @id
-    UPDATE dbo.Products SET View_Count = View_Count + 1 WHERE Id = @id
-end
+--Có phân Trang
+CREATE PROC proc_get_reletionship_pruduct
+@category_id INT,
+@id INT,
+@page_number INT = 1,
+@page_size INT = 10
+AS
+BEGIN
+    SELECT * FROM (
+        SELECT ROW_NUMBER() OVER (ORDER BY Updated_at DESC) AS RowNum, *
+        FROM Products
+        WHERE Category_Id = @category_id AND Id != @id
+    ) AS ProductsWithRowNumbers
+    WHERE RowNum >= (@page_number - 1) * @page_size + 1 AND RowNum <= @page_number * @page_size
+END
 GO
-
 
 CREATE PROC proc_get_one_product_by_seo_name
 	@seo_name VARCHAR(50)
@@ -194,6 +288,17 @@ begin
 end
 go
 
+CREATE PROC proc_get_one_product_by_id
+@id int
+as
+begin
+select *
+	from dbo.Products
+	where Id= @id
+    UPDATE dbo.Products SET View_Count = View_Count + 1 WHERE id= @id
+end
+go
+
 CREATE proc proc_delete_product
 	@id int
 as
@@ -203,14 +308,19 @@ BEGIN
 end
 GO
 
+--Có phân trang
 CREATE PROC proc_get_products_with_category_id
-	@category_id int
+@category_id int,
+@page_number int = 1,
+@page_size int = 10
 AS
 BEGIN
-	select *
-	from dbo.Products
-	where Category_Id = @category_id
-	order by Created_at desc
+select *
+from dbo.Products
+where Category_Id = @category_id
+order by Created_at desc
+OFFSET (@page_number - 1) * @page_size ROWS
+FETCH NEXT @page_size ROWS ONLY
 END
 GO  
 
@@ -285,6 +395,31 @@ BEGIN
 END
 GO	
 
+--Có phân trang
+CREATE PROC proc_search_product_by_min_max_price
+@min int,
+@max int,
+@category_ids nvarchar(max) = '',
+@page_number int = 1,
+@page_size int = 10
+AS
+BEGIN
+	DECLARE @Sql nvarchar(max);
+    DECLARE @Offset int = (@page_number - 1) * @page_size;
+
+    IF @category_ids = ''
+    BEGIN
+        SET @Sql = 'SELECT * FROM Products WHERE Current_Price >= ' + CAST(@min as varchar(20)) + ' AND Current_Price <= ' + CAST(@max as varchar(20)) + ' ORDER BY Id OFFSET ' + CAST(@Offset as varchar(20)) + ' ROWS FETCH NEXT ' + CAST(@page_size as varchar(20)) + ' ROWS ONLY;';
+    END
+    ELSE
+    BEGIN
+        SET @Sql = 'SELECT * FROM Products WHERE Category_Id IN (' + @category_ids + ') AND Current_Price >= ' + CAST(@min as varchar(20)) + ' AND Current_Price <= ' + CAST(@max as varchar(20)) + ' ORDER BY Id OFFSET ' + CAST(@Offset as varchar(20)) + ' ROWS FETCH NEXT ' + CAST(@page_size as varchar(20)) + ' ROWS ONLY;';
+    END
+
+    EXECUTE sp_executesql @Sql;
+END
+GO
+
 -- NGƯỜI DÙNG
 CREATE PROC proc_get_user
 @gmail VARCHAR(255)
@@ -293,6 +428,14 @@ BEGIN
 	SELECT * FROM Users WHERE Email= @gmail
 END
 GO
+
+CREATE PROC proc_get_one_user_by_id
+@id int
+as
+begin
+	select * from Users where id = @id
+end
+go
 
 CREATE PROC proc_register
 @first_name NVARCHAR(50),
@@ -343,20 +486,21 @@ BEGIN
 END
 GO
 
-CREATE PROC proc_swap_password
-@id INT,
-@old_password VARCHAR(255),
-@new_password VARCHAR(255)
-AS
-BEGIN
-		IF EXISTS (SELECT * FROM dbo.Users WHERE Password = @old_password AND Id = @id)
-				UPDATE dbo.Users SET Password = @new_password WHERE Id = @id
-END
-GO
+CREATE PROC proc_get_all_users
+as
+begin
+	select * from Users
+end
+go
 
-
-
--- CHỨC NĂNG ADMIN
+CREATE PROC proc_get_users_by_role_id
+@role_id int
+as
+begin
+	select * from Users where Role_Id = @role_id
+end
+go
+--CHỨC NĂNG ADMIN
 CREATE PROC proc_delete_user_admin
 @id INT
 AS
@@ -366,12 +510,13 @@ BEGIN
 END
 GO	
 
-CREATE PROC proc_update_user_admin
+create PROC proc_update_user_admin
 @id INT,
 @first_name NVARCHAR(50) = NULL,
 @last_name NVARCHAR(50) = NULL,
 @email VARCHAR(255) = NULL,
-@password VARCHAR(255) = NULL,
+@avatar Nvarchar(255) = null,
+@address nvarchar(255) = null,
 @role_id INT = NULL
 AS
 BEGIN
@@ -381,8 +526,9 @@ BEGIN
 				First_Name = ISNULL(@first_name, First_Name),
 				Last_Name = ISNULL(@last_name, Last_Name),
 				Email = ISNULL(@email, Email),
-				Password = ISNULL(@password, Password),
 				Role_Id = ISNULL(@role_id, Role_Id),
+				Avatar = ISNULL(@avatar, Avatar),
+				Address = ISNULL(@address,Address),
 				updated_at = GETDATE()
 			WHERE Id = @id
 END
@@ -394,3 +540,108 @@ AS
 BEGIN
     SELECT * FROM dbo.Products WHERE Id = @id
 END
+GO
+--ROLES
+
+CREATE PROC proc_get_all_roles
+as
+begin
+	select * from Roles
+end
+go
+
+--CART
+create PROC proc_add_cart
+	@user_id int,
+	@product_id int,
+	@quantity int = 1,
+	@price decimal(12,2)
+as
+begin
+	IF EXISTS (SELECT * FROM carts WHERE User_Id = @user_id AND Product_Id = @product_id)
+	BEGIN
+		UPDATE Carts
+		SET Quantity = Quantity + @quantity, ToTal_Price = (Quantity + @quantity) * Price
+		WHERE User_Id = @user_id and Product_Id = @product_id;
+	END
+	ELSE
+	BEGIN
+		INSERT INTO Carts (User_Id,Product_Id,Quantity,Price,ToTal_Price) VALUES (@user_id,@product_id,@quantity,@price,@quantity * @price)
+	END
+end
+go
+
+--Có phân trang
+CREATE PROC proc_get_cart_by_id_user
+@user_id int,
+@page_number int = 1,
+@page_size int = 10
+AS
+BEGIN
+	SELECT c.Id, p.Id AS 'Product_Id', p.Category_Id AS 'Product_Category_Id',
+	p.Name AS 'Product_Name', p.Thumbnail AS 'Product_Thumbnail',
+	c.Price, c.ToTal_Price, c.Quantity
+	FROM Carts c
+	INNER JOIN Products p ON p.id = c.Product_Id
+	WHERE c.User_Id = @user_id
+	ORDER BY c.Id
+	OFFSET (@page_number - 1) * @page_size ROWS
+	FETCH NEXT @page_size ROWS ONLY;
+END
+GO
+
+CREATE proc proc_remove_count_product
+@user_id INT,
+@product_id INT,
+@quantity INT
+AS
+BEGIN
+	IF EXISTS (SELECT * FROM carts WHERE user_id = @user_id AND product_id = @product_id)
+    BEGIN
+		DECLARE @current_quantity INT
+		SET @current_quantity = (SELECT quantity FROM carts WHERE user_id = @user_id AND product_id = @product_id)
+		IF @current_quantity > @quantity
+		BEGIN
+			UPDATE Carts
+			SET Quantity = Quantity - @quantity, ToTal_Price = (Quantity - @quantity) * Price
+			WHERE user_id = @user_id AND product_id = @product_id;
+		END
+		ELSE
+        BEGIN
+            DELETE FROM carts WHERE user_id = @user_id AND product_id = @product_id;
+        END
+	END
+END
+GO
+
+CREATE proc proc_delete_product_on_cart
+@user_id int,
+@product_id int
+as
+begin
+	IF EXISTS (SELECT * FROM Carts WHERE User_Id = @user_id and Product_Id = @product_id)
+	BEGIN
+		DELETE FROM Carts WHERE User_Id = @user_id and Product_Id = @product_id
+	END
+end
+go
+
+CREATE proc proc_delete_cart
+@user_id int
+as
+begin
+	IF EXISTS (SELECT * FROM Carts WHERE User_Id = @user_id)
+	BEGIN
+		DELETE FROM Carts WHERE User_Id = @user_id
+	END
+end
+go
+
+create proc proc_get_role_by_id
+@id int
+as
+begin
+	select * from Roles where id = @id
+end
+go
+

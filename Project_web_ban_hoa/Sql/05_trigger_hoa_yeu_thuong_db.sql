@@ -1,4 +1,4 @@
-USE hoa_yeu_thuong_db
+﻿USE hoa_yeu_thuong_db
 GO
 
 CREATE TRIGGER trig_add_id_in_seo_name_category

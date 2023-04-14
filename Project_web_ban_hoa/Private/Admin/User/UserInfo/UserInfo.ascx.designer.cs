@@ -15,6 +15,24 @@ namespace Project_web_ban_hoa.Private.Admin.User.UserInfo
     {
 
         /// <summary>
+        /// fulAvatar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload fulAvatar;
+
+        /// <summary>
+        /// ddlRoles control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlRoles;
+
+        /// <summary>
         /// txtFirstName control.
         /// </summary>
         /// <remarks>

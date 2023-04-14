@@ -1,0 +1,12 @@
+﻿
+.wrapper-control-price {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+    .wrapper-control-price input {
+        width: 50%;
+        padding: 5px 10px;
+        outline: none;
+    }

@@ -49,6 +49,9 @@
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DataVisualization" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -72,10 +75,14 @@
     <Content Include="CategoriesDetail.aspx" />
     <Content Include="GetProductsByCategory.aspx" />
     <Content Include="Private\Admin\User\UserInfo\UserInfo.ascx" />
+    <Content Include="Private\Admin\User\View\ViewUser.ascx" />
     <Content Include="Product.aspx" />
     <Content Include="Publics\Css\Cart.css" />
+    <Content Include="Publics\Css\CategoryDetail.css" />
     <Content Include="Publics\Css\Library\Bootstrap\bootstrap-grid.min.css" />
     <Content Include="Publics\Css\Library\FontAwesome\all.min.css" />
+    <Content Include="Publics\Css\Library\JqueryConfirm\jquery-confirm.min.css" />
+    <Content Include="Publics\Css\Library\JqueryConfirm\sweetalert2.min.css" />
     <Content Include="Publics\Css\Library\OwlCarousel2\owl.carousel.min.css" />
     <Content Include="Publics\Css\Library\OwlCarousel2\owl.theme.default.min.css" />
     <Content Include="Publics\Css\Search.css" />
@@ -118,7 +125,10 @@
     <Content Include="Publics\Images\Home\img-home\logo-4.png" />
     <Content Include="Publics\Images\Home\img-home\logo-5.png" />
     <Content Include="Publics\Images\Home\img-home\logo-6.png" />
+    <Content Include="Publics\Js\CategoryDetail.js" />
     <Content Include="Publics\Js\Library\Chart\chart.js" />
+    <Content Include="Publics\Js\Library\JqueryConfirm\jquery-confirm.min.js" />
+    <Content Include="Publics\Js\Library\JqueryConfirm\sweetalert2.all.min.js" />
     <Content Include="Publics\Js\Library\Jquery\jquery-3.6.4.min.js" />
     <Content Include="Publics\Js\Library\OwlCarousel2\owl.carousel.min.js" />
     <Content Include="NotFound.aspx" />
@@ -159,27 +169,24 @@
     <Content Include="Publics\Js\Library\Bootstrap\bootstrap.bundle.min.js" />
     <Content Include="Publics\Js\Library\Toastify\toastify-js.js" />
     <Content Include="Publics\Js\Main.js" />
-    <Content Include="Publics\Uploads\Category\11610_sound-of-love.jpg" />
-    <Content Include="Publics\Uploads\Category\img_4507.jpg" />
-    <Content Include="Publics\Uploads\Category\img_4547.jpg" />
-    <Content Include="Publics\Uploads\Category\k-gion.png" />
-    <Content Include="Publics\Uploads\Category\screenshot-2023-03-24-014507.png" />
-    <Content Include="Publics\Uploads\Category\tai-đep-zai.jpg" />
-    <Content Include="Publics\Uploads\Product\9.jpg" />
-    <Content Include="Publics\Uploads\Product\bt4.jpg" />
-    <Content Include="Publics\Uploads\Product\tai-xuong.jfif" />
+    <Content Include="Publics\Uploads\Users\tai-đep-zai.jpg" />
     <Content Include="Register.aspx" />
     <Content Include="Search.aspx" />
     <Content Include="Sql\01_create_database_hoa_yeu_thuong.sql" />
     <Content Include="Sql\02_table_hoa_yeu_thuong_db.sql" />
     <Content Include="Sql\03_proc_hoa_yeu_thuong_db.sql" />
     <Content Include="Sql\04_trigger_hoa_yeu_thuong_db.sql" />
+    <Content Include="Sql\04_view_hoa_yeu_thuong_db.sql" />
     <Content Include="Sql\05_seed_hoa_yeu_thuong_db.sql" />
+    <Content Include="Sql\05_trigger_hoa_yeu_thuong_db.sql" />
+    <Content Include="Sql\06_seed_hoa_yeu_thuong_db.sql" />
     <Content Include="UserInfo.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Data\Database\Auth.cs" />
+    <Compile Include="App_Data\Database\Order.cs" />
+    <Compile Include="App_Data\Database\Cart.cs" />
     <Compile Include="Cart.aspx.cs">
       <DependentUpon>Cart.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -201,6 +208,7 @@
     <Compile Include="GetProductsByCategory.aspx.designer.cs">
       <DependentUpon>GetProductsByCategory.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Models\CartModel.cs" />
     <Compile Include="NotFound.aspx.cs">
       <DependentUpon>NotFound.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -336,6 +344,13 @@
     <Compile Include="Private\Admin\User\UserInfo\UserInfo.ascx.designer.cs">
       <DependentUpon>UserInfo.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Private\Admin\User\View\ViewUser.ascx.cs">
+      <DependentUpon>ViewUser.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Private\Admin\User\View\ViewUser.ascx.designer.cs">
+      <DependentUpon>ViewUser.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Product.aspx.cs">
       <DependentUpon>Product.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -385,6 +400,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include=".githooks\" />
+    <Folder Include="Ajax\" />
+    <Folder Include="Private\Admin\Order\" />
+    <Folder Include="Private\Admin\Role\" />
+    <Folder Include="Private\Admin\Slide\" />
+    <Folder Include="Publics\Uploads\Category\" />
+    <Folder Include="Publics\Uploads\Product\" />
     <Folder Include="Ultils\" />
   </ItemGroup>
   <PropertyGroup>

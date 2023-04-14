@@ -40,9 +40,11 @@ namespace DAO
         /// </summary>
         /// <param name="categoryId">Mã danh mục</param>
         /// <returns>tất cả sản phẩm thuộc mã danh mục</returns>
-        public static DataTable GetProductWithCategoryId(int categoryId)
+        public static DataTable GetProductWithCategoryId(int categoryId, int pageNumber = 1, int pageSize = 10)
         {
             SqlCommand cmd = CreateCMD("proc_get_products_with_category_id");
+            cmd.Parameters.AddWithValue("@page_number", pageNumber);
+            cmd.Parameters.AddWithValue("@page_size", pageSize);
             cmd.Parameters.AddWithValue("@category_id", categoryId);
             return SqlDatabase.GetData(cmd);
         }
@@ -137,7 +139,7 @@ namespace DAO
         /// <param name="thumbnail">Ảnh đại diện sản phẩm</param>
         /// <param name="categoryId">Id danh mục mà sản phẩm thuộc về</param>
         /// <returns></returns>
-        public static int UpdateProduct(int productId, string name, string seoName, string desc, int? viewCount, double? oldPrice, double? currentPrice, int? quantity, int? sold, string thumbnail, int? categoryId)
+        public static int UpdateProduct(int productId, string name, string seoName, string desc, int? viewCount, decimal? oldPrice, decimal? currentPrice, int? quantity, int? sold, string thumbnail, int? categoryId)
         {
             SqlCommand cmd = CreateCMD("proc_update_produt");
             cmd.Parameters.AddWithValue("@id", productId);
@@ -183,5 +185,55 @@ namespace DAO
             return SqlDatabase.GetData(cmd);
         }
 
+
+        /// <summary>
+        /// Lấy tất cả sản phẩm thuộc danh mục có sắp xếp
+        /// </summary>
+        /// <param name="categoryIds">Danh sách mã sản phẩm</param>
+        /// <param name="numSort">Sử dụng số để dịnh dạng kiểu sắp xếp: 0 : "Sắp xếp theo giá tiềm giảm dần", 1: "Sắp xếp theo giá tiền tăng dần", 2:"Sắp xếp theo tên giảm dần", 3:"Sắp xếp theo tên tăng dần"</param>
+        /// <returns>Danh sách đã được sắp xếp</returns>
+        public static DataTable SortProductsByCategoryId(string categoryIds, int numSort, int pageNumber = 1, int pageSize = 10)
+        {
+            SqlCommand cmd = CreateCMD("proc_sort_by_category_id");
+            cmd.Parameters.AddWithValue("@table_name", "products");
+            cmd.Parameters.AddWithValue("@category_ids", categoryIds);
+            cmd.Parameters.AddWithValue("@num_sort", numSort);
+            cmd.Parameters.AddWithValue("@page_number", pageNumber);
+            cmd.Parameters.AddWithValue("@page_size", pageSize);
+            return SqlDatabase.GetData(cmd);
+        }
+
+
+        /// <summary>
+        /// Lấy các sản phẩm liên quan dựa trên mã danh mục
+        /// </summary>
+        /// <param name="categoryId">Mã danh mục</param>
+        /// <param name="id">Mã sản phẩm(Để loại trừ)</param>
+        /// <returns>Danh sách các sản phẩm tương ứng trừ sản phẩm đang hiện hành</returns>
+        public static DataTable GetProductReletionShips(int categoryId, int id)
+        {
+            SqlCommand cmd = CreateCMD("proc_get_reletionship_pruduct");
+            cmd.Parameters.AddWithValue("@category_id", categoryId);
+            cmd.Parameters.AddWithValue("@id", id);
+            return SqlDatabase.GetData(cmd);
+        }
+
+
+        /// <summary>
+        /// Lấy các sản phẩm dựng trên giá được truyền vào
+        /// </summary>
+        /// <param name="min">Giá thấp nhất</param>
+        /// <param name="max">Giá cao nhất</param>
+        /// <returns>Danh sách các sản phẩm tương ứng</returns>
+        public static DataTable SearchByMinMaxPrice(int min, int max, string categoryIds, int pageNumber = 1, int pageSize = 10)
+        {
+            SqlCommand cmd = CreateCMD("proc_search_product_by_min_max_price");
+            cmd.Parameters.AddWithValue("@min", min);
+            cmd.Parameters.AddWithValue("@max", max);
+            cmd.Parameters.AddWithValue("@page_number", pageNumber);
+            cmd.Parameters.AddWithValue("@page_size", pageSize);
+            cmd.Parameters.AddWithValue("@category_ids", categoryIds);
+            return SqlDatabase.GetData(cmd);
+        }
     }
 }

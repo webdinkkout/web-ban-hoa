@@ -14,6 +14,7 @@
 
 .header-menu {
     background: #ebebeb;
+    box-shadow: 0 2px 5px #0000001a;
 }
 
 .header-menu-ctls-ctl {
@@ -83,6 +84,9 @@
     justify-content: space-between;
 }
 
+.header-search-contact-search {
+    margin-bottom: 12px;
+}
 
 
 .header-search-contact-search__search {
@@ -239,11 +243,22 @@
     margin-bottom: 50px;
 }
 
+    .home-product-flower.green.home-product-flower::after {
+        background-color: #28a745ad;
+    }
+
+    .home-product-flower.pink.home-product-flower::after {
+        background-color: #ffe6dd;
+    }
+
+    .home-product-flower.orage.home-product-flower::after {
+        background-color: #e16900a8;
+    }
+
     .home-product-flower::after {
         position: absolute;
         content: '';
         inset: -10px;
-        background-color: #ffe6dd;
         z-index: -1;
     }
 
@@ -262,6 +277,7 @@
     border: 1px solid #cdcdcd;
     width: 100%;
     overflow: hidden;
+    display: block;
     height: 303px;
 }
 

@@ -13,10 +13,13 @@
 
     <link rel="Shortcut Icon" href="../Publics/Images/Home/favicon.ico" type="image/x-icon" />
 
+
     <%-- Thêm CSS Labrary --%>
     <link href="../Publics/Css/Library/Bootstrap/bootstrap-grid.min.css" rel="stylesheet" />
     <link href="../Publics/Css/Library/FontAwesome/all.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link href="../Publics/Css/Library/JqueryConfirm/sweetalert2.min.css" rel="stylesheet" />
+
 
     <%-- Thêm Font Chữ --%>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,6 +32,8 @@
     <link href="../Publics/Css/Home.css" rel="stylesheet" />
 
     <script src="../Publics/Js/Library/Jquery/jquery-3.6.4.min.js"></script>
+    <script src="../Publics/Js/Library/JqueryConfirm/sweetalert2.all.min.js"></script>
+
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -81,7 +86,8 @@
 
                 <div class="header-search">
                     <div class="header-search-logo">
-                        <img src="../Publics/Images/Home/img-header/logohyt-hd.png" alt="Alternate Text" />
+                        <a href="/">
+                            <img src="../Publics/Images/Home/img-header/logohyt-hd.png" alt="Alternate Text" /></a>
                     </div>
 
                     <div class="header-search-contact">

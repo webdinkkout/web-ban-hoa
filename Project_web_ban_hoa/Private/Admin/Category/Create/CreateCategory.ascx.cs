@@ -36,7 +36,7 @@ namespace Project_web_ban_hoa.Private.Admin.Category.Create
                 if (file.ContentType.ToLower().StartsWith("image/"))
                 {
                     string fileName = Path.GetFileName(file.FileName).Replace(" ", "-");
-                    string saveFileName = Components.ConvertToUnSign(fileName);
+                    string saveFileName = Components.GetTimestamp() + "_" + Components.ConvertToUnSign(fileName);
                     string savePath = Server.MapPath("~/Publics/Uploads/Category/" + saveFileName);
 
                     string name = txtName.Text;

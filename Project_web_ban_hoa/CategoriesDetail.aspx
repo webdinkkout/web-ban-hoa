@@ -3,13 +3,12 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="Publics/Css/Topic.css" rel="stylesheet" />
     <link href="Publics/Css/Search.css" rel="stylesheet" />
+    <link href="Publics/Css/CategoryDetail.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <section id="categories-detail">
         <div class="container">
             <div class="categories-detail-inner">
-
-
                 <div class="row">
                     <div class="col-lg-3">
                         <div class="search-inner-side-bar">
@@ -18,22 +17,31 @@
                                 <asp:Repeater ID="rptCheckedCategory" runat="server">
                                     <ItemTemplate>
                                         <div class='search-inner-side-bar__control-item'>
-                                            <input type="checkbox" value='<%# Convert.ToInt32(Eval("Id")) %>' <%# Convert.ToInt32(Eval("Id")) == Convert.ToInt32(Request.QueryString["ci"]) ? "checked" : "" %> onchange="onCategoryCheckboxChanged(this)" />
-                                            <p><%# Eval("name") %></p>
+                                            <input id='<%# Eval("Id","filed-{0}") %>' type="checkbox" value='<%# Convert.ToInt32(Eval("Id")) %>' <%# Convert.ToInt32(Eval("Id")) == Convert.ToInt32(Request.QueryString["ci"]) ? "checked" : "" %> onchange="onCategoryCheckboxChanged(this)" />
+                                            <label for='<%# Eval("Id","filed-{0}") %>'><%# Eval("name") %></label>
                                         </div>
                                     </ItemTemplate>
                                 </asp:Repeater>
-
+                            </div>
+                            <asp:Label Text="Tìm kiếm theo giá" CssClass="search-inner-side-bar__title mt-4" runat="server" />
+                            <div class="search-inner-side-bar__controls">
+                                <div class="wrapper-control-price">
+                                    <input type="text" hidden name="id" id="txtId" value='0' />
+                                    <input type="text" id="txtMin" name="min" placeholder="Min" value="" />
+                                    <span>-</span>
+                                    <input type="text" id="txtMax" name="max" placeholder="Max" value="" />
+                                </div>
+                                <a href="#" id="btnSearchPrice" class="btn btn-regular btn--blue btn--thin">Tìm kiếm</a>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-9">
                         <div class="search-inner-controls">
-                            <a href="#" class="search-inner-controls__control search-inner-controls__control--active">Mặc định</a>
-                            <a href="#" class="search-inner-controls__control">Giá từ cao tới thấp</a>
-                            <a href="#" class="search-inner-controls__control">Giá từ thấp tới cao</a>
-                            <a href="#" class="search-inner-controls__control">Tên a - z</a>
-                            <a href="#" class="search-inner-controls__control">Tên z - a</a>
+                            <a data-ns="999" id="sort-default" href="#" class="search-inner-controls__control search-inner-controls__control--active">Mặc định</a>
+                            <a data-ns="0" id="sort-price-desc" href="#" class="search-inner-controls__control">Giá từ cao tới thấp</a>
+                            <a data-ns="1" id="sort-price" href="#" class="search-inner-controls__control">Giá từ thấp tới cao</a>
+                            <a data-ns="2" id="sort-name-desc" href="#" class="search-inner-controls__control">Tên a - z</a>
+                            <a data-ns="3" id="sort-name" href="#" class="search-inner-controls__control">Tên z - a</a>
                         </div>
                         <div class="search-inner-products">
                             <div class="row" id="ajaxProducts">
@@ -45,60 +53,5 @@
         </div>
     </section>
 
-    <script>
-        var selectedCategories = [];
-
-        $(document).ready(function () {
-            $("input[type=checkbox]").each(function () {
-                if (this.checked) {
-                    selectedCategories.push(this.value);
-                }
-            });
-
-            // Gọi Ajax với các giá trị category được lưu trữ trong mảng selectedCategories
-            var url = "/GetProductsByCategory.aspx?categoryIds=" + selectedCategories.join(",");
-            console.log(url);
-            $.ajax({
-                url: url,
-                type: "GET",
-                success: function (data) {
-                    $("#ajaxProducts").html(data);
-                },
-                error: function () {
-                    alert("Lỗi khi tải sản phẩm!");
-                }
-            });
-        });
-
-        function onCategoryCheckboxChanged(checkbox) {
-            var categoryId = checkbox.value;
-            var isChecked = checkbox.checked;
-            if (isChecked) {
-                // Thêm giá trị category mới vào mảng selectedCategories
-                selectedCategories.push(categoryId);
-            } else {
-                // Xóa giá trị category khỏi mảng selectedCategories
-                var index = selectedCategories.indexOf(categoryId);
-                if (index > -1) {
-                    selectedCategories.splice(index, 1);
-                }
-            }
-
-            console.log(selectedCategories);
-            // Gọi Ajax với các giá trị category được lưu trữ trong mảng selectedCategories
-            var url = "/GetProductsByCategory.aspx?categoryIds=" + selectedCategories.join(",");
-            console.log(url);
-            $.ajax({
-                url: url,
-                type: "GET",
-                success: function (data) {
-                    $("#ajaxProducts").html(data);
-                },
-                error: function () {
-                    alert("Lỗi khi tải sản phẩm!");
-                }
-            });
-        }
-
-    </script>
+    <script src="Publics/Js/CategoryDetail.js"></script>
 </asp:Content>
