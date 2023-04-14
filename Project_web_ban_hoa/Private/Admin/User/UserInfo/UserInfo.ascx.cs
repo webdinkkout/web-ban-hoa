@@ -61,7 +61,7 @@ namespace Project_web_ban_hoa.Private.Admin.User.UserInfo
 
                     //Add avatar mới
                     string fileName = Path.GetFileName(file.FileName).Replace(" ", "-");
-                    string saveFileName = Components.ConvertToUnSign(fileName);
+                    string saveFileName = Components.GetTimestamp() + "_" + Components.ConvertToUnSign(fileName);
                     string savePath = Server.MapPath("~/Publics/Uploads/Users/" + saveFileName);
                     thumbnail = ConfigurationManager.AppSettings["UrlEnv"] + $"/Publics/Uploads/Users/{saveFileName}";
                     file.SaveAs(savePath);

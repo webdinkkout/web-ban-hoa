@@ -91,5 +91,14 @@ namespace Project_web_ban_hoa.Models.Component
 
             return product;
         }
+
+        public static string GetTimestamp()
+        {
+            DateTime currentTime = DateTime.UtcNow;
+            DateTime unixEpoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+            TimeSpan elapsedTime = currentTime.Subtract(unixEpoch);
+            long timestamp = (long)elapsedTime.TotalSeconds;
+            return timestamp.ToString().Replace(",", ""); // loại bỏ dấu phẩy
+        }
     }
 }

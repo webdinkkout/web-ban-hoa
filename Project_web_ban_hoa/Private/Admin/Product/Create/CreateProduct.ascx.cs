@@ -47,7 +47,7 @@ namespace Project_web_ban_hoa.Private.Admin.Product.Create
                 if (fulThumbnail.PostedFile.ContentType.StartsWith("image/"))
                 {
                     string fileName = Path.GetFileName(fulThumbnail.FileName).Replace(" ", "-");
-                    string saveFileName = Components.ConvertToUnSign(fileName);
+                    string saveFileName = Components.GetTimestamp() + "_" + Components.ConvertToUnSign(fileName);
                     string savePath = Server.MapPath("~/Publics/Uploads/Product/" + saveFileName);
                     fulThumbnail.SaveAs(savePath);
                     thumbnail = ConfigurationManager.AppSettings["UrlEnv"] + $"/Publics/Uploads/Product/{saveFileName}";// https://localhost:113/Publics/Uploads/Product/a-1.jpg

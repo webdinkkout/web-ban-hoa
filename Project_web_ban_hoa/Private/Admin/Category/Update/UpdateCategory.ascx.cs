@@ -55,7 +55,7 @@ namespace Project_web_ban_hoa.Private.Admin.Category.Update
 
                 // Lưu ảnh mới
                 string fileName = Path.GetFileName(file.FileName).Replace(" ", "-");
-                string saveFileName = Components.ConvertToUnSign(fileName);
+                string saveFileName = Components.GetTimestamp() + "_" + Components.ConvertToUnSign(fileName);
                 string savePath = Server.MapPath($"~/Publics/Uploads/Category/{saveFileName}");
                 categoryModel.Thumbnail = $"{ConfigurationManager.AppSettings["UrlEnv"]}/Publics/Uploads/Category/{saveFileName}";
                 file.SaveAs(savePath);
