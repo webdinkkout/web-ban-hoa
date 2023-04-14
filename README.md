@@ -7,8 +7,8 @@
 
 ****
 ## _Tài khoản admin_
-Tài khoản: `admin@gmail.com` [Sao chép](javascript:void(0); "Sao chép nội dung") <br>
-Mật khẩu: `123456` [Sao chép](javascript:void(0); "Sao chép nội dung")
+Tài khoản: `admin@gmail.com`  <br>
+Mật khẩu: `123456`
 
 ****
 ## _Thành viên_
