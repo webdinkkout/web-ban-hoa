@@ -522,13 +522,14 @@ BEGIN
 
 	IF(@role_id = 0)
 	BEGIN
-		SET @Sql = 'SELECT * FROM Users WHERE Last_Name LIKE N''%' + @result + '%'' Order by Updated_At desc'
+		SET @Sql = 'SELECT * FROM Users WHERE CONCAT(First_Name, '' '', Last_Name) LIKE N''%' + @result + '%'' Order by Updated_At desc'
 	END
 	ELSE
 	BEGIN
-		SET @Sql = 'SELECT * FROM Users WHERE Role_Id = '+ CAST(@role_id as nvarchar) +' AND Last_Name LIKE N''%' + @result + '%'' Order by Updated_At desc'
+		SET @Sql = 'SELECT * FROM Users WHERE Role_Id = '+ CAST(@role_id as nvarchar) +' AND CONCAT(First_Name, '' '', Last_Name) LIKE N''%' + @result + '%'' Order by Updated_At desc'
 	END
 	EXECUTE sp_executesql @Sql;
+
 END
 GO
 

@@ -70,7 +70,7 @@ Website về chủ đề mua bán hàn online(Bán hoa), với các chức năng
 
 
 + **_Bước 1_**: `Clone Repositories`
-+ **_Bước 2_**: `Chạy các script SQL `
++ **_Bước 2_**: `Chạy script 07(Data Demo) - Xem chi tiết các script xem lần lượt từ script 01 đến script 06`
 + **_Bước 3_**: `Chạy Project`
 
 ***
