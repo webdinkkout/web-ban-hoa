@@ -73,7 +73,7 @@ namespace DAO
         /// <param name="seoName">Tên thu gọn của danh mục</param>
         /// <param name="thumbnail">Ảnh danh mục</param>
         /// <returns>Số dòng được cập nhật thành công</returns>
-        public static int UpdateCategory(int idCateory, string name, string seoName, string thumbnail)
+        public static int UpdateCategory(int idCateory, string name, string seoName, string thumbnail, int parentId)
         {
             SqlCommand cmd = new SqlCommand("proc_update_category");
             cmd.CommandType = CommandType.StoredProcedure;
@@ -81,6 +81,7 @@ namespace DAO
             cmd.Parameters.AddWithValue("@name", name);
             cmd.Parameters.AddWithValue("@seo_name", seoName);
             cmd.Parameters.AddWithValue("@thumbnail", thumbnail);
+            cmd.Parameters.AddWithValue("@parent_id", parentId);
             return SqlDatabase.ExecuteNoneQuery(cmd);
         }
 

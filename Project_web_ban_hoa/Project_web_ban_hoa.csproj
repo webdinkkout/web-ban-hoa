@@ -169,7 +169,6 @@
     <Content Include="Publics\Js\Library\Bootstrap\bootstrap.bundle.min.js" />
     <Content Include="Publics\Js\Library\Toastify\toastify-js.js" />
     <Content Include="Publics\Js\Main.js" />
-    <Content Include="Publics\Uploads\Users\tai-đep-zai.jpg" />
     <Content Include="Register.aspx" />
     <Content Include="Search.aspx" />
     <Content Include="Sql\01_create_database_hoa_yeu_thuong.sql" />
@@ -406,6 +405,7 @@
     <Folder Include="Private\Admin\Slide\" />
     <Folder Include="Publics\Uploads\Category\" />
     <Folder Include="Publics\Uploads\Product\" />
+    <Folder Include="Publics\Uploads\Users\" />
     <Folder Include="Ultils\" />
   </ItemGroup>
   <PropertyGroup>

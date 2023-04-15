@@ -19,6 +19,7 @@
     <link href="../Publics/Css/Library/FontAwesome/all.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link href="../Publics/Css/Library/JqueryConfirm/sweetalert2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" />
 
 
     <%-- Thêm Font Chữ --%>
@@ -29,10 +30,14 @@
 
     <%-- CSS Main --%>
     <link href="../Publics/Css/Reset.css" rel="stylesheet" />
+    <link href="../Publics/Css/Admin.css" rel="stylesheet" />
     <link href="../Publics/Css/Home.css" rel="stylesheet" />
 
     <script src="../Publics/Js/Library/Jquery/jquery-3.6.4.min.js"></script>
     <script src="../Publics/Js/Library/JqueryConfirm/sweetalert2.all.min.js"></script>
+    <script src="../Publics/Js/Library/Toastify/toastify-js.js"></script>
+
+    <script src="../Publics/Js/Admin.js"></script>
 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -93,7 +98,7 @@
                     <div class="header-search-contact">
                         <div class="header-search-contact-search">
                             <asp:TextBox runat="server" ID="txtSearch" placeholder="Tìm sản phẩm" CssClass="header-search-contact-search__search" />
-                            <asp:Button Text="Tìm kiếm" ID="btnSearch" OnClick="btnSearch_Click" runat="server" CssClass="header-search-contact-search__btn-search" />
+                            <asp:Button Text="Tìm kiếm" ID="btnSearch" OnClick="btnSearch_Click" runat="server" CssClass="header-search-contact-search__btn-search" UseSubmitBehavior="false" />
                         </div>
 
                         <div class="header-search-contact-hotline">
@@ -114,7 +119,6 @@
                     <div class="header-search-user-control">
                         <div class="header-search-user-control-cart-account">
                             <img src="../Publics/Images/Home/img-header/icon-giohang.png" alt="Alternate Text" />
-                            <%--<a class="header-search-user-control-cart-account__link" href="../Cart.aspx?iu=<%= GetUserId() %>">Giỏ hàng</a>--%>
                             <asp:Button Text="Giỏ hàng" ID="btnCart" CssClass="header-search-user-control-cart-account__link" OnClick="btnCart_Click" runat="server" />
                         </div>
                         <% if (Session["isLogin"] != null)
@@ -125,26 +129,26 @@
                             <div class="info">
                                 <div class="info-item active">
                                     <i class="fa-solid fa-user"></i>
-                                    <a class="info-item__link" href="#"><%= GetFullName() %></a>
+                                    <a class="info-item__link" href="#" tabindex="-1"><%= GetFullName() %></a>
                                 </div>
                                 <% if (GetRoleId() == 1)
                                     { %>
                                 <div class="info-item">
                                     <i class="fa-solid fa-toolbox"></i>
-                                    <a class="info-item__link" href="../Admin.aspx">Trang Admin</a>
+                                    <a class="info-item__link" href="../Admin.aspx" tabindex="-1">Trang Admin</a>
                                 </div>
                                 <% } %>
                                 <div class="info-item">
                                     <i class="fa-solid fa-info"></i>
-                                    <a class="info-item__link" href='../UserInfo.aspx?iu=<%= GetUserId() %>'>Thông tin cá nhân</a>
+                                    <a class="info-item__link" href='../UserInfo.aspx?iu=<%= GetUserId() %>' tabindex="-1">Thông tin cá nhân</a>
                                 </div>
                                 <div class="info-item">
                                     <i class="fa-solid fa-cart-shopping"></i>
-                                    <a class="info-item__link" href='../Cart.aspx?iu=<%= GetUserId() %>'>Giỏ hàng của bạn</a>
+                                    <a class="info-item__link" href='../Cart.aspx?iu=<%= GetUserId() %>' tabindex="-1">Giỏ hàng của bạn</a>
                                 </div>
                                 <div class="info-item">
                                     <i class="fa-solid fa-right-from-bracket"></i>
-                                    <asp:Button Text="Đăng xuất" CssClass="info-item__link" OnClick="btnLogout_Click" ID="btnLogout" runat="server" />
+                                    <asp:Button Text="Đăng xuất" CssClass="info-item__link" OnClick="btnLogout_Click" ID="btnLogout" runat="server" UseSubmitBehavior="false" />
                                 </div>
                             </div>
                         </div>

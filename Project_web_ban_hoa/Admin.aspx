@@ -30,8 +30,8 @@
 
     <%-- Library Javascript --%>
     <script src="Publics/Js/Library/Jquery/jquery-3.6.4.min.js"></script>
-    <script src="Publics/Js/Library/Chart/chart.js"></script>
     <script src="Publics/Js/Library/Toastify/toastify-js.js"></script>
+    <script src="Publics/Js/Library/Chart/chart.js"></script>
     <script src="Publics/Js/Library/JqueryConfirm/sweetalert2.all.min.js"></script>
 
 </head>
@@ -67,11 +67,11 @@
             <nav class="admin-nav">
                 <div class="container">
                     <ul class="admin-nav-list">
-                        <li class="admin-nav-list__item"><a href="/Admin.aspx?modul=category">Trang quản lý
+                        <li class="admin-nav-list__item <%= Request.QueryString["modul"] == "category" ? "admin-nav-list__item--active" : "" %>"><a href="/Admin.aspx?modul=category">Trang quản lý
                             danh mục</a></li>
-                        <li class="admin-nav-list__item"><a href="/Admin.aspx?modul=product">Trang quản lý san
+                        <li class="admin-nav-list__item <%= Request.QueryString["modul"] == "product" ? "admin-nav-list__item--active" : "" %>"><a href="/Admin.aspx?modul=product">Trang quản lý san
                             phẩm</a></li>
-                        <li class="admin-nav-list__item"><a href="/Admin.aspx?modul=user&t=view">Trang quản lý người
+                        <li class="admin-nav-list__item <%= Request.QueryString["modul"] == "user" ? "admin-nav-list__item--active" : "" %>"><a href="/Admin.aspx?modul=user&t=view">Trang quản lý người
                             dùng</a></li>
                     </ul>
                 </div>
@@ -83,7 +83,5 @@
         </div>
     </form>
 
-    <script>
-</script>
 </body>
 </html>

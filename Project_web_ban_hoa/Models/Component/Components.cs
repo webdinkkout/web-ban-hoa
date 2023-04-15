@@ -72,6 +72,23 @@ namespace Project_web_ban_hoa.Models.Component
 
             return user;
         }
+
+        public static CategoryModel ConvertDataTableToCategory(DataTable objCategory)
+        {
+            CategoryModel category = objCategory.AsEnumerable().Select(row => new CategoryModel
+            {
+                Id = Convert.ToInt32(row["Id"]),
+                Name = row["Name"].ToString(),
+                SeoName = row["Name"].ToString(),
+                Thumbnail = row["Thumbnail"].ToString(),
+                ParentID = row["Parent_Id"] as int?,
+                Level = Convert.ToInt32(row["Level"].ToString())
+
+            }).FirstOrDefault();
+
+            return category;
+        }
+
         public static ProductModel ConvertDataTableToProduct(DataTable objProduct)
         {
             ProductModel product = objProduct.AsEnumerable().Select(row => new ProductModel

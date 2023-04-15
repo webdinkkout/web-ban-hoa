@@ -147,10 +147,14 @@
                 transition: opacity .2s linear;
             }
 
+            .admin-nav .admin-nav-list .admin-nav-list__item.admin-nav-list__item--active > a {
+                opacity: 1;
+                font-weight: 600;
+            }
 
-                .admin-nav .admin-nav-list .admin-nav-list__item > a:hover {
-                    opacity: 1;
-                }
+            .admin-nav .admin-nav-list .admin-nav-list__item > a:hover {
+                opacity: 1;
+            }
 
 /*=== CATEGORY STYLES ===*/
 
@@ -336,6 +340,8 @@
     height: 175px;
     border-radius: 50%;
     object-fit: cover;
+    user-select: none;
+    pointer-events: none;
 }
 
 

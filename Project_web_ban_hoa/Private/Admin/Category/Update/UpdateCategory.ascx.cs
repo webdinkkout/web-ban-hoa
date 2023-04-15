@@ -17,25 +17,46 @@ namespace Project_web_ban_hoa.Private.Admin.Category.Update
     public partial class UpdateCategory : System.Web.UI.UserControl
     {
         int idCategory = 0;
+        CategoryModel categoryModel = new CategoryModel();
 
         [Obsolete]
         protected void Page_Load(object sender, EventArgs e)
         {
+
             if (!string.IsNullOrEmpty(Request.QueryString["id-category"]))
             {
                 idCategory = Convert.ToInt32(Request.QueryString["id-category"]);
                 DataTable category = DAO.Category.GetOneCategory(idCategory);
-                rptUpdateCategory.DataSource = category;
-                rptUpdateCategory.DataBind();
+
+                categoryModel = Components.ConvertDataTableToCategory(category);
+
+                txtName.Text = categoryModel.Name;
+                imgPreview1.ImageUrl = GetThumbnail();
+
             }
+
+            if (!Page.IsPostBack)
+            {
+                ddlCategories.DataSource = DAO.Category.GetCategoriesByLevel(0);
+                ddlCategories.DataTextField = "Name";
+                ddlCategories.DataValueField = "Id";
+                ddlCategories.DataBind();
+
+                ddlCategories.SelectedValue = categoryModel.ParentID.ToString();
+            }
+
+
         }
 
-        [Obsolete]
-        protected void rptUpdateCategory_ItemCommand(object source, RepeaterCommandEventArgs e)
+
+        protected string GetThumbnail()
         {
-            CategoryModel categoryModel = new CategoryModel();
-            if (e.CommandName != "btnUpdate") return;
-            if (!(e.Item.FindControl("txtName") is TextBox txtName)) return;
+            return categoryModel.Thumbnail;
+        }
+
+
+        protected void btnUpdateCategory_Click(object sender, EventArgs e)
+        {
             if (idCategory <= 0) return;
 
             HttpPostedFile file = Request.Files[0];
@@ -48,8 +69,8 @@ namespace Project_web_ban_hoa.Private.Admin.Category.Update
             if (file.ContentType.ToLower().StartsWith("image/"))
             {
                 // Xóa ảnh cũ
-                DataTable category = DAO.Category.GetOneCategory(idCategory);
-                string oldThumbnail = category.Rows[0]["Thumbnail"].ToString();
+                //DataTable category = DAO.Category.GetOneCategory(idCategory);
+                string oldThumbnail = categoryModel.Thumbnail;
                 string[] arrOldThumbnail = oldThumbnail.Split('/');
                 Components.DeleteThumbnailOnSystem("Category", arrOldThumbnail, Server);
 
@@ -61,7 +82,8 @@ namespace Project_web_ban_hoa.Private.Admin.Category.Update
                 file.SaveAs(savePath);
             }
 
-            int n = DAO.Category.UpdateCategory(idCategory, categoryModel.Name, categoryModel.SeoName, categoryModel.Thumbnail);
+            int n = DAO.Category.UpdateCategory(categoryModel.Id, categoryModel.Name, categoryModel.SeoName, categoryModel.Thumbnail, Convert.ToInt32(ddlCategories.SelectedValue));
+
 
             Session["showToastDuration"] = 3000;
             Session["showToastPosition"] = "right";

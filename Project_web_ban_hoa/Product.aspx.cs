@@ -1,4 +1,5 @@
 ﻿using Project_web_ban_hoa.Models;
+using Project_web_ban_hoa.Models.Component;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -13,7 +14,6 @@ namespace Project_web_ban_hoa
     {
         int parentId;
         CategoryModel category = new CategoryModel();
-        DataTable categories;
 
         protected DataTable GetProductID(int id)
         {
@@ -33,18 +33,13 @@ namespace Project_web_ban_hoa
                 rptMenuSubCategories.DataSource = DAO.Category.GetCategoryByParentIdAndLevel(parentId, 1, 1, 90);
                 rptMenuSubCategories.DataBind();
 
-                categories = DAO.Category.GetOneCategory(parentId);
-                if (categories != null)
-                {
-                    DataRow rCategry = categories.Rows[0];
 
-                    category.Id = Convert.ToInt32(rCategry["Id"].ToString());
-                    category.Name = rCategry["Name"].ToString();
-                    category.SeoName = rCategry["Seo_Name"].ToString();
-                    category.ParentID = rCategry["Parent_Id"] as int?;
-                    category.Thumbnail = rCategry["Thumbnail"].ToString();
-                    category.Level = Convert.ToInt32(rCategry["Level"].ToString());
-                }
+            }
+
+            DataTable categories = DAO.Category.GetOneCategory(parentId);
+            if (categories != null)
+            {
+                category = Components.ConvertDataTableToCategory(categories);
             }
         }
 
