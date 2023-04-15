@@ -108,6 +108,7 @@ namespace Project_web_ban_hoa.Private.Admin.Category.View
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
+
             BindCategoriesList();
         }
     }
