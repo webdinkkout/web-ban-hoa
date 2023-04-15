@@ -22,10 +22,10 @@ namespace Project_web_ban_hoa.Private.Admin.Product.View
         [Obsolete]
         protected void Page_Load(object sender, EventArgs e)
         {
-            BindingProductList(DAO.Product.GetAllProdcts(1, 16), rptViewProduct);
 
             if (!Page.IsPostBack)
             {
+                BindingProductList(DAO.Product.SearchByCategoryId(txtSearch.Text, Convert.ToInt32(ddlCategory.SelectedValue), 999, 1, 16), rptViewProduct);
                 DataTable categoriesTable = DAO.Category.GetAllCategories(1, 1, 90);
 
                 foreach (DataRow categoryRow in categoriesTable.Rows)
@@ -55,6 +55,7 @@ namespace Project_web_ban_hoa.Private.Admin.Product.View
         [Obsolete]
         protected void ddlCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
+            txtSearch.Text = "";
             int idCategory = Convert.ToInt32(ddlCategory.SelectedValue);
             if (idCategory <= 0)
             {
@@ -90,12 +91,7 @@ namespace Project_web_ban_hoa.Private.Admin.Product.View
                         if (n > 0)
                         {
                             Components.DeleteThumbnailOnSystem("Product", arrNameThumbnail, Server);
-                            IList dataSource = ((IListSource)rptViewProduct.DataSource)?.GetList();
-                            if (dataSource != null && e.Item.ItemIndex < dataSource.Count)
-                            {
-                                dataSource.RemoveAt(e.Item.ItemIndex);
-                                rptViewProduct.DataBind();
-                            }
+                            BindingProductList(DAO.Product.SearchByCategoryId(txtSearch.Text, Convert.ToInt32(ddlCategory.SelectedValue), 999, 1, 16), rptViewProduct);
                             script = "showToast('Xóa thành công', 3000, 'right', 'green')";
                         }
                         else
@@ -117,6 +113,11 @@ namespace Project_web_ban_hoa.Private.Admin.Product.View
                 default:
                     break;
             }
+        }
+
+        protected void btnSearch_Click(object sender, EventArgs e)
+        {
+            BindingProductList(DAO.Product.SearchByCategoryId(txtSearch.Text, Convert.ToInt32(ddlCategory.SelectedValue), 999, 1, 16), rptViewProduct);
         }
     }
 }

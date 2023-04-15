@@ -28,13 +28,10 @@ namespace Project_web_ban_hoa.Private.Admin.Category.View
                 ddlCategories.DataValueField = "Id";
                 ddlCategories.DataBind();
                 ddlCategories.Items.Insert(0, new ListItem("Tất cả", "0"));
+
+                BindCategoriesList();
+
             }
-
-            DataTable categoriesTable = DAO.Category.GetCategoriesByLevel(1, 1, 16);
-
-            rptViewCategories.DataSource = categoriesTable;
-            rptViewCategories.DataBind();
-
 
             // kiểm tra: xem có thông báo không nếu có thì thông báo
             if ((Session["showToastMessage"] != null && Session["showToastDuration"] != null && Session["showToastPosition"] != null) || Session["showToastBackColor"] != null)
@@ -52,6 +49,12 @@ namespace Project_web_ban_hoa.Private.Admin.Category.View
             }
         }
 
+        private void BindCategoriesList()
+        {
+            rptViewCategories.DataSource = DAO.Category.Search(txtSearch.Text, Convert.ToInt32(ddlCategories.SelectedValue), 1, 0, 1, 90);
+            rptViewCategories.DataBind();
+        }
+
         [Obsolete]
         protected void rptViewCategories_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
@@ -67,8 +70,7 @@ namespace Project_web_ban_hoa.Private.Admin.Category.View
                         if (n > 0)
                         {
                             Components.DeleteThumbnailOnSystem("Category", arrNameThumbnail, Server);
-                            ((IListSource)rptViewCategories.DataSource).GetList().RemoveAt(e.Item.ItemIndex);
-                            rptViewCategories.DataBind();
+                            BindCategoriesList();
                             script = "showToast('Xóa thành công', 3000, 'right', 'green')";
                         }
                         else
@@ -90,6 +92,7 @@ namespace Project_web_ban_hoa.Private.Admin.Category.View
 
         protected void ddlCategories_SelectedIndexChanged(object sender, EventArgs e)
         {
+            txtSearch.Text = "";
             int categoryId = Convert.ToInt32(ddlCategories.SelectedValue);
             if (categoryId <= 0)
             {
@@ -101,6 +104,11 @@ namespace Project_web_ban_hoa.Private.Admin.Category.View
                 rptViewCategories.DataSource = DAO.Category.GetCategoryByParentIdAndLevel(categoryId, 1, 1, 90);
                 rptViewCategories.DataBind();
             }
+        }
+
+        protected void btnSearch_Click(object sender, EventArgs e)
+        {
+            BindCategoriesList();
         }
     }
 }
