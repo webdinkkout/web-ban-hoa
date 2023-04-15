@@ -25,22 +25,14 @@ namespace Project_web_ban_hoa
 
                 fullName = user.FirstName + " " + user.LastName;
 
-                if (user.RoleId != 1)
+
+                if (Session["CURRENT_URL"] != null)
                 {
-                    if (Session["CURRENT_URL"] != null)
-                    {
-                        string url = Session["CURRENT_URL"].ToString();
-                        Session.Remove("CURRENT_URL");
-                        Response.Redirect(url);
-                    }
+                    string url = Session["CURRENT_URL"].ToString();
+                    Session.Remove("CURRENT_URL");
+                    Response.Redirect(url);
                 }
-                else if (user.RoleId == 1)
-                {
-                    if (string.IsNullOrEmpty(Request.QueryString["modul"]))
-                    {
-                        Response.Redirect("~/Admin.aspx?modul=category");
-                    }
-                }
+
             }
 
             if (string.IsNullOrEmpty(Request.QueryString["modul"]))

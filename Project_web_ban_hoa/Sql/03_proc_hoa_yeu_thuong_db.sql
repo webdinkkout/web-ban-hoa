@@ -114,6 +114,43 @@ BEGIN
 END
 GO
 
+--Có phân trang
+CREATE PROC proc_search_categories_by_id
+@result NVARCHAR(255),
+@parent_id int = 0,
+@level int = 1,
+@num_sort Int = 0,
+@page_number INT = 1,
+@page_size INT = 10
+as
+begin
+declare @sort varchar(50)
+	If (@num_sort = 0)
+	begin
+		SET @sort = 'ORDER BY Updated_At DESC' --giá từ cao tới thấp
+	end
+	else 
+	begin
+		SET @sort = 'ORDER BY Updated_At'
+	end	
+
+	DECLARE @sql NVARCHAR(MAX)
+	DECLARE @offset INT
+
+		SET @offset = (@page_number - 1) * @page_size
+		IF(@parent_id = 0)
+		BEGIN
+			SET @sql = 'SELECT * FROM Categories WHERE Level = '+ CAST(@level as nvarchar) +' AND Name LIKE N''%' + @result + '%'' ' + @sort + ' OFFSET ' + CAST(@offset AS NVARCHAR) + ' ROWS FETCH NEXT ' + CAST(@page_size AS NVARCHAR) + ' ROWS ONLY;'
+		END
+		ELSE
+		BEGIN
+			SET @sql = 'SELECT * FROM Categories WHERE Level = '+ CAST(@level as nvarchar) +' AND Parent_id = ' + CAST(@parent_id as nvarchar) + ' AND Name LIKE N''%' + @result + '%'' ' + @sort + ' OFFSET ' + CAST(@offset AS NVARCHAR) + ' ROWS FETCH NEXT ' + CAST(@page_size AS NVARCHAR) + ' ROWS ONLY;'
+		END
+		EXEC sp_executesql @sql
+end
+go
+
+
 create proc proc_count_product_by_category_parent_id
 @parent_id int
 as
@@ -232,6 +269,53 @@ BEGIN
 
     SELECT * FROM ( SELECT ROW_NUMBER() OVER (ORDER BY Created_At DESC) as rownum, * FROM Products ) as rows
     WHERE rownum BETWEEN  CAST(@start_row AS nvarchar(10))  AND  CAST(@end_row AS nvarchar(10))
+END
+GO
+
+--Có phân trang
+CREATE PROC proc_search_products_by_category_id
+@result NVARCHAR(255),
+@category_id INT = 0,
+@num_sort Int = 999,
+@page_number INT = 1,
+@page_size INT = 10
+AS
+BEGIN
+	declare @sort varchar(50)
+	If (@num_sort = 0)
+	begin
+		SET @sort = 'ORDER BY current_price DESC' --giá từ cao tới thấp
+	end
+	else if(@num_sort = 1)
+	begin
+		SET @sort = 'ORDER BY current_price'
+	end	
+	else if(@num_sort = 2)
+	begin
+		SET @sort = 'ORDER BY Name DESC'
+	end	
+	else if(@num_sort = 3)
+	begin
+		SET @sort = 'ORDER BY Name'
+	end	
+	else 
+	begin
+		set	 @sort = 'ORDER BY Updated_at desc'
+	end
+
+	DECLARE @sql NVARCHAR(MAX)
+	DECLARE @offset INT
+		SET @offset = (@page_number - 1) * @page_size
+
+		IF(@category_id = 0)
+		BEGIN
+			SET @sql = 'SELECT * FROM Products WHERE Name LIKE N''%' + @result + '%'' ' + @sort + ' OFFSET ' + CAST(@offset AS NVARCHAR) + ' ROWS FETCH NEXT ' + CAST(@page_size AS NVARCHAR) + ' ROWS ONLY;'
+		END
+		ELSE
+		BEGIN
+			SET @sql = 'SELECT * FROM Products WHERE Category_Id = '+ CAST(@category_id as nvarchar) +' AND Name LIKE N''%' + @result + '%'' ' + @sort + ' OFFSET ' + CAST(@offset AS NVARCHAR) + ' ROWS FETCH NEXT ' + CAST(@page_size AS NVARCHAR) + ' ROWS ONLY;'
+		END
+		EXEC sp_executesql @sql
 END
 GO
 
@@ -428,6 +512,27 @@ BEGIN
 	SELECT * FROM Users WHERE Email= @gmail
 END
 GO
+
+CREATE PROC proc_search_users
+@result Nvarchar(255),
+@role_id int
+AS
+BEGIN
+	DECLARE @Sql nvarchar(max);
+
+	IF(@role_id = 0)
+	BEGIN
+		SET @Sql = 'SELECT * FROM Users WHERE CONCAT(First_Name, '' '', Last_Name) LIKE N''%' + @result + '%'' Order by Updated_At desc'
+	END
+	ELSE
+	BEGIN
+		SET @Sql = 'SELECT * FROM Users WHERE Role_Id = '+ CAST(@role_id as nvarchar) +' AND CONCAT(First_Name, '' '', Last_Name) LIKE N''%' + @result + '%'' Order by Updated_At desc'
+	END
+	EXECUTE sp_executesql @Sql;
+
+END
+GO
+
 
 CREATE PROC proc_get_one_user_by_id
 @id int

@@ -91,12 +91,33 @@ namespace DAO
             return SqlDatabase.ExecuteNoneQuery(cmd);
         }
 
+        /// <summary>
+        /// Chỉnh sửa người dùng (ADMIN)
+        /// </summary>
+        /// <param name="id">Mã người dùng</param>
+        /// <param name="roleId">Chức vụ</param>
+        /// <returns>số lượng người dùng được sửa đổi</returns>
         public static int UpdateRoleUserAdmin(int id, int roleId)
         {
             SqlCommand cmd = CreateCMD("proc_update_user_admin");
             cmd.Parameters.AddWithValue("@id", id);
             cmd.Parameters.AddWithValue("@role_id", roleId);
             return SqlDatabase.ExecuteNoneQuery(cmd);
+        }
+
+
+        /// <summary>
+        /// Tìm kiếm người dùng
+        /// </summary>
+        /// <param name="result"> từ khóa tìm kiếm</param>
+        /// <param name="roleId">mã chức vụ</param>
+        /// <returns>Trả về người dùng tương ứng</returns>
+        public static DataTable Search(string result, int roleId = 0)
+        {
+            SqlCommand cmd = CreateCMD("proc_search_users");
+            cmd.Parameters.AddWithValue("@result", result);
+            cmd.Parameters.AddWithValue("@role_id", roleId);
+            return SqlDatabase.GetData(cmd);
         }
     }
 }

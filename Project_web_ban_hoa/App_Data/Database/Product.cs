@@ -235,5 +235,26 @@ namespace DAO
             cmd.Parameters.AddWithValue("@category_ids", categoryIds);
             return SqlDatabase.GetData(cmd);
         }
+
+
+        /// <summary>
+        /// Tìm kiếm sản phẩn bằng tên dựa theo categoryid
+        /// </summary>
+        /// <param name="result"> từ khóa tìm kiếm </param>
+        /// <param name="categoryId">mã danh mục</param>
+        /// <param name="sortNumber">Số sắp xếp</param>
+        /// <param name="pageNumber">số trang</param>
+        /// <param name="pageSize">số sản phẩm hiển thị trong trang</param>
+        /// <returns>danh sách sản phẩm tương ứng</returns>
+        public static DataTable SearchByCategoryId(string result, int categoryId = 0, int sortNumber = 999, int pageNumber = 1, int pageSize = 10)
+        {
+            SqlCommand cmd = CreateCMD("proc_search_products_by_category_id");
+            cmd.Parameters.AddWithValue("@result", result);
+            cmd.Parameters.AddWithValue("@category_id", categoryId);
+            cmd.Parameters.AddWithValue("@num_sort", sortNumber);
+            cmd.Parameters.AddWithValue("@page_number", pageNumber);
+            cmd.Parameters.AddWithValue("@page_size", pageSize);
+            return SqlDatabase.GetData(cmd);
+        }
     }
 }

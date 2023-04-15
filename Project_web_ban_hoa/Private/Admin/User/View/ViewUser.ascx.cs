@@ -15,21 +15,20 @@ namespace Project_web_ban_hoa.Private.Admin.User.View
         {
             if (!Page.IsPostBack)
             {
-                BindDataUser();
 
                 ddlRoles.DataSource = DAO.Role.GetAllRoles();
-
                 ddlRoles.DataTextField = "Name";
                 ddlRoles.DataValueField = "Id";
                 ddlRoles.DataBind();
                 ddlRoles.Items.Insert(0, new ListItem("Tất cả", "0"));
+                BindDataUser();
 
             }
         }
 
         private void BindDataUser()
         {
-            grvUsers.DataSource = DAO.User.GetAllUsers();
+            grvUsers.DataSource = DAO.User.Search(txtSearch.Text, Convert.ToInt32(ddlRoles.SelectedValue));
             grvUsers.DataBind();
 
         }
@@ -120,6 +119,22 @@ namespace Project_web_ban_hoa.Private.Admin.User.View
             grvUsers.EditIndex = -1;
             BindDataUser();
             ScriptManager.RegisterStartupScript(this, this.GetType(), "ShowToast", script, true);
+        }
+
+        protected void ddlRoles_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            BindDataUser();
+        }
+
+        protected void btnSearch_Click(object sender, EventArgs e)
+        {
+            BindDataUser();
+        }
+
+        protected void grvUsers_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            grvUsers.PageIndex = e.NewPageIndex;
+            BindDataUser();
         }
     }
 }

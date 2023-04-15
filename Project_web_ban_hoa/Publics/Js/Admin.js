@@ -33,3 +33,30 @@ function previewImage(nameFileUpLoad, nameImg) {
 function onClickShowImg(nameControl) {
     document.querySelector(nameControl).click();
 }
+
+//show alert
+function sweetAlertConfirm(btnDelete, title, text) {
+    if (btnDelete.dataset.confirmed) {
+        // The action was already confirmed by the user, proceed with server event
+        btnDelete.dataset.confirmed = false;
+        return true;
+    } else {
+        event.preventDefault();
+        swal.fire({
+            title: title,
+            text: text,
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            cancelButtonText: 'Không',
+            confirmButtonText: 'Có',
+        }).then(function (result) {
+            if (result.value) {
+                btnDelete.dataset.confirmed = true;
+                btnDelete.click();
+            }
+        });
+    }
+}
+

@@ -34,27 +34,47 @@
     .user.form-gr > .form-gr__label {
         width: unset;
     }
+
+    .label_empty {
+        display: block;
+        text-align: center;
+        min-height: 150px;
+        line-height: 150px;
+        font-size: 3rem;
+        color: #555;
+    }
 </style>
 <div class="container mt-4">
     <div class="row">
         <div class="col-lg-4">
             <div class="user form-gr">
                 <asp:Label Text="Chức vụ: " runat="server" CssClass="form-gr__label" />
-                <asp:DropDownList CssClass="form-gr__control" ID="ddlRoles" runat="server">
+                <asp:DropDownList CssClass="form-gr__control" ID="ddlRoles" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlRoles_SelectedIndexChanged">
                 </asp:DropDownList>
             </div>
         </div>
         <div class="col-lg-8">
             <div class="user form-gr">
                 <asp:Label Text="Tìm kiếm: " runat="server" CssClass="form-gr__label" />
-                <asp:TextBox runat="server" placeholder="Nhập tên người dùng" CssClass="form-gr__control" />
-                <asp:Button Text="Tìm kiếm" CssClass="btn  btn-solid btn--orange btn--min" runat="server" />
+                <asp:TextBox runat="server" placeholder="Nhập tên người dùng" CssClass="form-gr__control" ID="txtSearch" />
+                <asp:Button Text="Tìm kiếm" CssClass="btn  btn-solid btn--orange btn--min" runat="server" ID="btnSearch" OnClick="btnSearch_Click" />
             </div>
         </div>
     </div>
+    <script>
+        var txtSearch = document.getElementById("<%= txtSearch.ClientID %>");
+        var btnSearch = document.getElementById("<%= btnSearch.ClientID %>");
 
+        var timeout = null;
+        txtSearch.addEventListener("input", function () {
+            clearTimeout(timeout);
+            timeout = setTimeout(function () {
+                btnSearch.click();
+            }, 700);
+        });
+    </script>
 
-    <asp:GridView OnRowCancelingEdit="grvUsers_RowCancelingEdit" OnRowUpdating="grvUsers_RowUpdating" OnRowEditing="grvUsers_RowEditing" OnRowDataBound="grvUsers_RowDataBound" OnDataBound="grvUsers_DataBound" OnRowDeleting="grvUsers_RowDeleting" Width="100%" DataKeyNames="id" CssClass="grv grv-border" runat="server" ID="grvUsers" AllowPaging="true" PageSize="10" CellPadding="4" ForeColor="#333333" GridLines="None" AutoGenerateColumns="false">
+    <asp:GridView OnPageIndexChanging="grvUsers_PageIndexChanging" OnRowCancelingEdit="grvUsers_RowCancelingEdit" OnRowUpdating="grvUsers_RowUpdating" OnRowEditing="grvUsers_RowEditing" OnRowDataBound="grvUsers_RowDataBound" OnDataBound="grvUsers_DataBound" OnRowDeleting="grvUsers_RowDeleting" Width="100%" DataKeyNames="id" CssClass="grv grv-border" runat="server" ID="grvUsers" AllowPaging="true" PageSize="10" CellPadding="4" ForeColor="#333333" GridLines="None" AutoGenerateColumns="false">
         <Columns>
             <asp:BoundField HeaderText="Id" ReadOnly="true" DataField="Id" ItemStyle-Width="30" />
             <asp:ImageField HeaderText="Ảnh đại diện" ReadOnly="true" DataImageUrlField="Avatar" ControlStyle-CssClass="grvImg"></asp:ImageField>
@@ -83,6 +103,10 @@
             </asp:TemplateField>
         </Columns>
 
+        <EmptyDataTemplate>
+            <asp:Label CssClass="label_empty" Text="Danh sách người dùng rỗng" runat="server" />
+        </EmptyDataTemplate>
+
         <AlternatingRowStyle BackColor="White" />
         <EditRowStyle BackColor="#2461BF" />
         <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
@@ -97,29 +121,3 @@
     </asp:GridView>
 </div>
 
-<script>
-    function sweetAlertConfirm(btnDelete, title, text) {
-        if (btnDelete.dataset.confirmed) {
-            // The action was already confirmed by the user, proceed with server event
-            btnDelete.dataset.confirmed = false;
-            return true;
-        } else {
-            event.preventDefault();
-            swal.fire({
-                title: title,
-                text: text,
-                type: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Ok'
-            }).then(function (result) {
-                if (result.value) {
-                    btnDelete.dataset.confirmed = true;
-                    btnDelete.click();
-                }
-            });
-        }
-    }
-
-</script>

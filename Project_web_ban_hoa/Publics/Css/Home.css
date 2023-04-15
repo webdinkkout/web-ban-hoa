@@ -33,9 +33,14 @@
 }
 
 
+    .header-menu-ctls-ctl__item.header-menu-ctls-ctl__item--active > a {
+        color: #bd2026;
+    }
+
     .header-menu-ctls-ctl__item:hover > .header-menu-ctls-ctl-sub-menu {
         display: block;
     }
+
 
 .header-menu-ctls-ctl-sub-menu {
     display: none;
@@ -58,6 +63,10 @@
         background-color: #f5f5f5;
         color: #bd2026;
     }
+
+.header-menu-ctls-ctl-sub-menu__item.header-menu-ctls-ctl-sub-menu__item--active > a {
+    color: red;
+}
 
 .header-wrapper-menu-address {
     display: flex;

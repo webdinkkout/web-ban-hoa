@@ -57,7 +57,7 @@ namespace Project_web_ban_hoa.Private.Admin.Product.Update
 
             string thumbnail;
             string script;
-            DataTable product = DAO.Product.GetOneProductById(productId);
+            DataTable product = DAO.Product.GetOneProductByIdAdmin(productId);
 
             if (fulThumbnail.HasFile)
             {

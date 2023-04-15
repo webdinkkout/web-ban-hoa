@@ -58,7 +58,7 @@
                                 <a href="/Admin.aspx?modul=user&t=user-info" class="wrapper-control-user__control">
                                     <i class="fa fa-info"></i>Thông tin cá nhân  </a>
                                 <asp:Button ID="hplLogOut" Text="Đăng Xuất" runat="server" CssClass="wrapper-control-user__control"
-                                    OnClick="hplLogOut_Click" />
+                                    OnClick="hplLogOut_Click" UseSubmitBehavior="false" />
                             </div>
                         </div>
                     </div>

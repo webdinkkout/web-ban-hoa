@@ -144,5 +144,28 @@ namespace DAO
 
             return Convert.ToInt32(dt.Rows[0][0]);
         }
+
+        /// <summary>
+        /// Tìm kiếm danh mục theo tên
+        /// </summary>
+        /// <param name="result"> Từ khóa tìm kiếm </param>
+        /// <param name="parrentId"> mã danh mục cha </param>
+        /// <param name="level"> cấp độ danh mục </param>
+        /// <param name="sortNumber"> sắp xếp theo thời gian tạo </param>
+        /// <param name="pageNumber">Só trang</param>
+        /// <param name="pageSize">số lượng danh mục trong trang</param>
+        /// <returns></returns>
+        public static DataTable Search(string result, int parrentId, int level = 1, int sortNumber = 0, int pageNumber = 1, int pageSize = 10)
+        {
+            SqlCommand cmd = new SqlCommand("proc_search_categories_by_id");
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@result", result);
+            cmd.Parameters.AddWithValue("@parent_id", parrentId);
+            cmd.Parameters.AddWithValue("@level", level);
+            cmd.Parameters.AddWithValue("@num_sort", sortNumber);
+            cmd.Parameters.AddWithValue("@page_number", pageNumber);
+            cmd.Parameters.AddWithValue("@page_size", pageSize);
+            return SqlDatabase.GetData(cmd);
+        }
     }
 }
