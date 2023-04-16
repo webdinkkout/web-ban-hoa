@@ -114,7 +114,9 @@
         else
         { %>
             $("#btnAddProduct").click(function () {
-                window.location.href = `Login.aspx?url=${window.location.href}`;
+                const path = window.location.href;
+                console.log(path.split("?")[1]);
+                window.location.href = `Login.aspx?url=${path.split("?")[1].replace("&", ",")}`;
             });
         <% } %>
         });

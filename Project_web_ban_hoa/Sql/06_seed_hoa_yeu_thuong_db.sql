@@ -1,199 +1,49 @@
 ﻿USE hoa_yeu_thuong_db
 GO
 
---Thêm dữ liệu mẫu PHÂN QUYỀN
-INSERT INTO Roles
-    (Name)
-VALUES
-    (N'Quản trị viên'),
-    (N'Khách hàng');
+SET IDENTITY_INSERT [dbo].[Categories] ON 
 
--- THÊM DỮ LIỆU MẪU CHO BẢNG NGƯỜI DÙNG
-INSERT INTO Users
-    (First_Name, Last_Name,Address, Avatar,Email, Password, Role_Id)
-VALUES
-    (N'Quản trị', 'viên', N'Bình Chanh' , N'https://luv.vn/wp-content/uploads/2021/11/avatar-gai-xinh-41.jpg', 'admin@gmail.com', '$2a$10$fiwZgjvURHHOSWfTbNUhLeXceYft9LWoLufP59dNHQWN65UbdoKVm', 1)
+INSERT [dbo].[Categories] ([Id], [Name], [Seo_Name], [Thumbnail], [Parent_Id], [Level], [Created_At], [Updated_At]) VALUES (1, N'Ý nghĩa hoa', N'1-y-nghia-hoa', NULL, NULL, 0, CAST(N'2023-04-15T12:01:12.9133333' AS DateTime2), CAST(N'2023-04-15T12:01:12.9133333' AS DateTime2))
+INSERT [dbo].[Categories] ([Id], [Name], [Seo_Name], [Thumbnail], [Parent_Id], [Level], [Created_At], [Updated_At]) VALUES (2, N'Hoa cưới', N'2-hoa-cuoi', NULL, NULL, 0, CAST(N'2023-04-15T12:01:12.9433333' AS DateTime2), CAST(N'2023-04-15T12:01:12.9433333' AS DateTime2))
+INSERT [dbo].[Categories] ([Id], [Name], [Seo_Name], [Thumbnail], [Parent_Id], [Level], [Created_At], [Updated_At]) VALUES (3, N'Quà tặng kèm', N'3-qua-tang-kem', NULL, NULL, 0, CAST(N'2023-04-15T12:01:12.9533333' AS DateTime2), CAST(N'2023-04-15T12:01:12.9533333' AS DateTime2))
+INSERT [dbo].[Categories] ([Id], [Name], [Seo_Name], [Thumbnail], [Parent_Id], [Level], [Created_At], [Updated_At]) VALUES (4, N'Bộ sưu tập', N'4-bo-suu-tap', NULL, NULL, 0, CAST(N'2023-04-15T12:01:12.9600000' AS DateTime2), CAST(N'2023-04-15T12:01:12.9600000' AS DateTime2))
+INSERT [dbo].[Categories] ([Id], [Name], [Seo_Name], [Thumbnail], [Parent_Id], [Level], [Created_At], [Updated_At]) VALUES (5, N'Màu sắc', N'5-mau-sac', NULL, NULL, 0, CAST(N'2023-04-15T12:01:12.9633333' AS DateTime2), CAST(N'2023-04-15T12:01:12.9633333' AS DateTime2))
+INSERT [dbo].[Categories] ([Id], [Name], [Seo_Name], [Thumbnail], [Parent_Id], [Level], [Created_At], [Updated_At]) VALUES (6, N'Hoa tươi', N'6-hoa-tuoi', NULL, NULL, 0, CAST(N'2023-04-15T12:01:12.9733333' AS DateTime2), CAST(N'2023-04-15T12:01:12.9733333' AS DateTime2))
+INSERT [dbo].[Categories] ([Id], [Name], [Seo_Name], [Thumbnail], [Parent_Id], [Level], [Created_At], [Updated_At]) VALUES (7, N'Kiểu dáng', N'7-kieu-dang', NULL, NULL, 0, CAST(N'2023-04-15T12:01:12.9800000' AS DateTime2), CAST(N'2023-04-15T12:01:12.9800000' AS DateTime2))
+INSERT [dbo].[Categories] ([Id], [Name], [Seo_Name], [Thumbnail], [Parent_Id], [Level], [Created_At], [Updated_At]) VALUES (8, N'Đối tượng', N'8-doi-tuong', NULL, NULL, 0, CAST(N'2023-04-15T12:01:12.9900000' AS DateTime2), CAST(N'2023-04-15T12:01:12.9900000' AS DateTime2))
+INSERT [dbo].[Categories] ([Id], [Name], [Seo_Name], [Thumbnail], [Parent_Id], [Level], [Created_At], [Updated_At]) VALUES (9, N'Chủ đề', N'9-chu-de', NULL, NULL, 0, CAST(N'2023-04-15T12:01:13.0066667' AS DateTime2), CAST(N'2023-04-15T12:01:13.0066667' AS DateTime2))
+INSERT [dbo].[Categories] ([Id], [Name], [Seo_Name], [Thumbnail], [Parent_Id], [Level], [Created_At], [Updated_At]) VALUES (10, N'Hoa Sinh Nhật', N'10-hoa-sinh-nhat', N'https://hoayeuthuong.com/images/icon-hoa-sinh-nhat.png', 9, 1, CAST(N'2023-04-15T12:01:13.0166667' AS DateTime2), CAST(N'2023-04-15T12:01:13.0166667' AS DateTime2))
+INSERT [dbo].[Categories] ([Id], [Name], [Seo_Name], [Thumbnail], [Parent_Id], [Level], [Created_At], [Updated_At]) VALUES (11, N'Hoa Tình Yêu', N'11-hoa-tinh-yeu', N'https://hoayeuthuong.com/images/icon-hoa-tinh-yeu.png', 9, 1, CAST(N'2023-04-15T12:01:13.0200000' AS DateTime2), CAST(N'2023-04-15T12:01:13.0200000' AS DateTime2))
+INSERT [dbo].[Categories] ([Id], [Name], [Seo_Name], [Thumbnail], [Parent_Id], [Level], [Created_At], [Updated_At]) VALUES (12, N'Hoa Mới', N'12-hoa-moi', N'https://hoayeuthuong.com/images/icon-mau-hoa-moi.png', 9, 1, CAST(N'2023-04-15T12:01:13.0266667' AS DateTime2), CAST(N'2023-04-15T12:01:13.0266667' AS DateTime2))
+INSERT [dbo].[Categories] ([Id], [Name], [Seo_Name], [Thumbnail], [Parent_Id], [Level], [Created_At], [Updated_At]) VALUES (13, N'Cây Văn Phòng', N'13-cay-van-phong', N'https://hoayeuthuong.com/images/icon-cay-vp.png', 9, 1, CAST(N'2023-04-15T12:01:13.0333333' AS DateTime2), CAST(N'2023-04-15T12:01:13.0333333' AS DateTime2))
+INSERT [dbo].[Categories] ([Id], [Name], [Seo_Name], [Thumbnail], [Parent_Id], [Level], [Created_At], [Updated_At]) VALUES (14, N'Hoa Chúc Mừng', N'14-hoa-chuc-mung', N'https://hoayeuthuong.com/images/icon-hoa-chuc-mung.png', 9, 1, CAST(N'2023-04-15T12:01:13.0366667' AS DateTime2), CAST(N'2023-04-15T12:01:13.0366667' AS DateTime2))
+INSERT [dbo].[Categories] ([Id], [Name], [Seo_Name], [Thumbnail], [Parent_Id], [Level], [Created_At], [Updated_At]) VALUES (15, N'Lãng hoa chia buồn', N'15-lang-hoa-chia-buon', N'https://hoayeuthuong.com/images/icon-hoa-tang-le.png', 9, 1, CAST(N'2023-04-15T12:01:13.0433333' AS DateTime2), CAST(N'2023-04-15T12:01:13.0433333' AS DateTime2))
+INSERT [dbo].[Categories] ([Id], [Name], [Seo_Name], [Thumbnail], [Parent_Id], [Level], [Created_At], [Updated_At]) VALUES (19, N'Hoa khai trương', N'19-hoa-khai-truong', N'https://localhost:44313/Publics/Uploads/Category/1681535674_4048_tuoi-sang-3.png', 9, 1, CAST(N'2023-04-15T12:14:34.1966667' AS DateTime2), CAST(N'2023-04-15T16:48:23.1833333' AS DateTime2))
+SET IDENTITY_INSERT [dbo].[Categories] OFF
 GO
+SET IDENTITY_INSERT [dbo].[Products] ON 
 
+INSERT [dbo].[Products] ([Id], [Name], [Seo_Name], [Description], [View_Count], [Old_Price], [Current_Price], [Quantity], [Sold], [Thumbnail], [Created_At], [Updated_At], [Category_Id]) VALUES (6, N'Tình đầu ngay thơ', N'6-tinh-dau-ngay-tho', N'', 0, CAST(350000.00 AS Decimal(12, 2)), CAST(230000.00 AS Decimal(12, 2)), 1, 0, N'https://localhost:44313/Publics/Uploads/Product/1681535065_13262_tinh-dau-tho-ngay.jpg', CAST(N'2023-04-15T12:04:25.3700000' AS DateTime2), CAST(N'2023-04-15T14:03:57.9466667' AS DateTime2), 10)
+INSERT [dbo].[Products] ([Id], [Name], [Seo_Name], [Description], [View_Count], [Old_Price], [Current_Price], [Quantity], [Sold], [Thumbnail], [Created_At], [Updated_At], [Category_Id]) VALUES (7, N'Romance', N'7-romance', N'Romance', 0, CAST(500000.00 AS Decimal(12, 2)), CAST(275000.00 AS Decimal(12, 2)), 1, 0, N'https://localhost:44313/Publics/Uploads/Product/1681535103_12490_romance-3.jpg', CAST(N'2023-04-15T12:05:03.3966667' AS DateTime2), CAST(N'2023-04-15T12:05:03.3966667' AS DateTime2), 10)
+INSERT [dbo].[Products] ([Id], [Name], [Seo_Name], [Description], [View_Count], [Old_Price], [Current_Price], [Quantity], [Sold], [Thumbnail], [Created_At], [Updated_At], [Category_Id]) VALUES (8, N'Chuyện yêu', N'8-chuyen-yeu', N'', 3, CAST(150000.00 AS Decimal(12, 2)), CAST(75000.00 AS Decimal(12, 2)), 1, 0, N'https://localhost:44313/Publics/Uploads/Product/1681535173_13376_chuyen-yeu.jpg', CAST(N'2023-04-15T12:06:13.4833333' AS DateTime2), CAST(N'2023-04-15T12:06:13.4833333' AS DateTime2), 10)
+INSERT [dbo].[Products] ([Id], [Name], [Seo_Name], [Description], [View_Count], [Old_Price], [Current_Price], [Quantity], [Sold], [Thumbnail], [Created_At], [Updated_At], [Category_Id]) VALUES (9, N'Chuyện của nắng', N'9-chuyen-cua-nang', N'Chuyện của nắng', 0, CAST(2690000.00 AS Decimal(12, 2)), CAST(1000000.00 AS Decimal(12, 2)), 1, 0, N'https://localhost:44313/Publics/Uploads/Product/1681535204_13258_chuyen-cua-nang.jpg', CAST(N'2023-04-15T12:06:44.6433333' AS DateTime2), CAST(N'2023-04-15T14:31:33.3100000' AS DateTime2), 10)
+INSERT [dbo].[Products] ([Id], [Name], [Seo_Name], [Description], [View_Count], [Old_Price], [Current_Price], [Quantity], [Sold], [Thumbnail], [Created_At], [Updated_At], [Category_Id]) VALUES (10, N'Người thương', N'10-nguoi-thuong', N'Người thương', 1, CAST(99999999.00 AS Decimal(12, 2)), CAST(15000.00 AS Decimal(12, 2)), 1, 0, N'https://localhost:44313/Publics/Uploads/Product/1681535234_13372_nguoi-thuong.jpg', CAST(N'2023-04-15T12:07:14.1866667' AS DateTime2), CAST(N'2023-04-15T12:07:33.2200000' AS DateTime2), 10)
+INSERT [dbo].[Products] ([Id], [Name], [Seo_Name], [Description], [View_Count], [Old_Price], [Current_Price], [Quantity], [Sold], [Thumbnail], [Created_At], [Updated_At], [Category_Id]) VALUES (11, N'Tươi sáng 3', N'11-tuoi-sang-3', N'', 1, CAST(760000.00 AS Decimal(12, 2)), CAST(320000.00 AS Decimal(12, 2)), 15000, 0, N'https://localhost:44313/Publics/Uploads/Product/1681535645_4048_tuoi-sang-3.png', CAST(N'2023-04-15T12:14:05.2400000' AS DateTime2), CAST(N'2023-04-15T14:02:59.1600000' AS DateTime2), 19)
+INSERT [dbo].[Products] ([Id], [Name], [Seo_Name], [Description], [View_Count], [Old_Price], [Current_Price], [Quantity], [Sold], [Thumbnail], [Created_At], [Updated_At], [Category_Id]) VALUES (12, N'Kệ chức mừng 07', N'12-ke-chuc-mung-07', N'Kệ chức mừng 07', 7, CAST(123000.00 AS Decimal(12, 2)), CAST(90000.00 AS Decimal(12, 2)), 1, 0, N'https://localhost:44313/Publics/Uploads/Product/1681535710_13155_ke-chuc-mung-07.jpg', CAST(N'2023-04-15T12:15:10.1266667' AS DateTime2), CAST(N'2023-04-15T12:15:10.1266667' AS DateTime2), 19)
+INSERT [dbo].[Products] ([Id], [Name], [Seo_Name], [Description], [View_Count], [Old_Price], [Current_Price], [Quantity], [Sold], [Thumbnail], [Created_At], [Updated_At], [Category_Id]) VALUES (13, N'Luxury vese 22', N'13-luxury-vese-22', N'', 16, CAST(500000000.00 AS Decimal(12, 2)), CAST(30000000.00 AS Decimal(12, 2)), 1, 0, N'https://localhost:44313/Publics/Uploads/Product/1681535737_13312_luxury-vase-22.jpg', CAST(N'2023-04-15T12:15:37.1733333' AS DateTime2), CAST(N'2023-04-15T12:15:37.1733333' AS DateTime2), 19)
+INSERT [dbo].[Products] ([Id], [Name], [Seo_Name], [Description], [View_Count], [Old_Price], [Current_Price], [Quantity], [Sold], [Thumbnail], [Created_At], [Updated_At], [Category_Id]) VALUES (14, N'Luxury vese 11', N'14-luxury-vese-11', N'', 7, CAST(40000000.00 AS Decimal(12, 2)), CAST(1000000.00 AS Decimal(12, 2)), 1, 0, N'https://localhost:44313/Publics/Uploads/Product/1681535762_11595_luxury-vase-11.jpg', CAST(N'2023-04-15T12:16:02.4300000' AS DateTime2), CAST(N'2023-04-15T12:16:02.4300000' AS DateTime2), 19)
+SET IDENTITY_INSERT [dbo].[Products] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Roles] ON 
 
--- THÊM DỮ LIỆU MẪU BẢNG DANH MỤC
-INSERT INTO dbo.Categories
-    (Name,Seo_Name,Thumbnail,Parent_Id,Level,Created_At,Updated_At)
-VALUES
-    ( N'Ý nghĩa hoa', 'y-nghia-hoa', null, null, 0, DEFAULT, DEFAULT)
+INSERT [dbo].[Roles] ([Id], [Name], [Created_At], [Updated_At]) VALUES (1, N'Quản trị viên', CAST(N'2023-04-15T12:01:12.9033333' AS DateTime2), CAST(N'2023-04-15T12:01:12.9033333' AS DateTime2))
+INSERT [dbo].[Roles] ([Id], [Name], [Created_At], [Updated_At]) VALUES (2, N'Khách hàng', CAST(N'2023-04-15T12:01:12.9033333' AS DateTime2), CAST(N'2023-04-15T12:01:12.9033333' AS DateTime2))
+SET IDENTITY_INSERT [dbo].[Roles] OFF
 GO
-INSERT INTO dbo.Categories
-    (Name,Seo_Name,Thumbnail,Parent_Id,Level,Created_At,Updated_At)
-VALUES
-    ( N'Hoa cưới', 'hoa-cuoi', null, null, 0, DEFAULT, DEFAULT)
-GO
-INSERT INTO dbo.Categories
-    (Name,Seo_Name,Thumbnail,Parent_Id,Level,Created_At,Updated_At)
-VALUES
-    ( N'Quà tặng kèm', 'qua-tang-kem', null, null, 0, DEFAULT, DEFAULT)
-GO
-INSERT INTO dbo.Categories
-    (Name,Seo_Name,Thumbnail,Parent_Id,Level,Created_At,Updated_At)
-VALUES
-    ( N'Bộ sưu tập', 'bo-suu-tap', null, null, 0, DEFAULT, DEFAULT)
-GO
-INSERT INTO dbo.Categories
-    (Name,Seo_Name,Thumbnail,Parent_Id,Level,Created_At,Updated_At)
-VALUES
-    ( N'Màu sắc', 'mau-sac', null, null, 0, DEFAULT, DEFAULT)
-GO
-INSERT INTO dbo.Categories
-    (Name,Seo_Name,Thumbnail,Parent_Id,Level,Created_At,Updated_At)
-VALUES
-    ( N'Hoa tươi', 'hoa-tuoi', null, null, 0, DEFAULT, DEFAULT)
-GO
-INSERT INTO dbo.Categories
-    (Name,Seo_Name,Thumbnail,Parent_Id,Level,Created_At,Updated_At)
-VALUES
-    ( N'Kiểu dáng', 'kieu-dang', null, null, 0, DEFAULT, DEFAULT)
-GO
-INSERT INTO dbo.Categories
-    (Name,Seo_Name,Thumbnail,Parent_Id,Level,Created_At,Updated_At)
-VALUES
-    ( N'Đối tượng', 'doi-tuong', null, null, 0, DEFAULT, DEFAULT)
-GO
-INSERT INTO dbo.Categories
-    (Name,Seo_Name,Thumbnail,Parent_Id,Level,Created_At,Updated_At)
-VALUES
-    ( N'Chủ đề', 'chu-de', null, null, 0, DEFAULT, DEFAULT)
-GO
-INSERT INTO dbo.Categories
-    (Name,Seo_Name,Thumbnail,Parent_Id,Level,Created_At,Updated_At)
-VALUES
-    ( N'Hoa Sinh Nhật', 'hoa-sinh-nhat', N'https://hoayeuthuong.com/images/icon-hoa-sinh-nhat.png', 9, 1, DEFAULT, DEFAULT)
-GO
-INSERT INTO dbo.Categories
-    (Name,Seo_Name,Thumbnail,Parent_Id,Level,Created_At,Updated_At)
-VALUES
-    ( N'Hoa Tình Yêu', 'hoa-tinh-yeu', N'https://hoayeuthuong.com/images/icon-hoa-tinh-yeu.png', 9, 1, DEFAULT, DEFAULT)
-GO
-INSERT INTO dbo.Categories
-    (Name,Seo_Name,Thumbnail,Parent_Id,Level,Created_At,Updated_At)
-VALUES
-    ( N'Hoa Mới', 'hoa-moi', N'https://hoayeuthuong.com/images/icon-mau-hoa-moi.png', 9, 1, DEFAULT, DEFAULT)
-GO
-INSERT INTO dbo.Categories
-    (Name,Seo_Name,Thumbnail,Parent_Id,Level,Created_At,Updated_At)
-VALUES
-    ( N'Cây Văn Phòng', 'cay-van-phong', N'https://hoayeuthuong.com/images/icon-cay-vp.png', 9, 1, DEFAULT, DEFAULT)
-GO
-INSERT INTO dbo.Categories
-    (Name,Seo_Name,Thumbnail,Parent_Id,Level,Created_At,Updated_At)
-VALUES
-    ( N'Hoa Chúc Mừng', 'hoa-chuc-mung', N'https://hoayeuthuong.com/images/icon-hoa-chuc-mung.png', 9, 1, DEFAULT, DEFAULT)
-GO
-INSERT INTO dbo.Categories
-    (Name,Seo_Name,Thumbnail,Parent_Id,Level,Created_At,Updated_At)
-VALUES
-    (N'Lãng hoa chia buồn', 'lang-hoa-chia-buon', N'https://hoayeuthuong.com/images/icon-hoa-tang-le.png', 9, 1, DEFAULT, DEFAULT)
-GO
+SET IDENTITY_INSERT [dbo].[Users] ON 
 
--- THÊM DỮ LIỆU MẪU BẢNG SẢN PHẨM
-INSERT INTO dbo.Products
-    (
-    Name,
-    Seo_Name,
-    Description,
-    View_Count,
-    Old_Price,
-    Current_Price,
-    Quantity,
-    Sold,
-    Thumbnail,
-    Created_At,
-    Updated_At,
-    Category_Id
-    )
-VALUES
-    ( N'Người thương', -- Name - nvarchar(100)
-        'nguoi-thuong', -- Seo_Name - varchar(50)
-        NULL, -- Description - nvarchar(max)
-        DEFAULT, -- View_Count - int
-        407.407, -- Old_Price - decimal(12, 2)
-        35000, -- Current_Price - decimal(12, 2)
-        DEFAULT, -- Quantity - int
-        DEFAULT, -- Sold - int
-        N'https://hoayeuthuong.com/hinh-hoa-tuoi/hoa-tinh-yeu/13372_nguoi-thuong.jpg', -- Thumbnail - nvarchar(255)
-        DEFAULT, -- Created_At - datetime2(7)
-        DEFAULT, -- Updated_At - datetime2(7)
-        10        -- Category_Id - int
-)
+INSERT [dbo].[Users] ([Id], [First_Name], [Last_Name], [Address], [Email], [Password], [Role_Id], [Avatar], [Created_At], [Updated_At]) VALUES (1, N'Lê Trần Tấn', N'Tài', N'Bình Chánh', N'admin@gmail.com', N'$2a$10$fiwZgjvURHHOSWfTbNUhLeXceYft9LWoLufP59dNHQWN65UbdoKVm', 1, N'https://luv.vn/wp-content/uploads/2021/11/avatar-gai-xinh-41.jpg', CAST(N'2023-04-15T12:01:12.9033333' AS DateTime2), CAST(N'2023-04-15T17:13:35.9100000' AS DateTime2))
+SET IDENTITY_INSERT [dbo].[Users] OFF
 GO
-
-INSERT INTO dbo.Products
-    (
-    Name,
-    Seo_Name,
-    Description,
-    View_Count,
-    Old_Price,
-    Current_Price,
-    Quantity,
-    Sold,
-    Thumbnail,
-    Created_At,
-    Updated_At,
-    Category_Id
-    )
-VALUES
-    ( N'Gửi ngàn lời yêu', -- Name - nvarchar(100)
-        'gui-ngan-loi-yeu', -- Seo_Name - varchar(50)
-        N'Giỏ hoa được thiết kế từ hồng đỏ , cẩm chường đỏ...chứa đựng những thông điệp yêu thương mà người gửi dành cho người nhận.', -- Description - nvarchar(max)
-        DEFAULT, -- View_Count - int
-        407.407, -- Old_Price - decimal(12, 2)
-        35000, -- Current_Price - decimal(12, 2)
-        DEFAULT, -- Quantity - int
-        DEFAULT, -- Sold - int
-        N'https://hoayeuthuong.com/hinh-hoa-tuoi/hoa-tinh-yeu/13116_gui-ngan-loi-yeu.jpg', -- Thumbnail - nvarchar(255)
-        DEFAULT, -- Created_At - datetime2(7)
-        DEFAULT, -- Updated_At - datetime2(7)
-        10       -- Category_Id - int
-)
+SET ANSI_PADDING ON
 GO
-
-INSERT INTO dbo.Products
-    (
-    Name,
-    Seo_Name,
-    Description,
-    View_Count,
-    Old_Price,
-    Current_Price,
-    Quantity,
-    Sold,
-    Thumbnail,
-    Created_At,
-    Updated_At,
-    Category_Id
-    )
-VALUES
-    ( N'Gấm hoa', -- Name - nvarchar(100)
-        'gam-hoa', -- Seo_Name - varchar(50)
-        NULL, -- Description - nvarchar(max)
-        DEFAULT, -- View_Count - int
-        407.407, -- Old_Price - decimal(12, 2)
-        35000, -- Current_Price - decimal(12, 2)
-        DEFAULT, -- Quantity - int
-        DEFAULT, -- Sold - int
-        N'https://hoayeuthuong.com/hinh-hoa-tuoi/hoa-tinh-yeu/13302_gam-hoa.jpg', -- Thumbnail - nvarchar(255)
-        DEFAULT, -- Created_At - datetime2(7)
-        DEFAULT, -- Updated_At - datetime2(7)
-        10       -- Category_Id - int
-    )
-GO
-
--- THÊM DỮ LIỆU PAYMENT
-INSERT INTO Payment_Methods
-VALUES
-    ( N'Chuyển khoản' ),
-    ( N'Cod' )
-GO
-
---THÊM DỮ LIỆU BẢNG ĐƠN ĐẶT HÀNG
-
---THÊM DỮ LIỆU VÀ BẢNG CHI TIẾT ĐƠN HÀNG

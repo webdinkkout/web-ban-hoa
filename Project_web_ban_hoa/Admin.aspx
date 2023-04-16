@@ -71,6 +71,7 @@
                             danh mục</a></li>
                         <li class="admin-nav-list__item <%= Request.QueryString["modul"] == "product" ? "admin-nav-list__item--active" : "" %>"><a href="/Admin.aspx?modul=product">Trang quản lý san
                             phẩm</a></li>
+                        <li class="admin-nav-list__item <%= Request.QueryString["modul"] == "order" ? "admin-nav-list__item--active" : "" %>"><a href="/Admin.aspx?modul=order&sub-modul=view">Trang quản lý đơn hàng</a></li>
                         <li class="admin-nav-list__item <%= Request.QueryString["modul"] == "user" ? "admin-nav-list__item--active" : "" %>"><a href="/Admin.aspx?modul=user&t=view">Trang quản lý người
                             dùng</a></li>
                     </ul>

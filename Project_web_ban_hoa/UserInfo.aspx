@@ -9,8 +9,7 @@
                 <div class="user-info-top">
                     <asp:FileUpload runat="server" CssClass="fulAvatar" ID="fulAvatar" Style="display: none" onchange="previewImage('.fulAvatar','preview')" accept="image/png, image/jpg, image/gif, image/jpeg" />
                     <a href="#" id="uploadLink" onclick="onClickShowImg('.fulAvatar')">
-                        <img src='<%=  GetAvatar() != null ?  GetAvatar()  :$"../../../../Publics/Images/DefaultImg/{GetAvatar()}" %>' id="preview" alt="user img" />
-
+                        <img src='<%=  GetAvatar().Length > 0 ?  GetAvatar()  : "Publics/Images/DefaultImg/user.png" %>' id="preview" alt="user img" />
                         <i class="fa fa-pen uploadLink--edit"></i>
                     </a>
                     <div class="user-info-top-right">

@@ -684,6 +684,13 @@ BEGIN
 END
 GO
 
+create proc proc_get_all_card_check
+as
+begin
+	select  carts.id as 'Id',users.First_Name + ' ' + users.Last_Name as 'User_Name', ToTal_Price  from carts inner join users on users.Id = carts.user_id where is_check = 1 order by carts.created_at desc
+end
+go
+
 
 --Có phân trang
 CREATE PROC proc_get_cart_by_id_user
@@ -758,4 +765,5 @@ begin
 	select * from Roles where id = @id
 end
 go
+
 
