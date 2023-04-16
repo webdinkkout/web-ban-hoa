@@ -77,4 +77,7 @@ Website về chủ đề mua bán hàn online(Bán hoa), với các chức năng
 
 ***
 
+## Snake
+![snake gif](https://github.com/webdinkkout/web-ban-hoa/blob/output/github-contribution-grid-snake.gif)
+
 Author: **LÊ TRẦN TRẤN TÀI**
