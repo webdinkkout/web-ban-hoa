@@ -180,9 +180,7 @@
     <Content Include="Sql\01_create_database_hoa_yeu_thuong.sql" />
     <Content Include="Sql\02_table_hoa_yeu_thuong_db.sql" />
     <Content Include="Sql\03_proc_hoa_yeu_thuong_db.sql" />
-    <Content Include="Sql\04_trigger_hoa_yeu_thuong_db.sql" />
     <Content Include="Sql\04_view_hoa_yeu_thuong_db.sql" />
-    <Content Include="Sql\05_seed_hoa_yeu_thuong_db.sql" />
     <Content Include="Sql\05_trigger_hoa_yeu_thuong_db.sql" />
     <Content Include="Sql\06_seed_hoa_yeu_thuong_db.sql" />
     <Content Include="Sql\07_data_exp_hoa_yeu_thuong_db.sql" />
