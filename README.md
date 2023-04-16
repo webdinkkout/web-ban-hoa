@@ -22,8 +22,6 @@ Mật khẩu: `123456`
     + **Các trang đã làm:**
         + Admin.aspx
         + CategoriesDetail.aspx
-        + Login.aspx
-        + Register.aspx
         + Cart.aspx
         + Search.aspx
         + NotFound.aspx
@@ -35,6 +33,7 @@ Mật khẩu: `123456`
     + **Các trang đã làm:**
         + Layout.master
         + Home.aspx
+        + Register.aspx
 + **Trần Nguyễn Nhật Dũng**
      + **Vai trò:**
         + Thiết kế giao diện web
@@ -42,6 +41,7 @@ Mật khẩu: `123456`
     + **Các trang đã làm:**
         + Product.aspx
         + ProductDetail.aspx
+        + Login.aspx
 
 ****
 ## _Mô Tả Website_
