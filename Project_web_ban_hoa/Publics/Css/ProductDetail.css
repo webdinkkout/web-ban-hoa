@@ -117,6 +117,10 @@
         background-color: #e32d2d;
     }
 
+    .btn-control.btn-control--fill-green {
+        background-color: green;
+    }
+
     .btn-control.btn-control--text-white {
         color: #fff;
     }

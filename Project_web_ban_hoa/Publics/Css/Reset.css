@@ -228,3 +228,51 @@ h1, h2, h3, h4, h5, h6 {
 .hidden-e {
     display: none !important;
 }
+
+.paging {
+    display: flex;
+    gap: 8px;
+}
+
+    .paging > a {
+        display: block;
+        background-color: #fff;
+        border: 1px solid #FF8C00;
+        padding: 5px 10px;
+        text-decoration: none;
+        color: #FF8C00;
+        transition: all .3s;
+    }
+
+        .paging > a:hover {
+            color: #fff;
+            background-color: #FF8C00;
+        }
+
+        .paging > a.paging__active {
+            color: #fff;
+            background-color: #FF8C00;
+        }
+
+
+.alert {
+    display: block;
+    text-decoration: none;
+    color: #000;
+    text-align: center;
+    width: 100%;
+    font-size: 18px;
+    padding: 8px;
+    margin: 0 auto;
+}
+
+    .alert.alert__primary {
+        color: #fff;
+        background-color: rgba(71, 117, 191,0.7);
+        border-radius: 5px;
+        border: 1px solid rgba(71, 117, 191);
+    }
+
+    .alert.alert__small {
+        width: 50%;
+    }

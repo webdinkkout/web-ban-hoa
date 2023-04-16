@@ -71,6 +71,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AddProductToCard.aspx" />
     <Content Include="Cart.aspx" />
     <Content Include="CategoriesDetail.aspx" />
     <Content Include="GetProductsByCategory.aspx" />
@@ -183,6 +184,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddProductToCard.aspx.cs">
+      <DependentUpon>AddProductToCard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddProductToCard.aspx.designer.cs">
+      <DependentUpon>AddProductToCard.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App_Data\Database\Auth.cs" />
     <Compile Include="App_Data\Database\Order.cs" />
     <Compile Include="App_Data\Database\Cart.cs" />

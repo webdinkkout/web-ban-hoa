@@ -31,6 +31,8 @@ namespace Project_web_ban_hoa.Layout
 
                 btnCart.CommandArgument = GetUserId().ToString();
 
+                btnCart.Text = GetCountCarts() <= 0 ? "Giỏ hàng" : $"Giỏ hàng ({GetCountCarts()})";
+
             }
         }
 
@@ -66,6 +68,11 @@ namespace Project_web_ban_hoa.Layout
         protected int GetUserId()
         {
             return user.Id;
+        }
+
+        protected int GetCountCarts()
+        {
+            return DAO.Cart.GetCarts(user.Id).Rows.Count;
         }
 
         protected void btnLogin_Click(object sender, EventArgs e)

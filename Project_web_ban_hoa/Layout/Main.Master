@@ -119,7 +119,7 @@
                     <div class="header-search-user-control">
                         <div class="header-search-user-control-cart-account">
                             <img src="../Publics/Images/Home/img-header/icon-giohang.png" alt="Alternate Text" />
-                            <asp:Button Text="Giỏ hàng" ID="btnCart" CssClass="header-search-user-control-cart-account__link" OnClick="btnCart_Click" runat="server" />
+                            <asp:Button Text='Giỏ hàng' ID="btnCart" CssClass="header-search-user-control-cart-account__link" OnClick="btnCart_Click" runat="server" />
                         </div>
                         <% if (Session["isLogin"] != null)
                             { %>
