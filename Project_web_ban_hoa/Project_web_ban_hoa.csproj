@@ -75,6 +75,9 @@
     <Content Include="Cart.aspx" />
     <Content Include="CategoriesDetail.aspx" />
     <Content Include="GetProductsByCategory.aspx" />
+    <Content Include="Private\Admin\Order\Detail\DetailOrder.ascx" />
+    <Content Include="Private\Admin\Order\OrderControl.ascx" />
+    <Content Include="Private\Admin\Order\View\ViewOrder.ascx" />
     <Content Include="Private\Admin\User\UserInfo\UserInfo.ascx" />
     <Content Include="Private\Admin\User\View\ViewUser.ascx" />
     <Content Include="Product.aspx" />
@@ -87,6 +90,7 @@
     <Content Include="Publics\Css\Library\OwlCarousel2\owl.carousel.min.css" />
     <Content Include="Publics\Css\Library\OwlCarousel2\owl.theme.default.min.css" />
     <Content Include="Publics\Css\Search.css" />
+    <Content Include="Publics\Images\DefaultImg\hoadon.jpg" />
     <Content Include="Publics\Images\DefaultImg\no-image.jpg" />
     <Content Include="Publics\Images\DefaultImg\null-image.png" />
     <Content Include="Publics\Images\DefaultImg\user.png" />
@@ -170,6 +174,7 @@
     <Content Include="Publics\Js\Library\Bootstrap\bootstrap.bundle.min.js" />
     <Content Include="Publics\Js\Library\Toastify\toastify-js.js" />
     <Content Include="Publics\Js\Main.js" />
+    <Content Include="Publics\Uploads\Users\1681655694_tai-xuong.jpg" />
     <Content Include="Register.aspx" />
     <Content Include="Search.aspx" />
     <Content Include="Sql\01_create_database_hoa_yeu_thuong.sql" />
@@ -180,6 +185,7 @@
     <Content Include="Sql\05_seed_hoa_yeu_thuong_db.sql" />
     <Content Include="Sql\05_trigger_hoa_yeu_thuong_db.sql" />
     <Content Include="Sql\06_seed_hoa_yeu_thuong_db.sql" />
+    <Content Include="Sql\07_data_exp_hoa_yeu_thuong_db.sql" />
     <Content Include="UserInfo.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -302,6 +308,27 @@
     <Compile Include="Private\Admin\Category\View\ViewCategories.ascx.designer.cs">
       <DependentUpon>ViewCategories.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Private\Admin\Order\Detail\DetailOrder.ascx.cs">
+      <DependentUpon>DetailOrder.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Private\Admin\Order\Detail\DetailOrder.ascx.designer.cs">
+      <DependentUpon>DetailOrder.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Private\Admin\Order\OrderControl.ascx.cs">
+      <DependentUpon>OrderControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Private\Admin\Order\OrderControl.ascx.designer.cs">
+      <DependentUpon>OrderControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Private\Admin\Order\View\ViewOrder.ascx.cs">
+      <DependentUpon>ViewOrder.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Private\Admin\Order\View\ViewOrder.ascx.designer.cs">
+      <DependentUpon>ViewOrder.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Private\Admin\Product\Create\CreateProduct.ascx.cs">
       <DependentUpon>CreateProduct.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -408,13 +435,8 @@
   <ItemGroup>
     <Folder Include=".githooks\" />
     <Folder Include="Ajax\" />
-    <Folder Include="Private\Admin\Order\" />
-    <Folder Include="Private\Admin\Role\" />
-    <Folder Include="Private\Admin\Slide\" />
     <Folder Include="Publics\Uploads\Category\" />
     <Folder Include="Publics\Uploads\Product\" />
-    <Folder Include="Publics\Uploads\Users\" />
-    <Folder Include="Ultils\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Configuration;
 
 namespace Project_web_ban_hoa
 {
@@ -16,7 +17,7 @@ namespace Project_web_ban_hoa
         {
             if (Request.QueryString["url"] != null)
             {
-                Session["CURRENT_URL"] = Request.QueryString["url"];
+                Session["CURRENT_URL"] = ConfigurationManager.AppSettings["UrlEnv"] + "/ProductDetail.aspx?" + Request.QueryString["url"].Replace(",", "&");
             }
         }
 

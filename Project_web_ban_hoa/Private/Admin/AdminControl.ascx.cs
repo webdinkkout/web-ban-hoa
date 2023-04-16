@@ -32,6 +32,11 @@ namespace Project_web_ban_hoa.Private.Admin
                         plAdminControl.Controls.Add(LoadControl("User/UserControl.ascx"));
                         break;
                     }
+                case "order":
+                    {
+                        plAdminControl.Controls.Add(LoadControl("Order/OrderControl.ascx"));
+                        break;
+                    }
                 default:
                     break;
             }

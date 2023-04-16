@@ -688,3 +688,43 @@
 .home-admin-product-control-form-gr {
     justify-content: space-between;
 }
+
+/*ORDER*/
+.card-cart {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 10px;
+    border: 1px solid #999;
+}
+
+.card-cart__top {
+}
+
+    .card-cart__top .card-cart__img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+    }
+
+    .card-cart__top .card-cart__name {
+        text-align: center;
+        font-weight: 600;
+        background-color: #1C1C1E;
+        color: #F3E5CA;
+    }
+
+.card-cart__mid {
+    font-size: 1.4rem;
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+    .card-cart__mid > span {
+        color: red;
+    }
+
+.card-cart__bot {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 8px;
+}

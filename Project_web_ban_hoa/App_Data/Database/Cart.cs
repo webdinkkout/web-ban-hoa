@@ -77,5 +77,11 @@ namespace DAO
             cmd.Parameters.AddWithValue("@user_id", userId);
             return SqlDatabase.ExecuteNoneQuery(cmd);
         }
+
+        public static DataTable GetCartsCheck()
+        {
+            SqlCommand cmd = CreateCMD("proc_get_all_card_check");
+            return SqlDatabase.GetData(cmd);
+        }
     }
 }
