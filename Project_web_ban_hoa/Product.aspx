@@ -18,7 +18,7 @@
     <% }
         else
         { %>
-    <div class="container">
+    <div class="container mt-4 mb-5">
         <div class="row">
             <div class="col-lg-3">
                 <div class="sidebar">
@@ -66,6 +66,7 @@
                                     </ItemTemplate>
                                 </asp:Repeater>
                             </div>
+                            <%# GetProductID(Convert.ToInt32(Eval("id"))).Rows.Count <  GetAllProductID(Convert.ToInt32(Eval("id"))).Rows.Count ? $"<a class='alert alert__primary alert__small mt-4' href='CategoriesDetail.aspx?ci={Eval("id")}&pi={Request.QueryString["pi"]}'>Xem Thêm {GetAllProductID(Convert.ToInt32(Eval("id"))).Rows.Count - GetPageSize()} sản phẩm nữa</a>" : ""%>
                         </ItemTemplate>
                     </asp:Repeater>
                 </div>

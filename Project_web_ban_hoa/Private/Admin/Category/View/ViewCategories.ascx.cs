@@ -16,22 +16,27 @@ namespace Project_web_ban_hoa.Private.Admin.Category.View
 
     public partial class ViewCategories : System.Web.UI.UserControl
     {
+
+
+        int pageNumber = 1;
+        int pageSizes = 6;
+
         [Obsolete]
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Request.QueryString["page"] != null)
+                pageNumber = Convert.ToInt32(Request.QueryString["page"]);
             if (!Page.IsPostBack)
             {
-                int level = 0;
-                ddlCategories.DataSource = DAO.Category.GetCategoriesByLevel(level, 1, 90);
+                ddlCategories.DataSource = DAO.Category.GetCategoriesByLevel(0, 1, 90);
                 ddlCategories.DataTextField = "Name";
                 ddlCategories.DataValueField = "Id";
                 ddlCategories.DataBind();
                 ddlCategories.Items.Insert(0, new ListItem("Tất cả", "0"));
 
-                BindCategoriesList();
-
+                BindCategoriesList(pageNumber, pageSizes);
             }
+
 
             // kiểm tra: xem có thông báo không nếu có thì thông báo
             if ((Session["showToastMessage"] != null && Session["showToastDuration"] != null && Session["showToastPosition"] != null) || Session["showToastBackColor"] != null)
@@ -49,9 +54,20 @@ namespace Project_web_ban_hoa.Private.Admin.Category.View
             }
         }
 
-        private void BindCategoriesList()
+        protected int GetPageNumber()
         {
-            rptViewCategories.DataSource = DAO.Category.Search(txtSearch.Text, Convert.ToInt32(ddlCategories.SelectedValue), 1, 0, 1, 90);
+            return pageNumber;
+        }
+
+        protected int GetTotalPages()
+        {
+            double a = Convert.ToDouble(DAO.Category.Search(txtSearch.Text, Convert.ToInt32(ddlCategories.SelectedValue), 1, 0, 1, 999).Rows.Count) / pageSizes;
+            return Convert.ToInt32(Math.Ceiling(a));
+        }
+
+        private void BindCategoriesList(int pageNumber, int pageSizes)
+        {
+            rptViewCategories.DataSource = DAO.Category.Search(txtSearch.Text, Convert.ToInt32(ddlCategories.SelectedValue), 1, 0, pageNumber, pageSizes);
             rptViewCategories.DataBind();
         }
 
@@ -70,7 +86,7 @@ namespace Project_web_ban_hoa.Private.Admin.Category.View
                         if (n > 0)
                         {
                             Components.DeleteThumbnailOnSystem("Category", arrNameThumbnail, Server);
-                            BindCategoriesList();
+                            BindCategoriesList(pageNumber, pageSizes);
                             script = "showToast('Xóa thành công', 3000, 'right', 'green')";
                         }
                         else
@@ -109,7 +125,7 @@ namespace Project_web_ban_hoa.Private.Admin.Category.View
         protected void btnSearch_Click(object sender, EventArgs e)
         {
 
-            BindCategoriesList();
+            BindCategoriesList(pageNumber, pageSizes);
         }
     }
 }

@@ -65,8 +65,8 @@
                 { %>
             <div style="min-height: 200px; width: 100%; display: flex; justify-content: center; align-items: center; text-align: center;">
                 <h1>
-                    <p style="color: #333" class="m-4">Không có sản phẩm nào</p>
-                    <a href="Home.aspx" style="color: #ff6a00">Xem sản phẩm</a>
+                    <p style="color: #333" class="m-4">Bạn hiện không có sản phẩm nào trong giỏ cả</p>
+                    <a href="Home.aspx" style="color: #ff6a00"><i class="fa fa-cart-arrow-down"></i>Mua sắm ngay nào</a>
                 </h1>
             </div>
             <%} %>

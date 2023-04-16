@@ -17,20 +17,22 @@ namespace Project_web_ban_hoa.Layout
             if (!Page.IsPostBack)
             {
                 rptCategoriesNav.DataSource = DAO.Category.GetAllCategories(0);
-
                 rptCategoriesNav.DataBind();
 
-                if (Session["ISLOGIN"] != null && Session["CURRENT_USER"] != null)
-                {
-                    user = (UserModel)Session["CURRENT_USER"];
+            }
 
-                    imbAvatar.ImageUrl = IsAvatar() ? GetAvatar() : "../Publics/Images/Home/img-header/icon-user.png";
-                    imbAvatar.AlternateText = GetFullName();
-                    imbAvatar.CommandArgument = GetUserId().ToString();
+            if (Session["ISLOGIN"] != null && Session["CURRENT_USER"] != null)
+            {
+                user = (UserModel)Session["CURRENT_USER"];
 
-                    btnCart.CommandArgument = GetUserId().ToString();
+                imbAvatar.ImageUrl = IsAvatar() ? GetAvatar() : "../Publics/Images/Home/img-header/icon-user.png";
+                imbAvatar.AlternateText = GetFullName();
+                imbAvatar.CommandArgument = GetUserId().ToString();
 
-                }
+                btnCart.CommandArgument = GetUserId().ToString();
+
+                btnCart.Text = GetCountCarts() <= 0 ? "Giỏ hàng" : $"Giỏ hàng ({GetCountCarts()})";
+
             }
         }
 
@@ -66,6 +68,11 @@ namespace Project_web_ban_hoa.Layout
         protected int GetUserId()
         {
             return user.Id;
+        }
+
+        protected int GetCountCarts()
+        {
+            return DAO.Cart.GetCarts(user.Id).Rows.Count;
         }
 
         protected void btnLogin_Click(object sender, EventArgs e)

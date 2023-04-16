@@ -13,19 +13,35 @@ namespace Project_web_ban_hoa.Private.Admin.Product.View
 {
     public partial class ViewProduct : System.Web.UI.UserControl
     {
+        int pageNumber = 1;
+        int pageSizes = 6;
+
         private static void BindingProductList(DataTable Source, Repeater control)
         {
             control.DataSource = Source;
             control.DataBind();
         }
 
+        protected int GetPageNumber()
+        {
+            return pageNumber;
+        }
+
+        protected int GetTotalPages()
+        {
+            double a = Convert.ToDouble(DAO.Product.SearchByCategoryId(txtSearch.Text, Convert.ToInt32(ddlCategory.SelectedValue), 999, 1, 999).Rows.Count) / pageSizes;
+            return Convert.ToInt32(Math.Ceiling(a));
+        }
+
+
         [Obsolete]
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Request.QueryString["page"] != null)
+                pageNumber = Convert.ToInt32(Request.QueryString["page"]);
             if (!Page.IsPostBack)
             {
-                BindingProductList(DAO.Product.SearchByCategoryId(txtSearch.Text, Convert.ToInt32(ddlCategory.SelectedValue), 999, 1, 16), rptViewProduct);
+                BindingProductList(DAO.Product.SearchByCategoryId(txtSearch.Text, Convert.ToInt32(ddlCategory.SelectedValue), 999, pageNumber, pageSizes), rptViewProduct);
                 DataTable categoriesTable = DAO.Category.GetAllCategories(1, 1, 90);
 
                 foreach (DataRow categoryRow in categoriesTable.Rows)
@@ -59,12 +75,12 @@ namespace Project_web_ban_hoa.Private.Admin.Product.View
             int idCategory = Convert.ToInt32(ddlCategory.SelectedValue);
             if (idCategory <= 0)
             {
-                BindingProductList(DAO.Product.GetAllProdcts(1, 16), rptViewProduct);
+                BindingProductList(DAO.Product.GetAllProdcts(pageNumber, pageSizes), rptViewProduct);
                 lbl404.Text = "";
             }
             else
             {
-                BindingProductList(DAO.Product.GetProductWithCategoryId(idCategory, 1, 16), rptViewProduct);
+                BindingProductList(DAO.Product.GetProductWithCategoryId(idCategory, pageNumber, pageSizes), rptViewProduct);
                 IList dataSource = ((IListSource)rptViewProduct.DataSource)?.GetList();
                 if (dataSource.Count <= 0)
                 {
@@ -117,7 +133,7 @@ namespace Project_web_ban_hoa.Private.Admin.Product.View
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
-            BindingProductList(DAO.Product.SearchByCategoryId(txtSearch.Text, Convert.ToInt32(ddlCategory.SelectedValue), 999, 1, 16), rptViewProduct);
+            BindingProductList(DAO.Product.SearchByCategoryId(txtSearch.Text, Convert.ToInt32(ddlCategory.SelectedValue), 999, pageNumber, pageSizes), rptViewProduct);
         }
     }
 }

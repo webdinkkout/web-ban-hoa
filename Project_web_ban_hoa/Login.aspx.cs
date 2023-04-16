@@ -14,16 +14,10 @@ namespace Project_web_ban_hoa
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["ISLOGIN"] != null && Session["CURRENT_USER"] != null)
+            if (Request.QueryString["url"] != null)
             {
-                Session["showToastDuration"] = 3000;
-                Session["showToastPosition"] = "right";
-                Session["showToastMessage"] = "Bạn đã đăng nhập rồi";
-                Session["showToastBackColor"] = "green";
-
-                Response.Redirect("~/admin.aspx");
+                Session["CURRENT_URL"] = Request.QueryString["url"];
             }
-
         }
 
 

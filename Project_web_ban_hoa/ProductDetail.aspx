@@ -33,7 +33,7 @@
                     </div>
                     <div class="product-detail-control">
                         <div>
-                            <asp:Button ID="btnAddCart" Text="Thêm vào giỏ" CssClass="btn-control btn-control--solid btn-control--orange" runat="server" />
+                            <a id="btnAddProduct" data-userid='<%= string.IsNullOrEmpty(GetUserId()) ? "" : GetUserId() %>' data-currentprice='<%= GetCurrentPrice() %>' data-productid='<%= string.IsNullOrEmpty(GetProductId()) ? "" : GetProductId() %>' class="btn-control btn-control--solid btn-control--orange">Thêm vào giỏ</a>
                             <asp:Button ID="btnBuy" OnClick="btnBuy_Click" Text="Mua ngay" CssClass="btn-control btn-control--fill btn-control--text-white btn-control--fill-red " runat="server" />
                         </div>
                         <a class="btn-control btn-control--solid btn-control--green btn-control--w415 " href="#">Gọi ngay:0399999999</a>
@@ -86,4 +86,38 @@
             </div>
         </div>
     </section>
+    <script>
+        $(document).ready(function () {
+        <% if (Session["CURRENT_USER"] != null)
+        { %>
+            $("#btnAddProduct").click(function () {
+                $(this).removeClass("btn-control--solid btn-control--orange");
+                $(this).addClass("btn-control--fill btn-control--text-white btn-control--fill-green");
+                $(this).html("Đã thêm vào giỏ hàng");
+                const userId = $(this).attr("data-userId");
+                const productId = $(this).attr("data-productId");
+                const currentPrice = $(this).attr("data-currentPrice");
+                console.log($("#btnAddProduct").attr("data-isClick") !== "true");
+                if ($(this).attr("data-isClick") !== "true") {
+                    $.ajax({
+                        url: `AddProductToCard.aspx?ui=${userId}&pri=${productId}&crp=${currentPrice}`,
+                        success: function (data) {
+                            console.log("Thành công")
+                            $("#btnAddProduct").attr("data-isClick", "true");
+                            $("#btnAddProduct").attr("href", "Cart.aspx");
+                            $("#btnCart").val(`Giỏ hàng (${data})`);
+                        }
+                    })
+                }
+            })
+        <% }
+        else
+        { %>
+            $("#btnAddProduct").click(function () {
+                window.location.href = `Login.aspx?url=${window.location.href}`;
+            });
+        <% } %>
+        });
+    </script>
+
 </asp:Content>

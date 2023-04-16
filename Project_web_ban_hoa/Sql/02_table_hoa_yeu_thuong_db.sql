@@ -69,6 +69,7 @@ CREATE TABLE Carts (
 	Quantity INT,
 	Price DECIMAL(12,2) DEFAULT(0) NOT NULL,
 	ToTal_Price DECIMAL(12,2) DEFAULT(0) NOT NULL,
+	Is_Check BIT Default(0) not null,
 	Created_At datetime2 DEFAULT(getdate()) NOT NULL,
 	Updated_At datetime2 DEFAULT(getdate()) NOT NULL,
 );

@@ -115,11 +115,19 @@ namespace Project_web_ban_hoa
 
         protected void btnBuy_Click(object sender, EventArgs e)
         {
-            int n = DAO.Cart.DeleteCarts(user.Id);
+            string script;
+            int n = DAO.Cart.CheckCart(user.Id);
             if (n > 0)
             {
-                Response.Redirect("~/Cart.aspx");
+                script = $"showToast('Thanh toán thành công hàng sẽ gửi đến địa chỉ \"{user.Address}\" trong 3 ngày', 5000, 'right', 'green')";
             }
+            else
+            {
+                script = "showToast('Thanh toán thất bại', 5000, 'right', 'red')";
+            }
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "ShowToast", script, true);
+            rptCarts.DataSource = DAO.Cart.GetCarts(user.Id);
+            rptCarts.DataBind();
         }
     }
 }

@@ -656,14 +656,14 @@ end
 go
 
 --CART
-create PROC proc_add_cart
+CREATE PROC proc_add_cart
 	@user_id int,
 	@product_id int,
 	@quantity int = 1,
 	@price decimal(12,2)
 as
 begin
-	IF EXISTS (SELECT * FROM carts WHERE User_Id = @user_id AND Product_Id = @product_id)
+	IF EXISTS (SELECT * FROM carts WHERE User_Id = @user_id AND Product_Id = @product_id AND Is_Check = 0)
 	BEGIN
 		UPDATE Carts
 		SET Quantity = Quantity + @quantity, ToTal_Price = (Quantity + @quantity) * Price
@@ -675,6 +675,15 @@ begin
 	END
 end
 go
+
+CREATE PROC proc_check_cart
+@user_id int
+AS
+BEGIN
+	UPDATE Carts SET Is_Check = 1 WHERE User_Id = @user_id
+END
+GO
+
 
 --Có phân trang
 CREATE PROC proc_get_cart_by_id_user
@@ -688,7 +697,7 @@ BEGIN
 	c.Price, c.ToTal_Price, c.Quantity
 	FROM Carts c
 	INNER JOIN Products p ON p.id = c.Product_Id
-	WHERE c.User_Id = @user_id
+	WHERE c.User_Id = @user_id AND Is_Check = 0
 	ORDER BY c.Id
 	OFFSET (@page_number - 1) * @page_size ROWS
 	FETCH NEXT @page_size ROWS ONLY;

@@ -28,10 +28,20 @@ namespace Project_web_ban_hoa
 
                 rptReletionShips.DataSource = DAO.Product.GetProductReletionShips(categoryId, productId);
                 rptReletionShips.DataBind();
+
             }
+            user = (UserModel)Session["CURRENT_USER"];
         }
 
-
+        protected string GetUserId()
+        {
+            int a = 0;
+            if (user == null)
+            {
+                return a.ToString();
+            }
+            return user.Id.ToString();
+        }
 
         protected string GetNameProduct()
         {
@@ -62,6 +72,11 @@ namespace Project_web_ban_hoa
             return mProduct.Thumbnail;
         }
 
+        protected string GetProductId()
+        {
+            return mProduct.Id.ToString();
+        }
+
         private void InsertValueToModel(int productId)
         {
             DataTable dProducts = DAO.Product.GetOneProductById(productId);
@@ -86,7 +101,7 @@ namespace Project_web_ban_hoa
                 Response.Redirect("~/Login.aspx");
             }
 
-            user = (UserModel)Session["CURRENT_USER"];
+
             int n = DAO.Cart.AddCart(user.Id, productId, mProduct.CurrentPrice);
             if (n > 0)
             {

@@ -70,5 +70,12 @@ namespace DAO
             cmd.Parameters.AddWithValue("@user_id", userId);
             return SqlDatabase.ExecuteNoneQuery(cmd);
         }
+
+        public static int CheckCart(int userId)
+        {
+            SqlCommand cmd = CreateCMD("proc_check_cart");
+            cmd.Parameters.AddWithValue("@user_id", userId);
+            return SqlDatabase.ExecuteNoneQuery(cmd);
+        }
     }
 }

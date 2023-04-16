@@ -62,4 +62,17 @@
             </ItemTemplate>
         </asp:Repeater>
     </div>
+    <% if (GetTotalPages() > 1)
+        { %>
+    <div class="d-flex justify-content-center mt-5">
+        <div class="paging">
+            <a href="Admin.aspx?modul=category&page=1"><i class="fa-solid fa-angles-left"></i></a>
+            <% for (int i = 1; i <= GetTotalPages(); ++i)
+                { %>
+            <a href='Admin.aspx?modul=category&page=<%= i %>' class='<%= GetPageNumber() == i ? "paging__active" : "" %>'><%= i %></a>
+            <% } %>
+            <a href="Admin.aspx?modul=category&page=<%= GetTotalPages() %>"><i class="fa-solid fa-angles-right"></i></a>
+        </div>
+    </div>
+    <% } %>
 </div>
