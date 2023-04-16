@@ -2,7 +2,9 @@
 
 
 **Ngày bắt đầu:** 21/02/2023
-**Ngày hoàn thành:** 16/04/2023
+**Ngày hoàn thành:** 16/04/2023 <br>
+
+(Vì một số trình duyệt sẽ lưu cache nên để chạy ứng dụng một cách tốt nhất hãy sử dụng tab ẩn danh "ctrl + shift + N")
 
 
 ****
